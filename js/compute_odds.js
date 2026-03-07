@@ -148,7 +148,7 @@ const NAME_TO_USPS = {
 };
 
 function loadEntriesAll() {
-  const text = fs.readFileSync("entries_all.csv", "utf8");
+  const text = fs.readFileSync("csv/entries_all.csv", "utf8");
   const rows = parseCSV(text);
   for (const row of rows) {
     const mode = String(row.mode || "").trim().toLowerCase();
@@ -169,11 +169,11 @@ function loadEntriesAll() {
   }
   if (!DATA.senate.gb && DATA.governor.gb) DATA.senate.gb = DATA.governor.gb;
   if (!DATA.governor.gb && DATA.senate.gb) DATA.governor.gb = DATA.senate.gb;
-  console.log(`  entries_all.csv: senate=${Object.keys(DATA.senate.ratios).length} gov=${Object.keys(DATA.governor.ratios).length} races`);
+  console.log(`  csv/entries_all.csv: senate=${Object.keys(DATA.senate.ratios).length} gov=${Object.keys(DATA.governor.ratios).length} races`);
 }
 
 function loadHouseRatios() {
-  const text = fs.readFileSync("house_district_ratios_filled.csv", "utf8");
+  const text = fs.readFileSync("csv/house_district_ratios_filled.csv", "utf8");
   const rows = parseCSV(text);
   for (const row of rows) {
     const rawId = String(row.path_id ?? "").trim();
@@ -185,7 +185,7 @@ function loadHouseRatios() {
     }
   }
   if (!DATA.house.gb) DATA.house.gb = DATA.senate.gb || DATA.governor.gb || { D: 50, R: 50 };
-  console.log(`  house_district_ratios_filled.csv: ${Object.keys(DATA.house.ratios).length} districts`);
+  console.log(`  csv/house_district_ratios_filled.csv: ${Object.keys(DATA.house.ratios).length} districts`);
 }
 
 // ═══════════════════════════════════════════════════════
@@ -298,11 +298,11 @@ function buildGBSeries() {
 const STATE_POLLS = { senate: {}, governor: {} };
 
 function loadStatePollsByDate() {
-  if (!fs.existsSync("state_polls_by_date.csv")) {
-    console.log("  state_polls_by_date.csv: not found (optional, skipping)");
+  if (!fs.existsSync("csv/state_polls_by_date.csv")) {
+    console.log("  csv/state_polls_by_date.csv: not found (optional, skipping)");
     return;
   }
-  const text = fs.readFileSync("state_polls_by_date.csv", "utf8");
+  const text = fs.readFileSync("csv/state_polls_by_date.csv", "utf8");
   const rows = parseCSV(text);
 
   function normMode(x) {
@@ -336,7 +336,7 @@ function loadStatePollsByDate() {
       STATE_POLLS[mode][k].sort((a, b) => a.date - b.date);
     }
   }
-  console.log(`  state_polls_by_date.csv: ${count} poll entries`);
+  console.log(`  csv/state_polls_by_date.csv: ${count} poll entries`);
 }
 
 function applyLatestStatePollsToData(latestDateStr) {
