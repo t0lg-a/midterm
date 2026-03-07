@@ -2044,14 +2044,14 @@ function renderComboChart(modeKey, data, chartMode){
   ui._chartMode = mode;
 
   const rect = svgEl.getBoundingClientRect();
-  const width = Math.max(240, Math.floor(rect.width || 600));
-  const height = Math.max(100, Math.floor(rect.height || 130));
+  const width = Math.max(320, Math.floor(rect.width || 700));
+  const height = Math.max(200, Math.floor(rect.height || 380));
 
   const svg = d3.select(svgEl);
   svg.selectAll("*").remove();
   svg.attr("viewBox", `0 0 ${width} ${height}`);
 
-  const m = {l:32, r:8, t:6, b:20};
+  const m = {l:44, r:14, t:12, b:28};
   const iw = width - m.l - m.r;
   const ih = height - m.t - m.b;
 
@@ -2072,7 +2072,7 @@ function renderComboChart(modeKey, data, chartMode){
     .range([m.l, m.l+iw]);
 
   const xAxis = d3.axisBottom(x)
-    .ticks(Math.min(5, Math.floor(iw/80)))
+    .ticks(Math.min(8, Math.floor(iw/90)))
     .tickFormat(d3.timeFormat("%b"));
 
   if (mode === "seats"){
@@ -2085,7 +2085,7 @@ function renderComboChart(modeKey, data, chartMode){
     const yMin = clamp((ext[0]??0)-pad, 0, seatTotal||1000);
     const yMax = clamp((ext[1]??(seatTotal||0))+pad, 0, seatTotal||1000);
     const y = d3.scaleLinear().domain([yMin, yMax]).range([m.t+ih, m.t]).nice();
-    const yAxis = d3.axisLeft(y).ticks(4).tickFormat(d=>`${Math.round(d)}`);
+    const yAxis = d3.axisLeft(y).ticks(6).tickFormat(d=>`${Math.round(d)}`);
 
     svg.append("g").attr("class","oddsAxis").attr("transform",`translate(0,${m.t+ih})`).call(xAxis);
     svg.append("g").attr("class","oddsAxis").attr("transform",`translate(${m.l},0)`).call(yAxis);
@@ -2105,8 +2105,8 @@ function renderComboChart(modeKey, data, chartMode){
       svg.append("path").datum(parsed).attr("class","seatsLineR").attr("d",lineR);
     }
 
-    const dotD = svg.append("circle").attr("class","dotDem").attr("r",3).style("opacity",0);
-    const dotR = svg.append("circle").attr("class","dotRep").attr("r",3).style("opacity",0);
+    const dotD = svg.append("circle").attr("class","dotDem").attr("r",4).style("opacity",0);
+    const dotR = svg.append("circle").attr("class","dotRep").attr("r",4).style("opacity",0);
     const bisect = d3.bisector(d=>d.date).left;
 
     svg.append("rect").attr("x",m.l).attr("y",m.t).attr("width",iw).attr("height",ih)
@@ -2142,8 +2142,8 @@ function renderComboChart(modeKey, data, chartMode){
     const lineR = d3.line().x(d=>x(d.date)).y(d=>y(d.pRep)).curve(d3.curveMonotoneX);
     svg.append("path").datum(parsed).attr("class","lineRep").attr("d",lineR);
 
-    const dotD = svg.append("circle").attr("class","dotDem").attr("r",3).style("opacity",0);
-    const dotR = svg.append("circle").attr("class","dotRep").attr("r",3).style("opacity",0);
+    const dotD = svg.append("circle").attr("class","dotDem").attr("r",4).style("opacity",0);
+    const dotR = svg.append("circle").attr("class","dotRep").attr("r",4).style("opacity",0);
     const bisect = d3.bisector(d=>d.date).left;
 
     svg.append("rect").attr("x",m.l).attr("y",m.t).attr("width",iw).attr("height",ih)
