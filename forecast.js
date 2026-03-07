@@ -998,9 +998,9 @@ const TIP_SPARK_CACHE = new Map();
 
 function tipSparkHTML(){
   return `
-    <div class="tipSparkWrap" aria-label="Probability over time">
+    <div class="tipSparkWrap" aria-label="Win probability over time">
       <div class="tipSparkTitle">
-        <span>P(D win) over time</span>
+        <span>Win probability</span>
         <span class="mono" id="tipSparkVal">—</span>
       </div>
       <canvas id="tipSpark" aria-hidden="false"></canvas>
@@ -1053,12 +1053,13 @@ function drawProbSpark(canvas, values){
 
   const rootStyle = getComputedStyle(document.documentElement);
   const blue = rootStyle.getPropertyValue("--blue").trim() || "#2563eb";
-  const grid = "rgba(0,0,0,0.12)";
-  const line = blue;
+  const red  = rootStyle.getPropertyValue("--red").trim()  || "#dc2626";
+  const grid = "rgba(0,0,0,0.08)";
 
   // grid: 25/50/75%
   ctx.strokeStyle = grid;
   ctx.lineWidth = 1;
+  ctx.setLineDash([2,2]);
   ctx.beginPath();
   for (const frac of [0.25, 0.5, 0.75]){
     const y = cssH * (1 - frac);
@@ -1066,18 +1067,31 @@ function drawProbSpark(canvas, values){
     ctx.lineTo(cssW, y);
   }
   ctx.stroke();
+  ctx.setLineDash([]);
 
-  // line
-  ctx.strokeStyle = line;
-  ctx.lineWidth = 1.6;
-  ctx.beginPath();
   const n = values.length;
+
+  // R line (1 - pD)
+  ctx.strokeStyle = red;
+  ctx.lineWidth = 1.5;
+  ctx.beginPath();
+  for (let i=0;i<n;i++){
+    const p = 1 - Math.max(0, Math.min(1, values[i]));
+    const x = (i/(n-1)) * (cssW-1);
+    const y = (1 - p) * (cssH-1);
+    if (i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+  }
+  ctx.stroke();
+
+  // D line
+  ctx.strokeStyle = blue;
+  ctx.lineWidth = 1.5;
+  ctx.beginPath();
   for (let i=0;i<n;i++){
     const p = Math.max(0, Math.min(1, values[i]));
     const x = (i/(n-1)) * (cssW-1);
     const y = (1 - p) * (cssH-1);
-    if (i===0) ctx.moveTo(x,y);
-    else ctx.lineTo(x,y);
+    if (i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
   }
   ctx.stroke();
 }
@@ -2044,14 +2058,14 @@ function renderComboChart(modeKey, data, chartMode){
   ui._chartMode = mode;
 
   const rect = svgEl.getBoundingClientRect();
-  const width = Math.max(320, Math.floor(rect.width || 700));
-  const height = Math.max(200, Math.floor(rect.height || 380));
+  const width = Math.max(200, Math.floor(rect.width || 360));
+  const height = Math.max(100, Math.floor(rect.height || 180));
 
   const svg = d3.select(svgEl);
   svg.selectAll("*").remove();
   svg.attr("viewBox", `0 0 ${width} ${height}`);
 
-  const m = {l:44, r:14, t:12, b:28};
+  const m = {l:34, r:8, t:8, b:20};
   const iw = width - m.l - m.r;
   const ih = height - m.t - m.b;
 
@@ -2072,7 +2086,7 @@ function renderComboChart(modeKey, data, chartMode){
     .range([m.l, m.l+iw]);
 
   const xAxis = d3.axisBottom(x)
-    .ticks(Math.min(8, Math.floor(iw/90)))
+    .ticks(Math.min(5, Math.floor(iw/70)))
     .tickFormat(d3.timeFormat("%b"));
 
   if (mode === "seats"){
@@ -2085,10 +2099,18 @@ function renderComboChart(modeKey, data, chartMode){
     const yMin = clamp((ext[0]??0)-pad, 0, seatTotal||1000);
     const yMax = clamp((ext[1]??(seatTotal||0))+pad, 0, seatTotal||1000);
     const y = d3.scaleLinear().domain([yMin, yMax]).range([m.t+ih, m.t]).nice();
-    const yAxis = d3.axisLeft(y).ticks(6).tickFormat(d=>`${Math.round(d)}`);
+    const yAxis = d3.axisLeft(y).ticks(5).tickFormat(d=>`${Math.round(d)}`);
 
     svg.append("g").attr("class","oddsAxis").attr("transform",`translate(0,${m.t+ih})`).call(xAxis);
     svg.append("g").attr("class","oddsAxis").attr("transform",`translate(${m.l},0)`).call(yAxis);
+
+    // Horizontal gridlines
+    y.ticks(5).forEach(t=>{
+      svg.append("line").attr("x1",m.l).attr("x2",m.l+iw)
+        .attr("y1",y(t)).attr("y2",y(t))
+        .attr("stroke","var(--line)").attr("stroke-width",1)
+        .attr("stroke-dasharray","3 3").attr("opacity",0.5);
+    });
 
     if (isFinite(maj) && maj >= y.domain()[0] && maj <= y.domain()[1]){
       svg.append("line").attr("class","seatMajLine")
@@ -2133,6 +2155,14 @@ function renderComboChart(modeKey, data, chartMode){
     svg.append("g").attr("class","oddsAxis").attr("transform",`translate(0,${m.t+ih})`).call(xAxis);
     svg.append("g").attr("class","oddsAxis").attr("transform",`translate(${m.l},0)`).call(yAxis);
 
+    // Horizontal gridlines
+    y.ticks(5).forEach(t=>{
+      svg.append("line").attr("x1",m.l).attr("x2",m.l+iw)
+        .attr("y1",y(t)).attr("y2",y(t))
+        .attr("stroke","var(--line)").attr("stroke-width",1)
+        .attr("stroke-dasharray","3 3").attr("opacity",0.5);
+    });
+
     svg.append("line").attr("class","seatMajLine")
       .attr("x1",m.l).attr("x2",m.l+iw).attr("y1",y(0.5)).attr("y2",y(0.5));
 
@@ -2169,11 +2199,13 @@ function initChartTabs(modeKey){
   const root = document.querySelector(`.modeCol[data-mode='${modeKey}']`);
   if (!root) return;
   const tabs = root.querySelectorAll("[data-chart-tab]");
+  const ylabel = root.querySelector("[data-chart-ylabel]");
   tabs.forEach(tab=>{
     tab.addEventListener("click", ()=>{
       tabs.forEach(t=>t.classList.remove("active"));
       tab.classList.add("active");
       const mode = tab.dataset.chartTab;
+      if (ylabel) ylabel.textContent = (mode === "seats") ? "Expected seats" : "Win probability";
       const data = PRECOMPUTED_ODDS[modeKey];
       if (data) renderComboChart(modeKey, data, mode);
     });
