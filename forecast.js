@@ -165,7 +165,7 @@ function toNum(v){
 async function loadCSV(){
   const errBox = document.getElementById("loadError");
   try{
-    const csvText = await fetch("entries_all.csv", {cache:"no-store"}).then(r=>{
+    const csvText = await fetch("csv/entries_all.csv", {cache:"no-store"}).then(r=>{
       if (!r.ok) throw new Error(`HTTP ${r.status}`);
       return r.text();
     });
@@ -227,7 +227,7 @@ async function loadCSV(){
 async function loadHouseRatios(){
   const errBox = document.getElementById("loadError");
   try{
-    const csvText = await fetch("house_district_ratios_filled.csv", {cache:"no-store"}).then(r=>{
+    const csvText = await fetch("csv/house_district_ratios_filled.csv", {cache:"no-store"}).then(r=>{
       if (!r.ok) throw new Error(`HTTP ${r.status}`);
       return r.text();
     });
@@ -266,7 +266,7 @@ async function loadHouseRatios(){
     if (errBox){
       errBox.hidden = false;
       errBox.innerHTML = `
-        Could not load <span class="mono">house_district_ratios_filled.csv</span>.<br/>
+        Could not load <span class="mono">csv/house_district_ratios_filled.csv</span>.<br/>
         Error: <span class="mono">${String(err.message || err)}</span><br/>
         If you opened this as <span class="mono">file://</span>, serve it locally (e.g. <span class="mono">python3 -m http.server 8000</span>).
       `;
@@ -288,7 +288,7 @@ function parseDate(s){
 
 /* ---------- State polling by date (manual input) ---------- */
 const STATE_POLL_SRC = {
-  file: "state_polls_by_date.csv",
+  file: "csv/state_polls_by_date.csv",
   window: 6,
   byModeState: { senate:{}, governor:{}, house:{} }
 };
