@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Election Forecast</title>
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+  <script src="https://cdn.jsdelivr.net/npm/topojson-client@3"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#111;--ink-dim:#444;--muted:#888;--muted-light:#aaa;
+  --line:#e5e5e5;
+  --blue:#2563eb;--blue-dark:#1e40af;--blue-soft:#dbeafe;--blue-border:#93c5fd;
+  --red:#dc2626;--red-dark:#991b1b;--red-soft:#fee2e2;--red-border:#fca5a5;
+  --neutral-bg:#f9fafb;--neutral-border:#e5e7eb;
+  --sans:'DM Sans',system-ui,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,Menlo,monospace;
+  --radius-md:8px;--radius-pill:9999px;--radius-lg:12px;--radius-sm:6px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100vh;overflow:hidden;font-family:var(--sans);color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased}
+
+.shell{display:flex;flex-direction:column;height:100vh;overflow:hidden}
+.topbar{flex:0 0 auto;display:flex;align-items:center;justify-content:space-between;padding:8px 20px;border-bottom:1px solid var(--line)}
+.topbar-title{font-size:14px;font-weight:800;letter-spacing:-.02em}
+.topbar-meta{display:flex;align-items:center;gap:10px;font-size:11px;color:var(--muted)}
+.gbToggle{display:flex;align-items:center;gap:5px;font-weight:600;cursor:pointer}
+.gbToggle input{width:13px;height:13px;accent-color:var(--blue)}
+
+.triGrid{flex:1 1 0;display:grid;grid-template-columns:repeat(3,1fr);min-height:0;overflow:hidden}
+.modeCol{display:flex;flex-direction:column;min-height:0;overflow:hidden;border-right:1px solid var(--line)}
+.modeCol:last-child{border-right:none}
+
+.panelHead{flex:0 0 auto;padding:10px 14px 6px;border-bottom:1px solid var(--line)}
+.panelHeaderRow{display:flex;align-items:flex-start;justify-content:space-between}
+.panelTitleWrap{display:flex;flex-direction:column}
+.panelTitle{font-size:15px;font-weight:800;letter-spacing:-.03em;line-height:1}
+.panelSub{font-size:10px;font-weight:500;color:var(--muted);margin-top:2px}
+.pillRow{display:flex;gap:5px}
+.metricPill{display:flex;align-items:center;gap:4px;padding:2px 7px;border-radius:var(--radius-pill);font-weight:700;font-size:11px;font-variant-numeric:tabular-nums;color:var(--ink)}
+.metricPill .dot{width:6px;height:6px;border-radius:50%}
+.metricPill.blue .dot{background:var(--blue)}
+.metricPill.red .dot{background:var(--red)}
+
+.seatsRow{flex:0 0 auto;display:flex;align-items:center;justify-content:center;gap:8px;padding:4px 14px;border-bottom:1px solid var(--line)}
+.seatsSide{display:flex;align-items:baseline;gap:3px;font-variant-numeric:tabular-nums}
+.seatsSide .lbl{font-size:10px;font-weight:800}
+.seatsSide .num{font-size:15px;font-weight:800}
+.seatsSide.d{color:var(--blue)}
+.seatsSide.r{color:var(--red)}
+.seatsDivider{width:1px;height:16px;background:var(--line)}
+.simMini{width:min(140px,35%)}
+.simCanvas{width:100%;height:16px;display:block}
+
+.mapWrap{flex:1 1 0;min-height:0;overflow:hidden;position:relative}
+.mapSvg{width:100%;height:100%;display:block}
+.mapStage{position:relative}
+.state{stroke:#fff;stroke-width:.7px;vector-effect:non-scaling-stroke;cursor:default;transition:fill .15s}
+.state.active{cursor:pointer}
+.state.hovered{stroke:var(--ink);stroke-width:1.5px;filter:drop-shadow(0 2px 4px rgba(0,0,0,.12))}
+.district{stroke:rgba(255,255,255,.3);stroke-width:.4px;vector-effect:non-scaling-stroke;cursor:default}
+.district.active{cursor:pointer}
+.district.hovered{stroke:var(--ink);stroke-width:1px}
+.legendOverlay{position:absolute;left:6px;bottom:6px;padding:3px 5px;border-radius:4px;background:rgba(255,255,255,.9);border:1px solid var(--line);font-size:8px}
+.swatch{width:80px;height:5px;border-radius:99px;background:linear-gradient(90deg,var(--blue-dark) 0%,var(--blue) 35%,#fde047 50%,var(--red) 65%,var(--red-dark) 100%)}
+
+.chartArea{flex:0 0 auto;border-top:1px solid var(--line);padding:6px 14px 4px}
+.chartHead{display:flex;align-items:center;justify-content:space-between;margin-bottom:2px}
+.chartHeadLeft{display:flex;flex-direction:column}
+.chartTitle{font-size:12px;font-weight:800;letter-spacing:-.01em}
+.chartSub{font-size:9px;color:var(--muted);font-weight:500}
+.chartTabs{display:flex;gap:2px}
+.chartTab{appearance:none;border:1px solid var(--line);background:#fff;padding:2px 8px;border-radius:var(--radius-pill);font-size:9px;font-weight:600;color:var(--muted);cursor:pointer;font-family:var(--sans);transition:all .15s}
+.chartTab:hover{border-color:var(--ink-dim);color:var(--ink-dim)}
+.chartTab.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+.comboSvg{width:100%;height:120px;display:block}
+.oddsStatus{font-size:8px;color:var(--muted);margin-top:1px}
+
+.oddsAxis line,.oddsAxis path{stroke:var(--line);stroke-width:1;shape-rendering:crispEdges}
+.oddsAxis text{fill:var(--muted);font-size:9px;font-weight:500;font-family:var(--sans)}
+.lineDem{fill:none;stroke:var(--blue);stroke-width:2.5;stroke-linejoin:round;stroke-linecap:round}
+.lineRep{fill:none;stroke:var(--red);stroke-width:2.5;stroke-linejoin:round;stroke-linecap:round}
+.seatsLine{fill:none;stroke:var(--blue);stroke-width:2.5;stroke-linejoin:round;stroke-linecap:round}
+.seatsLineR{fill:none;stroke:var(--red);stroke-width:2.5;stroke-linejoin:round;stroke-linecap:round}
+.seatMajLine{stroke:var(--muted-light);stroke-width:1;stroke-dasharray:4,3}
+.seatMajLabel{fill:var(--muted);font-size:9px;font-weight:600}
+.dotDem{fill:var(--blue)}.dotRep{fill:var(--red)}
+.oddsDot{fill:var(--blue);stroke:#fff;stroke-width:1.5}
+.seatsDot{fill:var(--blue);stroke:#fff;stroke-width:1.5}
+.oddsLine{fill:none;stroke:var(--blue);stroke-width:2.5;stroke-linejoin:round;stroke-linecap:round}
+
+#tip{position:fixed;left:0;top:0;transform:translate(-9999px,-9999px);pointer-events:none;width:min(240px,calc(100vw - 20px));z-index:100;border-radius:8px;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border:1px solid rgba(0,0,0,.06);box-shadow:0 8px 24px -4px rgba(0,0,0,.1);overflow:hidden;font-family:var(--sans)}
+.tipTop{padding:8px 10px;border-bottom:1px solid var(--line)}
+.tipHeader{display:flex;justify-content:space-between;gap:8px}
+.tipTitle{font-size:13px;font-weight:800;line-height:1.2}
+.tipMeta{text-align:right;font-size:9px;color:var(--muted);font-weight:600}
+.tipSub{margin-top:5px;display:flex;gap:5px;flex-wrap:wrap}
+.badge{display:inline-flex;align-items:center;gap:3px;padding:1px 5px;border-radius:4px;border:1px solid var(--line);background:#fff;font-size:10px;font-weight:600;color:var(--ink-dim)}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--muted-light)}
+.dot.blue{background:var(--blue)}.dot.red{background:var(--red)}
+.tipBody{padding:6px 10px}
+.miniRow{display:flex;align-items:center;gap:6px;margin:4px 0}
+.miniLbl{width:72px;font-size:8px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+.miniVal{width:44px;text-align:right;font-size:9px;font-weight:800;color:var(--ink);font-variant-numeric:tabular-nums}
+.miniBar{position:relative;flex:1;height:3px;border-radius:2px;background:var(--line);overflow:hidden}
+.miniBarFill{position:absolute;left:0;top:0;bottom:0;border-radius:2px;transition:width .2s}
+.miniBarFill.blue{background:var(--blue)}.miniBarFill.red{background:var(--red)}.miniBarFill.neutral{background:var(--muted)}
+.zeroLine{background:var(--ink)!important;width:1px!important;opacity:.3!important}
+.tipSparkWrap{margin-top:6px;padding-top:6px;border-top:1px solid var(--line)}
+.tipSparkTitle{display:flex;justify-content:space-between;font-size:9px;color:var(--muted);margin-bottom:3px}
+#tipSpark{width:100%;height:44px;display:block;border-radius:5px;background:rgba(0,0,0,.02);border:1px solid rgba(0,0,0,.03)}
+#tip.compact .tipTop{padding:7px 10px}
+#tip.compact .tipTitle{font-size:12px}
+#tip.compact .badge{font-size:9px}
+#tip.compact .tipBody{padding:5px 10px}
+
+.simTip{position:fixed;pointer-events:none;z-index:110;padding:5px 8px;border-radius:6px;background:rgba(0,0,0,.85);color:#fff;font-size:10px;font-weight:600;font-family:var(--sans);transform:translate(-9999px,-9999px);white-space:nowrap}
+.simTip .k{font-weight:700;margin-right:3px;opacity:.7}
+
+.tableScroll{overflow:auto}
+.bucketTable{width:100%;border-collapse:separate;border-spacing:3px;min-width:500px;padding:3px}
+.bucketTable th{text-align:left;font-size:9px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:700;padding:3px 6px;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:2;background:#fff}
+.bucketTable td{vertical-align:top;padding:0}
+.raceItem{width:100%;display:flex;flex-direction:column;gap:1px;border-radius:4px;padding:4px 6px;border:1px solid var(--line);text-align:left;cursor:pointer;margin-bottom:2px;position:relative;overflow:hidden}
+.raceItem:hover{border-color:var(--ink-dim)}
+.raceItem::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px}
+.raceItem.d::before{background:var(--blue)}.raceItem.r::before{background:var(--red)}.raceItem.t::before{background:var(--muted-light)}
+.raceTop{font-size:8px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+.raceName{font-size:11px;font-weight:700;color:var(--ink)}
+.raceBottom{font-size:9px;color:var(--ink-dim);font-weight:600}
+.raceEmpty{height:28px;border-radius:4px;border:1px dashed var(--line);display:flex;align-items:center;justify-content:center;color:var(--muted-light);font-size:9px}
+
+.loadError{margin:6px 16px;padding:8px;border-radius:5px;border:1px solid var(--red-border);background:var(--red-soft);color:var(--red-dark);font-weight:600;font-size:11px}
+.loadError .mono{font-family:var(--mono);background:rgba(255,255,255,.5);padding:1px 3px;border-radius:2px}
+.mono{font-family:var(--mono)}
+.state.focus,.district.focus{stroke:var(--ink);stroke-width:2px}
+.seatHeader,.cardTitleRow,.cardInner,.cardTitle,.seatFooter,.seatAxis,.seatBar,.seatMajorityLine,.gbControls{display:none}
+
+@media(max-width:979px){
+  .triGrid{grid-template-columns:1fr;overflow-y:auto}
+  .modeCol{border-right:none;border-bottom:1px solid var(--line);min-height:auto;overflow:visible}
+  .modeCol:last-child{border-bottom:none}
+  .mapWrap{height:260px;flex:0 0 260px}
+  html,body{overflow:auto;height:auto}
+  .shell{height:auto;overflow:visible}
+}
+</style>
+</head>
+<body>
+<div class="shell">
+  <div class="topbar">
+    <div class="topbar-title">2026 Election Forecast</div>
+    <div class="topbar-meta">
+      <label class="gbToggle"><input type="checkbox" id="gbStrict" checked> Strict Allowlist</label>
+      <span id="gbLastDate"></span>
+    </div>
+  </div>
+  <div id="loadError" class="loadError" hidden></div>
+  <div class="triGrid" id="triGrid">
+
+    <section class="modeCol" data-mode="senate">
+      <div class="panelHead"><div class="panelHeaderRow">
+        <div class="panelTitleWrap"><div class="panelTitle">Senate</div><div class="panelSub">Class II — 2026</div></div>
+        <div class="pillRow"><div class="metricPill blue"><span class="dot"></span><span class="val" data-pill-d>—</span></div><div class="metricPill red"><span class="dot"></span><span class="val" data-pill-r>—</span></div></div>
+      </div></div>
+      <div class="seatsRow">
+        <div class="seatsSide d"><span class="lbl">D</span><span class="num" data-seats-d>—</span></div>
+        <div class="seatsDivider"></div>
+        <div class="seatsSide r"><span class="lbl">R</span><span class="num" data-seats-r>—</span></div>
+        <div class="simMini"><canvas class="simCanvas" data-sim-canvas></canvas></div>
+      </div>
+      <div class="mapWrap"><svg class="mapSvg"></svg></div>
+      <div class="chartArea">
+        <div class="chartHead">
+          <div class="chartHeadLeft"><span class="chartTitle">Model Output</span><span class="chartSub">Daily estimates</span></div>
+          <div class="chartTabs"><button class="chartTab active" data-chart-tab="prob">Win Prob</button><button class="chartTab" data-chart-tab="seats">Pop Vote</button></div>
+        </div>
+        <svg class="comboSvg" data-combo-svg></svg>
+        <div class="oddsStatus" data-odds-status></div>
+      </div>
+    </section>
+
+    <section class="modeCol" data-mode="governor">
+      <div class="panelHead"><div class="panelHeaderRow">
+        <div class="panelTitleWrap"><div class="panelTitle">Governor</div><div class="panelSub">Gubernatorial — 2026</div></div>
+        <div class="pillRow"><div class="metricPill blue"><span class="dot"></span><span class="val" data-pill-d>—</span></div><div class="metricPill red"><span class="dot"></span><span class="val" data-pill-r>—</span></div></div>
+      </div></div>
+      <div class="seatsRow">
+        <div class="seatsSide d"><span class="lbl">D</span><span class="num" data-seats-d>—</span></div>
+        <div class="seatsDivider"></div>
+        <div class="seatsSide r"><span class="lbl">R</span><span class="num" data-seats-r>—</span></div>
+        <div class="simMini"><canvas class="simCanvas" data-sim-canvas></canvas></div>
+      </div>
+      <div class="mapWrap"><svg class="mapSvg"></svg></div>
+      <div class="chartArea">
+        <div class="chartHead">
+          <div class="chartHeadLeft"><span class="chartTitle">Model Output</span><span class="chartSub">Daily estimates</span></div>
+          <div class="chartTabs"><button class="chartTab active" data-chart-tab="prob">Win Prob</button><button class="chartTab" data-chart-tab="seats">Pop Vote</button></div>
+        </div>
+        <svg class="comboSvg" data-combo-svg></svg>
+        <div class="oddsStatus" data-odds-status></div>
+      </div>
+    </section>
+
+    <section class="modeCol" data-mode="house">
+      <div class="panelHead"><div class="panelHeaderRow">
+        <div class="panelTitleWrap"><div class="panelTitle">House</div><div class="panelSub">120th Congress — 2026</div></div>
+        <div class="pillRow"><div class="metricPill blue"><span class="dot"></span><span class="val" data-pill-d>—</span></div><div class="metricPill red"><span class="dot"></span><span class="val" data-pill-r>—</span></div></div>
+      </div></div>
+      <div class="seatsRow">
+        <div class="seatsSide d"><span class="lbl">D</span><span class="num" data-seats-d>—</span></div>
+        <div class="seatsDivider"></div>
+        <div class="seatsSide r"><span class="lbl">R</span><span class="num" data-seats-r>—</span></div>
+        <div class="simMini"><canvas class="simCanvas" data-sim-canvas></canvas></div>
+      </div>
+      <div class="mapWrap"><svg class="mapSvg"></svg></div>
+      <div class="chartArea">
+        <div class="chartHead">
+          <div class="chartHeadLeft"><span class="chartTitle">Model Output</span><span class="chartSub">Daily estimates</span></div>
+          <div class="chartTabs"><button class="chartTab active" data-chart-tab="prob">Win Prob</button><button class="chartTab" data-chart-tab="seats">Pop Vote</button></div>
+        </div>
+        <svg class="comboSvg" data-combo-svg></svg>
+        <div class="oddsStatus" data-odds-status></div>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<div id="tip" class="compact" role="dialog">
+  <div class="tipTop"><div class="tipHeader"><div><p class="tipTitle" id="tipState">State</p><div class="tipSub"><span class="badge" id="tipResultBadge"><span class="dot"></span><span id="tipWinner">—</span></span><span class="badge" id="tipProbBadge"><span class="dot"></span><span id="tipProb">—</span></span></div></div><div class="tipMeta" id="tipMeta">—</div></div></div>
+  <div class="tipBody" id="tipSliders"></div>
+</div>
+<div id="simTip" class="simTip" aria-hidden="true"></div>
+
+<script src="forecast.js"></script>
+</body>
+</html>
