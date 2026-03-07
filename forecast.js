@@ -165,7 +165,7 @@ function toNum(v){
 async function loadCSV(){
   const errBox = document.getElementById("loadError");
   try{
-    const csvText = await fetch("entries_all.csv", {cache:"no-store"}).then(r=>{
+    const csvText = await fetch("../data/entries_all.csv", {cache:"no-store"}).then(r=>{
       if (!r.ok) throw new Error(`HTTP ${r.status}`);
       return r.text();
     });
@@ -213,7 +213,7 @@ async function loadCSV(){
     if (errBox){
       errBox.hidden = false;
       errBox.innerHTML = `
-        Could not load <span class="mono">entries_all.csv</span> (must be in the same folder as this HTML).<br/>
+        Could not load <span class="mono">data/entries_all.csv</span>.<br/>
         Error: <span class="mono">${String(err.message || err)}</span><br/>
         If you opened this as <span class="mono">file://</span>, serve it locally (e.g. <span class="mono">python3 -m http.server 8000</span>).
       `;
@@ -227,7 +227,7 @@ async function loadCSV(){
 async function loadHouseRatios(){
   const errBox = document.getElementById("loadError");
   try{
-    const csvText = await fetch("house_district_ratios_filled.csv", {cache:"no-store"}).then(r=>{
+    const csvText = await fetch("../data/house_district_ratios_filled.csv", {cache:"no-store"}).then(r=>{
       if (!r.ok) throw new Error(`HTTP ${r.status}`);
       return r.text();
     });
@@ -266,7 +266,7 @@ async function loadHouseRatios(){
     if (errBox){
       errBox.hidden = false;
       errBox.innerHTML = `
-        Could not load <span class="mono">house_district_ratios_filled.csv</span> (must be in the same folder as this HTML).<br/>
+        Could not load <span class="mono">data/house_district_ratios_filled.csv</span>.<br/>
         Error: <span class="mono">${String(err.message || err)}</span><br/>
         If you opened this as <span class="mono">file://</span>, serve it locally (e.g. <span class="mono">python3 -m http.server 8000</span>).
       `;
@@ -288,7 +288,7 @@ function parseDate(s){
 
 /* ---------- State polling by date (manual input) ---------- */
 const STATE_POLL_SRC = {
-  file: "state_polls_by_date.csv",
+  file: "../data/state_polls_by_date.csv",
   window: 6,
   byModeState: { senate:{}, governor:{}, house:{} }
 };
@@ -607,7 +607,7 @@ const GB_SRC = { windowPolls: 24, series: null, latest: null, updatedAt: null, f
 
 async function loadGenericBallotFromPollsJSON(){
   try{
-    const j = await fetch("polls.json", {cache:"no-store"}).then(r=>{
+    const j = await fetch("../data/polls.json", {cache:"no-store"}).then(r=>{
       if (!r.ok) throw new Error(`HTTP ${r.status}`);
       return r.json();
     });

@@ -1,0 +1,34 @@
+name: Daily Data Fetch & Odds
+
+on:
+  schedule:
+    - cron: '23 11 * * *'   # 11:23 UTC daily
+  workflow_dispatch:         # manual trigger
+
+permissions:
+  contents: write
+
+jobs:
+  refresh-and-compute:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Fetch poll data
+        run: cd data && node ../scripts/fetch-data-3.js
+
+      - name: Compute MC seat odds
+        run: cd data && node ../scripts/compute_odds.js
+
+      - name: Save changes
+        run: |
+          git config user.name "Bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add data/polls.json data/senate_odds.json data/governor_odds.json data/house_odds.json
+          git commit -m "Update polls + odds $(date -u +%Y-%m-%d)" || exit 0
+          git push
