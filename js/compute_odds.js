@@ -235,7 +235,7 @@ function getAns(p, keys) {
 }
 
 function buildGBSeries() {
-  const j = JSON.parse(fs.readFileSync("polls.json", "utf8"));
+  const j = JSON.parse(fs.readFileSync("json/polls.json", "utf8"));
   const gbRaw = Array.isArray(j.genericBallot) ? j.genericBallot : [];
 
   const gbPolls = gbRaw.map(p => {
@@ -606,7 +606,7 @@ function main() {
 
   // ─── HOUSE ───
   {
-    const file = "house_odds.json";
+    const file = "json/house_odds.json";
     const existing = loadExisting(file);
     const doneSet = new Set((existing.results || []).map(r => r.date));
     const newDays = [];
@@ -637,7 +637,7 @@ function main() {
 
   // ─── SENATE ───
   {
-    const file = "senate_odds.json";
+    const file = "json/senate_odds.json";
     const existing = loadExisting(file);
     const doneSet = new Set((existing.results || []).map(r => r.date));
     const newDays = [];
@@ -683,7 +683,7 @@ function main() {
 
   // ─── GOVERNOR ───
   {
-    const file = "governor_odds.json";
+    const file = "json/governor_odds.json";
     const existing = loadExisting(file);
     const doneSet = new Set((existing.results || []).map(r => r.date));
     const newDays = [];
