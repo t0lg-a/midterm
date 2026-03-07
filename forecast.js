@@ -2034,154 +2034,152 @@ async function loadPrecomputedOdds(modeKey){
 }
 
 
-function renderComboChart(modeKey, data){
+function renderComboChart(modeKey, data, chartMode){
   const ui = UI[modeKey];
   const svgEl = ui?.comboSvg;
   if (!svgEl) return;
 
   ui._lastOdds = data;
+  const mode = chartMode || ui._chartMode || "prob";
+  ui._chartMode = mode;
 
   const rect = svgEl.getBoundingClientRect();
-  const width = Math.max(320, Math.floor(rect.width || 900));
-  const height = Math.max(200, Math.floor(rect.height || 220));
+  const width = Math.max(240, Math.floor(rect.width || 600));
+  const height = Math.max(100, Math.floor(rect.height || 130));
 
-  // Clear
   const svg = d3.select(svgEl);
   svg.selectAll("*").remove();
   svg.attr("viewBox", `0 0 ${width} ${height}`);
 
-  const m = {l:48, r:48, t:10, b:26};
+  const m = {l:32, r:8, t:6, b:20};
   const iw = width - m.l - m.r;
   const ih = height - m.t - m.b;
 
   const parsed = (data||[]).map(d=>({
     date: parseDate(d.date),
     pDem: +d.pDem,
+    pRep: 1 - (+d.pDem),
     expDem: +d.expDem
   })).filter(d=>d.date && isFinite(d.pDem) && isFinite(d.expDem));
 
   if (!parsed.length){
-    setOddsStatus(modeKey, "No series available.");
+    setOddsStatus(modeKey, "No data.");
     return;
   }
-
-  const rules = SEAT_RULES[modeKey];
-  const seatTotal = rules?.total ?? 0;
-  const maj = (modeKey === "senate") ? SENATE_CONTROL_RULE.demAtLeast : (rules?.majorityLine ?? Math.floor(seatTotal/2)+1);
 
   const x = d3.scaleTime()
     .domain(d3.extent(parsed, d=>d.date))
     .range([m.l, m.l+iw]);
 
-  // left axis: probability
-  const ext = d3.extent(parsed, d=>d.expDem);
-  const pad = 3;
-  const yMin = clamp((ext[0] ?? 0) - pad, 0, seatTotal || 1000);
-  const yMax = clamp((ext[1] ?? (seatTotal||0)) + pad, 0, seatTotal || 1000);
-  const ySeats = d3.scaleLinear()
-    .domain([yMin, yMax])
-    .range([m.t+ih, m.t])
-    .nice();
+  const xAxis = d3.axisBottom(x)
+    .ticks(Math.min(5, Math.floor(iw/80)))
+    .tickFormat(d3.timeFormat("%b"));
 
-  // right axis: seats
-  const yProb = d3.scaleLinear()
-    .domain([0,1])
-    .range([m.t+ih, m.t])
-    .nice();
+  if (mode === "seats"){
+    const rules = SEAT_RULES[modeKey];
+    const seatTotal = rules?.total ?? 0;
+    const maj = (modeKey === "senate") ? SENATE_CONTROL_RULE.demAtLeast : (rules?.majorityLine ?? Math.floor(seatTotal/2)+1);
 
-  const xAxis = d3.axisBottom(x).ticks(Math.min(6, Math.floor(iw/110))).tickFormat(d3.timeFormat("%b %d"));
-  const ySeatsAxis = d3.axisLeft(ySeats).ticks(5).tickFormat(d=>`${Math.round(d)}`);
-  const yProbAxis = d3.axisRight(yProb).ticks(4).tickFormat(d=>`${Math.round(d*100)}%`);
+    const ext = d3.extent(parsed, d=>d.expDem);
+    const pad = 3;
+    const yMin = clamp((ext[0]??0)-pad, 0, seatTotal||1000);
+    const yMax = clamp((ext[1]??(seatTotal||0))+pad, 0, seatTotal||1000);
+    const y = d3.scaleLinear().domain([yMin, yMax]).range([m.t+ih, m.t]).nice();
+    const yAxis = d3.axisLeft(y).ticks(4).tickFormat(d=>`${Math.round(d)}`);
 
-  svg.append("g").attr("class","oddsAxis").attr("transform",`translate(0,${m.t+ih})`).call(xAxis);
-  svg.append("g").attr("class","oddsAxis").attr("transform",`translate(${m.l},0)`).call(yProbAxis);
-  svg.append("g").attr("class","oddsAxis").attr("transform",`translate(${m.l+iw},0)`).call(ySeatsAxis);
+    svg.append("g").attr("class","oddsAxis").attr("transform",`translate(0,${m.t+ih})`).call(xAxis);
+    svg.append("g").attr("class","oddsAxis").attr("transform",`translate(${m.l},0)`).call(yAxis);
 
-  // Majority line (seats)
-  if (isFinite(maj) && maj >= ySeats.domain()[0] && maj <= ySeats.domain()[1]){
-    svg.append("line")
-      .attr("class","seatMajLine")
-      .attr("x1", m.l)
-      .attr("x2", m.l+iw)
-      .attr("y1", ySeats(maj))
-      .attr("y2", ySeats(maj));
+    if (isFinite(maj) && maj >= y.domain()[0] && maj <= y.domain()[1]){
+      svg.append("line").attr("class","seatMajLine")
+        .attr("x1",m.l).attr("x2",m.l+iw).attr("y1",y(maj)).attr("y2",y(maj));
+      svg.append("text").attr("class","seatMajLabel")
+        .attr("x",m.l+iw-2).attr("y",y(maj)-4).attr("text-anchor","end").text(`${maj}`);
+    }
 
-    svg.append("text")
-      .attr("class","seatMajLabel")
-      .attr("x", m.l+iw-2)
-      .attr("y", ySeats(maj)-6)
-      .attr("text-anchor","end")
-      .text(`Maj ${maj}`);
+    const lineD = d3.line().x(d=>x(d.date)).y(d=>y(d.expDem)).curve(d3.curveMonotoneX);
+    svg.append("path").datum(parsed).attr("class","seatsLine").attr("d",lineD);
+
+    if (seatTotal > 0){
+      const lineR = d3.line().x(d=>x(d.date)).y(d=>y(seatTotal - d.expDem)).curve(d3.curveMonotoneX);
+      svg.append("path").datum(parsed).attr("class","seatsLineR").attr("d",lineR);
+    }
+
+    const dotD = svg.append("circle").attr("class","dotDem").attr("r",3).style("opacity",0);
+    const dotR = svg.append("circle").attr("class","dotRep").attr("r",3).style("opacity",0);
+    const bisect = d3.bisector(d=>d.date).left;
+
+    svg.append("rect").attr("x",m.l).attr("y",m.t).attr("width",iw).attr("height",ih)
+      .style("fill","transparent").style("cursor","crosshair")
+      .on("mousemove",(ev)=>{
+        const [mx]=d3.pointer(ev);const xd=x.invert(mx);
+        const i=clamp(bisect(parsed,xd),1,parsed.length-1);
+        const a=parsed[i-1],b=parsed[i];
+        const d=(xd-a.date)>(b.date-xd)?b:a;
+        dotD.attr("cx",x(d.date)).attr("cy",y(d.expDem)).style("opacity",1);
+        if(seatTotal>0) dotR.attr("cx",x(d.date)).attr("cy",y(seatTotal-d.expDem)).style("opacity",1);
+        showSimTip(ev,
+          `<div><span class="k">${ds(d.date)}</span></div>`+
+          `<div><span class="k">D:</span> ${d.expDem.toFixed(1)}</div>`+
+          (seatTotal>0?`<div><span class="k">R:</span> ${(seatTotal-d.expDem).toFixed(1)}</div>`:"")
+        );
+      })
+      .on("mouseleave",()=>{dotD.style("opacity",0);dotR.style("opacity",0);hideSimTip();});
+
+  } else {
+    const y = d3.scaleLinear().domain([0,1]).range([m.t+ih, m.t]);
+    const yAxis = d3.axisLeft(y).ticks(5).tickFormat(d=>`${Math.round(d*100)}%`);
+
+    svg.append("g").attr("class","oddsAxis").attr("transform",`translate(0,${m.t+ih})`).call(xAxis);
+    svg.append("g").attr("class","oddsAxis").attr("transform",`translate(${m.l},0)`).call(yAxis);
+
+    svg.append("line").attr("class","seatMajLine")
+      .attr("x1",m.l).attr("x2",m.l+iw).attr("y1",y(0.5)).attr("y2",y(0.5));
+
+    const lineD = d3.line().x(d=>x(d.date)).y(d=>y(d.pDem)).curve(d3.curveMonotoneX);
+    svg.append("path").datum(parsed).attr("class","lineDem").attr("d",lineD);
+
+    const lineR = d3.line().x(d=>x(d.date)).y(d=>y(d.pRep)).curve(d3.curveMonotoneX);
+    svg.append("path").datum(parsed).attr("class","lineRep").attr("d",lineR);
+
+    const dotD = svg.append("circle").attr("class","dotDem").attr("r",3).style("opacity",0);
+    const dotR = svg.append("circle").attr("class","dotRep").attr("r",3).style("opacity",0);
+    const bisect = d3.bisector(d=>d.date).left;
+
+    svg.append("rect").attr("x",m.l).attr("y",m.t).attr("width",iw).attr("height",ih)
+      .style("fill","transparent").style("cursor","crosshair")
+      .on("mousemove",(ev)=>{
+        const [mx]=d3.pointer(ev);const xd=x.invert(mx);
+        const i=clamp(bisect(parsed,xd),1,parsed.length-1);
+        const a=parsed[i-1],b=parsed[i];
+        const d=(xd-a.date)>(b.date-xd)?b:a;
+        dotD.attr("cx",x(d.date)).attr("cy",y(d.pDem)).style("opacity",1);
+        dotR.attr("cx",x(d.date)).attr("cy",y(d.pRep)).style("opacity",1);
+        showSimTip(ev,
+          `<div><span class="k">${ds(d.date)}</span></div>`+
+          `<div><span class="k">D:</span> ${(d.pDem*100).toFixed(1)}%</div>`+
+          `<div><span class="k">R:</span> ${(d.pRep*100).toFixed(1)}%</div>`
+        );
+      })
+      .on("mouseleave",()=>{dotD.style("opacity",0);dotR.style("opacity",0);hideSimTip();});
   }
-
-  const seatsLine = d3.line()
-    .x(d=>x(d.date))
-    .y(d=>ySeats(d.expDem))
-    .curve(d3.curveMonotoneX);
-
-  const probLine = d3.line()
-    .x(d=>x(d.date))
-    .y(d=>yProb(d.pDem))
-    .curve(d3.curveMonotoneX);
-
-  svg.append("path")
-    .datum(parsed)
-    .attr("class","seatsLine")
-    .attr("d", seatsLine);
-
-  svg.append("path")
-    .datum(parsed)
-    .attr("class","oddsLine")
-    .attr("d", probLine);
-
-  const dotSeats = svg.append("circle")
-    .attr("class","seatsDot")
-    .attr("r", 4)
-    .style("opacity", 0);
-
-  const dotProb = svg.append("circle")
-    .attr("class","oddsDot")
-    .attr("r", 4)
-    .style("opacity", 0);
-
-  const bisect = d3.bisector(d=>d.date).left;
-
-  svg.append("rect")
-    .attr("x", m.l)
-    .attr("y", m.t)
-    .attr("width", iw)
-    .attr("height", ih)
-    .style("fill","transparent")
-    .style("cursor","crosshair")
-    .on("mousemove", (ev)=>{
-      const [mx] = d3.pointer(ev);
-      const xd = x.invert(mx);
-      const i = clamp(bisect(parsed, xd), 1, parsed.length-1);
-      const a = parsed[i-1], b = parsed[i];
-      const d = (xd - a.date) > (b.date - xd) ? b : a;
-
-      dotSeats
-        .attr("cx", x(d.date))
-        .attr("cy", ySeats(d.expDem))
-        .style("opacity", 1);
-
-      dotProb
-        .attr("cx", x(d.date))
-        .attr("cy", yProb(d.pDem))
-        .style("opacity", 1);
-
-      showSimTip(ev,
-        `<div><span class="k">${ds(d.date)}</span></div>` +
-        `<div><span class="k">D control:</span> ${(d.pDem*100).toFixed(1)}%</div>` +
-        `<div><span class="k">Expected D seats:</span> ${d.expDem.toFixed(1)}</div>`
-      );
-    })
-    .on("mouseleave", ()=>{
-      dotSeats.style("opacity", 0);
-      dotProb.style("opacity", 0);
-      hideSimTip();
-    });
 }
+
+function initChartTabs(modeKey){
+  const root = document.querySelector(`.modeCol[data-mode='${modeKey}']`);
+  if (!root) return;
+  const tabs = root.querySelectorAll("[data-chart-tab]");
+  tabs.forEach(tab=>{
+    tab.addEventListener("click", ()=>{
+      tabs.forEach(t=>t.classList.remove("active"));
+      tab.classList.add("active");
+      const mode = tab.dataset.chartTab;
+      const data = PRECOMPUTED_ODDS[modeKey];
+      if (data) renderComboChart(modeKey, data, mode);
+    });
+  });
+}
+
 
 function renderOddsChart(modeKey, data){
   const ui = UI[modeKey];
@@ -2430,6 +2428,7 @@ function setupOddsUI(modeKey){
   // init all panels
   for (const mode of MODES){
     initUI(mode);
+    initChartTabs(mode);
   }
 
   // Load precomputed odds (must happen before updateSeatMeterFor reads them)
