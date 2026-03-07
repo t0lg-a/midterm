@@ -959,23 +959,14 @@
     .triGrid{
       display:grid;
       grid-template-columns: 1fr;
-      gap:18px;
+      gap:24px;
       margin-top: 0px;
-      flex:1 1 0;
-      min-height:0;
-      overflow:hidden;
-    }
-    @media (min-width: 980px){
-      .triGrid{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
     }
     .modeCol{
       display:flex;
       flex-direction:column;
       gap:18px;
       min-width:0;
-      min-height:0;
-      overflow-y:auto;
-      overflow-x:hidden;
     }
     .modeHeader{
       display:flex;
@@ -999,10 +990,6 @@
     .modeTitleWrap{ display:flex; flex-direction:column; }
     .mapGrid{ padding:16px 20px 20px; }
     .mapSvg{ height:520px; }
-    @media (min-width: 980px){
-      .mapSvg{ height:400px; }
-      .triGrid .bucketTable{ min-width: 560px; }
-    }
 
 
     /* ---------- House odds over time ---------- */
@@ -1071,9 +1058,6 @@
       height:380px;
       display:block;
       overflow:visible;
-    }
-    .oddsCard{
-      max-width:720px;
     }
     .oddsSvg{
       width:100%;
