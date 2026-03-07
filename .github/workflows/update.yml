@@ -20,10 +20,10 @@ jobs:
           node-version: '20'
 
       - name: Fetch poll data
-        run: cd data && node ../scripts/fetch-data.js
+        run: cd data && node ../js/fetch-data.js
 
       - name: Compute MC seat odds
-        run: cd data && node ../scripts/compute_odds.js
+        run: cd data && node ../js/compute_odds.js
 
       - name: Save changes
         run: |
