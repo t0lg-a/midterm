@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-07T11:36:52.493Z",
+  "updatedAt": "2026-03-08T11:38:18.239Z",
   "approval": [
     {
       "id": "appdonanga5ea4150",
@@ -20814,86 +20814,6 @@
       "sponsors": [
         "AARP"
       ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonrmga2cxnsnj",
-      "poll_type": "approval",
-      "sample_size": 4000,
-      "population": "rv",
-      "url": "https://napolitannews.org/posts/president-trump-job-approval-53-percent-approve-43-disapprove",
-      "created_at": "2025-01-31",
-      "start_date": "2025-01-27",
-      "end_date": "2025-01-31",
-      "pollster": "RMG Research",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 53
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 43
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Napolitan Institute"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonactc7ne48l0",
-      "poll_type": "approval",
-      "sample_size": 1182,
-      "population": "a",
-      "url": "https://www.activote.net/a-majority-approves-of-trump/",
-      "created_at": "2025-02-03",
-      "start_date": "2025-01-20",
-      "end_date": "2025-01-31",
-      "pollster": "ActiVote",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 52
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 45.9
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdontip3osw7ugm",
-      "poll_type": "approval",
-      "sample_size": 1478,
-      "population": "a",
-      "url": "https://tippinsights.com/the-art-of-the-comeback-tipp-poll-shows-trumps-strong-start-energizes-core-voters/",
-      "created_at": "2025-02-06",
-      "start_date": "2025-01-29",
-      "end_date": "2025-01-31",
-      "pollster": "TIPP Insights",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 46
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 41
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
