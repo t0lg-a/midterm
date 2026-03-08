@@ -751,14 +751,96 @@ function getHouseModel(did){
   const ratio = DATA.house.ratios[did];
   if (!ratio) return null;
 
+  // Base estimate from generic ballot × ratio
+  let cdD = ratio.D * gb.D;
+  let cdR = ratio.R * gb.R;
+
+  // Hispanic adjustment: if this CD has Hispanic share data and we have Hispanic polling
+  const meta = DATA.house.meta[did];
+  const code = meta?.code;
+  if (code && HISPANIC_SHARE[code] && HISPANIC_GB){
+    const h_cd = HISPANIC_SHARE[code];
+    const hD = HISPANIC_GB.D;
+    const hR = HISPANIC_GB.R;
+    // CD_D = ratio_D × natl_D + (h_cd/4) × ratio_D × (H_D - natl_D)
+    // CD_R = ratio_R × natl_R + (h_cd/4) × ratio_R × (H_R - natl_R)
+    cdD += (h_cd / 4) * ratio.D * (hD - gb.D);
+    cdR += (h_cd / 4) * ratio.R * (hR - gb.R);
+  }
+
+  const s = cdD + cdR;
+  const combinedPair = (s > 0) ? {D: 100*cdD/s, R: 100*cdR/s} : {D:50, R:50};
   const gbPair = computeGenericBallotState(gb, ratio);
-  const combinedPair = gbPair;
   const combinedSigma = 5;
 
   const mFinal = marginRD(combinedPair);
   const winProb = winProbFromMargin(mFinal);
 
   return { gbPair, combinedPair, combinedSigma, winProb };
+}
+
+/* ---------- Hispanic CD polling adjustment ---------- */
+const HISPANIC_SHARE = {};  // code → h_cd (0–1)
+let HISPANIC_GB = null;     // {D, R} normalized to 100
+const HISPANIC_POLL_WINDOW = 12; // rolling last-N polls
+
+async function loadHispanicCDShare(){
+  try{
+    const resp = await fetch("csv/cd_hispanic_share.csv", {cache:"no-store"});
+    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+    const text = await resp.text();
+    const lines = text.split(/\r?\n/);
+    const headers = lines[0]?.split(",").map(h=>h.trim());
+    let count = 0;
+    for (let i=1; i<lines.length; i++){
+      const cols = lines[i].split(",");
+      if (cols.length < 2) continue;
+      const cd = cols[0]?.trim();
+      const hcd = parseFloat(cols[1]);
+      if (cd && isFinite(hcd)){
+        HISPANIC_SHARE[cd] = hcd;
+        count++;
+      }
+    }
+    console.log(`Hispanic CD share: ${count} districts loaded`);
+  }catch(e){
+    console.warn("cd_hispanic_share.csv not loaded:", e);
+  }
+}
+
+async function loadHispanicPolls(){
+  try{
+    const resp = await fetch("csv/trusted_hispanic_polls.csv", {cache:"no-store"});
+    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+    const text = await resp.text();
+    const lines = text.split(/\r?\n/);
+    const polls = [];
+    for (let i=1; i<lines.length; i++){
+      const cols = lines[i].split(",");
+      if (cols.length < 4) continue;
+      const date = parseDate(cols[0]?.trim());
+      const d = parseFloat(cols[2]);
+      const r = parseFloat(cols[3]);
+      if (date && isFinite(d) && isFinite(r)){
+        polls.push({date, D: d, R: r});
+      }
+    }
+    polls.sort((a,b)=>a.date-b.date);
+    if (!polls.length){ console.warn("No valid Hispanic polls"); return; }
+
+    // Rolling last-N average (normalized to 100)
+    const n = Math.min(HISPANIC_POLL_WINDOW, polls.length);
+    let sumD=0, sumR=0;
+    for (let i=polls.length-n; i<polls.length; i++){
+      sumD += polls[i].D;
+      sumR += polls[i].R;
+    }
+    const avgD = sumD/n, avgR = sumR/n;
+    HISPANIC_GB = normalizePair(avgD, avgR);
+    console.log(`Hispanic GB (last ${n} polls): D ${HISPANIC_GB.D.toFixed(1)} R ${HISPANIC_GB.R.toFixed(1)}`);
+  }catch(e){
+    console.warn("trusted_hispanic_polls.csv not loaded:", e);
+  }
 }
 
 /* ---------- Majority probability (exact Poisson-binomial) ---------- */
@@ -1961,22 +2043,21 @@ function showStateInfoPanel(modeKey, usps){
       <div class="tipSparkWrap">
         <div class="tipSparkTitle">
           <span>Win prob</span>
-          <span class="mono" id="panelSparkVal">—</span>
+          <span class="mono" data-panel-spark-val>—</span>
         </div>
-        <canvas id="panelSpark"></canvas>
+        <canvas data-panel-spark></canvas>
       </div>
     </div>
   `;
 
   panel.classList.add("visible");
 
-  // Render spark chart
+  // Render spark chart (scope to this panel, not by global ID)
   requestAnimationFrame(() => {
-    const canvas = document.getElementById("panelSpark");
-    const label = document.getElementById("panelSparkVal");
+    const canvas = panel.querySelector("[data-panel-spark]");
+    const label = panel.querySelector("[data-panel-spark-val]");
     if (!canvas) return;
 
-    const days = NaN; // all
     const gbSub = (GB_SRC.series || []).slice();
     const vals = computeWinProbSeries(modeKey, usps, IND_CACHE[modeKey], gbSub);
 
@@ -2971,6 +3052,11 @@ function setupOddsUI(modeKey){
 
   // County-level ratio data (for county zoom)
   await loadCountyRatios();
+
+  // Hispanic CD polling adjustment (must load before House model runs)
+  await loadHispanicCDShare();
+  await loadHispanicPolls();
+
   // cache indicators per mode (House intentionally has none)
   IND_CACHE.senate = computeIndicatorNationalFromPolls("senate");
   IND_CACHE.governor = computeIndicatorNationalFromPolls("governor");
