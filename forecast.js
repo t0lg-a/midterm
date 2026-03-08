@@ -1,5 +1,5 @@
 /* ---------- Config ---------- */
-console.log("forecast.js v14-plotly — county source: plotly/datasets GeoJSON");
+console.log("forecast.js v15 — county matching by NAME (not FIPS)");
 const PROB_ERROR_SD_PTS = 7; // hidden, used for win probabilities (state + senate majority)
 const TOOLTIP_COMPACT = true;
 const WEIGHTS = { gb:35, polls:50, ind:15 };
@@ -1791,58 +1791,6 @@ function getCountiesForState(allGeo, usps){
   });
 }
 
-// County-level model estimate from county_ratios.json
-// Uses the state-level combined model (GB + polls + indicator) which differs per mode
-function countyEstimate(modeKey, usps, countyFips){
-  if (!COUNTY_RATIOS || !COUNTY_RATIOS[usps]) return null;
-  const stData = COUNTY_RATIOS[usps];
-  const fipsKey = String(countyFips).padStart(5,"0");
-  const name = stData.fips?.[fipsKey] || stData.fips?.[String(+countyFips)];
-  if (!name) return null;
-  const cd = stData.counties?.[name];
-  if (!cd) return null;
-
-  // Get the state-level combined model output (includes polls + indicator, differs by mode)
-  const stModel = getStateModel(modeKey, usps, IND_CACHE[modeKey]);
-  let stD, stR;
-  if (stModel){
-    stD = stModel.combinedPair.D;
-    stR = stModel.combinedPair.R;
-  } else {
-    // Fallback to national GB
-    const gb = DATA[modeKey]?.gb;
-    if (!gb) return null;
-    stD = gb.D;
-    stR = gb.R;
-  }
-
-  const rawD = stD * cd.dRatio, rawR = stR * cd.rRatio;
-  const s = rawD + rawR;
-  if (s <= 0) return null;
-  return { D: 100*rawD/s, R: 100*rawR/s, name, hist: cd.hist };
-}
-
-function getCountyName(usps, countyFips){
-  // Try our JSON lookup first
-  if (COUNTY_RATIOS?.[usps]){
-    const fipsKey = String(countyFips).padStart(5,"0");
-    const name = COUNTY_RATIOS[usps].fips?.[fipsKey] || COUNTY_RATIOS[usps].fips?.[String(+countyFips)];
-    if (name) return name;
-  }
-  // Fall back to GeoJSON properties.NAME
-  if (ALL_COUNTY_GEO){
-    const feat = ALL_COUNTY_GEO.features.find(f => String(f.id) === String(countyFips).padStart(5,"0"));
-    if (feat?.properties?.NAME) return feat.properties.NAME.toUpperCase();
-  }
-  return null;
-}
-
-function countyColor(modeKey, usps, countyFips, stateMargin){
-  const est = countyEstimate(modeKey, usps, String(countyFips).padStart(5,"0"));
-  if (est) return interpColor(est.R - est.D);
-  return isFinite(stateMargin) ? interpColor(stateMargin) : "#e5e7eb";
-}
-
 async function zoomToStateCounties(modeKey, usps, stateFips){
   const m = MAP[modeKey];
   if (!m) return;
@@ -1878,63 +1826,38 @@ async function zoomToStateCounties(modeKey, usps, stateFips){
   m.gRoot.selectAll(".state").transition().duration(400)
     .style("opacity", function(){ return this.getAttribute("data-st") === usps ? 0 : 0.12; });
 
-  // Draw county layer
+  // Draw county layer — match by properties.NAME (reliable) not FIPS (inconsistent across sources)
   const countyG = m.gRoot.append("g").attr("class","countyG");
 
-  // Debug: inspect first feature and key counties
-  if (counties.length > 0) {
-    const f0 = counties[0];
-    console.log("County feature structure:", {id: f0.id, type: f0.type, propKeys: Object.keys(f0.properties||{}), props: f0.properties, geoType: f0.geometry?.type});
-    
-    // Find McLennan (should be near Waco: ~-97.2, ~31.5)
-    // Find Harris (Houston: ~-95.4, ~29.8)
-    // Find Marion (east TX: ~-94.4, ~32.8)
-    for (const f of counties) {
-      const coords = f.geometry?.coordinates;
-      let firstCoord = null;
-      if (coords) {
-        // Dig into nested arrays to find first [lon,lat] pair
-        let c = coords;
-        while (Array.isArray(c) && Array.isArray(c[0]) && Array.isArray(c[0][0])) c = c[0];
-        if (Array.isArray(c) && Array.isArray(c[0])) firstCoord = c[0];
-      }
-      const fips = String(f.id || f.properties?.FIPS || f.properties?.GEO_ID || f.properties?.GEOID || "").replace(/^0500000US/, "");
-      const name = f.properties?.NAME || f.properties?.name || f.properties?.COUNTY || "";
-      if (["48321","48309","48201","48453","48139","48141"].includes(fips)) {
-        console.log(`Feature FIPS=${fips} name=${name} firstCoord=${JSON.stringify(firstCoord)}`);
-      }
-    }
-  }
-
-  // Determine which property holds the FIPS
-  const getFips = (d) => {
-    // Try d.id first (Plotly GeoJSON style)
-    if (d.id && /^\d{5}$/.test(String(d.id))) return String(d.id);
-    // Try various property names
+  const getCountyNameFromFeature = (d) => {
     const p = d.properties || {};
-    for (const k of ["GEOID","GEO_ID","FIPS","COUNTYFP","STATEFP"]) {
-      if (p[k]) {
-        const v = String(p[k]).replace(/^0500000US/, "");
-        if (/^\d{4,5}$/.test(v)) return v.padStart(5,"0");
-      }
-    }
-    // Combine state + county FP
-    if (p.STATE && p.COUNTY) return (p.STATE + p.COUNTY).padStart(5,"0");
-    return String(d.id || "");
+    return (p.NAME || p.name || p.COUNTY || "").toUpperCase();
   };
 
   countyG.selectAll("path")
     .data(counties)
     .join("path")
     .attr("d", d3.geoPath(m.projection))
-    .attr("fill", d => countyColor(modeKey, usps, getFips(d), stateMargin))
+    .attr("fill", d => {
+      const name = getCountyNameFromFeature(d);
+      const cd = COUNTY_RATIOS?.[usps]?.counties?.[name];
+      if (cd) {
+        const stModel = getStateModel(modeKey, usps, IND_CACHE[modeKey]);
+        const stD = stModel ? stModel.combinedPair.D : (DATA[modeKey]?.gb?.D || 50);
+        const stR = stModel ? stModel.combinedPair.R : (DATA[modeKey]?.gb?.R || 50);
+        const rawD = stD * cd.dRatio, rawR = stR * cd.rRatio;
+        const s = rawD + rawR;
+        if (s > 0) return interpColor(100 * rawR / s - 100 * rawD / s);
+      }
+      return isFinite(stateMargin) ? interpColor(stateMargin) : "#e5e7eb";
+    })
     .attr("stroke", "white")
     .attr("stroke-width", 0.3)
     .attr("vector-effect", "non-scaling-stroke")
     .style("cursor", "default")
     .on("mouseenter", (event, d) => {
       d3.select(event.currentTarget).attr("stroke","var(--ink)").attr("stroke-width",1);
-      showCountyTooltip(event, modeKey, usps, getFips(d));
+      showCountyTooltip(event, modeKey, usps, getCountyNameFromFeature(d));
     })
     .on("mousemove", (event) => positionTooltip(event))
     .on("mouseleave", (event) => {
@@ -1985,12 +1908,13 @@ function setupMapControlBars(){
   }
 }
 
-function showCountyTooltip(event, modeKey, usps, countyFips){
-  const fipsNorm = String(countyFips).padStart(5,"0");
-  const est = countyEstimate(modeKey, usps, fipsNorm);
-  const countyName = est?.name || getCountyName(usps, fipsNorm) || `County ${countyFips}`;
+function showCountyTooltip(event, modeKey, usps, countyName){
+  if (!countyName) return;
 
-  if (!est){
+  const cd = COUNTY_RATIOS?.[usps]?.counties?.[countyName];
+
+  if (!cd){
+    // No county-level data — show name + state-level margin
     const stModel = getStateModel(modeKey, usps, IND_CACHE[modeKey]);
     const stMargin = stModel ? marginRD(stModel.combinedPair) : NaN;
     tipState.textContent = `${countyName} Co.`;
@@ -2007,11 +1931,19 @@ function showCountyTooltip(event, modeKey, usps, countyFips){
     return;
   }
 
-  const margin = est.R - est.D;
+  // Compute county estimate from state model × ratios
+  const stModel = getStateModel(modeKey, usps, IND_CACHE[modeKey]);
+  const stD = stModel ? stModel.combinedPair.D : (DATA[modeKey]?.gb?.D || 50);
+  const stR = stModel ? stModel.combinedPair.R : (DATA[modeKey]?.gb?.R || 50);
+  const rawD = stD * cd.dRatio, rawR = stR * cd.rRatio;
+  const s = rawD + rawR;
+  const estD = s > 0 ? 100 * rawD / s : 50;
+  const estR = s > 0 ? 100 * rawR / s : 50;
+  const margin = estR - estD;
   const wp = winProbFromMargin(margin);
 
   tipState.textContent = `${countyName} Co.`;
-  tipMeta.textContent = `${usps} · ${modeKey === "senate" ? "Senate" : "Gov"} '26 · src:plotly`;
+  tipMeta.textContent = `${usps} · ${modeKey === "senate" ? "Senate" : "Gov"} '26`;
 
   tipWinner.textContent = fmtLead(margin);
   const resDot = tipResultBadge.querySelector(".dot");
@@ -2025,17 +1957,17 @@ function showCountyTooltip(event, modeKey, usps, countyFips){
   probDot.classList.toggle("blue", pD > pR);
   probDot.classList.toggle("red", pR > pD);
 
-  // Build body with model factors + historical
+  // Build body with estimate + historical
   let bodyHTML = `
     <div class="miniRow">
       <span class="miniLbl">Estimate</span>
-      <span class="miniVal" style="color:var(--blue)">${est.D.toFixed(1)}%</span>
-      <span class="miniVal" style="color:var(--red)">${est.R.toFixed(1)}%</span>
+      <span class="miniVal" style="color:var(--blue)">${estD.toFixed(1)}%</span>
+      <span class="miniVal" style="color:var(--red)">${estR.toFixed(1)}%</span>
     </div>
   `;
 
-  if (est.hist){
-    const h = est.hist;
+  if (cd.hist){
+    const h = cd.hist;
     const rows = [];
     if (h.pres24) rows.push(["'24 Pres", h.pres24[0], h.pres24[1]]);
     if (h.gov22)  rows.push(["'22 Gov",  h.gov22[0],  h.gov22[1]]);
