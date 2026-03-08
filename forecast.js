@@ -762,10 +762,10 @@ function getHouseModel(did){
     const h_cd = HISPANIC_SHARE[code];
     const hD = HISPANIC_GB.D;
     const hR = HISPANIC_GB.R;
-    // CD_D = ratio_D × natl_D + (h_cd/4) × ratio_D × (H_D - natl_D)
-    // CD_R = ratio_R × natl_R + (h_cd/4) × ratio_R × (H_R - natl_R)
-    cdD += (h_cd / 4) * ratio.D * (hD - gb.D);
-    cdR += (h_cd / 4) * ratio.R * (hR - gb.R);
+    // CD_D = ratio_D × natl_D + (h_cd/3) × ratio_D × (H_D - natl_D)
+    // CD_R = ratio_R × natl_R + (h_cd/3) × ratio_R × (H_R - natl_R)
+    cdD += (h_cd / 3) * ratio.D * (hD - gb.D);
+    cdR += (h_cd / 3) * ratio.R * (hR - gb.R);
   }
 
   const s = cdD + cdR;
@@ -1022,6 +1022,19 @@ function buildDetailHTML(modeKey, key, cachedIndNat){
     const pR = Math.round(model.winProb.pR*100);
 
     rows.push(miniMeterHTML("Generic ballot", gbM));
+
+    // Hispanic voter adjustment row
+    const meta = DATA.house.meta[key];
+    const code = meta?.code;
+    const h_cd = code ? HISPANIC_SHARE[code] : 0;
+    if (h_cd && HISPANIC_GB){
+      const hispPct = (h_cd * 100).toFixed(0);
+      const hispMarginRaw = HISPANIC_GB.R - HISPANIC_GB.D;
+      rows.push(miniMeterHTML(`Hispanic (${hispPct}%)`, hispMarginRaw));
+    } else {
+      rows.push(miniMeterHTML("Hispanic", NaN, "—"));
+    }
+
     rows.push(miniMeterHTML("Polls", NaN, "—"));
     rows.push(miniMeterHTML("National trend", NaN, "—"));
     rows.push(miniMeterHTML("Final", mFinal));
