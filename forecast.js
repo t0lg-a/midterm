@@ -1,5 +1,5 @@
 /* ---------- Config ---------- */
-console.log("forecast.js v2 — precomputed, no client-side MC");
+console.log("forecast.js v14-plotly — county source: plotly/datasets GeoJSON");
 const PROB_ERROR_SD_PTS = 7; // hidden, used for win probabilities (state + senate majority)
 const TOOLTIP_COMPACT = true;
 const WEIGHTS = { gb:35, polls:50, ind:15 };
@@ -1753,11 +1753,12 @@ async function loadCountyRatios(){
 
 async function loadAllCountyGeo(){
   if (ALL_COUNTY_GEO) return ALL_COUNTY_GEO;
-  // Use Plotly's GeoJSON source — guaranteed correct FIPS-to-geometry mapping
   const resp = await fetch("https://cdn.jsdelivr.net/gh/plotly/datasets/geojson-counties-fips.json");
   if (!resp.ok) throw new Error(`County GeoJSON HTTP ${resp.status}`);
   ALL_COUNTY_GEO = await resp.json();
-  console.log(`County GeoJSON loaded: ${ALL_COUNTY_GEO.features.length} counties`);
+  // Log structure for debugging
+  const f0 = ALL_COUNTY_GEO.features?.[0];
+  console.log(`County GeoJSON: ${ALL_COUNTY_GEO.features?.length} features, type=${ALL_COUNTY_GEO.type}, sample id=${f0?.id}, sample props=${JSON.stringify(f0?.properties)}`);
   return ALL_COUNTY_GEO;
 }
 
@@ -1776,8 +1777,18 @@ const USPS_TO_FIPS_PREFIX = {
 function getCountiesForState(allGeo, usps){
   const prefix = USPS_TO_FIPS_PREFIX[usps];
   if (!prefix) return [];
-  // Plotly GeoJSON has properties.STATE = "48" etc.
-  return allGeo.features.filter(f => (f.properties?.STATE === prefix) || (fipsStatePrefix(f.id) === prefix));
+  return allGeo.features.filter(f => {
+    // Try f.id
+    if (f.id && String(f.id).padStart(5,"0").slice(0,2) === prefix) return true;
+    // Try properties
+    const p = f.properties || {};
+    if (p.STATE === prefix) return true;
+    if (p.STATEFP === prefix) return true;
+    // Try GEO_ID format "0500000US48201"
+    const gid = String(p.GEO_ID || p.GEOID || "").replace(/^0500000US/, "");
+    if (gid && gid.padStart(5,"0").slice(0,2) === prefix) return true;
+    return false;
+  });
 }
 
 // County-level model estimate from county_ratios.json
@@ -1870,18 +1881,60 @@ async function zoomToStateCounties(modeKey, usps, stateFips){
   // Draw county layer
   const countyG = m.gRoot.append("g").attr("class","countyG");
 
+  // Debug: inspect first feature and key counties
+  if (counties.length > 0) {
+    const f0 = counties[0];
+    console.log("County feature structure:", {id: f0.id, type: f0.type, propKeys: Object.keys(f0.properties||{}), props: f0.properties, geoType: f0.geometry?.type});
+    
+    // Find McLennan (should be near Waco: ~-97.2, ~31.5)
+    // Find Harris (Houston: ~-95.4, ~29.8)
+    // Find Marion (east TX: ~-94.4, ~32.8)
+    for (const f of counties) {
+      const coords = f.geometry?.coordinates;
+      let firstCoord = null;
+      if (coords) {
+        // Dig into nested arrays to find first [lon,lat] pair
+        let c = coords;
+        while (Array.isArray(c) && Array.isArray(c[0]) && Array.isArray(c[0][0])) c = c[0];
+        if (Array.isArray(c) && Array.isArray(c[0])) firstCoord = c[0];
+      }
+      const fips = String(f.id || f.properties?.FIPS || f.properties?.GEO_ID || f.properties?.GEOID || "").replace(/^0500000US/, "");
+      const name = f.properties?.NAME || f.properties?.name || f.properties?.COUNTY || "";
+      if (["48321","48309","48201","48453","48139","48141"].includes(fips)) {
+        console.log(`Feature FIPS=${fips} name=${name} firstCoord=${JSON.stringify(firstCoord)}`);
+      }
+    }
+  }
+
+  // Determine which property holds the FIPS
+  const getFips = (d) => {
+    // Try d.id first (Plotly GeoJSON style)
+    if (d.id && /^\d{5}$/.test(String(d.id))) return String(d.id);
+    // Try various property names
+    const p = d.properties || {};
+    for (const k of ["GEOID","GEO_ID","FIPS","COUNTYFP","STATEFP"]) {
+      if (p[k]) {
+        const v = String(p[k]).replace(/^0500000US/, "");
+        if (/^\d{4,5}$/.test(v)) return v.padStart(5,"0");
+      }
+    }
+    // Combine state + county FP
+    if (p.STATE && p.COUNTY) return (p.STATE + p.COUNTY).padStart(5,"0");
+    return String(d.id || "");
+  };
+
   countyG.selectAll("path")
     .data(counties)
     .join("path")
     .attr("d", d3.geoPath(m.projection))
-    .attr("fill", d => countyColor(modeKey, usps, d.id, stateMargin))
+    .attr("fill", d => countyColor(modeKey, usps, getFips(d), stateMargin))
     .attr("stroke", "white")
     .attr("stroke-width", 0.3)
     .attr("vector-effect", "non-scaling-stroke")
     .style("cursor", "default")
     .on("mouseenter", (event, d) => {
       d3.select(event.currentTarget).attr("stroke","var(--ink)").attr("stroke-width",1);
-      showCountyTooltip(event, modeKey, usps, d.id);
+      showCountyTooltip(event, modeKey, usps, getFips(d));
     })
     .on("mousemove", (event) => positionTooltip(event))
     .on("mouseleave", (event) => {
@@ -1958,7 +2011,7 @@ function showCountyTooltip(event, modeKey, usps, countyFips){
   const wp = winProbFromMargin(margin);
 
   tipState.textContent = `${countyName} Co.`;
-  tipMeta.textContent = `${usps} · ${modeKey === "senate" ? "Senate" : "Gov"} '26`;
+  tipMeta.textContent = `${usps} · ${modeKey === "senate" ? "Senate" : "Gov"} '26 · src:plotly`;
 
   tipWinner.textContent = fmtLead(margin);
   const resDot = tipResultBadge.querySelector(".dot");
