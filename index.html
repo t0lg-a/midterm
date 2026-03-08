@@ -1018,6 +1018,34 @@
   font-weight:600;
   color: var(--muted);
 }
+    .mapControlBar{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      padding:6px 12px;
+      background: var(--card-bg);
+      border:1px solid var(--card-border);
+      border-radius:var(--radius-sm);
+      backdrop-filter: blur(10px);
+      font-size:11px;
+      font-weight:600;
+      color:var(--muted);
+    }
+    .mapCtrlBtn{
+      appearance:none;
+      border:1px solid var(--line);
+      background:var(--neutral-bg);
+      color:var(--ink-dim);
+      font-size:11px;
+      font-weight:700;
+      padding:3px 10px;
+      border-radius:var(--radius-pill);
+      cursor:pointer;
+      transition: all 0.12s ease;
+      white-space:nowrap;
+    }
+    .mapCtrlBtn:hover{ background:var(--line); color:var(--ink); }
+    .mapCtrlLabel{ color:var(--muted-light); font-style:italic; }
 
     /* ---------- Three-panel (Senate/Gov/House) layout ---------- */
     .triGrid{
@@ -1069,6 +1097,36 @@
 
 
     /* ---------- Model Output chart card ---------- */
+    .mapControlBar{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      padding:6px 10px;
+      font-size:11px;
+      font-weight:600;
+      color:var(--muted);
+      background: var(--neutral-bg);
+      border:1px solid var(--line);
+      border-radius:var(--radius-sm);
+    }
+    .mapCtrlBtn{
+      appearance:none;
+      border:1px solid var(--line);
+      background:white;
+      color:var(--ink-dim);
+      font-size:11px;
+      font-weight:700;
+      padding:3px 10px;
+      border-radius:var(--radius-pill);
+      cursor:pointer;
+      transition: all 0.12s ease;
+    }
+    .mapCtrlBtn:hover{ background:var(--ink); color:#fff; border-color:var(--ink); }
+    .mapCtrlLabel{
+      font-size:11px;
+      font-weight:600;
+      color:var(--muted-light);
+    }
     .oddsCard .oddsHead{
       padding: 12px 14px 0;
       display:flex;
@@ -1313,6 +1371,11 @@
       </div>
     </section>
 
+    <div class="mapControlBar" data-map-controls>
+      <button class="mapCtrlBtn" data-map-back style="display:none">← US</button>
+      <span class="mapCtrlLabel" data-map-label>Click a state to zoom in</span>
+    </div>
+
     <section class="card oddsCard" aria-label="Senate model output">
       <div class="oddsHead">
         <div>
@@ -1373,6 +1436,11 @@
         </div>
       </div>
     </section>
+
+    <div class="mapControlBar" data-map-controls>
+      <button class="mapCtrlBtn" data-map-back style="display:none">← US</button>
+      <span class="mapCtrlLabel" data-map-label>Click a state to zoom in</span>
+    </div>
 
     <section class="card oddsCard" aria-label="Governor model output">
       <div class="oddsHead">
@@ -1493,7 +1561,6 @@
 
   <div id="simTip" class="simTip" aria-hidden="true"></div>
 
-<script src="county_data.js"></script>
-<script src="forecast.js?v=8"></script>
+<script src="forecast.js?v=9"></script>
 </body>
 </html>

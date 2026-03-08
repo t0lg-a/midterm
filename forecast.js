@@ -1735,6 +1735,21 @@ async function initStateMapForMode(modeKey, ui){
 
 /* ---------- State → County Zoom ---------- */
 let ALL_COUNTY_GEO = null;
+let COUNTY_RATIOS = null; // loaded from json/county_ratios.json
+
+async function loadCountyRatios(){
+  if (COUNTY_RATIOS) return COUNTY_RATIOS;
+  try{
+    const resp = await fetch("json/county_ratios.json", {cache:"no-store"});
+    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+    COUNTY_RATIOS = await resp.json();
+    console.log("County ratios loaded:", Object.keys(COUNTY_RATIOS).filter(k=>k!=="_TEMPLATE").join(", "));
+  }catch(e){
+    console.warn("county_ratios.json not loaded:", e);
+    COUNTY_RATIOS = {};
+  }
+  return COUNTY_RATIOS;
+}
 
 async function loadAllCountyGeo(){
   if (ALL_COUNTY_GEO) return ALL_COUNTY_GEO;
@@ -1761,23 +1776,25 @@ function getCountiesForState(allGeo, usps){
   return allGeo.features.filter(f => fipsStatePrefix(f.id) === prefix);
 }
 
-// County-level model estimate (TX has ratio data; others inherit state color)
+// County-level model estimate from county_ratios.json
 function countyEstimate(modeKey, usps, countyFips){
-  if (usps === "TX" && typeof TX_COUNTY_DATA !== "undefined" && typeof TX_FIPS2NAME !== "undefined"){
-    const name = TX_FIPS2NAME[+countyFips];
-    if (name){
-      const cd = TX_COUNTY_DATA[name];
-      if (cd){
-        const gb = DATA[modeKey]?.gb;
-        if (gb){
-          const rawD = gb.D * cd[0], rawR = gb.R * cd[1];
-          const s = rawD + rawR;
-          if (s > 0) return { D: 100*rawD/s, R: 100*rawR/s, name, hist: cd };
-        }
-      }
-    }
-  }
-  return null; // no county-level data
+  if (!COUNTY_RATIOS || !COUNTY_RATIOS[usps]) return null;
+  const stData = COUNTY_RATIOS[usps];
+  const name = stData.fips?.[String(countyFips)] || stData.fips?.[+countyFips];
+  if (!name) return null;
+  const cd = stData.counties?.[name];
+  if (!cd) return null;
+  const gb = DATA[modeKey]?.gb;
+  if (!gb) return null;
+  const rawD = gb.D * cd.dRatio, rawR = gb.R * cd.rRatio;
+  const s = rawD + rawR;
+  if (s <= 0) return null;
+  return { D: 100*rawD/s, R: 100*rawR/s, name, hist: cd.hist };
+}
+
+function getCountyName(usps, countyFips){
+  if (!COUNTY_RATIOS || !COUNTY_RATIOS[usps]) return null;
+  return COUNTY_RATIOS[usps].fips?.[String(countyFips)] || COUNTY_RATIOS[usps].fips?.[+countyFips] || null;
 }
 
 function countyColor(modeKey, usps, countyFips, stateMargin){
@@ -1845,6 +1862,7 @@ async function zoomToStateCounties(modeKey, usps, stateFips){
     });
 
   m._countyZoomed = usps;
+  updateMapControlBar(modeKey, usps);
 }
 
 function zoomBackToUS(modeKey, instant){
@@ -1856,69 +1874,107 @@ function zoomBackToUS(modeKey, instant){
   m.gRoot.selectAll(".state").transition().duration(instant ? 0 : 400).style("opacity", 1);
   m.gRoot.selectAll(".countyG").transition().duration(instant ? 0 : 300).style("opacity", 0).remove();
   m._countyZoomed = false;
+  updateMapControlBar(modeKey, null);
+}
+
+/* ---------- Map Control Bar ---------- */
+function updateMapControlBar(modeKey, zoomedUsps){
+  const root = document.querySelector(`.modeCol[data-mode='${modeKey}']`);
+  if (!root) return;
+  const backBtn = root.querySelector("[data-map-back]");
+  const label = root.querySelector("[data-map-label]");
+  if (zoomedUsps){
+    const stateName = USPS_TO_NAME[zoomedUsps] || zoomedUsps;
+    if (backBtn) backBtn.style.display = "";
+    if (label) label.textContent = `${stateName} — county view`;
+  } else {
+    if (backBtn) backBtn.style.display = "none";
+    if (label) label.textContent = "Click a state to zoom in";
+  }
+}
+
+function setupMapControlBars(){
+  for (const mode of ["senate","governor"]){
+    const root = document.querySelector(`.modeCol[data-mode='${mode}']`);
+    if (!root) continue;
+    const backBtn = root.querySelector("[data-map-back]");
+    if (backBtn){
+      backBtn.addEventListener("click", () => zoomBackToUS(mode));
+    }
+  }
 }
 
 function showCountyTooltip(event, modeKey, usps, countyFips){
-  const tip = document.getElementById("tip");
-  if (!tip) return;
-
   const est = countyEstimate(modeKey, usps, countyFips);
-  const stateName = USPS_TO_NAME[usps] || usps;
+  const countyName = est?.name || getCountyName(usps, countyFips) || `FIPS ${countyFips}`;
 
-  // Try to get county name from FIPS
-  let countyName = "";
-  if (usps === "TX" && typeof TX_FIPS2NAME !== "undefined"){
-    countyName = TX_FIPS2NAME[+countyFips] || "";
-  }
-  if (!countyName){
-    countyName = `County ${countyFips}`;
-  }
-
-  const dPct = est ? est.D.toFixed(1) : "—";
-  const rPct = est ? est.R.toFixed(1) : "—";
-  const margin = est ? (est.R - est.D) : NaN;
-  const marginStr = isFinite(margin) ? fmtLead(margin) : "—";
-
-  let histHTML = "";
-  if (est?.hist){
-    const cd = est.hist;
-    histHTML = `
-      <div style="margin-top:8px;border-top:1px solid var(--line);padding-top:6px;">
-        <div style="font-size:10px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px;">Historical</div>
-        <div style="display:grid;grid-template-columns:auto 1fr 1fr;gap:2px 8px;font-size:11px;font-variant-numeric:tabular-nums;">
-          <span style="color:var(--muted);font-weight:700;">'24 Pres</span><span style="color:var(--blue);font-weight:700;">${cd[4].toFixed(1)}</span><span style="color:var(--red);font-weight:700;">${cd[5].toFixed(1)}</span>
-          <span style="color:var(--muted);font-weight:700;">'22 Gov</span><span style="color:var(--blue);font-weight:700;">${cd[8].toFixed(1)}</span><span style="color:var(--red);font-weight:700;">${cd[9].toFixed(1)}</span>
-          <span style="color:var(--muted);font-weight:700;">'20 Pres</span><span style="color:var(--blue);font-weight:700;">${cd[2].toFixed(1)}</span><span style="color:var(--red);font-weight:700;">${cd[3].toFixed(1)}</span>
-          <span style="color:var(--muted);font-weight:700;">'18 Sen</span><span style="color:var(--blue);font-weight:700;">${cd[6].toFixed(1)}</span><span style="color:var(--red);font-weight:700;">${cd[7].toFixed(1)}</span>
-        </div>
-      </div>
-    `;
+  if (!est){
+    // No county-level data — show state-level info
+    const stModel = getStateModel(modeKey, usps, IND_CACHE[modeKey]);
+    const stMargin = stModel ? marginRD(stModel.combinedPair) : NaN;
+    tipState.textContent = `${countyName} Co.`;
+    tipMeta.textContent = usps;
+    tipWinner.textContent = isFinite(stMargin) ? fmtLead(stMargin) : "—";
+    tipProb.textContent = "state-level only";
+    const resDot = tipResultBadge.querySelector(".dot");
+    resDot.classList.toggle("blue", stMargin <= 0);
+    resDot.classList.toggle("red", stMargin > 0);
+    tipSliders.innerHTML = "";
+    tip.classList.toggle("compact", TOOLTIP_COMPACT);
+    tip.style.transform = "translate(0,0)";
+    positionTooltip(event);
+    return;
   }
 
-  const bodyLabel = est
-    ? `2026 ${modeKey === "senate" ? "Senate" : "Governor"} est.`
-    : `${modeKey === "senate" ? "Senate" : "Governor"} — state-level model only`;
+  const margin = est.R - est.D;
+  const wp = winProbFromMargin(margin);
 
-  tip.className = "compact";
-  tip.innerHTML = `
-    <div class="tipTop">
-      <div class="tipHeader">
-        <h3 class="tipTitle">${countyName}${countyName.endsWith("Co.") ? "" : " Co."}</h3>
-        <div class="tipMeta">${usps}</div>
-      </div>
-      ${est ? `<div class="tipSub">
-        <span class="badge"><span class="dot blue"></span>${dPct}%</span>
-        <span class="badge"><span class="dot red"></span>${rPct}%</span>
-        <span class="badge">${marginStr}</span>
-      </div>` : ""}
-    </div>
-    <div class="tipBody">
-      <div style="font-size:10px;font-weight:700;color:var(--muted);">${bodyLabel}</div>
-      ${histHTML}
+  tipState.textContent = `${countyName} Co.`;
+  tipMeta.textContent = `${usps} · ${modeKey === "senate" ? "Senate" : "Gov"} '26`;
+
+  tipWinner.textContent = fmtLead(margin);
+  const resDot = tipResultBadge.querySelector(".dot");
+  resDot.classList.toggle("blue", margin <= 0);
+  resDot.classList.toggle("red", margin > 0);
+
+  const pD = Math.round(wp.pD * 100);
+  const pR = Math.round(wp.pR * 100);
+  tipProb.textContent = `D ${pD}% · R ${pR}%`;
+  const probDot = tipProbBadge.querySelector(".dot");
+  probDot.classList.toggle("blue", pD > pR);
+  probDot.classList.toggle("red", pR > pD);
+
+  // Build body with model factors + historical
+  let bodyHTML = `
+    <div class="miniRow">
+      <span class="miniLbl">Estimate</span>
+      <span class="miniVal" style="color:var(--blue)">${est.D.toFixed(1)}%</span>
+      <span class="miniVal" style="color:var(--red)">${est.R.toFixed(1)}%</span>
     </div>
   `;
 
-  tip.style.transform = "";
+  if (est.hist){
+    const h = est.hist;
+    const rows = [];
+    if (h.pres24) rows.push(["'24 Pres", h.pres24[0], h.pres24[1]]);
+    if (h.gov22)  rows.push(["'22 Gov",  h.gov22[0],  h.gov22[1]]);
+    if (h.pres20) rows.push(["'20 Pres", h.pres20[0], h.pres20[1]]);
+    if (h.sen18)  rows.push(["'18 Sen",  h.sen18[0],  h.sen18[1]]);
+    if (rows.length){
+      bodyHTML += `
+        <div style="margin-top:8px;border-top:1px solid var(--line);padding-top:6px;">
+          <div style="font-size:10px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px;">Historical</div>
+          <div style="display:grid;grid-template-columns:auto 1fr 1fr;gap:2px 8px;font-size:11px;font-variant-numeric:tabular-nums;">
+            ${rows.map(([label,d,r])=>`<span style="color:var(--muted);font-weight:700;">${label}</span><span style="color:var(--blue);font-weight:700;">${Number(d).toFixed(1)}</span><span style="color:var(--red);font-weight:700;">${Number(r).toFixed(1)}</span>`).join("")}
+          </div>
+        </div>
+      `;
+    }
+  }
+
+  tipSliders.innerHTML = bodyHTML;
+  tip.classList.toggle("compact", TOOLTIP_COMPACT);
+  tip.style.transform = "translate(0,0)";
   positionTooltip(event);
 }
 
@@ -2813,6 +2869,9 @@ function setupOddsUI(modeKey){
   // Optional: manual state polls by date (state_polls_by_date.csv)
   await loadStatePollsByDateCSV();
   applyLatestStatePollsToData();
+
+  // County-level ratio data (for county zoom)
+  await loadCountyRatios();
   // cache indicators per mode (House intentionally has none)
   IND_CACHE.senate = computeIndicatorNationalFromPolls("senate");
   IND_CACHE.governor = computeIndicatorNationalFromPolls("governor");
@@ -2835,6 +2894,8 @@ function setupOddsUI(modeKey){
     renderBucketTableForMode(mode);
     updateSeatMeterFor(mode);
   }
+
+  setupMapControlBars();
 
   // Redraw charts on resize
   window.addEventListener("resize", ()=>{
