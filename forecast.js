@@ -1753,8 +1753,11 @@ async function loadCountyRatios(){
 
 async function loadAllCountyGeo(){
   if (ALL_COUNTY_GEO) return ALL_COUNTY_GEO;
-  const topo = await fetch("https://cdn.jsdelivr.net/npm/us-atlas@3/counties-10m.json").then(r=>r.json());
-  ALL_COUNTY_GEO = topojson.feature(topo, topo.objects.counties);
+  // Use Plotly's GeoJSON source — guaranteed correct FIPS-to-geometry mapping
+  const resp = await fetch("https://cdn.jsdelivr.net/gh/plotly/datasets/geojson-counties-fips.json");
+  if (!resp.ok) throw new Error(`County GeoJSON HTTP ${resp.status}`);
+  ALL_COUNTY_GEO = await resp.json();
+  console.log(`County GeoJSON loaded: ${ALL_COUNTY_GEO.features.length} counties`);
   return ALL_COUNTY_GEO;
 }
 
@@ -1773,7 +1776,8 @@ const USPS_TO_FIPS_PREFIX = {
 function getCountiesForState(allGeo, usps){
   const prefix = USPS_TO_FIPS_PREFIX[usps];
   if (!prefix) return [];
-  return allGeo.features.filter(f => fipsStatePrefix(f.id) === prefix);
+  // Plotly GeoJSON has properties.STATE = "48" etc.
+  return allGeo.features.filter(f => (f.properties?.STATE === prefix) || (fipsStatePrefix(f.id) === prefix));
 }
 
 // County-level model estimate from county_ratios.json
@@ -1781,7 +1785,8 @@ function getCountiesForState(allGeo, usps){
 function countyEstimate(modeKey, usps, countyFips){
   if (!COUNTY_RATIOS || !COUNTY_RATIOS[usps]) return null;
   const stData = COUNTY_RATIOS[usps];
-  const name = stData.fips?.[String(countyFips)] || stData.fips?.[+countyFips];
+  const fipsKey = String(countyFips).padStart(5,"0");
+  const name = stData.fips?.[fipsKey] || stData.fips?.[String(+countyFips)];
   if (!name) return null;
   const cd = stData.counties?.[name];
   if (!cd) return null;
@@ -1807,14 +1812,23 @@ function countyEstimate(modeKey, usps, countyFips){
 }
 
 function getCountyName(usps, countyFips){
-  if (!COUNTY_RATIOS || !COUNTY_RATIOS[usps]) return null;
-  return COUNTY_RATIOS[usps].fips?.[String(countyFips)] || COUNTY_RATIOS[usps].fips?.[+countyFips] || null;
+  // Try our JSON lookup first
+  if (COUNTY_RATIOS?.[usps]){
+    const fipsKey = String(countyFips).padStart(5,"0");
+    const name = COUNTY_RATIOS[usps].fips?.[fipsKey] || COUNTY_RATIOS[usps].fips?.[String(+countyFips)];
+    if (name) return name;
+  }
+  // Fall back to GeoJSON properties.NAME
+  if (ALL_COUNTY_GEO){
+    const feat = ALL_COUNTY_GEO.features.find(f => String(f.id) === String(countyFips).padStart(5,"0"));
+    if (feat?.properties?.NAME) return feat.properties.NAME.toUpperCase();
+  }
+  return null;
 }
 
 function countyColor(modeKey, usps, countyFips, stateMargin){
-  const est = countyEstimate(modeKey, usps, countyFips);
+  const est = countyEstimate(modeKey, usps, String(countyFips).padStart(5,"0"));
   if (est) return interpColor(est.R - est.D);
-  // Fall back to state color
   return isFinite(stateMargin) ? interpColor(stateMargin) : "#e5e7eb";
 }
 
@@ -1855,10 +1869,6 @@ async function zoomToStateCounties(modeKey, usps, stateFips){
 
   // Draw county layer
   const countyG = m.gRoot.append("g").attr("class","countyG");
-
-  // Debug: log FIPS → name mappings for this state
-  console.log(`County zoom ${usps}: ${counties.length} features. Sample IDs:`,
-    counties.slice(0,10).map(d => `${d.id}→${getCountyName(usps, d.id) || '?'}`).join(', '));
 
   countyG.selectAll("path")
     .data(counties)
@@ -1923,17 +1933,17 @@ function setupMapControlBars(){
 }
 
 function showCountyTooltip(event, modeKey, usps, countyFips){
-  const rawFips = countyFips; // for debug
-  const est = countyEstimate(modeKey, usps, countyFips);
-  const countyName = est?.name || getCountyName(usps, countyFips) || `Unknown`;
+  const fipsNorm = String(countyFips).padStart(5,"0");
+  const est = countyEstimate(modeKey, usps, fipsNorm);
+  const countyName = est?.name || getCountyName(usps, fipsNorm) || `County ${countyFips}`;
 
   if (!est){
     const stModel = getStateModel(modeKey, usps, IND_CACHE[modeKey]);
     const stMargin = stModel ? marginRD(stModel.combinedPair) : NaN;
     tipState.textContent = `${countyName} Co.`;
-    tipMeta.textContent = `${usps} · FIPS ${rawFips}`;
+    tipMeta.textContent = `${usps} · state-level only`;
     tipWinner.textContent = isFinite(stMargin) ? fmtLead(stMargin) : "—";
-    tipProb.textContent = "state-level only";
+    tipProb.textContent = "";
     const resDot = tipResultBadge.querySelector(".dot");
     resDot.classList.toggle("blue", stMargin <= 0);
     resDot.classList.toggle("red", stMargin > 0);
@@ -1948,7 +1958,7 @@ function showCountyTooltip(event, modeKey, usps, countyFips){
   const wp = winProbFromMargin(margin);
 
   tipState.textContent = `${countyName} Co.`;
-  tipMeta.textContent = `${usps} · ${modeKey === "senate" ? "Senate" : "Gov"} '26 · FIPS ${rawFips}`;
+  tipMeta.textContent = `${usps} · ${modeKey === "senate" ? "Senate" : "Gov"} '26`;
 
   tipWinner.textContent = fmtLead(margin);
   const resDot = tipResultBadge.querySelector(".dot");
