@@ -1234,6 +1234,22 @@ function positionTooltip(evt){
   tip.style.left = x + "px";
   tip.style.top  = y + "px";
 }
+function positionTooltipLeft(evt){
+  const pad = 14;
+  const w = tip.offsetWidth;
+  const h = tip.offsetHeight;
+
+  // Prefer left side of cursor
+  let x = evt.clientX - w - pad;
+  let y = evt.clientY + pad;
+
+  // If off-screen left, flip to right
+  if (x < pad) x = evt.clientX + pad;
+  if (y + h + pad > window.innerHeight) y = evt.clientY - h - pad;
+
+  tip.style.left = x + "px";
+  tip.style.top  = y + "px";
+}
 function hideTooltip(){ tip.style.transform = "translate(-9999px,-9999px)"; }
 
 /* ---------- Mini histogram hover ---------- */
@@ -1808,15 +1824,15 @@ async function zoomToStateCounties(modeKey, usps, stateFips){
   const stateModel = getStateModel(modeKey, usps, IND_CACHE[modeKey]);
   const stateMargin = stateModel ? marginRD(stateModel.combinedPair) : NaN;
 
-  // Zoom to state bounds
+  // Zoom to state bounds — offset to right side to leave room for tooltip on left
   const countyCollection = { type:"FeatureCollection", features: counties };
   const [[x0,y0],[x1,y1]] = d3.geoPath(m.projection).bounds(countyCollection);
   const bw = x1 - x0, bh = y1 - y0;
   if (bw < 1 || bh < 1) return;
   const cx = (x0 + x1) / 2, cy = (y0 + y1) / 2;
   const pad = 1.15;
-  const k = Math.min(m.width / (bw * pad), m.height / (bh * pad));
-  const tx = m.width / 2 - cx * k;
+  const k = Math.min(m.width * 0.6 / (bw * pad), m.height / (bh * pad));
+  const tx = m.width * 0.65 - cx * k;
   const ty = m.height / 2 - cy * k;
 
   m.gRoot.transition().duration(600)
@@ -1859,7 +1875,7 @@ async function zoomToStateCounties(modeKey, usps, stateFips){
       d3.select(event.currentTarget).attr("stroke","var(--ink)").attr("stroke-width",1);
       showCountyTooltip(event, modeKey, usps, getCountyNameFromFeature(d));
     })
-    .on("mousemove", (event) => positionTooltip(event))
+    .on("mousemove", (event) => positionTooltipLeft(event))
     .on("mouseleave", (event) => {
       d3.select(event.currentTarget).attr("stroke","white").attr("stroke-width",0.3);
       hideTooltip();
@@ -1927,7 +1943,7 @@ function showCountyTooltip(event, modeKey, usps, countyName){
     tipSliders.innerHTML = "";
     tip.classList.toggle("compact", TOOLTIP_COMPACT);
     tip.style.transform = "translate(0,0)";
-    positionTooltip(event);
+    positionTooltipLeft(event);
     return;
   }
 
@@ -1988,7 +2004,7 @@ function showCountyTooltip(event, modeKey, usps, countyName){
   tipSliders.innerHTML = bodyHTML;
   tip.classList.toggle("compact", TOOLTIP_COMPACT);
   tip.style.transform = "translate(0,0)";
-  positionTooltip(event);
+  positionTooltipLeft(event);
 }
 
 async function initHouseMapForMode(ui){
