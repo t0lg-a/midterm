@@ -746,37 +746,42 @@ function getStateModel(modeKey, st, cachedIndNat){
 }
 
 
+// Hispanic baseline baked into the district ratios (2024 exit poll)
+const HISPANIC_BASELINE = normalizePair(52, 46); // {D: 53.06, R: 46.94}
+
 function getHouseModel(did){
   const gb = DATA.house.gb || DATA.senate.gb || DATA.governor.gb || {D:50,R:50};
   const ratio = DATA.house.ratios[did];
   if (!ratio) return null;
 
-  // Base estimate from generic ballot × ratio
-  let cdD = ratio.D * gb.D;
-  let cdR = ratio.R * gb.R;
+  let adjD = ratio.D, adjR = ratio.R;
 
-  // Hispanic adjustment: if this CD has Hispanic share data and we have Hispanic polling
+  // Hispanic swing adjustment: ratios assumed HISPANIC_BASELINE.
+  // If current Hispanic polling differs, shift the ratio for Hispanic-heavy districts.
   const meta = DATA.house.meta[did];
   const code = meta?.code;
-  if (code && HISPANIC_SHARE[code] && HISPANIC_GB){
-    const h_cd = HISPANIC_SHARE[code];
-    const hD = HISPANIC_GB.D;
-    const hR = HISPANIC_GB.R;
-    // CD_D = ratio_D × natl_D + h_cd × ratio_D × (H_D - natl_D)
-    // CD_R = ratio_R × natl_R + h_cd × ratio_R × (H_R - natl_R)
-    cdD += h_cd * ratio.D * (hD - gb.D);
-    cdR += h_cd * ratio.R * (hR - gb.R);
+  const h_cd = (code && HISPANIC_SHARE[code]) ? HISPANIC_SHARE[code] : 0;
+
+  if (h_cd > 0 && HISPANIC_GB){
+    // Swing = how much Hispanic vote moved from baseline
+    const swingD = (HISPANIC_GB.D - HISPANIC_BASELINE.D) / HISPANIC_BASELINE.D;
+    const swingR = (HISPANIC_GB.R - HISPANIC_BASELINE.R) / HISPANIC_BASELINE.R;
+    // Scale ratio by Hispanic share × swing
+    adjD = ratio.D * (1 + h_cd * swingD);
+    adjR = ratio.R * (1 + h_cd * swingR);
   }
 
+  const gbPair = computeGenericBallotState(gb, ratio); // original ratio for "Generic ballot" row
+  const cdD = adjD * gb.D;
+  const cdR = adjR * gb.R;
   const s = cdD + cdR;
   const combinedPair = (s > 0) ? {D: 100*cdD/s, R: 100*cdR/s} : {D:50, R:50};
-  const gbPair = computeGenericBallotState(gb, ratio);
   const combinedSigma = 5;
 
   const mFinal = marginRD(combinedPair);
   const winProb = winProbFromMargin(mFinal);
 
-  return { gbPair, combinedPair, combinedSigma, winProb };
+  return { gbPair, combinedPair, combinedSigma, winProb, h_cd };
 }
 
 /* ---------- Hispanic CD polling adjustment ---------- */
@@ -1023,14 +1028,11 @@ function buildDetailHTML(modeKey, key, cachedIndNat){
 
     rows.push(miniMeterHTML("Generic ballot", gbM));
 
-    // Hispanic voter adjustment row
-    const meta = DATA.house.meta[key];
-    const code = meta?.code;
-    const h_cd = code ? HISPANIC_SHARE[code] : 0;
-    if (h_cd && HISPANIC_GB){
-      const hispPct = (h_cd * 100).toFixed(0);
-      const hispMarginRaw = HISPANIC_GB.R - HISPANIC_GB.D;
-      rows.push(miniMeterHTML(`Hispanic (${hispPct}%)`, hispMarginRaw));
+    // Hispanic voter support row — shows national Hispanic margin + district H share
+    if (model.h_cd > 0 && HISPANIC_GB){
+      const hispPct = (model.h_cd * 100).toFixed(0);
+      const hispMargin = HISPANIC_GB.R - HISPANIC_GB.D;
+      rows.push(miniMeterHTML(`Hispanic (${hispPct}%)`, hispMargin));
     } else {
       rows.push(miniMeterHTML("Hispanic", NaN, "—"));
     }
