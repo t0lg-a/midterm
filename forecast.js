@@ -1856,6 +1856,10 @@ async function zoomToStateCounties(modeKey, usps, stateFips){
   // Draw county layer
   const countyG = m.gRoot.append("g").attr("class","countyG");
 
+  // Debug: log FIPS → name mappings for this state
+  console.log(`County zoom ${usps}: ${counties.length} features. Sample IDs:`,
+    counties.slice(0,10).map(d => `${d.id}→${getCountyName(usps, d.id) || '?'}`).join(', '));
+
   countyG.selectAll("path")
     .data(counties)
     .join("path")
@@ -1919,15 +1923,15 @@ function setupMapControlBars(){
 }
 
 function showCountyTooltip(event, modeKey, usps, countyFips){
+  const rawFips = countyFips; // for debug
   const est = countyEstimate(modeKey, usps, countyFips);
-  const countyName = est?.name || getCountyName(usps, countyFips) || `FIPS ${countyFips}`;
+  const countyName = est?.name || getCountyName(usps, countyFips) || `Unknown`;
 
   if (!est){
-    // No county-level data — show state-level info
     const stModel = getStateModel(modeKey, usps, IND_CACHE[modeKey]);
     const stMargin = stModel ? marginRD(stModel.combinedPair) : NaN;
     tipState.textContent = `${countyName} Co.`;
-    tipMeta.textContent = usps;
+    tipMeta.textContent = `${usps} · FIPS ${rawFips}`;
     tipWinner.textContent = isFinite(stMargin) ? fmtLead(stMargin) : "—";
     tipProb.textContent = "state-level only";
     const resDot = tipResultBadge.querySelector(".dot");
@@ -1944,7 +1948,7 @@ function showCountyTooltip(event, modeKey, usps, countyFips){
   const wp = winProbFromMargin(margin);
 
   tipState.textContent = `${countyName} Co.`;
-  tipMeta.textContent = `${usps} · ${modeKey === "senate" ? "Senate" : "Gov"} '26`;
+  tipMeta.textContent = `${usps} · ${modeKey === "senate" ? "Senate" : "Gov"} '26 · FIPS ${rawFips}`;
 
   tipWinner.textContent = fmtLead(margin);
   const resDot = tipResultBadge.querySelector(".dot");
