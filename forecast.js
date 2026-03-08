@@ -1715,7 +1715,211 @@ async function initStateMapForMode(modeKey, ui){
       hideTooltip();
     });
 
-  MAP[modeKey] = { kind:"states", svg, gRoot };
+  MAP[modeKey] = { kind:"states", svg, gRoot, projection, pathGen, width, height };
+
+  // Click any active state → zoom to county view
+  gRoot.selectAll(".state.active")
+    .style("cursor", "pointer")
+    .on("click", (event, d) => {
+      event.stopPropagation();
+      const st = fipsToUsps(d.id);
+      if (st) zoomToStateCounties(modeKey, st, d.id);
+    });
+
+  // Double-click or click background resets to US
+  svg.on("dblclick", () => zoomBackToUS(modeKey));
+  svg.on("click", (event) => {
+    if (event.target.tagName === "svg") zoomBackToUS(modeKey);
+  });
+}
+
+/* ---------- State → County Zoom ---------- */
+let ALL_COUNTY_GEO = null;
+
+async function loadAllCountyGeo(){
+  if (ALL_COUNTY_GEO) return ALL_COUNTY_GEO;
+  const topo = await fetch("https://cdn.jsdelivr.net/npm/us-atlas@3/counties-10m.json").then(r=>r.json());
+  ALL_COUNTY_GEO = topojson.feature(topo, topo.objects.counties);
+  return ALL_COUNTY_GEO;
+}
+
+// FIPS state prefix (2-digit) from full county FIPS
+function fipsStatePrefix(fips){ return String(fips).padStart(5,"0").slice(0,2); }
+
+// State FIPS prefix from USPS code
+const USPS_TO_FIPS_PREFIX = {
+  AL:"01",AK:"02",AZ:"04",AR:"05",CA:"06",CO:"08",CT:"09",DE:"10",DC:"11",FL:"12",
+  GA:"13",HI:"15",ID:"16",IL:"17",IN:"18",IA:"19",KS:"20",KY:"21",LA:"22",ME:"23",
+  MD:"24",MA:"25",MI:"26",MN:"27",MS:"28",MO:"29",MT:"30",NE:"31",NV:"32",NH:"33",
+  NJ:"34",NM:"35",NY:"36",NC:"37",ND:"38",OH:"39",OK:"40",OR:"41",PA:"42",RI:"44",
+  SC:"45",SD:"46",TN:"47",TX:"48",UT:"49",VT:"50",VA:"51",WA:"53",WV:"54",WI:"55",WY:"56"
+};
+
+function getCountiesForState(allGeo, usps){
+  const prefix = USPS_TO_FIPS_PREFIX[usps];
+  if (!prefix) return [];
+  return allGeo.features.filter(f => fipsStatePrefix(f.id) === prefix);
+}
+
+// County-level model estimate (TX has ratio data; others inherit state color)
+function countyEstimate(modeKey, usps, countyFips){
+  if (usps === "TX" && typeof TX_COUNTY_DATA !== "undefined" && typeof TX_FIPS2NAME !== "undefined"){
+    const name = TX_FIPS2NAME[+countyFips];
+    if (name){
+      const cd = TX_COUNTY_DATA[name];
+      if (cd){
+        const gb = DATA[modeKey]?.gb;
+        if (gb){
+          const rawD = gb.D * cd[0], rawR = gb.R * cd[1];
+          const s = rawD + rawR;
+          if (s > 0) return { D: 100*rawD/s, R: 100*rawR/s, name, hist: cd };
+        }
+      }
+    }
+  }
+  return null; // no county-level data
+}
+
+function countyColor(modeKey, usps, countyFips, stateMargin){
+  const est = countyEstimate(modeKey, usps, countyFips);
+  if (est) return interpColor(est.R - est.D);
+  // Fall back to state color
+  return isFinite(stateMargin) ? interpColor(stateMargin) : "#e5e7eb";
+}
+
+async function zoomToStateCounties(modeKey, usps, stateFips){
+  const m = MAP[modeKey];
+  if (!m) return;
+
+  // If already zoomed, reset first
+  if (m._countyZoomed) zoomBackToUS(modeKey, true);
+
+  const allGeo = await loadAllCountyGeo();
+  const counties = getCountiesForState(allGeo, usps);
+  if (!counties.length) return;
+
+  m.gRoot.selectAll(".countyG").remove();
+
+  // Compute state margin for fallback coloring
+  const stateModel = getStateModel(modeKey, usps, IND_CACHE[modeKey]);
+  const stateMargin = stateModel ? marginRD(stateModel.combinedPair) : NaN;
+
+  // Zoom to state bounds
+  const countyCollection = { type:"FeatureCollection", features: counties };
+  const [[x0,y0],[x1,y1]] = d3.geoPath(m.projection).bounds(countyCollection);
+  const bw = x1 - x0, bh = y1 - y0;
+  if (bw < 1 || bh < 1) return;
+  const cx = (x0 + x1) / 2, cy = (y0 + y1) / 2;
+  const pad = 1.15;
+  const k = Math.min(m.width / (bw * pad), m.height / (bh * pad));
+  const tx = m.width / 2 - cx * k;
+  const ty = m.height / 2 - cy * k;
+
+  m.gRoot.transition().duration(600)
+    .attr("transform", `translate(${tx},${ty}) scale(${k})`);
+
+  // Fade other states
+  m.gRoot.selectAll(".state").transition().duration(400)
+    .style("opacity", function(){ return this.getAttribute("data-st") === usps ? 0 : 0.12; });
+
+  // Draw county layer
+  const countyG = m.gRoot.append("g").attr("class","countyG");
+
+  countyG.selectAll("path")
+    .data(counties)
+    .join("path")
+    .attr("d", d3.geoPath(m.projection))
+    .attr("fill", d => countyColor(modeKey, usps, d.id, stateMargin))
+    .attr("stroke", "white")
+    .attr("stroke-width", 0.3)
+    .attr("vector-effect", "non-scaling-stroke")
+    .style("cursor", "default")
+    .on("mouseenter", (event, d) => {
+      d3.select(event.currentTarget).attr("stroke","var(--ink)").attr("stroke-width",1);
+      showCountyTooltip(event, modeKey, usps, d.id);
+    })
+    .on("mousemove", (event) => positionTooltip(event))
+    .on("mouseleave", (event) => {
+      d3.select(event.currentTarget).attr("stroke","white").attr("stroke-width",0.3);
+      hideTooltip();
+    });
+
+  m._countyZoomed = usps;
+}
+
+function zoomBackToUS(modeKey, instant){
+  const m = MAP[modeKey];
+  if (!m || !m._countyZoomed) return;
+
+  const dur = instant ? 0 : 600;
+  m.gRoot.transition().duration(dur).attr("transform", "");
+  m.gRoot.selectAll(".state").transition().duration(instant ? 0 : 400).style("opacity", 1);
+  m.gRoot.selectAll(".countyG").transition().duration(instant ? 0 : 300).style("opacity", 0).remove();
+  m._countyZoomed = false;
+}
+
+function showCountyTooltip(event, modeKey, usps, countyFips){
+  const tip = document.getElementById("tip");
+  if (!tip) return;
+
+  const est = countyEstimate(modeKey, usps, countyFips);
+  const stateName = USPS_TO_NAME[usps] || usps;
+
+  // Try to get county name from FIPS
+  let countyName = "";
+  if (usps === "TX" && typeof TX_FIPS2NAME !== "undefined"){
+    countyName = TX_FIPS2NAME[+countyFips] || "";
+  }
+  if (!countyName){
+    countyName = `County ${countyFips}`;
+  }
+
+  const dPct = est ? est.D.toFixed(1) : "—";
+  const rPct = est ? est.R.toFixed(1) : "—";
+  const margin = est ? (est.R - est.D) : NaN;
+  const marginStr = isFinite(margin) ? fmtLead(margin) : "—";
+
+  let histHTML = "";
+  if (est?.hist){
+    const cd = est.hist;
+    histHTML = `
+      <div style="margin-top:8px;border-top:1px solid var(--line);padding-top:6px;">
+        <div style="font-size:10px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px;">Historical</div>
+        <div style="display:grid;grid-template-columns:auto 1fr 1fr;gap:2px 8px;font-size:11px;font-variant-numeric:tabular-nums;">
+          <span style="color:var(--muted);font-weight:700;">'24 Pres</span><span style="color:var(--blue);font-weight:700;">${cd[4].toFixed(1)}</span><span style="color:var(--red);font-weight:700;">${cd[5].toFixed(1)}</span>
+          <span style="color:var(--muted);font-weight:700;">'22 Gov</span><span style="color:var(--blue);font-weight:700;">${cd[8].toFixed(1)}</span><span style="color:var(--red);font-weight:700;">${cd[9].toFixed(1)}</span>
+          <span style="color:var(--muted);font-weight:700;">'20 Pres</span><span style="color:var(--blue);font-weight:700;">${cd[2].toFixed(1)}</span><span style="color:var(--red);font-weight:700;">${cd[3].toFixed(1)}</span>
+          <span style="color:var(--muted);font-weight:700;">'18 Sen</span><span style="color:var(--blue);font-weight:700;">${cd[6].toFixed(1)}</span><span style="color:var(--red);font-weight:700;">${cd[7].toFixed(1)}</span>
+        </div>
+      </div>
+    `;
+  }
+
+  const bodyLabel = est
+    ? `2026 ${modeKey === "senate" ? "Senate" : "Governor"} est.`
+    : `${modeKey === "senate" ? "Senate" : "Governor"} — state-level model only`;
+
+  tip.className = "compact";
+  tip.innerHTML = `
+    <div class="tipTop">
+      <div class="tipHeader">
+        <h3 class="tipTitle">${countyName}${countyName.endsWith("Co.") ? "" : " Co."}</h3>
+        <div class="tipMeta">${usps}</div>
+      </div>
+      ${est ? `<div class="tipSub">
+        <span class="badge"><span class="dot blue"></span>${dPct}%</span>
+        <span class="badge"><span class="dot red"></span>${rPct}%</span>
+        <span class="badge">${marginStr}</span>
+      </div>` : ""}
+    </div>
+    <div class="tipBody">
+      <div style="font-size:10px;font-weight:700;color:var(--muted);">${bodyLabel}</div>
+      ${histHTML}
+    </div>
+  `;
+
+  tip.style.transform = "";
+  positionTooltip(event);
 }
 
 async function initHouseMapForMode(ui){
