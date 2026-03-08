@@ -1948,7 +1948,7 @@ function showStateInfoPanel(modeKey, usps){
   panel.innerHTML = `
     <div class="tipTop">
       <div class="tipHeader">
-        <h3 class="tipTitle">${name} (${usps})</h3>
+        <h3 class="tipTitle">${usps}</h3>
         <div class="tipMeta">${metaText}</div>
       </div>
       <div class="tipSub">
@@ -1960,7 +1960,7 @@ function showStateInfoPanel(modeKey, usps){
       ${detail.body}
       <div class="tipSparkWrap">
         <div class="tipSparkTitle">
-          <span>Win probability</span>
+          <span>Win prob</span>
           <span class="mono" id="panelSparkVal">—</span>
         </div>
         <canvas id="panelSpark"></canvas>
