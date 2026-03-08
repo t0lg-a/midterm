@@ -762,10 +762,10 @@ function getHouseModel(did){
     const h_cd = HISPANIC_SHARE[code];
     const hD = HISPANIC_GB.D;
     const hR = HISPANIC_GB.R;
-    // CD_D = ratio_D × natl_D + (h_cd/3) × ratio_D × (H_D - natl_D)
-    // CD_R = ratio_R × natl_R + (h_cd/3) × ratio_R × (H_R - natl_R)
-    cdD += (h_cd / 3) * ratio.D * (hD - gb.D);
-    cdR += (h_cd / 3) * ratio.R * (hR - gb.R);
+    // CD_D = ratio_D × natl_D + h_cd × ratio_D × (H_D - natl_D)
+    // CD_R = ratio_R × natl_R + h_cd × ratio_R × (H_R - natl_R)
+    cdD += h_cd * ratio.D * (hD - gb.D);
+    cdR += h_cd * ratio.R * (hR - gb.R);
   }
 
   const s = cdD + cdR;
