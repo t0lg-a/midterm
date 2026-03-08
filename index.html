@@ -955,24 +955,6 @@
 .simTip .k{ font-weight:900; opacity:0.95; }
 
 .mapCard{ position:relative; }
-    .mapZoomBar{
-      position:absolute;
-      bottom:8px;
-      left:8px;
-      right:8px;
-      z-index:10;
-      display:flex;
-      align-items:center;
-      gap:3px;
-      padding:5px 8px;
-      flex-wrap:wrap;
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      border-radius:var(--radius-md);
-      border:1px solid var(--card-border);
-      box-shadow: var(--card-shadow);
-    }
     .zoomBtn{
       appearance:none;
       border:1px solid var(--line);
@@ -1018,34 +1000,6 @@
   font-weight:600;
   color: var(--muted);
 }
-    .mapControlBar{
-      display:flex;
-      align-items:center;
-      gap:8px;
-      padding:6px 12px;
-      background: var(--card-bg);
-      border:1px solid var(--card-border);
-      border-radius:var(--radius-sm);
-      backdrop-filter: blur(10px);
-      font-size:11px;
-      font-weight:600;
-      color:var(--muted);
-    }
-    .mapCtrlBtn{
-      appearance:none;
-      border:1px solid var(--line);
-      background:var(--neutral-bg);
-      color:var(--ink-dim);
-      font-size:11px;
-      font-weight:700;
-      padding:3px 10px;
-      border-radius:var(--radius-pill);
-      cursor:pointer;
-      transition: all 0.12s ease;
-      white-space:nowrap;
-    }
-    .mapCtrlBtn:hover{ background:var(--line); color:var(--ink); }
-    .mapCtrlLabel{ color:var(--muted-light); font-style:italic; }
 
     /* ---------- Three-panel (Senate/Gov/House) layout ---------- */
     .triGrid{
@@ -1100,8 +1054,9 @@
     .mapControlBar{
       display:flex;
       align-items:center;
-      gap:8px;
+      gap:6px;
       padding:6px 10px;
+      flex-wrap:wrap;
       font-size:11px;
       font-weight:600;
       color:var(--muted);
@@ -1499,26 +1454,27 @@
     <section class="card mapCard" aria-label="Map">
       <div class="mapGrid">
         <div class="mapStage">
-          <div class="mapZoomBar">
-            <button class="zoomBtn active" data-zoom="us">US</button>
-            <select class="zoomSelect" data-zoom-select>
-              <option value="">State…</option>
-            </select>
-            <span class="zoomSep">|</span>
-            <button class="zoomBtn" data-zoom="nyc">NYC</button>
-            <button class="zoomBtn" data-zoom="la">LA</button>
-            <button class="zoomBtn" data-zoom="chi">CHI</button>
-            <button class="zoomBtn" data-zoom="dfw">DFW</button>
-            <button class="zoomBtn" data-zoom="hou">HOU</button>
-            <button class="zoomBtn" data-zoom="atl">ATL</button>
-            <button class="zoomBtn" data-zoom="dc">DC</button>
-            <button class="zoomBtn" data-zoom="phx">PHX</button>
-            <button class="zoomBtn" data-zoom="mia">MIA</button>
-          </div>
           <svg class="mapSvg" aria-label="US map"></svg>
         </div>
       </div>
     </section>
+
+    <div class="mapControlBar" data-map-controls>
+      <button class="zoomBtn active" data-zoom="us">US</button>
+      <select class="zoomSelect" data-zoom-select>
+        <option value="">State…</option>
+      </select>
+      <span class="zoomSep">|</span>
+      <button class="zoomBtn" data-zoom="nyc">NYC</button>
+      <button class="zoomBtn" data-zoom="la">LA</button>
+      <button class="zoomBtn" data-zoom="chi">CHI</button>
+      <button class="zoomBtn" data-zoom="dfw">DFW</button>
+      <button class="zoomBtn" data-zoom="hou">HOU</button>
+      <button class="zoomBtn" data-zoom="atl">ATL</button>
+      <button class="zoomBtn" data-zoom="dc">DC</button>
+      <button class="zoomBtn" data-zoom="phx">PHX</button>
+      <button class="zoomBtn" data-zoom="mia">MIA</button>
+    </div>
 
     <section class="card oddsCard" aria-label="House model output">
       <div class="oddsHead">
@@ -1561,6 +1517,6 @@
 
   <div id="simTip" class="simTip" aria-hidden="true"></div>
 
-<script src="forecast.js?v=9"></script>
+<script src="forecast.js?v=10"></script>
 </body>
 </html>

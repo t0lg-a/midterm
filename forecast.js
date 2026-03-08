@@ -1777,6 +1777,7 @@ function getCountiesForState(allGeo, usps){
 }
 
 // County-level model estimate from county_ratios.json
+// Uses the state-level combined model (GB + polls + indicator) which differs per mode
 function countyEstimate(modeKey, usps, countyFips){
   if (!COUNTY_RATIOS || !COUNTY_RATIOS[usps]) return null;
   const stData = COUNTY_RATIOS[usps];
@@ -1784,9 +1785,22 @@ function countyEstimate(modeKey, usps, countyFips){
   if (!name) return null;
   const cd = stData.counties?.[name];
   if (!cd) return null;
-  const gb = DATA[modeKey]?.gb;
-  if (!gb) return null;
-  const rawD = gb.D * cd.dRatio, rawR = gb.R * cd.rRatio;
+
+  // Get the state-level combined model output (includes polls + indicator, differs by mode)
+  const stModel = getStateModel(modeKey, usps, IND_CACHE[modeKey]);
+  let stD, stR;
+  if (stModel){
+    stD = stModel.combinedPair.D;
+    stR = stModel.combinedPair.R;
+  } else {
+    // Fallback to national GB
+    const gb = DATA[modeKey]?.gb;
+    if (!gb) return null;
+    stD = gb.D;
+    stR = gb.R;
+  }
+
+  const rawD = stD * cd.dRatio, rawR = stR * cd.rRatio;
   const s = rawD + rawR;
   if (s <= 0) return null;
   return { D: 100*rawD/s, R: 100*rawR/s, name, hist: cd.hist };
