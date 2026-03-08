@@ -1883,6 +1883,9 @@ async function zoomToStateCounties(modeKey, usps, stateFips){
 
   m._countyZoomed = usps;
   updateMapControlBar(modeKey, usps);
+
+  // Show pinned state info panel on left
+  showStateInfoPanel(modeKey, usps);
 }
 
 function zoomBackToUS(modeKey, instant){
@@ -1895,6 +1898,7 @@ function zoomBackToUS(modeKey, instant){
   m.gRoot.selectAll(".countyG").transition().duration(instant ? 0 : 300).style("opacity", 0).remove();
   m._countyZoomed = false;
   updateMapControlBar(modeKey, null);
+  hideStateInfoPanel(modeKey);
 }
 
 /* ---------- Map Control Bar ---------- */
@@ -1922,6 +1926,72 @@ function setupMapControlBars(){
       backBtn.addEventListener("click", () => zoomBackToUS(mode));
     }
   }
+}
+
+function showStateInfoPanel(modeKey, usps){
+  const root = document.querySelector(`.modeCol[data-mode='${modeKey}']`);
+  if (!root) return;
+  const panel = root.querySelector("[data-state-panel]");
+  if (!panel) return;
+
+  const detail = buildDetailHTML(modeKey, usps, IND_CACHE[modeKey]);
+  if (!detail.header){ panel.classList.remove("visible"); return; }
+
+  const { resultText, probText, metaText, mFinal } = detail.header;
+  const name = USPS_TO_NAME[usps] || usps;
+
+  const dotColor = mFinal <= 0 ? "blue" : "red";
+  const pd = parseInt(probText.match(/D\s(\d+)%/)?.[1] || "50", 10);
+  const pr = parseInt(probText.match(/R\s(\d+)%/)?.[1] || "50", 10);
+  const probDotColor = pd > pr ? "blue" : "red";
+
+  panel.innerHTML = `
+    <div class="tipTop">
+      <div class="tipHeader">
+        <h3 class="tipTitle">${name} (${usps})</h3>
+        <div class="tipMeta">${metaText}</div>
+      </div>
+      <div class="tipSub">
+        <span class="badge"><span class="dot ${dotColor}"></span>${resultText}</span>
+        <span class="badge"><span class="dot ${probDotColor}"></span>${probText}</span>
+      </div>
+    </div>
+    <div class="tipBody">
+      ${detail.body}
+      <div class="tipSparkWrap">
+        <div class="tipSparkTitle">
+          <span>Win probability</span>
+          <span class="mono" id="panelSparkVal">—</span>
+        </div>
+        <canvas id="panelSpark"></canvas>
+      </div>
+    </div>
+  `;
+
+  panel.classList.add("visible");
+
+  // Render spark chart
+  requestAnimationFrame(() => {
+    const canvas = document.getElementById("panelSpark");
+    const label = document.getElementById("panelSparkVal");
+    if (!canvas) return;
+
+    const days = NaN; // all
+    const gbSub = (GB_SRC.series || []).slice();
+    const vals = computeWinProbSeries(modeKey, usps, IND_CACHE[modeKey], gbSub);
+
+    if (vals && vals.length && label){
+      label.textContent = `${(vals[vals.length-1]*100).toFixed(0)}%`;
+    }
+    drawProbSpark(canvas, vals);
+  });
+}
+
+function hideStateInfoPanel(modeKey){
+  const root = document.querySelector(`.modeCol[data-mode='${modeKey}']`);
+  if (!root) return;
+  const panel = root.querySelector("[data-state-panel]");
+  if (panel) panel.classList.remove("visible");
 }
 
 function showCountyTooltip(event, modeKey, usps, countyName){
