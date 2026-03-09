@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-08T11:38:18.239Z",
+  "updatedAt": "2026-03-09T11:51:50.469Z",
   "approval": [
     {
       "id": "appdonanga5ea4150",
@@ -184,6 +184,34 @@
       "seat_name": null,
       "sponsors": [
         "DailyMail.com"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonhar6edda458",
+      "poll_type": "approval",
+      "sample_size": 1000,
+      "population": "rv",
+      "url": "https://s3.documentcloud.org/documents/27777984/nbc-news-march-2026-poll-03-08-2024-release-final.pdf",
+      "created_at": "2026-03-08",
+      "start_date": "2026-02-27",
+      "end_date": "2026-03-03",
+      "pollster": "Hart Research Associates/Public Opinion Strategies",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 44
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 54
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "NBC News"
       ],
       "internal": false,
       "partisan": null,
@@ -20789,34 +20817,6 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonfabwflof00k",
-      "poll_type": "approval",
-      "sample_size": 3000,
-      "population": "rv",
-      "url": "https://www.aarp.org/content/dam/aarp/research/topics/voter-opinion-research/politics/federal-tax-package-legislative-priorities.doi.10.26419-2fres.00921.001.pdf",
-      "created_at": "2025-02-11",
-      "start_date": "2025-01-27",
-      "end_date": "2025-02-01",
-      "pollster": "Fabrizio, Lee & Associates/Impact Research",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 48
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 47
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "AARP"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -20842,34 +20842,6 @@
       ],
       "seat_name": "Generic",
       "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "2026"
-    },
-    {
-      "id": "gen202fabe2zwvj7q",
-      "poll_type": "generic-ballot",
-      "sample_size": 3000,
-      "population": "rv",
-      "url": "https://www.aarp.org/content/dam/aarp/research/topics/voter-opinion-research/politics/federal-tax-package-legislative-priorities.doi.10.26419-2fres.00921.001.pdf",
-      "created_at": "2025-02-11",
-      "start_date": "2025-01-27",
-      "end_date": "2025-02-01",
-      "pollster": "Fabrizio, Lee & Associates/Impact Research",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 43
-        },
-        {
-          "choice": "Rep",
-          "pct": 43
-        }
-      ],
-      "seat_name": "Generic",
-      "sponsors": [
-        "AARP"
-      ],
       "internal": false,
       "partisan": null,
       "subject": "2026"
@@ -29877,6 +29849,34 @@
       ],
       "internal": false,
       "partisan": "REP",
+      "subject": "2026"
+    },
+    {
+      "id": "gen202hard90e1273",
+      "poll_type": "generic-ballot",
+      "sample_size": 1000,
+      "population": "rv",
+      "url": "https://s3.documentcloud.org/documents/27777984/nbc-news-march-2026-poll-03-08-2024-release-final.pdf",
+      "created_at": "2026-03-08",
+      "start_date": "2026-02-27",
+      "end_date": "2026-03-03",
+      "pollster": "Hart Research Associates/Public Opinion Strategies",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 50
+        },
+        {
+          "choice": "Rep",
+          "pct": 44
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "NBC News"
+      ],
+      "internal": false,
+      "partisan": null,
       "subject": "2026"
     }
   ],
