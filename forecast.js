@@ -1178,8 +1178,10 @@ function drawProbSpark(canvas, values){
   }
   ctx.stroke();
 
-  // R area fill
-  ctx.globalAlpha = 0.06;
+  const mid = cssH * 0.5; // 50% line
+
+  // R area fill toward 50%
+  ctx.globalAlpha = 0.07;
   ctx.fillStyle = red;
   ctx.beginPath();
   for (let i=0;i<n;i++){
@@ -1188,8 +1190,8 @@ function drawProbSpark(canvas, values){
     const y = (1 - p) * (cssH-1);
     if (i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
   }
-  ctx.lineTo(cssW-1, 0);
-  ctx.lineTo(0, 0);
+  ctx.lineTo(cssW-1, mid);
+  ctx.lineTo(0, mid);
   ctx.closePath();
   ctx.fill();
   ctx.globalAlpha = 1;
@@ -1206,8 +1208,8 @@ function drawProbSpark(canvas, values){
   }
   ctx.stroke();
 
-  // D area fill
-  ctx.globalAlpha = 0.06;
+  // D area fill toward 50%
+  ctx.globalAlpha = 0.07;
   ctx.fillStyle = blue;
   ctx.beginPath();
   for (let i=0;i<n;i++){
@@ -1216,8 +1218,8 @@ function drawProbSpark(canvas, values){
     const y = (1 - p) * (cssH-1);
     if (i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
   }
-  ctx.lineTo(cssW-1, cssH-1);
-  ctx.lineTo(0, cssH-1);
+  ctx.lineTo(cssW-1, mid);
+  ctx.lineTo(0, mid);
   ctx.closePath();
   ctx.fill();
   ctx.globalAlpha = 1;
@@ -1452,8 +1454,8 @@ function ensureSimHover(canvas){
     const seatLabel = (bs > 1) ? `${startSeat}–${endSeat}` : `${startSeat}`;
 
     showSimTip(ev,
-      `<div><span class="k">D seats:</span> ${seatLabel}</div>` +
-      `<div><span class="k">Freq:</span> ${pct.toFixed(1)}%</div>`
+      `<div class="stDate">D seats: ${seatLabel}</div>` +
+      `<div class="stRow"><span class="stLbl">Freq</span><span class="stVal">${pct.toFixed(1)}%</span></div>`
     );
   });
 
@@ -2810,9 +2812,9 @@ function renderComboChart(modeKey, data, chartMode){
         dotD.attr("cx",x(d.date)).attr("cy",y(d.expDem)).style("opacity",1);
         if(seatTotal>0) dotR.attr("cx",x(d.date)).attr("cy",y(seatTotal-d.expDem)).style("opacity",1);
         showSimTip(ev,
-          `<div><span class="k">${ds(d.date)}</span></div>`+
-          `<div><span class="k">D:</span> ${d.expDem.toFixed(1)}</div>`+
-          (seatTotal>0?`<div><span class="k">R:</span> ${(seatTotal-d.expDem).toFixed(1)}</div>`:"")
+          `<div class="stDate">${ds(d.date)}</div>`+
+          `<div class="stRow"><span class="stDot" style="background:var(--blue)"></span><span class="stLbl">D</span><span class="stVal">${d.expDem.toFixed(1)}</span></div>`+
+          (seatTotal>0?`<div class="stRow"><span class="stDot" style="background:var(--red)"></span><span class="stLbl">R</span><span class="stVal">${(seatTotal-d.expDem).toFixed(1)}</span></div>`:"")
         );
       })
       .on("mouseleave",()=>{dotD.style("opacity",0);dotR.style("opacity",0);hideSimTip();});
@@ -2835,12 +2837,12 @@ function renderComboChart(modeKey, data, chartMode){
     svg.append("line").attr("class","seatMajLine")
       .attr("x1",m.l).attr("x2",m.l+iw).attr("y1",y(0.5)).attr("y2",y(0.5));
 
-    // Area fills (subtle)
-    const areaD = d3.area().x(d=>x(d.date)).y0(m.t+ih).y1(d=>y(d.pDem)).curve(d3.curveMonotoneX);
-    svg.append("path").datum(parsed).attr("d",areaD).attr("fill","var(--blue)").attr("opacity",0.06);
+    // Area fills toward 50% midline
+    const areaD = d3.area().x(d=>x(d.date)).y0(y(0.5)).y1(d=>y(d.pDem)).curve(d3.curveMonotoneX);
+    svg.append("path").datum(parsed).attr("d",areaD).attr("fill","var(--blue)").attr("opacity",0.07);
 
-    const areaR = d3.area().x(d=>x(d.date)).y0(m.t).y1(d=>y(d.pRep)).curve(d3.curveMonotoneX);
-    svg.append("path").datum(parsed).attr("d",areaR).attr("fill","var(--red)").attr("opacity",0.06);
+    const areaR = d3.area().x(d=>x(d.date)).y0(y(0.5)).y1(d=>y(d.pRep)).curve(d3.curveMonotoneX);
+    svg.append("path").datum(parsed).attr("d",areaR).attr("fill","var(--red)").attr("opacity",0.07);
 
     const lineD = d3.line().x(d=>x(d.date)).y(d=>y(d.pDem)).curve(d3.curveMonotoneX);
     svg.append("path").datum(parsed).attr("class","lineDem").attr("d",lineD);
@@ -2862,9 +2864,9 @@ function renderComboChart(modeKey, data, chartMode){
         dotD.attr("cx",x(d.date)).attr("cy",y(d.pDem)).style("opacity",1);
         dotR.attr("cx",x(d.date)).attr("cy",y(d.pRep)).style("opacity",1);
         showSimTip(ev,
-          `<div><span class="k">${ds(d.date)}</span></div>`+
-          `<div><span class="k">D:</span> ${(d.pDem*100).toFixed(1)}%</div>`+
-          `<div><span class="k">R:</span> ${(d.pRep*100).toFixed(1)}%</div>`
+          `<div class="stDate">${ds(d.date)}</div>`+
+          `<div class="stRow"><span class="stDot" style="background:var(--blue)"></span><span class="stLbl">D</span><span class="stVal">${(d.pDem*100).toFixed(1)}%</span></div>`+
+          `<div class="stRow"><span class="stDot" style="background:var(--red)"></span><span class="stLbl">R</span><span class="stVal">${(d.pRep*100).toFixed(1)}%</span></div>`
         );
       })
       .on("mouseleave",()=>{dotD.style("opacity",0);dotR.style("opacity",0);hideSimTip();});
@@ -2975,9 +2977,9 @@ function renderOddsChart(modeKey, data){
       const seats = isFinite(d.expDem) ? d.expDem.toFixed(1) : "—";
 
       showSimTip(ev,
-        `<div><span class="k">${ds(d.date)}</span></div>` +
-        `<div><span class="k">P(D control):</span> ${pct}%</div>` +
-        `<div><span class="k">E[D seats]:</span> ${seats}</div>`
+        `<div class="stDate">${ds(d.date)}</div>` +
+        `<div class="stRow"><span class="stDot" style="background:var(--blue)"></span><span class="stLbl">P(D)</span><span class="stVal">${pct}%</span></div>` +
+        `<div class="stRow"><span class="stDot" style="background:var(--blue)"></span><span class="stLbl">E[D]</span><span class="stVal">${seats}</span></div>`
       );
     })
     .on("mouseleave", ()=>{
@@ -3093,9 +3095,9 @@ function renderSeatAvgChart(modeKey, data){
       const pct = isFinite(d.pDem) ? (d.pDem*100).toFixed(1) : "—";
 
       showSimTip(ev,
-        `<div><span class="k">${ds(d.date)}</span></div>` +
-        `<div><span class="k">E[D seats]:</span> ${seats}</div>` +
-        `<div><span class="k">P(D control):</span> ${pct}%</div>`
+        `<div class="stDate">${ds(d.date)}</div>` +
+        `<div class="stRow"><span class="stDot" style="background:var(--blue)"></span><span class="stLbl">E[D]</span><span class="stVal">${seats}</span></div>` +
+        `<div class="stRow"><span class="stDot" style="background:var(--blue)"></span><span class="stLbl">P(D)</span><span class="stVal">${pct}%</span></div>`
       );
     })
     .on("mouseleave", ()=>{
