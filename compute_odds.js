@@ -526,8 +526,8 @@ function simHouseDay(gbD, gbR, ratioD, ratioR, seatTotal, majorityLine, trackHis
     adjR = new Float32Array(ratioR.length);
     for (let k = 0; k < ratioD.length; k++) {
       const h = hcdArr[k];
-      adjD[k] = ratioD[k] * (1 + h * swD);
-      adjR[k] = ratioR[k] * (1 + h * swR);
+      adjD[k] = ratioD[k] * (1 + h * 0.75 * swD);
+      adjR[k] = ratioR[k] * (1 + h * 0.75 * swR);
     }
   }
 
