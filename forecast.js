@@ -1178,9 +1178,8 @@ function drawProbSpark(canvas, values){
   }
   ctx.stroke();
 
-  const mid = cssH * 0.5; // 50% line
 
-  // R area fill toward 50%
+  // R area fill toward bottom (0%)
   ctx.globalAlpha = 0.07;
   ctx.fillStyle = red;
   ctx.beginPath();
@@ -1190,8 +1189,8 @@ function drawProbSpark(canvas, values){
     const y = (1 - p) * (cssH-1);
     if (i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
   }
-  ctx.lineTo(cssW-1, mid);
-  ctx.lineTo(0, mid);
+  ctx.lineTo(cssW-1, cssH-1);
+  ctx.lineTo(0, cssH-1);
   ctx.closePath();
   ctx.fill();
   ctx.globalAlpha = 1;
@@ -1208,7 +1207,7 @@ function drawProbSpark(canvas, values){
   }
   ctx.stroke();
 
-  // D area fill toward 50%
+  // D area fill toward top (100%)
   ctx.globalAlpha = 0.07;
   ctx.fillStyle = blue;
   ctx.beginPath();
@@ -1218,8 +1217,8 @@ function drawProbSpark(canvas, values){
     const y = (1 - p) * (cssH-1);
     if (i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
   }
-  ctx.lineTo(cssW-1, mid);
-  ctx.lineTo(0, mid);
+  ctx.lineTo(cssW-1, 0);
+  ctx.lineTo(0, 0);
   ctx.closePath();
   ctx.fill();
   ctx.globalAlpha = 1;
@@ -1454,8 +1453,8 @@ function ensureSimHover(canvas){
     const seatLabel = (bs > 1) ? `${startSeat}–${endSeat}` : `${startSeat}`;
 
     showSimTip(ev,
-      `<div class="stDate">D seats: ${seatLabel}</div>` +
-      `<div class="stRow"><span class="stLbl">Freq</span><span class="stVal">${pct.toFixed(1)}%</span></div>`
+      `<div class="stDate">${seatLabel} D seats</div>` +
+      `<div class="stRow"><span class="stDot" style="background:var(--blue)"></span><span class="stVal">${pct.toFixed(1)}%</span></div>`
     );
   });
 
@@ -2790,6 +2789,15 @@ function renderComboChart(modeKey, data, chartMode){
         .attr("x",m.l+iw-2).attr("y",y(maj)-4).attr("text-anchor","end").text(`${maj}`);
     }
 
+    // Area fills — D toward top, R toward bottom
+    const areaSeatD = d3.area().x(d=>x(d.date)).y0(m.t).y1(d=>y(d.expDem)).curve(d3.curveMonotoneX);
+    svg.append("path").datum(parsed).attr("d",areaSeatD).attr("fill","var(--blue)").attr("opacity",0.07);
+
+    if (seatTotal > 0){
+      const areaSeatR = d3.area().x(d=>x(d.date)).y0(m.t+ih).y1(d=>y(seatTotal - d.expDem)).curve(d3.curveMonotoneX);
+      svg.append("path").datum(parsed).attr("d",areaSeatR).attr("fill","var(--red)").attr("opacity",0.07);
+    }
+
     const lineD = d3.line().x(d=>x(d.date)).y(d=>y(d.expDem)).curve(d3.curveMonotoneX);
     svg.append("path").datum(parsed).attr("class","seatsLine").attr("d",lineD);
 
@@ -2837,11 +2845,11 @@ function renderComboChart(modeKey, data, chartMode){
     svg.append("line").attr("class","seatMajLine")
       .attr("x1",m.l).attr("x2",m.l+iw).attr("y1",y(0.5)).attr("y2",y(0.5));
 
-    // Area fills toward 50% midline
-    const areaD = d3.area().x(d=>x(d.date)).y0(y(0.5)).y1(d=>y(d.pDem)).curve(d3.curveMonotoneX);
+    // Area fills — D toward 100% (top), R toward 0% (bottom)
+    const areaD = d3.area().x(d=>x(d.date)).y0(m.t).y1(d=>y(d.pDem)).curve(d3.curveMonotoneX);
     svg.append("path").datum(parsed).attr("d",areaD).attr("fill","var(--blue)").attr("opacity",0.07);
 
-    const areaR = d3.area().x(d=>x(d.date)).y0(y(0.5)).y1(d=>y(d.pRep)).curve(d3.curveMonotoneX);
+    const areaR = d3.area().x(d=>x(d.date)).y0(m.t+ih).y1(d=>y(d.pRep)).curve(d3.curveMonotoneX);
     svg.append("path").datum(parsed).attr("d",areaR).attr("fill","var(--red)").attr("opacity",0.07);
 
     const lineD = d3.line().x(d=>x(d.date)).y(d=>y(d.pDem)).curve(d3.curveMonotoneX);
