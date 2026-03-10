@@ -1096,7 +1096,7 @@ function tipSparkHTML(){
     <div class="tipSparkWrap" aria-label="Win probability over time">
       <div class="tipSparkTitle">
         <span>Win probability</span>
-        <span class="mono" id="tipSparkVal">—</span>
+        <span class="sparkPill" id="tipSparkVal">—</span>
       </div>
       <canvas id="tipSpark" aria-hidden="false"></canvas>
     </div>
@@ -1178,6 +1178,22 @@ function drawProbSpark(canvas, values){
   }
   ctx.stroke();
 
+  // R area fill
+  ctx.globalAlpha = 0.06;
+  ctx.fillStyle = red;
+  ctx.beginPath();
+  for (let i=0;i<n;i++){
+    const p = 1 - Math.max(0, Math.min(1, values[i]));
+    const x = (i/(n-1)) * (cssW-1);
+    const y = (1 - p) * (cssH-1);
+    if (i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+  }
+  ctx.lineTo(cssW-1, 0);
+  ctx.lineTo(0, 0);
+  ctx.closePath();
+  ctx.fill();
+  ctx.globalAlpha = 1;
+
   // D line
   ctx.strokeStyle = blue;
   ctx.lineWidth = 1.5;
@@ -1189,6 +1205,22 @@ function drawProbSpark(canvas, values){
     if (i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
   }
   ctx.stroke();
+
+  // D area fill
+  ctx.globalAlpha = 0.06;
+  ctx.fillStyle = blue;
+  ctx.beginPath();
+  for (let i=0;i<n;i++){
+    const p = Math.max(0, Math.min(1, values[i]));
+    const x = (i/(n-1)) * (cssW-1);
+    const y = (1 - p) * (cssH-1);
+    if (i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+  }
+  ctx.lineTo(cssW-1, cssH-1);
+  ctx.lineTo(0, cssH-1);
+  ctx.closePath();
+  ctx.fill();
+  ctx.globalAlpha = 1;
 }
 
 function computeWinProbSeries(modeKey, key, cachedIndNat, gbSub){
@@ -1252,7 +1284,7 @@ function renderTipSpark(modeKey, key, cachedIndNat){
 
   if (label && vals && vals.length){
     const last = vals[vals.length-1];
-    label.textContent = `Latest ${Math.round(last*100)}%`;
+    label.textContent = `${Math.round(last*100)}%`;
   } else if (label){
     label.textContent = "—";
   }
@@ -1320,11 +1352,16 @@ function positionTooltip(evt){
   const w = tip.offsetWidth;
   const h = tip.offsetHeight;
 
+  // Find the map card boundary if hovering within one
+  const mapCard = evt.target?.closest?.(".mapCard");
+  const bottomLimit = mapCard ? mapCard.getBoundingClientRect().bottom : window.innerHeight;
+
   let x = evt.clientX + pad;
   let y = evt.clientY + pad;
 
   if (x + w + pad > window.innerWidth) x = evt.clientX - w - pad;
-  if (y + h + pad > window.innerHeight) y = evt.clientY - h - pad;
+  if (y + h > bottomLimit) y = evt.clientY - h - pad;
+  if (y < 0) y = pad;
 
   tip.style.left = x + "px";
   tip.style.top  = y + "px";
@@ -1676,7 +1713,9 @@ function drawSeatSimMini(canvas, hist, controlThreshold){
   const lineCol = "rgba(31,41,55,0.35)";
   const neutral = "rgba(156,163,175,0.9)";
 
-  ctx.globalAlpha = 0.9;
+  ctx.globalAlpha = 0.82;
+
+  const radius = Math.max(1, Math.round(1.5 * dpr));
 
   for (let i=0;i<n;i++){
     const frac = counts[i] / maxCount;
@@ -1693,7 +1732,18 @@ function drawSeatSimMini(canvas, hist, controlThreshold){
     } else {
       ctx.fillStyle = (seatVal >= controlThreshold) ? blue : red;
     }
-    ctx.fillRect(x, y, bw, bh);
+
+    // Rounded top corners
+    const r = Math.min(radius, bw/2, bh);
+    ctx.beginPath();
+    ctx.moveTo(x, y + bh);
+    ctx.lineTo(x, y + r);
+    ctx.quadraticCurveTo(x, y, x + r, y);
+    ctx.lineTo(x + bw - r, y);
+    ctx.quadraticCurveTo(x + bw, y, x + bw, y + r);
+    ctx.lineTo(x + bw, y + bh);
+    ctx.closePath();
+    ctx.fill();
   }
 
   ctx.globalAlpha = 1;
@@ -2056,7 +2106,7 @@ function showStateInfoPanel(modeKey, usps){
       <div class="tipSparkWrap">
         <div class="tipSparkTitle">
           <span>Win prob</span>
-          <span class="mono" data-panel-spark-val>—</span>
+          <span class="sparkPill" data-panel-spark-val>—</span>
         </div>
         <canvas data-panel-spark></canvas>
       </div>
@@ -2401,6 +2451,15 @@ function setupHouseZoomControls(){
   root.querySelectorAll(".zoomBtn[data-zoom]").forEach(btn=>{
     btn.addEventListener("click", ()=> zoomHouseTo(btn.dataset.zoom));
   });
+
+  // "More…" metro dropdown
+  const metroMore = root.querySelector("[data-zoom-metro-more]");
+  if (metroMore){
+    metroMore.addEventListener("change", ()=>{
+      if (metroMore.value) zoomHouseTo(metroMore.value);
+      metroMore.value = "";
+    });
+  }
 
   // Click district to zoom to its state
   const m = MAP.house;
@@ -2775,6 +2834,13 @@ function renderComboChart(modeKey, data, chartMode){
 
     svg.append("line").attr("class","seatMajLine")
       .attr("x1",m.l).attr("x2",m.l+iw).attr("y1",y(0.5)).attr("y2",y(0.5));
+
+    // Area fills (subtle)
+    const areaD = d3.area().x(d=>x(d.date)).y0(m.t+ih).y1(d=>y(d.pDem)).curve(d3.curveMonotoneX);
+    svg.append("path").datum(parsed).attr("d",areaD).attr("fill","var(--blue)").attr("opacity",0.06);
+
+    const areaR = d3.area().x(d=>x(d.date)).y0(m.t).y1(d=>y(d.pRep)).curve(d3.curveMonotoneX);
+    svg.append("path").datum(parsed).attr("d",areaR).attr("fill","var(--red)").attr("opacity",0.06);
 
     const lineD = d3.line().x(d=>x(d.date)).y(d=>y(d.pDem)).curve(d3.curveMonotoneX);
     svg.append("path").datum(parsed).attr("class","lineDem").attr("d",lineD);

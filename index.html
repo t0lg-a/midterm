@@ -553,10 +553,20 @@
     .tipSparkTitle{
       display:flex;
       justify-content:space-between;
-      align-items:baseline;
+      align-items:center;
       font-size:11px;
       color:var(--muted);
       margin-bottom:6px;
+    }
+    .tipSparkTitle .sparkPill{
+      font-size:10px;
+      font-weight:700;
+      font-family:var(--mono);
+      padding:2px 7px;
+      border-radius:var(--radius-pill);
+      background:var(--neutral-bg);
+      border:1px solid var(--line);
+      color:var(--ink-dim);
     }
     #tipSpark{
       width:100%;
@@ -934,6 +944,7 @@
   width: 100%;
   height: 26px;
   display:block;
+  border-radius:6px;
 }
 
 .simTip{
@@ -955,6 +966,10 @@
 .simTip .k{ font-weight:900; opacity:0.95; }
 
 .mapCard{ position:relative; }
+    .mapCard .mapGrid{
+      border-radius: var(--radius-md);
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.04), inset 0 2px 6px rgba(0,0,0,0.03);
+    }
     .zoomBtn{
       appearance:none;
       border:1px solid var(--line);
@@ -1095,6 +1110,7 @@
     .stateInfoPanel .miniBar{ height:3px; }
     .stateInfoPanel .tipSparkWrap{ margin-top:3px; padding-top:3px; border-top:1px solid var(--line); }
     .stateInfoPanel .tipSparkTitle{ font-size:7px; margin-bottom:2px; }
+    .stateInfoPanel .sparkPill{ font-size:6px; padding:1px 4px; }
     .stateInfoPanel [data-panel-spark]{ width:100%; height:26px; display:block; border-radius:4px; background:rgba(0,0,0,0.02); border:1px solid rgba(0,0,0,0.04); }
     .mapCtrlBtn{
       appearance:none;
@@ -1503,11 +1519,14 @@
       <button class="zoomBtn" data-zoom="la">LA</button>
       <button class="zoomBtn" data-zoom="chi">CHI</button>
       <button class="zoomBtn" data-zoom="dfw">DFW</button>
-      <button class="zoomBtn" data-zoom="hou">HOU</button>
-      <button class="zoomBtn" data-zoom="atl">ATL</button>
-      <button class="zoomBtn" data-zoom="dc">DC</button>
-      <button class="zoomBtn" data-zoom="phx">PHX</button>
-      <button class="zoomBtn" data-zoom="mia">MIA</button>
+      <select class="zoomSelect" data-zoom-metro-more>
+        <option value="">More…</option>
+        <option value="hou">HOU</option>
+        <option value="atl">ATL</option>
+        <option value="dc">DC</option>
+        <option value="phx">PHX</option>
+        <option value="mia">MIA</option>
+      </select>
     </div>
 
     <section class="card oddsCard" aria-label="House model output">
@@ -1551,6 +1570,6 @@
 
   <div id="simTip" class="simTip" aria-hidden="true"></div>
 
-<script src="forecast.js?v=hswing2"></script>
+<script src="forecast.js?v=visual1"></script>
 </body>
 </html>
