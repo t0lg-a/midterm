@@ -1189,71 +1189,6 @@ function drawProbSpark(canvas, values){
     if (i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
   }
   ctx.stroke();
-
-  const midY = cssH * 0.5;
-
-  // R area fill — only below 50% line where R is winning
-  ctx.globalAlpha = 0.08;
-  ctx.fillStyle = red;
-  ctx.save();
-  ctx.beginPath();
-  ctx.rect(0, midY, cssW, cssH - midY);
-  ctx.clip();
-  ctx.beginPath();
-  for (let i=0;i<n;i++){
-    const p = 1 - Math.max(0, Math.min(1, values[i]));
-    const x = (i/(n-1)) * (cssW-1);
-    const y = (1 - p) * (cssH-1);
-    if (i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
-  }
-  ctx.lineTo(cssW-1, cssH-1);
-  ctx.lineTo(0, cssH-1);
-  ctx.closePath();
-  ctx.fill();
-  ctx.restore();
-
-  // D area fill — only above 50% line where D is winning
-  ctx.globalAlpha = 0.08;
-  ctx.fillStyle = blue;
-  ctx.save();
-  ctx.beginPath();
-  ctx.rect(0, 0, cssW, midY);
-  ctx.clip();
-  ctx.beginPath();
-  for (let i=0;i<n;i++){
-    const p = Math.max(0, Math.min(1, values[i]));
-    const x = (i/(n-1)) * (cssW-1);
-    const y = (1 - p) * (cssH-1);
-    if (i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
-  }
-  ctx.lineTo(cssW-1, 0);
-  ctx.lineTo(0, 0);
-  ctx.closePath();
-  ctx.fill();
-  ctx.restore();
-
-  // Fill between the two lines with winner's color
-  ctx.globalAlpha = 0.06;
-  ctx.beginPath();
-  for (let i=0;i<n;i++){
-    const p = Math.max(0, Math.min(1, values[i]));
-    const x = (i/(n-1)) * (cssW-1);
-    const y = (1 - p) * (cssH-1);
-    if (i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
-  }
-  for (let i=n-1;i>=0;i--){
-    const p = 1 - Math.max(0, Math.min(1, values[i]));
-    const x = (i/(n-1)) * (cssW-1);
-    const y = (1 - p) * (cssH-1);
-    ctx.lineTo(x,y);
-  }
-  ctx.closePath();
-  // Use gradient-like effect: check last value to pick dominant color
-  const lastP = values[n-1];
-  ctx.fillStyle = lastP > 0.5 ? blue : red;
-  ctx.fill();
-
-  ctx.globalAlpha = 1;
 }
 
 function computeWinProbSeries(modeKey, key, cachedIndNat, gbSub){
@@ -2821,28 +2756,6 @@ function renderComboChart(modeKey, data, chartMode){
         .attr("x",m.l+iw-2).attr("y",y(maj)-4).attr("text-anchor","end").text(`${maj}`);
     }
 
-    // Area fills — clipped to majority line so they don't overlap
-    if (isFinite(maj)){
-      const sClipId = `clip-${modeKey}-seats`;
-      const defs = svg.append("defs");
-      defs.append("clipPath").attr("id", sClipId+"-d")
-        .append("rect").attr("x",m.l).attr("y",m.t).attr("width",iw).attr("height",y(maj)-m.t);
-      defs.append("clipPath").attr("id", sClipId+"-r")
-        .append("rect").attr("x",m.l).attr("y",y(maj)).attr("width",iw).attr("height",m.t+ih-y(maj));
-
-      svg.append("path").datum(parsed)
-        .attr("d", d3.area().x(d=>x(d.date)).y0(m.t).y1(d=>y(d.expDem)).curve(d3.curveMonotoneX))
-        .attr("fill","var(--blue)").attr("opacity",0.08)
-        .attr("clip-path",`url(#${sClipId}-d)`);
-
-      if (seatTotal > 0){
-        svg.append("path").datum(parsed)
-          .attr("d", d3.area().x(d=>x(d.date)).y0(m.t+ih).y1(d=>y(seatTotal-d.expDem)).curve(d3.curveMonotoneX))
-          .attr("fill","var(--red)").attr("opacity",0.08)
-          .attr("clip-path",`url(#${sClipId}-r)`);
-      }
-    }
-
     const lineD = d3.line().x(d=>x(d.date)).y(d=>y(d.expDem)).curve(d3.curveMonotoneX);
     svg.append("path").datum(parsed).attr("class","seatsLine").attr("d",lineD);
 
@@ -2889,40 +2802,6 @@ function renderComboChart(modeKey, data, chartMode){
 
     svg.append("line").attr("class","seatMajLine")
       .attr("x1",m.l).attr("x2",m.l+iw).attr("y1",y(0.5)).attr("y2",y(0.5));
-
-    // Area between the two lines — blue where D>R, red where R>D
-    const clipId = `clip-${modeKey}-prob`;
-
-    // Blue area: D line to R line, clipped to where D > R (above 50%)
-    const defs = svg.append("defs");
-    defs.append("clipPath").attr("id", clipId+"-d")
-      .append("path").datum(parsed)
-      .attr("d", d3.area().x(d=>x(d.date)).y0(m.t).y1(d=>y(0.5)).curve(d3.curveMonotoneX));
-    defs.append("clipPath").attr("id", clipId+"-r")
-      .append("path").datum(parsed)
-      .attr("d", d3.area().x(d=>x(d.date)).y0(y(0.5)).y1(m.t+ih).curve(d3.curveMonotoneX));
-
-    // D fill: from D line to top, clipped to D > 50%
-    svg.append("path").datum(parsed)
-      .attr("d", d3.area().x(d=>x(d.date)).y0(m.t).y1(d=>y(d.pDem)).curve(d3.curveMonotoneX))
-      .attr("fill","var(--blue)").attr("opacity",0.08)
-      .attr("clip-path", `url(#${clipId}-d)`);
-
-    // R fill: from R line to bottom, clipped to R > 50%
-    svg.append("path").datum(parsed)
-      .attr("d", d3.area().x(d=>x(d.date)).y0(m.t+ih).y1(d=>y(d.pRep)).curve(d3.curveMonotoneX))
-      .attr("fill","var(--red)").attr("opacity",0.08)
-      .attr("clip-path", `url(#${clipId}-r)`);
-
-    // Fill between the two lines with winner's color
-    svg.append("path").datum(parsed)
-      .attr("d", d3.area().x(d=>x(d.date)).y0(d=>y(d.pRep)).y1(d=>y(d.pDem)).curve(d3.curveMonotoneX))
-      .attr("fill","var(--blue)").attr("opacity",0.06)
-      .attr("clip-path", `url(#${clipId}-d)`);
-    svg.append("path").datum(parsed)
-      .attr("d", d3.area().x(d=>x(d.date)).y0(d=>y(d.pDem)).y1(d=>y(d.pRep)).curve(d3.curveMonotoneX))
-      .attr("fill","var(--red)").attr("opacity",0.06)
-      .attr("clip-path", `url(#${clipId}-r)`);
 
     const lineD = d3.line().x(d=>x(d.date)).y(d=>y(d.pDem)).curve(d3.curveMonotoneX);
     svg.append("path").datum(parsed).attr("class","lineDem").attr("d",lineD);
