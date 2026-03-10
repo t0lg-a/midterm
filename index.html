@@ -847,7 +847,9 @@
   
     
 /* ---------- Panel header + simple seats (screenshot-style) ---------- */
-.topCard{ padding:14px 14px; overflow:visible; }
+.topCard{ padding:14px 14px; overflow:visible; border-left:3px solid var(--muted-light); }
+.topCard.leads-d{ border-left-color:var(--blue); }
+.topCard.leads-r{ border-left-color:var(--red); }
 .panelHeaderRow{
   display:flex;
   align-items:center;
@@ -1035,12 +1037,13 @@
     @media (min-width: 980px){
       .triGrid{
         grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap:10px;
       }
     }
     .modeCol{
       display:flex;
       flex-direction:column;
-      gap:14px;
+      gap:10px;
       min-width:0;
       min-height:0;
       overflow-y:auto;
@@ -1275,8 +1278,8 @@
       shape-rendering: crispEdges;
     }
     .oddsAxis text{
-      fill: var(--muted-light);
-      font-size:10px;
+      fill: var(--muted);
+      font-size:11px;
       font-weight:600;
     }
     .oddsDot{
@@ -1391,8 +1394,7 @@
     <section class="card oddsCard" aria-label="Senate model output">
       <div class="oddsHead">
         <div>
-          <div class="oddsTitle">Model Output</div>
-          <div class="oddsSub">Daily estimates</div>
+          <div class="oddsTitle">Senate</div>
         </div>
         <div class="chartTabs">
           <button class="chartTab active" data-chart-tab="prob">Win Prob</button>
@@ -1458,8 +1460,7 @@
     <section class="card oddsCard" aria-label="Governor model output">
       <div class="oddsHead">
         <div>
-          <div class="oddsTitle">Model Output</div>
-          <div class="oddsSub">Daily estimates</div>
+          <div class="oddsTitle">Governor</div>
         </div>
         <div class="chartTabs">
           <button class="chartTab active" data-chart-tab="prob">Win Prob</button>
@@ -1540,8 +1541,7 @@
     <section class="card oddsCard" aria-label="House model output">
       <div class="oddsHead">
         <div>
-          <div class="oddsTitle">Model Output</div>
-          <div class="oddsSub">Daily estimates</div>
+          <div class="oddsTitle">Congress</div>
         </div>
         <div class="chartTabs">
           <button class="chartTab active" data-chart-tab="prob">Win Prob</button>
@@ -1578,6 +1578,6 @@
 
   <div id="simTip" class="simTip" aria-hidden="true"></div>
 
-<script src="forecast.js?v=visual5"></script>
+<script src="forecast.js?v=visual6"></script>
 </body>
 </html>
