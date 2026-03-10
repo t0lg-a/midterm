@@ -1199,10 +1199,26 @@ function computeWinProbSeries(modeKey, key, cachedIndNat, gbSub){
   if (modeKey === "house"){
     const ratio = DATA.house.ratios[key];
     if (!ratio) return out;
+
+    // Apply Hispanic swing adjustment (same as getHouseModel)
+    let adjD = ratio.D, adjR = ratio.R;
+    const meta = DATA.house.meta[key];
+    const code = meta?.code;
+    const h_cd = (code && HISPANIC_SHARE[code]) ? HISPANIC_SHARE[code] : 0;
+    if (h_cd > 0 && HISPANIC_GB){
+      const swingD = (HISPANIC_GB.D - HISPANIC_BASELINE.D) / HISPANIC_BASELINE.D;
+      const swingR = (HISPANIC_GB.R - HISPANIC_BASELINE.R) / HISPANIC_BASELINE.R;
+      adjD = ratio.D * (1 + h_cd * 0.75 * swingD);
+      adjR = ratio.R * (1 + h_cd * 0.75 * swingR);
+    }
+
     for (const pt of series){
       const gbNat = normalizePair(+pt.dem, +pt.rep);
-      const gbPair = computeGenericBallotState(gbNat, ratio);
-      const pD = winProbFromMargin(marginRD(gbPair)).pD;
+      const cdD = adjD * gbNat.D;
+      const cdR = adjR * gbNat.R;
+      const s = cdD + cdR;
+      const pair = (s > 0) ? {D: 100*cdD/s, R: 100*cdR/s} : {D:50, R:50};
+      const pD = winProbFromMargin(marginRD(pair)).pD;
       out.push(pD);
     }
     return out;
