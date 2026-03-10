@@ -23,7 +23,7 @@ jobs:
         run: node js/fetch-data.js
 
       - name: Build county ratios
-        run: node build_county_ratios.js
+        run: node js/build_county_ratios.js
 
       - name: Compute MC seat odds
         run: node js/compute_odds.js
