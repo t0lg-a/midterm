@@ -1,6 +1,58 @@
 {
-  "updatedAt": "2026-03-09T11:51:50.469Z",
+  "updatedAt": "2026-03-10T06:15:06.531Z",
   "approval": [
+    {
+      "id": "appdonqui09b51835",
+      "poll_type": "approval",
+      "sample_size": 1002,
+      "population": "rv",
+      "url": "https://poll.qu.edu/images/polling/us/us03092026_upip88.pdf",
+      "created_at": "2026-03-09",
+      "start_date": "2026-03-06",
+      "end_date": "2026-03-08",
+      "pollster": "Quinnipiac University",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 37
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 57
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonmor5d959b45",
+      "poll_type": "approval",
+      "sample_size": 45000,
+      "population": "a",
+      "url": "https://pro.morningconsult.com/trackers/global-leader-approval#03-08-2026",
+      "created_at": "2026-03-09",
+      "start_date": "2026-03-02",
+      "end_date": "2026-03-08",
+      "pollster": "Morning Consult",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 39
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 55
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
     {
       "id": "appdonanga5ea4150",
       "poll_type": "approval",
@@ -151,34 +203,6 @@
         {
           "choice": "Disapprove",
           "pct": 50
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "DailyMail.com"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonj.l6225e73a",
-      "poll_type": "approval",
-      "sample_size": 1097,
-      "population": "rv",
-      "url": "https://docs.google.com/spreadsheets/d/1SHUniAS5h57uL5meCvRbI3LeDRomZzeM/edit?gid=534343239#gid=534343239",
-      "created_at": "2026-03-05",
-      "start_date": "2026-03-02",
-      "end_date": "2026-03-03",
-      "pollster": "J.L. Partners",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 44
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 47
         }
       ],
       "seat_name": null,
@@ -490,6 +514,34 @@
       "subject": "Donald Trump"
     },
     {
+      "id": "appdonj.l6225e73a",
+      "poll_type": "approval",
+      "sample_size": 1097,
+      "population": "rv",
+      "url": "https://docs.google.com/spreadsheets/d/1SHUniAS5h57uL5meCvRbI3LeDRomZzeM/edit?gid=534343239#gid=534343239",
+      "created_at": "2026-03-05",
+      "start_date": "2026-02-25",
+      "end_date": "2026-02-27",
+      "pollster": "J.L. Partners",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 44
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 47
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "DailyMail.com"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
       "id": "appdonrmga3e41423",
       "poll_type": "approval",
       "sample_size": 3000,
@@ -674,34 +726,6 @@
       "seat_name": null,
       "sponsors": [
         "Reuters"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonyou295a3ca0",
-      "poll_type": "approval",
-      "sample_size": 1401,
-      "population": "rv",
-      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_mhEVZMR.pdf",
-      "created_at": "2026-02-25",
-      "start_date": "2026-02-20",
-      "end_date": "2026-02-23",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 42
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 57
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Economist"
       ],
       "internal": false,
       "partisan": null,
@@ -20788,32 +20812,6 @@
       "sponsors": [
         "Navigator Research"
       ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonpeww3zovq54",
-      "poll_type": "approval",
-      "sample_size": 5086,
-      "population": "a",
-      "url": "https://www.pewresearch.org/politics/2025/02/07/public-anticipates-changes-with-trump-but-is-split-over-whether-they-will-be-good-or-bad/",
-      "created_at": "2025-02-07",
-      "start_date": "2025-01-27",
-      "end_date": "2025-02-02",
-      "pollster": "Pew Research Center",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 47
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 51
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
