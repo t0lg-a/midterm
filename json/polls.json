@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-10T11:50:53.228Z",
+  "updatedAt": "2026-03-11T11:50:52.319Z",
   "approval": [
     {
       "id": "appdonqui09b51835",
@@ -20729,88 +20729,6 @@
       "seat_name": null,
       "sponsors": [
         "The Economist"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonqua25i19d8d",
-      "poll_type": "approval",
-      "sample_size": 1000,
-      "population": "rv",
-      "url": "https://quantusinsights.org/f/february-2025-national-political-survey-–-summary-analysis",
-      "created_at": "2025-02-04",
-      "start_date": "2025-02-01",
-      "end_date": "2025-02-03",
-      "pollster": "Quantus Insights",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 51.9
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 45.3
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "TrendingPolitics"
-      ],
-      "internal": false,
-      "partisan": "REP",
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonmorfpgkjl6d",
-      "poll_type": "approval",
-      "sample_size": 2303,
-      "population": "rv",
-      "url": "https://pro.morningconsult.com/trackers/donald-trump-congress-policy-republicans-polling",
-      "created_at": "2025-02-04",
-      "start_date": "2025-01-31",
-      "end_date": "2025-02-03",
-      "pollster": "Morning Consult",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 49
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 47
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonnavg7embih1",
-      "poll_type": "approval",
-      "sample_size": 1000,
-      "population": "rv",
-      "url": "https://navigatorresearch.org/while-three-in-four-americans-see-trump-as-bringing-change-to-government-only-two-in-five-view-this-change-as-positive/",
-      "created_at": "2025-02-12",
-      "start_date": "2025-01-30",
-      "end_date": "2025-02-03",
-      "pollster": "Global Strategy Group",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 49
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 47
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Navigator Research"
       ],
       "internal": false,
       "partisan": null,
