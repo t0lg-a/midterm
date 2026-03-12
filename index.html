@@ -1123,6 +1123,106 @@
       .donateBtn svg{ width:11px; height:11px; }
     }
 
+    /* ---------- Ratings Page ---------- */
+
+    .ratingBar{
+      display:flex;
+      height:28px;
+      border-radius:6px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      background:#fff;
+    }
+    .ratingBar .seg{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-width:0;
+      transition: flex 0.4s cubic-bezier(0.2,0.8,0.2,1);
+      font-size:10px;
+      font-weight:800;
+      color:#fff;
+      font-family:var(--mono);
+      border:none;
+      border-radius:0;
+      padding:0;
+      box-shadow:none;
+      position:static;
+    }
+    .ratingBar .seg.tossup{ color:var(--ink); }
+    .ratingBar .seg span{ opacity:0.9; }
+
+    .ratingLabels{
+      display:flex;
+      margin-top:4px;
+      font-size:9px;
+      font-weight:700;
+      color:var(--muted);
+      letter-spacing:0.01em;
+    }
+    .ratingLabels .rlbl{
+      text-align:center;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      white-space:nowrap;
+      transition: flex 0.4s cubic-bezier(0.2,0.8,0.2,1);
+    }
+    .ratingTotals{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      margin-top:6px;
+      padding:0 2px;
+      font-size:12px;
+      font-weight:900;
+      font-family:var(--mono);
+      font-variant-numeric:tabular-nums;
+    }
+    .ratingTotals .rtD{ color:var(--blue); }
+    .ratingTotals .rtT{ color:#a16207; }
+    .ratingTotals .rtR{ color:var(--red); }
+
+    .ratingsTopCard{
+      padding:14px 14px;
+      overflow:visible;
+      border-left:3px solid var(--muted-light);
+    }
+    .ratingsTopCard.leads-d{ border-left-color:var(--blue); }
+    .ratingsTopCard.leads-r{ border-left-color:var(--red); }
+
+    .ratingsSummaryCard{
+      padding:12px 14px;
+    }
+    .ratingsCountRow{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:0;
+      margin-bottom:10px;
+      font-weight:900;
+      font-size:16px;
+      font-variant-numeric:tabular-nums;
+      font-family:var(--mono);
+      flex-wrap:nowrap;
+    }
+    .ratingsCountRow .rtgNum{
+      padding:0 4px;
+      white-space:nowrap;
+    }
+    .ratingsCountRow .rtgSep{
+      color:var(--muted-light);
+      font-weight:400;
+      font-size:13px;
+      padding:0 1px;
+    }
+    .ratingsCountRow .divider{
+      width:1px;
+      height:24px;
+      background:var(--line-strong);
+      margin:0 8px;
+      flex-shrink:0;
+    }
+
     /* ---------- Three-panel (Senate/Gov/House) layout ---------- */
     .triGrid{
       display:grid;
@@ -1681,6 +1781,113 @@
 
 </div>
 
+<!-- RATINGS PAGE -->
+<div class="ratingsPage triGrid" id="ratingsPage" style="display:none">
+
+  <!-- SENATE RATINGS -->
+  <section class="modeCol" data-ratings-mode="senate">
+    <section class="card ratingsTopCard">
+      <div class="panelHeaderRow">
+        <div class="panelTitleWrap">
+          <div class="panelTitle">Senate</div>
+          <div class="panelSub">Class II - 2026</div>
+        </div>
+      </div>
+    </section>
+    <section class="card ratingsSummaryCard">
+      <div class="ratingsCountRow" data-rtg-counts></div>
+      <div class="ratingBar" data-rtg-bar></div>
+      <div class="ratingLabels" data-rtg-labels></div>
+      <div class="ratingTotals" data-rtg-totals></div>
+    </section>
+    <section class="card mapCard"><div class="mapGrid"><div class="mapStage">
+      <svg class="mapSvg" data-rtg-map></svg>
+    </div></div></section>
+    <section class="card oddsCard">
+      <div class="oddsHead">
+        <div><div class="oddsTitle">Senate</div></div>
+        <div class="chartTabs">
+          <button class="chartTab active" data-rtg-chart-tab="detailed">Detailed</button>
+          <button class="chartTab" data-rtg-chart-tab="faceoff">Face-off</button>
+        </div>
+      </div>
+      <div class="oddsChartWrap">
+        <div class="chartYLabel" data-rtg-ylabel>Rating counts</div>
+        <svg class="comboSvg" data-rtg-chart></svg>
+      </div>
+    </section>
+  </section>
+
+  <!-- GOVERNOR RATINGS -->
+  <section class="modeCol" data-ratings-mode="governor">
+    <section class="card ratingsTopCard">
+      <div class="panelHeaderRow">
+        <div class="panelTitleWrap">
+          <div class="panelTitle">Gubernatorial</div>
+          <div class="panelSub">Gubernatorial - 2026</div>
+        </div>
+      </div>
+    </section>
+    <section class="card ratingsSummaryCard">
+      <div class="ratingsCountRow" data-rtg-counts></div>
+      <div class="ratingBar" data-rtg-bar></div>
+      <div class="ratingLabels" data-rtg-labels></div>
+      <div class="ratingTotals" data-rtg-totals></div>
+    </section>
+    <section class="card mapCard"><div class="mapGrid"><div class="mapStage">
+      <svg class="mapSvg" data-rtg-map></svg>
+    </div></div></section>
+    <section class="card oddsCard">
+      <div class="oddsHead">
+        <div><div class="oddsTitle">Governor</div></div>
+        <div class="chartTabs">
+          <button class="chartTab active" data-rtg-chart-tab="detailed">Detailed</button>
+          <button class="chartTab" data-rtg-chart-tab="faceoff">Face-off</button>
+        </div>
+      </div>
+      <div class="oddsChartWrap">
+        <div class="chartYLabel" data-rtg-ylabel>Rating counts</div>
+        <svg class="comboSvg" data-rtg-chart></svg>
+      </div>
+    </section>
+  </section>
+
+  <!-- HOUSE RATINGS -->
+  <section class="modeCol" data-ratings-mode="house">
+    <section class="card ratingsTopCard">
+      <div class="panelHeaderRow">
+        <div class="panelTitleWrap">
+          <div class="panelTitle">Congress</div>
+          <div class="panelSub">120th Congress - 2026</div>
+        </div>
+      </div>
+    </section>
+    <section class="card ratingsSummaryCard">
+      <div class="ratingsCountRow" data-rtg-counts></div>
+      <div class="ratingBar" data-rtg-bar></div>
+      <div class="ratingLabels" data-rtg-labels></div>
+      <div class="ratingTotals" data-rtg-totals></div>
+    </section>
+    <section class="card mapCard"><div class="mapGrid"><div class="mapStage">
+      <svg class="mapSvg" data-rtg-map></svg>
+    </div></div></section>
+    <section class="card oddsCard">
+      <div class="oddsHead">
+        <div><div class="oddsTitle">Congress</div></div>
+        <div class="chartTabs">
+          <button class="chartTab active" data-rtg-chart-tab="detailed">Detailed</button>
+          <button class="chartTab" data-rtg-chart-tab="faceoff">Face-off</button>
+        </div>
+      </div>
+      <div class="oddsChartWrap">
+        <div class="chartYLabel" data-rtg-ylabel>Rating counts</div>
+        <svg class="comboSvg" data-rtg-chart></svg>
+      </div>
+    </section>
+  </section>
+
+</div>
+
   </div>
 
   <div id="tip" role="dialog" aria-label="State details tooltip">
@@ -1702,17 +1909,6 @@
   <div id="simTip" class="simTip" aria-hidden="true"></div>
 
 <script src="forecast.js?v=visual8"></script>
-<script>
-// Page tab switching
-document.querySelector('.pageTabs').addEventListener('click', e => {
-  const btn = e.target.closest('.pageTab');
-  if (!btn) return;
-  document.querySelectorAll('.pageTab').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  // For now only "Model" has content — others are placeholders
-  const page = btn.dataset.page;
-  document.getElementById('triGrid').style.display = page === 'model' ? '' : 'none';
-});
-</script>
+
 </body>
 </html>
