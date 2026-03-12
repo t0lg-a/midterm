@@ -1,6 +1,62 @@
 {
-  "updatedAt": "2026-03-11T11:50:52.319Z",
+  "updatedAt": "2026-03-12T06:51:45.519Z",
   "approval": [
+    {
+      "id": "appdonyou02c91a10",
+      "poll_type": "approval",
+      "sample_size": 1405,
+      "population": "rv",
+      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_EcCnfRV.pdf#page=16",
+      "created_at": "2026-03-11",
+      "start_date": "2026-03-06",
+      "end_date": "2026-03-09",
+      "pollster": "YouGov",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 43
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 54
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "The Economist"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonyou1bd60b1b",
+      "poll_type": "approval",
+      "sample_size": 1563,
+      "population": "a",
+      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_EcCnfRV.pdf#page=16",
+      "created_at": "2026-03-11",
+      "start_date": "2026-03-06",
+      "end_date": "2026-03-09",
+      "pollster": "YouGov",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 40
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 55
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "The Economist"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
     {
       "id": "appdonqui09b51835",
       "poll_type": "approval",
@@ -45,6 +101,32 @@
         {
           "choice": "Disapprove",
           "pct": 55
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonang5e4d4f4e",
+      "poll_type": "approval",
+      "sample_size": 1529,
+      "population": "a",
+      "url": "https://angusreid.org/wp-content/uploads/2026/03/2026.03.11_US_Tariffs_tables.pdf",
+      "created_at": "2026-03-11",
+      "start_date": "2026-03-02",
+      "end_date": "2026-03-05",
+      "pollster": "Angus Reid Global",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 36
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 56
         }
       ],
       "seat_name": null,
@@ -102,6 +184,64 @@
       "seat_name": null,
       "sponsors": [
         "Napolitan Institute"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonmard686ae97",
+      "poll_type": "approval",
+      "sample_size": 1392,
+      "population": "rv",
+      "url": "https://maristpoll.marist.edu/wp-content/uploads/2026/03/NPR_PBS-News_Marist-Poll_USA-NOS-and-Tables_202603091024.pdf",
+      "created_at": "2026-03-11",
+      "start_date": "2026-03-02",
+      "end_date": "2026-03-04",
+      "pollster": "Marist University",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 40
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 57
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "NPR",
+        "PBS News"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonmar934dbfdc",
+      "poll_type": "approval",
+      "sample_size": 1591,
+      "population": "a",
+      "url": "https://maristpoll.marist.edu/wp-content/uploads/2026/03/NPR_PBS-News_Marist-Poll_USA-NOS-and-Tables_202603091024.pdf",
+      "created_at": "2026-03-11",
+      "start_date": "2026-03-02",
+      "end_date": "2026-03-04",
+      "pollster": "Marist University",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 38
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 57
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "NPR",
+        "PBS News"
       ],
       "internal": false,
       "partisan": null,
@@ -20677,62 +20817,6 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonyoubpmimi49",
-      "poll_type": "approval",
-      "sample_size": 1604,
-      "population": "a",
-      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econtoplines_c1AfT3R.pdf",
-      "created_at": "2025-02-05",
-      "start_date": "2025-02-02",
-      "end_date": "2025-02-04",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 46
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 44
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Economist"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonyou8mwtdp4q",
-      "poll_type": "approval",
-      "sample_size": 1423,
-      "population": "rv",
-      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_FOXP71G.pdf",
-      "created_at": "2025-02-05",
-      "start_date": "2025-02-02",
-      "end_date": "2025-02-04",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 48
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 47
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Economist"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -29791,6 +29875,143 @@
       "sponsors": [
         "NBC News"
       ],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202mar4e24ed15",
+      "poll_type": "generic-ballot",
+      "sample_size": 1392,
+      "population": "rv",
+      "url": "https://maristpoll.marist.edu/wp-content/uploads/2026/03/NPR_PBS-News_Marist-Poll_USA-NOS-and-Tables_202603091024.pdf",
+      "created_at": "2026-03-11",
+      "start_date": "2026-03-02",
+      "end_date": "2026-03-04",
+      "pollster": "Marist University",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 53
+        },
+        {
+          "choice": "Rep",
+          "pct": 44
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "NPR",
+        "PBS News"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202pen388f5658",
+      "poll_type": "generic-ballot",
+      "sample_size": 824,
+      "population": "rv",
+      "url": "https://democracy.psu.edu/wp-content/uploads/sites/14/2026/03/MOTN-GenericBallotFeb2026.pdf",
+      "created_at": "2026-03-11",
+      "start_date": "2026-02-18",
+      "end_date": "2026-02-23",
+      "pollster": "Pennsylvania State University McCourtney Institute for Democracy/YouGov",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 42
+        },
+        {
+          "choice": "Rep",
+          "pct": 37
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202youa693623d",
+      "poll_type": "generic-ballot",
+      "sample_size": 1405,
+      "population": "rv",
+      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_EcCnfRV.pdf#page=50",
+      "created_at": "2026-03-11",
+      "start_date": "2026-03-06",
+      "end_date": "2026-03-09",
+      "pollster": "YouGov",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 45
+        },
+        {
+          "choice": "Rep",
+          "pct": 42
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "The Economist"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202you0dee45a4",
+      "poll_type": "generic-ballot",
+      "sample_size": 1563,
+      "population": "a",
+      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_EcCnfRV.pdf#page=50",
+      "created_at": "2026-03-11",
+      "start_date": "2026-03-06",
+      "end_date": "2026-03-09",
+      "pollster": "YouGov",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 40
+        },
+        {
+          "choice": "Rep",
+          "pct": 36
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "The Economist"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202cyg91511465",
+      "poll_type": "generic-ballot",
+      "sample_size": 1500,
+      "population": "lv",
+      "url": "https://www.cygn.al/wp-content/uploads/2026/03/23673-Cygnal-National-Mar26-NVT-Deck-Public.pdf",
+      "created_at": "2026-03-11",
+      "start_date": "2026-03-03",
+      "end_date": "2026-03-04",
+      "pollster": "Cygnal",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 49
+        },
+        {
+          "choice": "Rep",
+          "pct": 45
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
       "internal": false,
       "partisan": null,
       "subject": "2026"
