@@ -1,5 +1,5 @@
 /* ---------- Config ---------- */
-console.log("forecast.js v15 — county matching by NAME (not FIPS)");
+console.log("forecast.js v16 — circuit breaker + wider county panel");
 const PROB_ERROR_SD_PTS = 7; // hidden, used for win probabilities (state + senate majority)
 const TOOLTIP_COMPACT = true;
 const WEIGHTS = { gb:35, polls:50, ind:15 };
@@ -732,10 +732,22 @@ function getStateModel(modeKey, st, cachedIndNat){
   const indNat = cachedIndNat; // computed once per mode
   const indPair = (indNat) ? computeIndicatorState(indNat, ratio) : null;
 
+  // Circuit breaker: if the national indicator implies >=70% for either party
+  // in this state, polls dominate (they're more informative in deep states)
+  let wGb = WEIGHTS.gb, wPolls = WEIGHTS.polls, wInd = WEIGHTS.ind;
+  if (indPair){
+    const indMax = Math.max(indPair.D, indPair.R);
+    if (indMax >= 70){
+      wPolls = 80;
+      wGb    = 15;
+      wInd   = 5;
+    }
+  }
+
   const comps = [
-    { pair: gbPair,   w: WEIGHTS.gb,              sigma: 5 },
-    { pair: pollPair, w: pollPair ? WEIGHTS.polls : 0, sigma: pollSigma },
-    { pair: indPair,  w: indPair ? WEIGHTS.ind : 0,     sigma: 5 },
+    { pair: gbPair,   w: wGb,                          sigma: 5 },
+    { pair: pollPair, w: pollPair ? wPolls : 0,         sigma: pollSigma },
+    { pair: indPair,  w: indPair ? wInd : 0,            sigma: 5 },
   ];
   const combined = weightedCombine(comps);
 
@@ -1235,14 +1247,25 @@ function computeWinProbSeries(modeKey, key, cachedIndNat, gbSub){
   const indNat = cachedIndNat;
   const indPair = (indNat) ? computeIndicatorState(indNat, ratio) : null;
 
+  // Circuit breaker (mirrors getStateModel)
+  let wGb = WEIGHTS.gb, wPolls = WEIGHTS.polls, wInd = WEIGHTS.ind;
+  if (indPair){
+    const indMax = Math.max(indPair.D, indPair.R);
+    if (indMax >= 70){
+      wPolls = 80;
+      wGb    = 15;
+      wInd   = 5;
+    }
+  }
+
   for (const pt of series){
     const gbNat = normalizePair(+pt.dem, +pt.rep);
     const gbPair = computeGenericBallotState(gbNat, ratio);
 
     const comps = [
-      { pair: gbPair,   w: WEIGHTS.gb,              sigma: 5 },
-      { pair: pollPair, w: pollPair ? WEIGHTS.polls : 0, sigma: pollSigma },
-      { pair: indPair,  w: indPair ? WEIGHTS.ind : 0,     sigma: 5 },
+      { pair: gbPair,   w: wGb,                          sigma: 5 },
+      { pair: pollPair, w: pollPair ? wPolls : 0,         sigma: pollSigma },
+      { pair: indPair,  w: indPair ? wInd : 0,            sigma: 5 },
     ];
     const combined = weightedCombine(comps);
     const pD = winProbFromMargin(marginRD(combined.pair)).pD;
@@ -1965,8 +1988,8 @@ async function zoomToStateCounties(modeKey, usps, stateFips){
   if (bw < 1 || bh < 1) return;
   const cx = (x0 + x1) / 2, cy = (y0 + y1) / 2;
   const pad = 1.15;
-  const k = Math.min(m.width * 0.6 / (bw * pad), m.height / (bh * pad));
-  const tx = m.width * 0.65 - cx * k;
+  const k = Math.min(m.width * 0.52 / (bw * pad), m.height / (bh * pad));
+  const tx = m.width * 0.72 - cx * k;
   const ty = m.height / 2 - cy * k;
 
   m.gRoot.transition().duration(600)
