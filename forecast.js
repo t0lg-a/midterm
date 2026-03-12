@@ -1988,8 +1988,8 @@ async function zoomToStateCounties(modeKey, usps, stateFips){
   if (bw < 1 || bh < 1) return;
   const cx = (x0 + x1) / 2, cy = (y0 + y1) / 2;
   const pad = 1.15;
-  const k = Math.min(m.width * 0.45 / (bw * pad), m.height / (bh * pad));
-  const tx = m.width * 0.78 - cx * k;
+  const k = Math.min(m.width * 0.42 / (bw * pad), m.height / (bh * pad));
+  const tx = m.width * 0.82 - cx * k;
   const ty = m.height / 2 - cy * k;
 
   m.gRoot.transition().duration(600)
