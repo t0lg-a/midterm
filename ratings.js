@@ -490,9 +490,11 @@ document.querySelector('.pageTabs').addEventListener('click', e => {
   document.getElementById('triGrid').style.display = page === 'model' ? '' : 'none';
   document.getElementById('ratingsPage').style.display = page === 'ratings' ? '' : 'none';
   document.getElementById('pollsPage').style.display = page === 'polls' ? 'grid' : 'none';
+  document.getElementById('swingometerPage').style.display = page === 'swingometer' ? '' : 'none';
 
   if (page === 'ratings') initRatingsPage();
   if (page === 'polls' && window.initPollsPage) window.initPollsPage();
+  if (page === 'swingometer' && window.initSwingometerPage) window.initSwingometerPage();
 });
 
 // Resize handler for ratings charts

@@ -1643,6 +1643,114 @@
     }
     .gbMeta .sep{ opacity:0.6; }
 
+    /* ---------- Swingometer Page ---------- */
+    .swingSliderCard{
+      padding:16px 16px 18px;
+    }
+    .swingSliderCard .swingTitle{
+      font-size:11px;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:0.06em;
+      color:var(--muted);
+      margin-bottom:12px;
+    }
+    .swingSliderRow{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin-bottom:8px;
+    }
+    .swingSliderRow:last-child{ margin-bottom:0; }
+    .swingSliderRow .swingDot{
+      width:12px; height:12px;
+      border-radius:50%;
+      flex:0 0 auto;
+      border:2px solid #fff;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+    }
+    .swingSliderRow .swingDot.blue{ background:var(--blue); }
+    .swingSliderRow .swingDot.red{ background:var(--red); }
+    .swingSliderRow .swingPartyLbl{
+      width:14px;
+      font-size:13px;
+      font-weight:900;
+      font-family:var(--mono);
+    }
+    .swingSliderRow .swingPartyLbl.blue{ color:var(--blue); }
+    .swingSliderRow .swingPartyLbl.red{ color:var(--red); }
+
+    .swingRange{
+      flex:1;
+      -webkit-appearance:none;
+      appearance:none;
+      height:6px;
+      border-radius:3px;
+      background: var(--line);
+      outline:none;
+      cursor:pointer;
+    }
+    .swingRange::-webkit-slider-thumb{
+      -webkit-appearance:none;
+      appearance:none;
+      width:20px; height:20px;
+      border-radius:50%;
+      border:3px solid #fff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      cursor:grab;
+    }
+    .swingRange::-webkit-slider-thumb:active{ cursor:grabbing; }
+    .swingRange::-moz-range-thumb{
+      width:20px; height:20px;
+      border-radius:50%;
+      border:3px solid #fff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      cursor:grab;
+    }
+    .swingRange.blue::-webkit-slider-thumb{ background:var(--blue); }
+    .swingRange.blue::-moz-range-thumb{ background:var(--blue); }
+    .swingRange.red::-webkit-slider-thumb{ background:var(--red); }
+    .swingRange.red::-moz-range-thumb{ background:var(--red); }
+
+    .swingRange.blue{
+      background: linear-gradient(90deg, var(--line) 0%, var(--blue-soft) 50%, var(--blue) 100%);
+    }
+    .swingRange.red{
+      background: linear-gradient(90deg, var(--line) 0%, var(--red-soft) 50%, var(--red) 100%);
+    }
+
+    .swingSliderVal{
+      width:48px;
+      text-align:right;
+      font-size:14px;
+      font-weight:800;
+      font-family:var(--mono);
+      font-variant-numeric:tabular-nums;
+      color:var(--ink);
+    }
+    .swingMarginRow{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      margin-top:10px;
+      padding-top:10px;
+      border-top:1px solid var(--line);
+    }
+    .swingMarginLabel{
+      font-size:10px;
+      font-weight:700;
+      text-transform:uppercase;
+      letter-spacing:0.06em;
+      color:var(--muted);
+    }
+    .swingMarginVal{
+      font-size:16px;
+      font-weight:900;
+      font-family:var(--mono);
+      font-variant-numeric:tabular-nums;
+    }
+
 </style>
 </head>
 
@@ -2084,6 +2192,176 @@
 
 </div>
 
+<!-- SWINGOMETER PAGE -->
+<div class="triGrid" id="swingometerPage" style="display:none" aria-label="Swingometer">
+
+  <!-- SENATE -->
+  <section class="modeCol" data-swing-mode="senate">
+    <section class="card topCard">
+      <div class="panelHeaderRow">
+        <div class="panelTitleWrap">
+          <div class="panelTitle">Senate</div>
+          <div class="panelSub">Class II - 2026</div>
+        </div>
+        <div class="pillRow">
+          <div class="metricPill blue"><span class="dot"></span><span class="val" data-swing-pill-d>50.0</span></div>
+          <div class="metricPill red"><span class="dot"></span><span class="val" data-swing-pill-r>50.0</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card swingSliderCard">
+      <div class="swingTitle">National Two-Party Vote</div>
+      <div class="swingSliderRow">
+        <div class="swingDot blue"></div>
+        <span class="swingPartyLbl blue">D</span>
+        <input type="range" class="swingRange blue" min="30" max="70" step="0.1" value="50" data-swing-slider-d />
+        <span class="swingSliderVal" data-swing-val-d>50.0</span>
+      </div>
+      <div class="swingSliderRow">
+        <div class="swingDot red"></div>
+        <span class="swingPartyLbl red">R</span>
+        <input type="range" class="swingRange red" min="30" max="70" step="0.1" value="50" data-swing-slider-r />
+        <span class="swingSliderVal" data-swing-val-r>50.0</span>
+      </div>
+      <div class="swingMarginRow">
+        <span class="swingMarginLabel">Margin</span>
+        <span class="swingMarginVal" data-swing-margin>Tied</span>
+      </div>
+    </section>
+
+    <section class="card seatsCard">
+      <div class="seatsSummary">
+        <div class="seatsLine">
+          <div class="seatsSide d"><span class="lbl">D</span><span class="num" data-swing-seats-d>—</span></div>
+          <div class="seatsDivider"></div>
+          <div class="seatsSide r"><span class="lbl">R</span><span class="num" data-swing-seats-r>—</span></div>
+        </div>
+        <div class="simMini">
+          <canvas class="simCanvas" data-swing-sim></canvas>
+        </div>
+      </div>
+    </section>
+
+    <section class="card mapCard">
+      <div class="mapGrid"><div class="mapStage">
+        <svg class="mapSvg"></svg>
+      </div></div>
+    </section>
+  </section>
+
+  <!-- GOVERNOR -->
+  <section class="modeCol" data-swing-mode="governor">
+    <section class="card topCard">
+      <div class="panelHeaderRow">
+        <div class="panelTitleWrap">
+          <div class="panelTitle">Gubernatorial</div>
+          <div class="panelSub">Gubernatorial - 2026</div>
+        </div>
+        <div class="pillRow">
+          <div class="metricPill blue"><span class="dot"></span><span class="val" data-swing-pill-d>50.0</span></div>
+          <div class="metricPill red"><span class="dot"></span><span class="val" data-swing-pill-r>50.0</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card swingSliderCard">
+      <div class="swingTitle">National Two-Party Vote</div>
+      <div class="swingSliderRow">
+        <div class="swingDot blue"></div>
+        <span class="swingPartyLbl blue">D</span>
+        <input type="range" class="swingRange blue" min="30" max="70" step="0.1" value="50" data-swing-slider-d />
+        <span class="swingSliderVal" data-swing-val-d>50.0</span>
+      </div>
+      <div class="swingSliderRow">
+        <div class="swingDot red"></div>
+        <span class="swingPartyLbl red">R</span>
+        <input type="range" class="swingRange red" min="30" max="70" step="0.1" value="50" data-swing-slider-r />
+        <span class="swingSliderVal" data-swing-val-r>50.0</span>
+      </div>
+      <div class="swingMarginRow">
+        <span class="swingMarginLabel">Margin</span>
+        <span class="swingMarginVal" data-swing-margin>Tied</span>
+      </div>
+    </section>
+
+    <section class="card seatsCard">
+      <div class="seatsSummary">
+        <div class="seatsLine">
+          <div class="seatsSide d"><span class="lbl">D</span><span class="num" data-swing-seats-d>—</span></div>
+          <div class="seatsDivider"></div>
+          <div class="seatsSide r"><span class="lbl">R</span><span class="num" data-swing-seats-r>—</span></div>
+        </div>
+        <div class="simMini">
+          <canvas class="simCanvas" data-swing-sim></canvas>
+        </div>
+      </div>
+    </section>
+
+    <section class="card mapCard">
+      <div class="mapGrid"><div class="mapStage">
+        <svg class="mapSvg"></svg>
+      </div></div>
+    </section>
+  </section>
+
+  <!-- HOUSE -->
+  <section class="modeCol" data-swing-mode="house">
+    <section class="card topCard">
+      <div class="panelHeaderRow">
+        <div class="panelTitleWrap">
+          <div class="panelTitle">Congress</div>
+          <div class="panelSub">120th Congress - 2026</div>
+        </div>
+        <div class="pillRow">
+          <div class="metricPill blue"><span class="dot"></span><span class="val" data-swing-pill-d>50.0</span></div>
+          <div class="metricPill red"><span class="dot"></span><span class="val" data-swing-pill-r>50.0</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card swingSliderCard">
+      <div class="swingTitle">National Two-Party Vote</div>
+      <div class="swingSliderRow">
+        <div class="swingDot blue"></div>
+        <span class="swingPartyLbl blue">D</span>
+        <input type="range" class="swingRange blue" min="30" max="70" step="0.1" value="50" data-swing-slider-d />
+        <span class="swingSliderVal" data-swing-val-d>50.0</span>
+      </div>
+      <div class="swingSliderRow">
+        <div class="swingDot red"></div>
+        <span class="swingPartyLbl red">R</span>
+        <input type="range" class="swingRange red" min="30" max="70" step="0.1" value="50" data-swing-slider-r />
+        <span class="swingSliderVal" data-swing-val-r>50.0</span>
+      </div>
+      <div class="swingMarginRow">
+        <span class="swingMarginLabel">Margin</span>
+        <span class="swingMarginVal" data-swing-margin>Tied</span>
+      </div>
+    </section>
+
+    <section class="card seatsCard">
+      <div class="seatsSummary">
+        <div class="seatsLine">
+          <div class="seatsSide d"><span class="lbl">D</span><span class="num" data-swing-seats-d>—</span></div>
+          <div class="seatsDivider"></div>
+          <div class="seatsSide r"><span class="lbl">R</span><span class="num" data-swing-seats-r>—</span></div>
+        </div>
+        <div class="simMini">
+          <canvas class="simCanvas" data-swing-sim></canvas>
+        </div>
+      </div>
+    </section>
+
+    <section class="card mapCard">
+      <div class="mapGrid"><div class="mapStage">
+        <svg class="mapSvg"></svg>
+      </div></div>
+    </section>
+  </section>
+
+</div>
+
   </div>
 
   <div id="tip" role="dialog" aria-label="State details tooltip">
@@ -2107,6 +2385,7 @@
 <script src="forecast.js?v=v20"></script>
 <script src="ratings.js?v=20"></script>
 <script src="polls.js?v=25"></script>
+<script src="swingometer.js?v=1"></script>
 
 </body>
 </html>
