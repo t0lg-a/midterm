@@ -324,6 +324,12 @@ async function loadStatePollsByDateCSV(){
     if (aP === "R") R = aPct;
     if (bP === "R") R = bPct;
 
+    // Fallback: if both parties empty, assume candA=D candB=R (standard polling convention)
+    if (!isFinite(D) && !isFinite(R) && !aP && !bP){
+      D = aPct;
+      R = bPct;
+    }
+
     return {D, R};
   }
 
