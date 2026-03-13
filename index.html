@@ -1223,6 +1223,43 @@
       flex-shrink:0;
     }
 
+    /* ---------- Polls Page Grid (shared rows across columns) ---------- */
+    .pollsGrid{
+      display:grid;
+      grid-template-columns:1fr;
+      grid-template-areas:
+        "t1" "n1" "m1" "b1"
+        "t2" "n2" "m2" "b2"
+        "t3" "n3" "m3" "b3";
+      gap:10px;
+      flex:1;
+      min-height:0;
+      overflow-y:auto;
+    }
+    @media (min-width:980px){
+      .pollsGrid{
+        grid-template-columns:repeat(3,minmax(0,1fr));
+        grid-template-rows:auto auto 1fr auto;
+        grid-template-areas:
+          "t1 t2 t3"
+          "n1 n2 n3"
+          "m1 m2 m3"
+          "b1 b2 b3";
+        overflow-y:auto;
+      }
+    }
+    .pollsGrid .pollListCard{
+      display:flex;
+      flex-direction:column;
+      min-height:0;
+      overflow:hidden;
+    }
+    .pollsGrid .pollListWrap{
+      flex:1;
+      min-height:0;
+      overflow-y:auto;
+    }
+
     /* ---------- Polls Page ---------- */
     .pollsHistWide{
       width:100%;
@@ -1234,7 +1271,7 @@
       display:block;
       border-radius:6px;
     }
-    .pollListCard{ display:flex; flex-direction:column; max-height:320px; }
+    .pollListCard{ display:flex; flex-direction:column; }
     .pollListWrap{
       overflow-y:auto;
       flex:1;
@@ -1945,144 +1982,93 @@
 </div>
 
 <!-- POLLS PAGE -->
-<div class="pollsPage triGrid" id="pollsPage" style="display:none">
+<div id="pollsPage" class="pollsGrid" style="display:none">
 
-  <!-- GENERIC BALLOT / APPROVAL -->
-  <section class="modeCol" data-polls-mode="gb">
-    <section class="card topCard">
-      <div class="panelHeaderRow">
-        <div class="panelTitleWrap">
-          <div class="panelTitle">Approval / Gen Ballot</div>
-        </div>
-        <div class="pillRow">
-          <div class="metricPill blue"><span class="dot"></span><span class="val" data-polls-d>50.0</span></div>
-          <div class="metricPill red"><span class="dot"></span><span class="val" data-polls-r>50.0</span></div>
-        </div>
+  <!-- ROW 1: Top cards -->
+  <section class="card topCard" data-polls-mode="gb" style="grid-area:t1">
+    <div class="panelHeaderRow">
+      <div class="panelTitleWrap"><div class="panelTitle">Approval / Gen Ballot</div></div>
+      <div class="pillRow">
+        <div class="metricPill blue"><span class="dot"></span><span class="val" data-polls-d>50.0</span></div>
+        <div class="metricPill red"><span class="dot"></span><span class="val" data-polls-r>50.0</span></div>
       </div>
-    </section>
-
-    <section class="card seatsCard">
-      <div class="seatsSummary">
-        <div class="seatsLine">
-          <div class="seatsSide d"><span class="lbl" data-polls-d-lbl>D</span><span class="num" data-polls-d-big>—</span></div>
-          <div class="seatsDivider"></div>
-          <div class="seatsSide r"><span class="lbl" data-polls-r-lbl>R</span><span class="num" data-polls-r-big>—</span></div>
-        </div>
-        <div class="pollsHistWide">
-          <canvas data-polls-hist></canvas>
-        </div>
-      </div>
-    </section>
-
-    <section class="card oddsCard">
-      <div class="oddsHead">
-        <div>
-          <div class="oddsTitle" data-polls-chart-title>Generic Ballot</div>
-          <div class="oddsSub" data-polls-chart-sub>Scatter plot · moving average</div>
-        </div>
-        <div class="chartTabs">
-          <button class="chartTab active" data-polls-toggle="gb">Gen Ballot</button>
-          <button class="chartTab" data-polls-toggle="approval">Approval</button>
-        </div>
-      </div>
-      <div class="oddsChartWrap">
-        <div class="chartYLabel">Raw %</div>
-        <svg class="comboSvg" data-polls-chart></svg>
-      </div>
-    </section>
-
-    <section class="card pollListCard">
-      <div class="oddsHead">
-        <div><div class="oddsTitle">Poll List</div></div>
-      </div>
-      <div class="pollListWrap" data-polls-list></div>
-    </section>
+    </div>
+  </section>
+  <section class="card topCard" data-polls-mode="senate" style="grid-area:t2">
+    <div class="panelHeaderRow"><div class="panelTitleWrap"><div class="panelTitle">Senate</div><div class="panelSub">Class II - 2026</div></div></div>
+  </section>
+  <section class="card topCard" data-polls-mode="governor" style="grid-area:t3">
+    <div class="panelHeaderRow"><div class="panelTitleWrap"><div class="panelTitle">Governor</div><div class="panelSub">Gubernatorial - 2026</div></div></div>
   </section>
 
-  <!-- SENATE POLLS -->
-  <section class="modeCol" data-polls-mode="senate">
-    <section class="card topCard">
-      <div class="panelHeaderRow">
-        <div class="panelTitleWrap">
-          <div class="panelTitle">Senate</div>
-          <div class="panelSub">Class II - 2026</div>
-        </div>
+  <!-- ROW 2: Numbers + histogram -->
+  <section class="card seatsCard" data-polls-mode="gb" style="grid-area:n1">
+    <div class="seatsSummary">
+      <div class="seatsLine">
+        <div class="seatsSide d"><span class="lbl" data-polls-d-lbl>D</span><span class="num" data-polls-d-big>—</span></div>
+        <div class="seatsDivider"></div>
+        <div class="seatsSide r"><span class="lbl" data-polls-r-lbl>R</span><span class="num" data-polls-r-big>—</span></div>
       </div>
-    </section>
-
-    <section class="card seatsCard">
-      <div class="seatsSummary">
-        <div class="seatsLine">
-          <div class="seatsSide d"><span class="lbl">D</span><span class="num" data-polls-d-big>—</span></div>
-          <div class="seatsDivider"></div>
-          <div class="seatsSide r"><span class="lbl">R</span><span class="num" data-polls-r-big>—</span></div>
-        </div>
-        <div class="pollsHistWide">
-          <canvas data-polls-hist></canvas>
-        </div>
+      <div class="pollsHistWide"><canvas data-polls-hist></canvas></div>
+    </div>
+  </section>
+  <section class="card seatsCard" data-polls-mode="senate" style="grid-area:n2">
+    <div class="seatsSummary">
+      <div class="seatsLine">
+        <div class="seatsSide d"><span class="lbl">D</span><span class="num" data-polls-d-big>—</span></div>
+        <div class="seatsDivider"></div>
+        <div class="seatsSide r"><span class="lbl">R</span><span class="num" data-polls-r-big>—</span></div>
       </div>
-    </section>
-
-    <section class="card mapCard">
-      <div class="mapGrid"><div class="mapStage">
-        <svg class="mapSvg" data-polls-map></svg>
-      </div></div>
-    </section>
-
-    <section class="card oddsCard" data-polls-state-wrap>
-      <div class="oddsHead">
-        <div>
-          <div class="oddsTitle" data-polls-state-chart-title>Click a state to see polls</div>
-        </div>
+      <div class="pollsHistWide"><canvas data-polls-hist></canvas></div>
+    </div>
+  </section>
+  <section class="card seatsCard" data-polls-mode="governor" style="grid-area:n3">
+    <div class="seatsSummary">
+      <div class="seatsLine">
+        <div class="seatsSide d"><span class="lbl">D</span><span class="num" data-polls-d-big>—</span></div>
+        <div class="seatsDivider"></div>
+        <div class="seatsSide r"><span class="lbl">R</span><span class="num" data-polls-r-big>—</span></div>
       </div>
-      <div class="oddsChartWrap">
-        <div class="chartYLabel">Raw %</div>
-        <svg class="comboSvg" data-polls-state-chart></svg>
-      </div>
-    </section>
+      <div class="pollsHistWide"><canvas data-polls-hist></canvas></div>
+    </div>
   </section>
 
-  <!-- GOVERNOR POLLS -->
-  <section class="modeCol" data-polls-mode="governor">
-    <section class="card topCard">
-      <div class="panelHeaderRow">
-        <div class="panelTitleWrap">
-          <div class="panelTitle">Governor</div>
-          <div class="panelSub">Gubernatorial - 2026</div>
-        </div>
+  <!-- ROW 3: Chart / Map / Map (SAME HEIGHT) -->
+  <section class="card oddsCard" data-polls-mode="gb" style="grid-area:m1">
+    <div class="oddsHead">
+      <div>
+        <div class="oddsTitle" data-polls-chart-title>Generic Ballot</div>
+        <div class="oddsSub" data-polls-chart-sub>Scatter plot · moving average</div>
       </div>
-    </section>
+      <div class="chartTabs">
+        <button class="chartTab active" data-polls-toggle="gb">Gen Ballot</button>
+        <button class="chartTab" data-polls-toggle="approval">Approval</button>
+      </div>
+    </div>
+    <div class="oddsChartWrap">
+      <div class="chartYLabel">Raw %</div>
+      <svg class="comboSvg" data-polls-chart></svg>
+    </div>
+  </section>
+  <section class="card mapCard" data-polls-mode="senate" style="grid-area:m2">
+    <div class="mapGrid"><div class="mapStage"><svg class="mapSvg" data-polls-map></svg></div></div>
+  </section>
+  <section class="card mapCard" data-polls-mode="governor" style="grid-area:m3">
+    <div class="mapGrid"><div class="mapStage"><svg class="mapSvg" data-polls-map></svg></div></div>
+  </section>
 
-    <section class="card seatsCard">
-      <div class="seatsSummary">
-        <div class="seatsLine">
-          <div class="seatsSide d"><span class="lbl">D</span><span class="num" data-polls-d-big>—</span></div>
-          <div class="seatsDivider"></div>
-          <div class="seatsSide r"><span class="lbl">R</span><span class="num" data-polls-r-big>—</span></div>
-        </div>
-        <div class="pollsHistWide">
-          <canvas data-polls-hist></canvas>
-        </div>
-      </div>
-    </section>
-
-    <section class="card mapCard">
-      <div class="mapGrid"><div class="mapStage">
-        <svg class="mapSvg" data-polls-map></svg>
-      </div></div>
-    </section>
-
-    <section class="card oddsCard" data-polls-state-wrap>
-      <div class="oddsHead">
-        <div>
-          <div class="oddsTitle" data-polls-state-chart-title>Click a state to see polls</div>
-        </div>
-      </div>
-      <div class="oddsChartWrap">
-        <div class="chartYLabel">Raw %</div>
-        <svg class="comboSvg" data-polls-state-chart></svg>
-      </div>
-    </section>
+  <!-- ROW 4: Poll list / State charts (SAME HEIGHT) -->
+  <section class="card pollListCard" data-polls-mode="gb" style="grid-area:b1">
+    <div class="oddsHead"><div><div class="oddsTitle">Poll List</div></div></div>
+    <div class="pollListWrap" data-polls-list></div>
+  </section>
+  <section class="card oddsCard" data-polls-mode="senate" data-polls-state-wrap style="grid-area:b2">
+    <div class="oddsHead"><div><div class="oddsTitle" data-polls-state-chart-title>Click a state to see polls</div></div></div>
+    <div class="oddsChartWrap"><div class="chartYLabel">Raw %</div><svg class="comboSvg" data-polls-state-chart></svg></div>
+  </section>
+  <section class="card oddsCard" data-polls-mode="governor" data-polls-state-wrap style="grid-area:b3">
+    <div class="oddsHead"><div><div class="oddsTitle" data-polls-state-chart-title>Click a state to see polls</div></div></div>
+    <div class="oddsChartWrap"><div class="chartYLabel">Raw %</div><svg class="comboSvg" data-polls-state-chart></svg></div>
   </section>
 
 </div>
@@ -2107,9 +2093,9 @@
 
   <div id="simTip" class="simTip" aria-hidden="true"></div>
 
-<script src="forecast.js?v=visual15"></script>
+<script src="forecast.js?v=visual16"></script>
 <script src="ratings.js?v=3"></script>
-<script src="polls.js?v=5"></script>
+<script src="polls.js?v=6"></script>
 
 </body>
 </html>

@@ -99,35 +99,43 @@ async function initPollsPage(){
 }
 
 function initPollsUI(mode){
-  const root = document.querySelector(`[data-polls-mode='${mode}']`);
-  if (!root) return;
+  // Flat grid: cards are siblings with data-polls-mode, not nested
+  const page = document.getElementById("pollsPage");
+  if (!page) return;
+  const cards = page.querySelectorAll(`[data-polls-mode='${mode}']`);
+  if (!cards.length) return;
+  // Helper: find attribute across all cards for this mode
+  const q = (sel) => {
+    for (const c of cards){ const el = c.matches(sel) ? c : c.querySelector(sel); if (el) return el; }
+    return null;
+  };
   POLLS_UI[mode] = {
-    root,
-    topCard: root.querySelector(".topCard"),
-    dPill: root.querySelector("[data-polls-d]"),
-    rPill: root.querySelector("[data-polls-r]"),
-    dBig: root.querySelector("[data-polls-d-big]"),
-    rBig: root.querySelector("[data-polls-r-big]"),
-    dLbl: root.querySelector("[data-polls-d-lbl]"),
-    rLbl: root.querySelector("[data-polls-r-lbl]"),
-    histCanvas: root.querySelector("[data-polls-hist]"),
-    chart: root.querySelector("[data-polls-chart]"),
-    chartTitle: root.querySelector("[data-polls-chart-title]"),
-    chartSub: root.querySelector("[data-polls-chart-sub]"),
-    mapSvg: root.querySelector("[data-polls-map]"),
-    stateChart: root.querySelector("[data-polls-state-chart]"),
-    stateChartTitle: root.querySelector("[data-polls-state-chart-title]"),
-    stateChartWrap: root.querySelector("[data-polls-state-wrap]"),
-    pollList: root.querySelector("[data-polls-list]"),
+    root: page,
+    topCard: q(".topCard"),
+    dPill: q("[data-polls-d]"),
+    rPill: q("[data-polls-r]"),
+    dBig: q("[data-polls-d-big]"),
+    rBig: q("[data-polls-r-big]"),
+    dLbl: q("[data-polls-d-lbl]"),
+    rLbl: q("[data-polls-r-lbl]"),
+    histCanvas: q("[data-polls-hist]"),
+    chart: q("[data-polls-chart]"),
+    chartTitle: q("[data-polls-chart-title]"),
+    chartSub: q("[data-polls-chart-sub]"),
+    mapSvg: q("[data-polls-map]"),
+    stateChart: q("[data-polls-state-chart]"),
+    stateChartTitle: q("[data-polls-state-chart-title]"),
+    stateChartWrap: q("[data-polls-state-wrap]"),
+    pollList: q("[data-polls-list]"),
   };
 }
 
 function setupLeftToggle(){
-  const root = document.querySelector(`[data-polls-mode='gb']`);
-  if (!root) return;
-  root.querySelectorAll("[data-polls-toggle]").forEach(btn => {
+  const page = document.getElementById("pollsPage");
+  if (!page) return;
+  page.querySelectorAll("[data-polls-toggle]").forEach(btn => {
     btn.addEventListener("click", () => {
-      root.querySelectorAll("[data-polls-toggle]").forEach(b => b.classList.remove("active"));
+      page.querySelectorAll("[data-polls-toggle]").forEach(b => b.classList.remove("active"));
       btn.classList.add("active");
       LEFT_MODE = btn.dataset.pollsToggle;
       renderLeftColumn();
