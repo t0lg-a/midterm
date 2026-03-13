@@ -1224,6 +1224,16 @@
     }
 
     /* ---------- Polls Page ---------- */
+    .pollsHistWide{
+      width:100%;
+      margin-top:10px;
+    }
+    .pollsHistWide canvas{
+      width:100%;
+      height:26px;
+      display:block;
+      border-radius:6px;
+    }
     .pollListCard{ max-height:360px; display:flex; flex-direction:column; }
     .pollListWrap{
       overflow-y:auto;
@@ -1934,7 +1944,7 @@
 <!-- POLLS PAGE -->
 <div class="pollsPage triGrid" id="pollsPage" style="display:none">
 
-  <!-- GENERIC BALLOT -->
+  <!-- GENERIC BALLOT / APPROVAL -->
   <section class="modeCol" data-polls-mode="gb">
     <section class="card topCard">
       <div class="panelHeaderRow">
@@ -1952,12 +1962,12 @@
     <section class="card seatsCard">
       <div class="seatsSummary">
         <div class="seatsLine">
-          <div class="seatsSide d"><span class="lbl">D</span><span class="num" data-polls-d-big>—</span></div>
+          <div class="seatsSide d"><span class="lbl" data-polls-d-lbl>D</span><span class="num" data-polls-d-big>—</span></div>
           <div class="seatsDivider"></div>
-          <div class="seatsSide r"><span class="lbl">R</span><span class="num" data-polls-r-big>—</span></div>
+          <div class="seatsSide r"><span class="lbl" data-polls-r-lbl>R</span><span class="num" data-polls-r-big>—</span></div>
         </div>
-        <div class="simMini">
-          <canvas class="simCanvas" data-polls-hist></canvas>
+        <div class="pollsHistWide">
+          <canvas data-polls-hist></canvas>
         </div>
       </div>
     </section>
@@ -1965,12 +1975,16 @@
     <section class="card oddsCard">
       <div class="oddsHead">
         <div>
-          <div class="oddsTitle">Generic Ballot</div>
-          <div class="oddsSub">Scatter plot · moving average</div>
+          <div class="oddsTitle" data-polls-chart-title>Generic Ballot</div>
+          <div class="oddsSub" data-polls-chart-sub>Scatter plot · moving average</div>
+        </div>
+        <div class="chartTabs">
+          <button class="chartTab active" data-polls-toggle="gb">Gen Ballot</button>
+          <button class="chartTab" data-polls-toggle="approval">Approval</button>
         </div>
       </div>
       <div class="oddsChartWrap">
-        <div class="chartYLabel" data-polls-ylabel>Two-party %</div>
+        <div class="chartYLabel">Raw %</div>
         <svg class="comboSvg" data-polls-chart></svg>
       </div>
     </section>
@@ -2001,8 +2015,8 @@
           <div class="seatsDivider"></div>
           <div class="seatsSide r"><span class="lbl">R</span><span class="num" data-polls-r-big>—</span></div>
         </div>
-        <div class="simMini">
-          <canvas class="simCanvas" data-polls-hist></canvas>
+        <div class="pollsHistWide">
+          <canvas data-polls-hist></canvas>
         </div>
       </div>
     </section>
@@ -2020,7 +2034,7 @@
         </div>
       </div>
       <div class="oddsChartWrap">
-        <div class="chartYLabel">Two-party %</div>
+        <div class="chartYLabel">Raw %</div>
         <svg class="comboSvg" data-polls-state-chart></svg>
       </div>
     </section>
@@ -2044,8 +2058,8 @@
           <div class="seatsDivider"></div>
           <div class="seatsSide r"><span class="lbl">R</span><span class="num" data-polls-r-big>—</span></div>
         </div>
-        <div class="simMini">
-          <canvas class="simCanvas" data-polls-hist></canvas>
+        <div class="pollsHistWide">
+          <canvas data-polls-hist></canvas>
         </div>
       </div>
     </section>
@@ -2063,7 +2077,7 @@
         </div>
       </div>
       <div class="oddsChartWrap">
-        <div class="chartYLabel">Two-party %</div>
+        <div class="chartYLabel">Raw %</div>
         <svg class="comboSvg" data-polls-state-chart></svg>
       </div>
     </section>
@@ -2091,9 +2105,9 @@
 
   <div id="simTip" class="simTip" aria-hidden="true"></div>
 
-<script src="forecast.js?v=visual13"></script>
-<script src="ratings.js?v=2"></script>
-<script src="polls.js?v=1"></script>
+<script src="forecast.js?v=visual14"></script>
+<script src="ratings.js?v=3"></script>
+<script src="polls.js?v=2"></script>
 
 </body>
 </html>
