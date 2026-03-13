@@ -151,6 +151,12 @@ function renderGBColumn(ui){
   if (ui.dLbl) ui.dLbl.textContent = "D";
   if (ui.rLbl) ui.rLbl.textContent = "R";
   if (ui.topCard){ ui.topCard.classList.remove("leads-d","leads-r"); ui.topCard.classList.add(dVal>rVal?"leads-d":"leads-r"); }
+  // Reset pill to blue
+  const dPillEl = ui.dPill?.closest(".metricPill");
+  if (dPillEl){ dPillEl.classList.add("blue"); dPillEl.querySelector(".dot").style.background=""; }
+  // Reset big number to blue
+  const dSide = ui.dBig?.closest(".seatsSide");
+  if (dSide) dSide.style.color = "";
   if (ui.chartTitle) ui.chartTitle.textContent = "Generic Ballot";
   if (ui.chartSub) ui.chartSub.textContent = "Scatter plot · moving average";
 
@@ -173,24 +179,30 @@ function renderApprovalColumn(ui){
   if (ui.rBig) ui.rBig.textContent = Math.round(latest.b);
   if (ui.dLbl) ui.dLbl.textContent = "App";
   if (ui.rLbl) ui.rLbl.textContent = "Dis";
-  if (ui.topCard){ ui.topCard.classList.remove("leads-d","leads-r"); ui.topCard.classList.add(latest.a>latest.b?"leads-d":"leads-r"); }
+  if (ui.topCard){ ui.topCard.classList.remove("leads-d","leads-r"); }
+  // Green pill for approve
+  const dPillEl = ui.dPill?.closest(".metricPill");
+  if (dPillEl){ dPillEl.classList.remove("blue"); dPillEl.querySelector(".dot").style.background="#16a34a"; }
+  // Green big number
+  const dSide = ui.dBig?.closest(".seatsSide");
+  if (dSide) dSide.style.color = "#16a34a";
   if (ui.chartTitle) ui.chartTitle.textContent = "Presidential Approval";
   if (ui.chartSub) ui.chartSub.textContent = "Scatter plot · moving average";
 
   const strict = !!GB_SRC.filterStrict;
   const polls = APPROVAL_RAW.filter(p=>isAllowedPollster(p.pollster,strict));
 
-  drawFrequencyHist(ui.histCanvas, polls.map(p => p.date));
-  renderDualScatter(ui.chart, polls.map(p=>({date:p.date,a:p.approve,b:p.disapprove})), APPROVAL_SERIES, "App","Dis");
+  drawFrequencyHist(ui.histCanvas, polls.map(p => p.date), "#16a34a");
+  renderDualScatter(ui.chart, polls.map(p=>({date:p.date,a:p.approve,b:p.disapprove})), APPROVAL_SERIES, "App","Dis","#16a34a","var(--red)");
 
   renderPollTable(ui.pollList, polls.sort((a,b)=>b.date-a.date).slice(0,100).map(p=>({
     date:p.date, pollster:p.pollster, a:p.approve, b:p.disapprove, lA:"App", lB:"Dis"
-  })));
+  })), "#16a34a", "var(--red)");
 }
 
 
 /* --- Frequency Histogram: # of polls per week --- */
-function drawFrequencyHist(canvas, dates){
+function drawFrequencyHist(canvas, dates, barColor){
   if (!canvas) return;
   const cssW = canvas.clientWidth||300, cssH = canvas.clientHeight||26;
   const dpr = window.devicePixelRatio||1;
@@ -216,7 +228,7 @@ function drawFrequencyHist(canvas, dates){
   const maxC = Math.max(...counts)||1;
   const barW = cssW / nBins;
   const cs = getComputedStyle(document.documentElement);
-  const blue = cs.getPropertyValue("--blue").trim()||"#2563eb";
+  const blue = barColor || cs.getPropertyValue("--blue").trim()||"#2563eb";
 
   for (let i = 0; i < nBins; i++){
     const h = (counts[i]/maxC)*(cssH-2);
@@ -229,7 +241,7 @@ function drawFrequencyHist(canvas, dates){
 
 
 /* --- Dual Scatter Plot --- */
-function renderDualScatter(svgEl, polls, avgSeries, lA, lB){
+function renderDualScatter(svgEl, polls, avgSeries, lA, lB, colorAOverride, colorBOverride){
   if (!svgEl) return;
   const rect = svgEl.getBoundingClientRect();
   const width = Math.max(320,Math.floor(rect.width||400));
@@ -253,8 +265,8 @@ function renderDualScatter(svgEl, polls, avgSeries, lA, lB){
     svg.append("line").attr("x1",mg.l).attr("x2",mg.l+iw).attr("y1",y(50)).attr("y2",y(50)).attr("class","seatMajLine");
 
   const cs=getComputedStyle(document.documentElement);
-  const blue=cs.getPropertyValue("--blue").trim()||"#2563eb";
-  const red=cs.getPropertyValue("--red").trim()||"#dc2626";
+  const blue=colorAOverride||cs.getPropertyValue("--blue").trim()||"#2563eb";
+  const red=colorBOverride||cs.getPropertyValue("--red").trim()||"#dc2626";
 
   svg.selectAll(".dA").data(polls).join("circle").attr("cx",d=>x(d.date)).attr("cy",d=>y(d.a)).attr("r",2.5).attr("fill",blue).attr("opacity",0.25);
   svg.selectAll(".dB").data(polls).join("circle").attr("cx",d=>x(d.date)).attr("cy",d=>y(d.b)).attr("r",2.5).attr("fill",red).attr("opacity",0.25);
@@ -287,17 +299,17 @@ function renderDualScatter(svgEl, polls, avgSeries, lA, lB){
 }
 
 /* --- Poll Table --- */
-function renderPollTable(el, rows){
+function renderPollTable(el, rows, colA, colB){
   if (!el) return;
   if (!rows.length){ el.innerHTML=`<div style="padding:16px;color:var(--muted);font-size:12px;">No polls</div>`; return; }
   const lA=rows[0].lA, lB=rows[0].lB;
-  const blue="var(--blue)",red="var(--red)";
-  let h=`<table class="pollTable"><thead><tr><th>Date</th><th>Pollster</th><th style="color:${blue}">${lA}</th><th style="color:${red}">${lB}</th><th>Margin</th></tr></thead><tbody>`;
+  const cA=colA||"var(--blue)", cB=colB||"var(--red)";
+  let h=`<table class="pollTable"><thead><tr><th>Date</th><th>Pollster</th><th style="color:${cA}">${lA}</th><th style="color:${cB}">${lB}</th><th>Margin</th></tr></thead><tbody>`;
   for (const p of rows){
     const m=p.a-p.b;
     const ms=Math.abs(m)<0.05?"Tied":(m>0?`${lA}+${m.toFixed(1)}`:`${lB}+${Math.abs(m).toFixed(1)}`);
-    const mc=m>0?blue:(m<0?red:"var(--muted)");
-    h+=`<tr><td>${ds(p.date)}</td><td class="pollTd">${String(p.pollster||"").slice(0,28)}</td><td style="color:${blue}">${(+p.a).toFixed(1)}</td><td style="color:${red}">${(+p.b).toFixed(1)}</td><td style="color:${mc};font-weight:700">${ms}</td></tr>`;
+    const mc=m>0?cA:(m<0?cB:"var(--muted)");
+    h+=`<tr><td>${ds(p.date)}</td><td class="pollTd">${String(p.pollster||"").slice(0,28)}</td><td style="color:${cA}">${(+p.a).toFixed(1)}</td><td style="color:${cB}">${(+p.b).toFixed(1)}</td><td style="color:${mc};font-weight:700">${ms}</td></tr>`;
   }
   h+=`</tbody></table>`;
   el.innerHTML=h;
