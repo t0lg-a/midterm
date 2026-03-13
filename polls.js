@@ -182,7 +182,7 @@ function greenPill(ui){
 /* ======== MARGIN HISTOGRAM ======== */
 function drawMarginHist(canvas,margins){
   if(!canvas)return;
-  const W=canvas.clientWidth||300, H=canvas.clientHeight||26;
+  const W=canvas.clientWidth||300, H=canvas.clientHeight||36;
   const dpr=devicePixelRatio||1;
   canvas.width=Math.round(W*dpr); canvas.height=Math.round(H*dpr);
   const ctx=canvas.getContext("2d");
@@ -195,10 +195,15 @@ function drawMarginHist(canvas,margins){
   const cs=getComputedStyle(document.documentElement);
   const bl=cs.getPropertyValue("--blue").trim()||"#2563eb";
   const rd=cs.getPropertyValue("--red").trim()||"#dc2626";
+  // Center line at 0
+  const cx=((0-lo)/n)*W;
+  ctx.strokeStyle="rgba(0,0,0,0.2)"; ctx.lineWidth=1;
+  ctx.beginPath(); ctx.moveTo(cx,0); ctx.lineTo(cx,H); ctx.stroke();
+  // Bars
   for(let i=0;i<n;i++){
-    const v=lo+i, h=(c[i]/mx)*(H-2);
+    const v=lo+i, h=(c[i]/mx)*(H-4);
     ctx.fillStyle=v>0?bl:(v<0?rd:"#fde047");
-    ctx.globalAlpha=0.75;
+    ctx.globalAlpha=0.8;
     ctx.fillRect(i*bw+.5,H-h,bw-1,h);
   }
   ctx.globalAlpha=1;
