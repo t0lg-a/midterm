@@ -90,8 +90,12 @@ async function initPollsPage(){
   initPollsUI("governor");
   setupLeftToggle();
   renderLeftColumn();
-  initPollsModeColumn("senate");
-  initPollsModeColumn("governor");
+  await initPollsModeColumn("senate");
+  await initPollsModeColumn("governor");
+
+  // Default selections
+  selectPollsState("senate", "TX");
+  selectPollsState("governor", "AZ");
 }
 
 function initPollsUI(mode){
