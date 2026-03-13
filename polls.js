@@ -89,6 +89,10 @@ async function initPollsPage(){
   initPollsUI("senate");
   initPollsUI("governor");
   setupLeftToggle();
+
+  // Wait for browser to reflow (page was just un-hidden)
+  await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
+
   renderLeftColumn();
   await initPollsModeColumn("senate");
   await initPollsModeColumn("governor");
