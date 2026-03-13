@@ -6,13 +6,27 @@ const POLLS_UI = {};
 const POLLS_MAP = {};
 const POLLS_STATE = { senate: null, governor: null };
 
+/* ---------- Deduplication helper ---------- */
+function dedupeByDatePollster(arr, dateKey, pollsterKey, valCheck){
+  // Keep first per date+pollster combo
+  const seen = new Set();
+  return arr.filter(p => {
+    const d = p[dateKey]; const ps = String(p[pollsterKey]||"").toLowerCase().trim();
+    if (!d) return false;
+    const key = `${ds(d)}|${ps}`;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return valCheck ? valCheck(p) : true;
+  });
+}
+
 /* ---------- Approval data ---------- */
 let APPROVAL_RAW = [];
 let APPROVAL_SERIES = [];
 
 function parseApprovalFromPollsJSON(j){
   const raw = Array.isArray(j.approval) ? j.approval : [];
-  APPROVAL_RAW = raw.map(p => {
+  let parsed = raw.map(p => {
     const date = parseDate(p.end_date || p.start_date || p.created_at);
     let approve = null, disapprove = null;
     for (const a of (p.answers || [])){
@@ -20,10 +34,12 @@ function parseApprovalFromPollsJSON(j){
       if (c === "approve" || c === "yes") approve = +a.pct;
       if (c === "disapprove" || c === "no") disapprove = +a.pct;
     }
-    const pollster = p.pollster || "";
-    return { date, approve, disapprove, pollster };
+    return { date, approve, disapprove, pollster: p.pollster || "" };
   }).filter(p => p.date && isFinite(p.approve) && isFinite(p.disapprove));
-  APPROVAL_RAW.sort((a,b) => a.date - b.date);
+  parsed.sort((a,b) => a.date - b.date);
+
+  // Deduplicate: one per date+pollster
+  APPROVAL_RAW = dedupeByDatePollster(parsed, "date", "pollster");
 
   const strict = !!GB_SRC.filterStrict;
   const polls = APPROVAL_RAW.filter(p => isAllowedPollster(p.pollster, strict));
@@ -35,23 +51,29 @@ function calcMovAvg(sorted, N){
   const n = sorted.length;
   const psA = new Float64Array(n+1), psB = new Float64Array(n+1);
   for (let i=0;i<n;i++){ psA[i+1]=psA[i]+sorted[i].a; psB[i+1]=psB[i]+sorted[i].b; }
-  const t0 = sorted[0].date;
-  const lastDay = sorted[n-1].date;
+  const t0 = sorted[0].date, lastDay = sorted[n-1].date;
   const today = new Date(); today.setHours(0,0,0,0);
   const t1 = today > lastDay ? today : lastDay;
   const out = [];
   let hi = 0;
   for (let day = new Date(t0); day <= t1; day.setDate(day.getDate()+1)){
     while (hi < n && sorted[hi].date <= day) hi++;
-    const lo = Math.max(0, hi - N);
-    const cnt = hi - lo;
+    const lo = Math.max(0, hi - N), cnt = hi - lo;
     if (cnt <= 0) continue;
     out.push({ date: new Date(day), a:(psA[hi]-psA[lo])/cnt, b:(psB[hi]-psB[lo])/cnt, count:cnt });
   }
   return out;
 }
 
-/* ---------- Left column mode ---------- */
+/* ---------- Deduplicated GB ---------- */
+function getDeduplicatedGB(){
+  const raw = (GB_SRC.raw || []).filter(p => p && p.date && isFinite(p.dem) && isFinite(p.rep));
+  const strict = !!GB_SRC.filterStrict;
+  const filtered = raw.filter(p => isAllowedPollster(p.pollster, strict));
+  filtered.sort((a,b) => a.date - b.date);
+  return dedupeByDatePollster(filtered, "date", "pollster");
+}
+
 let LEFT_MODE = "gb";
 
 /* ---------- Init ---------- */
@@ -118,6 +140,7 @@ function renderLeftColumn(){
 }
 
 function renderGBColumn(ui){
+  const polls = getDeduplicatedGB();
   const latest = GB_SRC.latest;
   if (!latest) return;
   const dVal = +latest.dem, rVal = +latest.rep;
@@ -127,15 +150,11 @@ function renderGBColumn(ui){
   if (ui.rBig) ui.rBig.textContent = Math.round(rVal);
   if (ui.dLbl) ui.dLbl.textContent = "D";
   if (ui.rLbl) ui.rLbl.textContent = "R";
-  if (ui.topCard){ ui.topCard.classList.remove("leads-d","leads-r"); ui.topCard.classList.add(dVal > rVal ? "leads-d" : "leads-r"); }
+  if (ui.topCard){ ui.topCard.classList.remove("leads-d","leads-r"); ui.topCard.classList.add(dVal>rVal?"leads-d":"leads-r"); }
   if (ui.chartTitle) ui.chartTitle.textContent = "Generic Ballot";
   if (ui.chartSub) ui.chartSub.textContent = "Scatter plot · moving average";
 
-  const raw = (GB_SRC.raw||[]).filter(p=>p&&p.date&&isFinite(p.dem)&&isFinite(p.rep));
-  const strict = !!GB_SRC.filterStrict;
-  const polls = raw.filter(p=>isAllowedPollster(p.pollster,strict));
-
-  drawMarginHist(ui.histCanvas, polls.map(p=>p.dem-p.rep));
+  drawFrequencyHist(ui.histCanvas, polls.map(p => p.date));
 
   const series = (GB_SRC.series||[]).map(s=>({date:parseDate(s.date),a:+s.dem,b:+s.rep})).filter(d=>d.date);
   renderDualScatter(ui.chart, polls.map(p=>({date:p.date,a:+p.dem,b:+p.rep})), series, "D","R");
@@ -154,14 +173,14 @@ function renderApprovalColumn(ui){
   if (ui.rBig) ui.rBig.textContent = Math.round(latest.b);
   if (ui.dLbl) ui.dLbl.textContent = "App";
   if (ui.rLbl) ui.rLbl.textContent = "Dis";
-  if (ui.topCard){ ui.topCard.classList.remove("leads-d","leads-r"); ui.topCard.classList.add(latest.a > latest.b ? "leads-d" : "leads-r"); }
+  if (ui.topCard){ ui.topCard.classList.remove("leads-d","leads-r"); ui.topCard.classList.add(latest.a>latest.b?"leads-d":"leads-r"); }
   if (ui.chartTitle) ui.chartTitle.textContent = "Presidential Approval";
   if (ui.chartSub) ui.chartSub.textContent = "Scatter plot · moving average";
 
   const strict = !!GB_SRC.filterStrict;
   const polls = APPROVAL_RAW.filter(p=>isAllowedPollster(p.pollster,strict));
 
-  drawMarginHist(ui.histCanvas, polls.map(p=>p.approve-p.disapprove));
+  drawFrequencyHist(ui.histCanvas, polls.map(p => p.date));
   renderDualScatter(ui.chart, polls.map(p=>({date:p.date,a:p.approve,b:p.disapprove})), APPROVAL_SERIES, "App","Dis");
 
   renderPollTable(ui.pollList, polls.sort((a,b)=>b.date-a.date).slice(0,100).map(p=>({
@@ -169,33 +188,45 @@ function renderApprovalColumn(ui){
   })));
 }
 
-/* --- Histogram --- */
-function drawMarginHist(canvas, margins){
+
+/* --- Frequency Histogram: # of polls per week --- */
+function drawFrequencyHist(canvas, dates){
   if (!canvas) return;
   const cssW = canvas.clientWidth||300, cssH = canvas.clientHeight||26;
   const dpr = window.devicePixelRatio||1;
   canvas.width = Math.round(cssW*dpr); canvas.height = Math.round(cssH*dpr);
   const ctx = canvas.getContext("2d");
   ctx.setTransform(dpr,0,0,dpr,0,0); ctx.clearRect(0,0,cssW,cssH);
-  if (!margins.length) return;
+  if (!dates.length) return;
 
-  const binMin=-20, binMax=20, bins=binMax-binMin+1;
-  const counts = new Array(bins).fill(0);
-  for (const m of margins){ const idx=Math.round(m)-binMin; if(idx>=0&&idx<bins) counts[idx]++; }
-  const maxC = Math.max(...counts)||1;
-  const barW = cssW/bins;
-  const cs = getComputedStyle(document.documentElement);
-  const blue=cs.getPropertyValue("--blue").trim()||"#2563eb";
-  const red=cs.getPropertyValue("--red").trim()||"#dc2626";
+  const sorted = dates.filter(d=>d).sort((a,b)=>a-b);
+  const minD = sorted[0], maxD = sorted[sorted.length-1];
+  const span = maxD - minD;
+  if (span <= 0) return;
 
-  for (let i=0;i<bins;i++){
-    const val=binMin+i, h=(counts[i]/maxC)*(cssH-2), x=i*barW;
-    ctx.fillStyle = val>0?blue:(val<0?red:"#fde047");
-    ctx.globalAlpha=0.75;
-    ctx.fillRect(x+0.5,cssH-h,barW-1,h);
+  // Bin into ~weekly buckets (7 days each)
+  const weekMs = 7*24*60*60*1000;
+  const nBins = Math.max(1, Math.ceil(span / weekMs));
+  const counts = new Array(nBins).fill(0);
+  for (const d of sorted){
+    const idx = Math.min(nBins-1, Math.floor((d - minD) / weekMs));
+    counts[idx]++;
   }
-  ctx.globalAlpha=1;
+
+  const maxC = Math.max(...counts)||1;
+  const barW = cssW / nBins;
+  const cs = getComputedStyle(document.documentElement);
+  const blue = cs.getPropertyValue("--blue").trim()||"#2563eb";
+
+  for (let i = 0; i < nBins; i++){
+    const h = (counts[i]/maxC)*(cssH-2);
+    ctx.fillStyle = blue;
+    ctx.globalAlpha = counts[i] > 0 ? 0.6 : 0.1;
+    ctx.fillRect(i*barW+0.5, cssH-h, Math.max(barW-1,1), h);
+  }
+  ctx.globalAlpha = 1;
 }
+
 
 /* --- Dual Scatter Plot --- */
 function renderDualScatter(svgEl, polls, avgSeries, lA, lB){
@@ -272,6 +303,7 @@ function renderPollTable(el, rows){
   el.innerHTML=h;
 }
 
+
 /* ========== Senate / Governor ========== */
 async function initPollsModeColumn(modeKey){
   const ui = POLLS_UI[modeKey];
@@ -280,31 +312,26 @@ async function initPollsModeColumn(modeKey){
   if (ui.dBig) ui.dBig.textContent = tally.totalD;
   if (ui.rBig) ui.rBig.textContent = tally.totalR;
   if (ui.topCard){ ui.topCard.classList.remove("leads-d","leads-r"); ui.topCard.classList.add(tally.totalD>tally.totalR?"leads-d":"leads-r"); }
-  renderPollsHist(modeKey);
+
+  // Frequency histogram: # of polls per week across all states
+  renderModeFreqHist(modeKey);
+
   await initPollsMap(modeKey);
   recolorPollsMapByPolling(modeKey);
   if (ui.stateChartTitle) ui.stateChartTitle.textContent = "Click a state to see polls";
 }
 
-function renderPollsHist(modeKey){
+function renderModeFreqHist(modeKey){
   const ui=POLLS_UI[modeKey]; const canvas=ui?.histCanvas; if(!canvas)return;
-  const cachedIndNat=IND_CACHE[modeKey]; const rules=SEAT_RULES[modeKey]; const ratios=DATA[modeKey]?.ratios;
-  if(!ratios||!rules)return;
-  const pDem=[];
-  for(const key of Object.keys(ratios)){ const m=(getStateModel(modeKey,key,cachedIndNat)); pDem.push(m?m.winProb.pD:0.5); }
-  const dist=poissonBinomialDist(pDem); const baseD=rules.baseD;
-  const cssW=canvas.clientWidth||300,cssH=canvas.clientHeight||26;
-  const dpr=window.devicePixelRatio||1;
-  canvas.width=Math.round(cssW*dpr);canvas.height=Math.round(cssH*dpr);
-  const ctx=canvas.getContext("2d"); ctx.setTransform(dpr,0,0,dpr,0,0); ctx.clearRect(0,0,cssW,cssH);
-  const n=dist.length; if(!n)return;
-  const maxP=Math.max(...dist)||1; const barW=cssW/n;
-  const cs=getComputedStyle(document.documentElement);
-  const blue=cs.getPropertyValue("--blue").trim()||"#2563eb";
-  const red=cs.getPropertyValue("--red").trim()||"#dc2626";
-  for(let i=0;i<n;i++){ const seats=baseD+i,h=(dist[i]/maxP)*(cssH-2),x=i*barW;
-    ctx.fillStyle=seats>=rules.majorityLine?blue:red; ctx.globalAlpha=0.7; ctx.fillRect(x+0.5,cssH-h,barW-1,h); }
-  ctx.globalAlpha=1;
+  const src = STATE_POLL_SRC.byModeState?.[modeKey];
+  if (!src) return;
+
+  // Gather all poll dates across all states
+  const allDates = [];
+  for (const st of Object.keys(src)){
+    for (const p of src[st]) if (p.date) allDates.push(p.date);
+  }
+  drawFrequencyHist(canvas, allDates);
 }
 
 /* --- Maps (colored by POLLS) --- */
@@ -327,8 +354,8 @@ async function initPollsMap(modeKey){
       d3.select(event.currentTarget).classed("hovered",true);
       const polls=STATE_POLL_SRC.byModeState?.[modeKey]?.[st]; const pc=polls?polls.length:0;
       let ms="No polls";
-      if(polls&&polls.length){ const last=polls[polls.length-1]; const m=last.D-last.R;
-        ms=Math.abs(m)<0.05?"Tied":(m>0?`D+${m.toFixed(1)}`:`R+${Math.abs(m).toFixed(1)}`); }
+      if(polls&&polls.length){const last=polls[polls.length-1];const m=last.D-last.R;
+        ms=Math.abs(m)<0.05?"Tied":(m>0?`D+${m.toFixed(1)}`:`R+${Math.abs(m).toFixed(1)}`);}
       showSimTip(event,`<span style="font-weight:900">${USPS_TO_NAME[st]||st}</span> <span style="font-weight:700">${ms}</span><span style="color:var(--muted);font-size:10px;margin-left:4px">${pc} poll${pc!==1?"s":""}</span>`);
     })
     .on("mousemove",(event)=>{const el=document.getElementById("simTip");if(el)showSimTip(event,el.innerHTML);})
@@ -403,7 +430,7 @@ window.addEventListener("resize",()=>{
   if(!pollsInited)return;
   try{renderLeftColumn();}catch(e){}
   for(const mode of["senate","governor"]){
-    try{renderPollsHist(mode);}catch(e){}
+    try{renderModeFreqHist(mode);}catch(e){}
     if(POLLS_STATE[mode])try{renderStatePollScatter(mode,POLLS_STATE[mode]);}catch(e){}
   }
 },{passive:true});
