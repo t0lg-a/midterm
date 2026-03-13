@@ -133,7 +133,7 @@ function renderGB(ui){
   if(ui.chartTitle)ui.chartTitle.textContent="Generic Ballot";
   if(ui.chartSub)ui.chartSub.textContent="Scatter · moving average";
 
-  drawMarginHist(ui.hist, polls.map(p=>p.dem-p.rep));
+  drawMarginTimeline(ui.hist, polls.map(p=>({date:p.date,margin:p.dem-p.rep})).sort((a,b)=>a.date-b.date));
   const ser=(GB_SRC.series||[]).map(s=>({date:parseDate(s.date),a:+s.dem,b:+s.rep})).filter(d=>d.date);
   dualScatter(ui.chart, polls.map(p=>({date:p.date,a:+p.dem,b:+p.rep})), ser, "D","R");
   pollTable(ui.list, polls.sort((a,b)=>b.date-a.date).slice(0,100).map(p=>({date:p.date,ps:p.pollster,a:p.dem,b:p.rep})),"D","R","var(--blue)","var(--red)");
@@ -150,7 +150,7 @@ function renderApproval(ui){
 
   const strict=!!GB_SRC.filterStrict;
   const polls=APP_RAW.filter(p=>isAllowedPollster(p.pollster,strict));
-  drawMarginHist(ui.hist, polls.map(p=>p.approve-p.disapprove));
+  drawMarginTimeline(ui.hist, polls.map(p=>({date:p.date,margin:p.approve-p.disapprove})).sort((a,b)=>a.date-b.date));
   dualScatter(ui.chart, polls.map(p=>({date:p.date,a:p.approve,b:p.disapprove})), APP_SERIES, "App","Dis","#16a34a","var(--red)");
   pollTable(ui.list, polls.sort((a,b)=>b.date-a.date).slice(0,100).map(p=>({date:p.date,ps:p.pollster,a:p.approve,b:p.disapprove})),"App","Dis","#16a34a","#dc2626");
 }
@@ -180,31 +180,37 @@ function greenPill(ui){
 }
 
 /* ======== MARGIN HISTOGRAM ======== */
-function drawMarginHist(canvas,margins){
+function drawMarginTimeline(canvas,polls){
+  // polls = [{date, margin}] sorted by date. Bar chart: x=time, y=margin, blue up / red down.
   if(!canvas)return;
   const W=canvas.clientWidth||300, H=canvas.clientHeight||36;
   const dpr=devicePixelRatio||1;
   canvas.width=Math.round(W*dpr); canvas.height=Math.round(H*dpr);
   const ctx=canvas.getContext("2d");
   ctx.setTransform(dpr,0,0,dpr,0,0); ctx.clearRect(0,0,W,H);
-  if(!margins.length)return;
-  const lo=-20,hi=20,n=hi-lo+1;
-  const c=new Array(n).fill(0);
-  for(const m of margins){const i=Math.round(m)-lo; if(i>=0&&i<n)c[i]++;}
-  const mx=Math.max(...c)||1, bw=W/n;
+  if(!polls.length)return;
   const cs=getComputedStyle(document.documentElement);
   const bl=cs.getPropertyValue("--blue").trim()||"#2563eb";
   const rd=cs.getPropertyValue("--red").trim()||"#dc2626";
-  // Center line at 0
-  const cx=((0-lo)/n)*W;
-  ctx.strokeStyle="rgba(0,0,0,0.2)"; ctx.lineWidth=1;
-  ctx.beginPath(); ctx.moveTo(cx,0); ctx.lineTo(cx,H); ctx.stroke();
-  // Bars
-  for(let i=0;i<n;i++){
-    const v=lo+i, h=(c[i]/mx)*(H-4);
-    ctx.fillStyle=v>0?bl:(v<0?rd:"#fde047");
+  const mid=H/2;
+  // Zero line
+  ctx.strokeStyle="rgba(0,0,0,0.15)"; ctx.lineWidth=1;
+  ctx.beginPath(); ctx.moveTo(0,mid); ctx.lineTo(W,mid); ctx.stroke();
+  // Scale
+  const maxAbs=Math.max(1,...polls.map(p=>Math.abs(p.margin)));
+  const minD=polls[0].date, maxD=polls[polls.length-1].date;
+  const span=maxD-minD||1;
+  const bw=Math.max(2,Math.min(6,W/polls.length-1));
+  for(const p of polls){
+    const x=((p.date-minD)/span)*(W-bw);
+    const barH=(Math.abs(p.margin)/maxAbs)*(mid-2);
+    ctx.fillStyle=p.margin>=0?bl:rd;
     ctx.globalAlpha=0.8;
-    ctx.fillRect(i*bw+.5,H-h,bw-1,h);
+    if(p.margin>=0){
+      ctx.fillRect(x,mid-barH,bw,barH);
+    } else {
+      ctx.fillRect(x,mid,bw,barH);
+    }
   }
   ctx.globalAlpha=1;
 }
@@ -286,9 +292,10 @@ async function initMode(mk){
   // Margin histogram from all state polls
   const src=STATE_POLL_SRC.byModeState?.[mk];
   if(src){
-    const margins=[];
-    for(const st of Object.keys(src)) for(const p of src[st]) if(isFinite(p.D)&&isFinite(p.R)) margins.push(p.D-p.R);
-    drawMarginHist(ui.hist,margins);
+    const pts=[];
+    for(const st of Object.keys(src)) for(const p of src[st]) if(p.date&&isFinite(p.D)&&isFinite(p.R)) pts.push({date:p.date,margin:p.D-p.R});
+    pts.sort((a,b)=>a.date-b.date);
+    drawMarginTimeline(ui.hist,pts);
   }
 
   await initMap(mk);
