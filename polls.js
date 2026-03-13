@@ -78,28 +78,36 @@ let LEFT_MODE = "gb";
 
 /* ---------- Init ---------- */
 async function initPollsPage(){
-  if (pollsInited) return;
-  pollsInited = true;
+  console.log("initPollsPage called, pollsInited:", pollsInited);
+
   try {
-    const j = await fetch("json/polls.json", {cache:"no-store"}).then(r => r.json());
-    parseApprovalFromPollsJSON(j);
+    if (!APPROVAL_RAW.length){
+      const j = await fetch("json/polls.json", {cache:"no-store"}).then(r => r.json());
+      parseApprovalFromPollsJSON(j);
+    }
   } catch(e){ console.warn("Approval load failed:", e); }
 
   initPollsUI("gb");
   initPollsUI("senate");
   initPollsUI("governor");
-  setupLeftToggle();
 
-  // Wait for browser to reflow (page was just un-hidden)
-  await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
+  console.log("POLLS_UI.gb:", POLLS_UI.gb ? Object.entries(POLLS_UI.gb).filter(([k,v])=>v).map(([k])=>k).join(",") : "null");
+  console.log("POLLS_UI.senate:", POLLS_UI.senate ? Object.entries(POLLS_UI.senate).filter(([k,v])=>v).map(([k])=>k).join(",") : "null");
 
-  renderLeftColumn();
-  await initPollsModeColumn("senate");
-  await initPollsModeColumn("governor");
+  if (!pollsInited) setupLeftToggle();
+  pollsInited = true;
 
-  // Default selections
-  selectPollsState("senate", "TX");
-  selectPollsState("governor", "AZ");
+  // Reliable wait for reflow
+  await new Promise(r => setTimeout(r, 200));
+
+  console.log("Polls: rendering after timeout. GB chart rect:", POLLS_UI.gb?.chart?.getBoundingClientRect());
+
+  try { renderLeftColumn(); } catch(e){ console.error("Polls: GB render failed:", e); }
+  try { await initPollsModeColumn("senate"); } catch(e){ console.error("Polls: Senate init failed:", e); }
+  try { await initPollsModeColumn("governor"); } catch(e){ console.error("Polls: Gov init failed:", e); }
+
+  try { selectPollsState("senate", "TX"); } catch(e){ console.error("Polls: TX select failed:", e); }
+  try { selectPollsState("governor", "AZ"); } catch(e){ console.error("Polls: AZ select failed:", e); }
 }
 
 function initPollsUI(mode){
@@ -158,7 +166,7 @@ function renderLeftColumn(){
 function renderGBColumn(ui){
   const polls = getDeduplicatedGB();
   const latest = GB_SRC.latest;
-  if (!latest) return;
+  if (!latest){ console.warn("Polls: no GB latest"); return; }
   const dVal = +latest.dem, rVal = +latest.rep;
   if (ui.dPill) ui.dPill.textContent = dVal.toFixed(1);
   if (ui.rPill) ui.rPill.textContent = rVal.toFixed(1);
@@ -176,14 +184,16 @@ function renderGBColumn(ui){
   if (ui.chartTitle) ui.chartTitle.textContent = "Generic Ballot";
   if (ui.chartSub) ui.chartSub.textContent = "Scatter plot · moving average";
 
-  drawMarginHist(ui.histCanvas, polls.map(p => p.dem - p.rep));
+  console.log("Polls: GB polls count:", polls.length, "ui.chart:", !!ui.chart, "ui.histCanvas:", !!ui.histCanvas);
+
+  try { drawMarginHist(ui.histCanvas, polls.map(p => p.dem - p.rep)); } catch(e){ console.error("GB hist:", e); }
 
   const series = (GB_SRC.series||[]).map(s=>({date:parseDate(s.date),a:+s.dem,b:+s.rep})).filter(d=>d.date);
-  renderDualScatter(ui.chart, polls.map(p=>({date:p.date,a:+p.dem,b:+p.rep})), series, "D","R");
+  try { renderDualScatter(ui.chart, polls.map(p=>({date:p.date,a:+p.dem,b:+p.rep})), series, "D","R"); } catch(e){ console.error("GB scatter:", e); }
 
-  renderPollTable(ui.pollList, polls.sort((a,b)=>b.date-a.date).slice(0,100).map(p=>({
+  try { renderPollTable(ui.pollList, polls.sort((a,b)=>b.date-a.date).slice(0,100).map(p=>({
     date:p.date, pollster:p.pollster, a:p.dem, b:p.rep, lA:"D", lB:"R"
-  })));
+  }))); } catch(e){ console.error("GB table:", e); }
 }
 
 function renderApprovalColumn(ui){
@@ -283,7 +293,7 @@ function renderPollTable(el, rows, colA, colB){
   if (!rows.length){ el.innerHTML=`<div style="padding:16px;color:var(--muted);font-size:12px;">No polls</div>`; return; }
   const lA=rows[0].lA, lB=rows[0].lB;
   const cA=colA||"var(--blue)", cB=colB||"var(--red)";
-  let h=`<table class="pollTable"><thead><tr><th>Date</th><th>Pollster</th><th style="color:${cA}">${lA}</th><th style="color:${cB}">${lB}</th><th>Margin</th></tr></thead><tbody>`;
+  let h=`<table class="pollTable" style="font-family:'Inter',system-ui,sans-serif"><thead><tr><th>Date</th><th>Pollster</th><th style="color:${cA}">${lA}</th><th style="color:${cB}">${lB}</th><th>Margin</th></tr></thead><tbody>`;
   for (const p of rows){
     const m=p.a-p.b;
     const ms=Math.abs(m)<0.05?"Tied":(m>0?`${lA}+${m.toFixed(1)}`:`${lB}+${Math.abs(m).toFixed(1)}`);
@@ -298,17 +308,16 @@ function renderPollTable(el, rows, colA, colB){
 /* ========== Senate / Governor ========== */
 async function initPollsModeColumn(modeKey){
   const ui = POLLS_UI[modeKey];
-  if (!ui) return;
+  if (!ui){ console.warn("Polls: no UI for", modeKey); return; }
+  console.log("Polls: init", modeKey, "ui keys:", Object.keys(ui).filter(k=>ui[k]).join(","));
   const tally = computeSeatTally(modeKey, IND_CACHE[modeKey]);
   if (ui.dBig) ui.dBig.textContent = tally.totalD;
   if (ui.rBig) ui.rBig.textContent = tally.totalR;
   if (ui.topCard){ ui.topCard.classList.remove("leads-d","leads-r"); ui.topCard.classList.add(tally.totalD>tally.totalR?"leads-d":"leads-r"); }
 
-  // Frequency histogram: # of polls per week across all states
-  renderModeMarginHist(modeKey);
-
-  await initPollsMap(modeKey);
-  recolorPollsMapByPolling(modeKey);
+  try { renderModeMarginHist(modeKey); } catch(e){ console.error("Polls hist:", modeKey, e); }
+  try { await initPollsMap(modeKey); } catch(e){ console.error("Polls map:", modeKey, e); }
+  try { recolorPollsMapByPolling(modeKey); } catch(e){ console.error("Polls recolor:", modeKey, e); }
   if (ui.stateChartTitle) ui.stateChartTitle.textContent = "Click a state to see polls";
 }
 
