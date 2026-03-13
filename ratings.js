@@ -489,8 +489,10 @@ document.querySelector('.pageTabs').addEventListener('click', e => {
   const page = btn.dataset.page;
   document.getElementById('triGrid').style.display = page === 'model' ? '' : 'none';
   document.getElementById('ratingsPage').style.display = page === 'ratings' ? '' : 'none';
+  document.getElementById('pollsPage').style.display = page === 'polls' ? '' : 'none';
 
   if (page === 'ratings') initRatingsPage();
+  if (page === 'polls' && window.initPollsPage) window.initPollsPage();
 });
 
 // Resize handler for ratings charts
