@@ -15,7 +15,7 @@ const SWING = {
 };
 
 /* ---------- Init ---------- */
-function initSwingometerPage(){
+async function initSwingometerPage(){
   if (SWING.inited) {
     // Just refresh on re-show
     for (const mode of SWING.modes) swingUpdate(mode);
@@ -57,8 +57,8 @@ function initSwingometerPage(){
       ui.inputR.addEventListener("input", () => onSwingSlider(mode, "R"));
     }
 
-    // Init map
-    initSwingMap(mode);
+    // Init map — MUST await so districts are tagged before swingUpdate
+    await initSwingMap(mode);
 
     // Initial computation
     swingUpdate(mode);
@@ -286,6 +286,8 @@ async function initSwingHouseMap(ui){
   }
 
   const imported = document.importNode(shapes, true);
+  // Rename ID to avoid collision with model page's #district-shapes
+  imported.id = "swing-district-shapes";
   gRoot.node().appendChild(imported);
 
   // Fit imported SVG group to viewBox
@@ -300,8 +302,8 @@ async function initSwingHouseMap(ui){
     } catch (e) { /* ignore */ }
   });
 
-  // Tag district paths with data-did (same logic as forecast.js)
-  gRoot.selectAll("#district-shapes *").each(function(){
+  // Tag district paths with data-did — select via imported node directly (avoids duplicate-ID issue)
+  d3.select(imported).selectAll("*").each(function(){
     const rawId = String(this.id || "").trim();
     if (!rawId) return;
 
