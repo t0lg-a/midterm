@@ -194,18 +194,20 @@ function drawMarginTimeline(canvas,polls){
   const rd=cs.getPropertyValue("--red").trim()||"#dc2626";
   const mid=H/2;
   // Zero line
-  ctx.strokeStyle="rgba(0,0,0,0.15)"; ctx.lineWidth=1;
+  ctx.strokeStyle="rgba(0,0,0,0.12)"; ctx.lineWidth=1;
   ctx.beginPath(); ctx.moveTo(0,mid); ctx.lineTo(W,mid); ctx.stroke();
-  // Scale
-  const maxAbs=Math.max(1,...polls.map(p=>Math.abs(p.margin)));
-  const minD=polls[0].date, maxD=polls[polls.length-1].date;
+  // Extend to today so the timeline matches the scatter chart
+  const minD=polls[0].date;
+  const today=new Date(); today.setHours(0,0,0,0);
+  const maxD=today>polls[polls.length-1].date?today:polls[polls.length-1].date;
   const span=maxD-minD||1;
-  const bw=Math.max(2,Math.min(6,W/polls.length-1));
+  const maxAbs=Math.max(1,...polls.map(p=>Math.abs(p.margin)));
+  const bw=Math.max(2, Math.min(8, (W/polls.length)*0.7));
   for(const p of polls){
     const x=((p.date-minD)/span)*(W-bw);
     const barH=(Math.abs(p.margin)/maxAbs)*(mid-2);
     ctx.fillStyle=p.margin>=0?bl:rd;
-    ctx.globalAlpha=0.8;
+    ctx.globalAlpha=0.85;
     if(p.margin>=0){
       ctx.fillRect(x,mid-barH,bw,barH);
     } else {
