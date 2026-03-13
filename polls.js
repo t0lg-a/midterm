@@ -172,7 +172,7 @@ function renderGBColumn(ui){
   if (ui.chartTitle) ui.chartTitle.textContent = "Generic Ballot";
   if (ui.chartSub) ui.chartSub.textContent = "Scatter plot · moving average";
 
-  drawFrequencyHist(ui.histCanvas, polls.map(p => p.date));
+  drawMarginHist(ui.histCanvas, polls.map(p => p.dem - p.rep));
 
   const series = (GB_SRC.series||[]).map(s=>({date:parseDate(s.date),a:+s.dem,b:+s.rep})).filter(d=>d.date);
   renderDualScatter(ui.chart, polls.map(p=>({date:p.date,a:+p.dem,b:+p.rep})), series, "D","R");
@@ -204,7 +204,7 @@ function renderApprovalColumn(ui){
   const strict = !!GB_SRC.filterStrict;
   const polls = APPROVAL_RAW.filter(p=>isAllowedPollster(p.pollster,strict));
 
-  drawFrequencyHist(ui.histCanvas, polls.map(p => p.date), "#16a34a");
+  drawMarginHist(ui.histCanvas, polls.map(p => p.approve - p.disapprove));
   renderDualScatter(ui.chart, polls.map(p=>({date:p.date,a:p.approve,b:p.disapprove})), APPROVAL_SERIES, "App","Dis","#16a34a","var(--red)");
 
   renderPollTable(ui.pollList, polls.sort((a,b)=>b.date-a.date).slice(0,100).map(p=>({
@@ -213,43 +213,6 @@ function renderApprovalColumn(ui){
 }
 
 
-/* --- Frequency Histogram: # of polls per week --- */
-function drawFrequencyHist(canvas, dates, barColor){
-  if (!canvas) return;
-  const cssW = canvas.clientWidth||300, cssH = canvas.clientHeight||26;
-  const dpr = window.devicePixelRatio||1;
-  canvas.width = Math.round(cssW*dpr); canvas.height = Math.round(cssH*dpr);
-  const ctx = canvas.getContext("2d");
-  ctx.setTransform(dpr,0,0,dpr,0,0); ctx.clearRect(0,0,cssW,cssH);
-  if (!dates.length) return;
-
-  const sorted = dates.filter(d=>d).sort((a,b)=>a-b);
-  const minD = sorted[0], maxD = sorted[sorted.length-1];
-  const span = maxD - minD;
-  if (span <= 0) return;
-
-  // Bin into ~weekly buckets (7 days each)
-  const weekMs = 7*24*60*60*1000;
-  const nBins = Math.max(1, Math.ceil(span / weekMs));
-  const counts = new Array(nBins).fill(0);
-  for (const d of sorted){
-    const idx = Math.min(nBins-1, Math.floor((d - minD) / weekMs));
-    counts[idx]++;
-  }
-
-  const maxC = Math.max(...counts)||1;
-  const barW = cssW / nBins;
-  const cs = getComputedStyle(document.documentElement);
-  const blue = barColor || cs.getPropertyValue("--blue").trim()||"#2563eb";
-
-  for (let i = 0; i < nBins; i++){
-    const h = (counts[i]/maxC)*(cssH-2);
-    ctx.fillStyle = blue;
-    ctx.globalAlpha = counts[i] > 0 ? 0.6 : 0.1;
-    ctx.fillRect(i*barW+0.5, cssH-h, Math.max(barW-1,1), h);
-  }
-  ctx.globalAlpha = 1;
-}
 
 
 /* --- Dual Scatter Plot --- */
@@ -338,24 +301,26 @@ async function initPollsModeColumn(modeKey){
   if (ui.topCard){ ui.topCard.classList.remove("leads-d","leads-r"); ui.topCard.classList.add(tally.totalD>tally.totalR?"leads-d":"leads-r"); }
 
   // Frequency histogram: # of polls per week across all states
-  renderModeFreqHist(modeKey);
+  renderModeMarginHist(modeKey);
 
   await initPollsMap(modeKey);
   recolorPollsMapByPolling(modeKey);
   if (ui.stateChartTitle) ui.stateChartTitle.textContent = "Click a state to see polls";
 }
 
-function renderModeFreqHist(modeKey){
+function renderModeMarginHist(modeKey){
   const ui=POLLS_UI[modeKey]; const canvas=ui?.histCanvas; if(!canvas)return;
   const src = STATE_POLL_SRC.byModeState?.[modeKey];
   if (!src) return;
 
-  // Gather all poll dates across all states
-  const allDates = [];
+  // Gather all poll margins (D - R) across all states
+  const margins = [];
   for (const st of Object.keys(src)){
-    for (const p of src[st]) if (p.date) allDates.push(p.date);
+    for (const p of src[st]){
+      if (isFinite(p.D) && isFinite(p.R)) margins.push(p.D - p.R);
+    }
   }
-  drawFrequencyHist(canvas, allDates);
+  drawMarginHist(canvas, margins);
 }
 
 /* --- Maps (colored by POLLS) --- */
@@ -454,7 +419,7 @@ window.addEventListener("resize",()=>{
   if(!pollsInited)return;
   try{renderLeftColumn();}catch(e){}
   for(const mode of["senate","governor"]){
-    try{renderModeFreqHist(mode);}catch(e){}
+    try{renderModeMarginHist(mode);}catch(e){}
     if(POLLS_STATE[mode])try{renderStatePollScatter(mode,POLLS_STATE[mode]);}catch(e){}
   }
 },{passive:true});
