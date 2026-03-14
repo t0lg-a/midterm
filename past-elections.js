@@ -173,8 +173,13 @@ function getStateModelPast(year, mode, st){
   const indPair = indNat ? computeIndicatorState(indNat, ratio) : null;
 
   let wGb = WEIGHTS.gb, wPolls = WEIGHTS.polls, wInd = WEIGHTS.ind;
-  if (indPair && Math.max(indPair.D, indPair.R) >= 70){
-    wPolls = 80; wGb = 15; wInd = 5;
+  // Circuit breaker: this state's poll ÷ ratio = its implied national environment.
+  // If that implies >=70% for either party, polls dominate.
+  if (pollPair && ratio) {
+    const stateImpliedNat = normalizePair(pollPair.D / ratio.D, pollPair.R / ratio.R);
+    if (Math.max(stateImpliedNat.D, stateImpliedNat.R) >= 70){
+      wPolls = 80; wGb = 15; wInd = 5;
+    }
   }
 
   const comps = [
