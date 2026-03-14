@@ -491,10 +491,12 @@ document.querySelector('.pageTabs').addEventListener('click', e => {
   document.getElementById('ratingsPage').style.display = page === 'ratings' ? '' : 'none';
   document.getElementById('pollsPage').style.display = page === 'polls' ? 'grid' : 'none';
   document.getElementById('swingometerPage').style.display = page === 'swingometer' ? '' : 'none';
+  document.getElementById('pastElectionsPage').style.display = page === 'past-elections' ? '' : 'none';
 
   if (page === 'ratings') initRatingsPage();
   if (page === 'polls' && window.initPollsPage) window.initPollsPage();
   if (page === 'swingometer' && window.initSwingometerPage) window.initSwingometerPage();
+  if (page === 'past-elections' && window.initPastElectionsPage) window.initPastElectionsPage();
 });
 
 // Resize handler for ratings charts

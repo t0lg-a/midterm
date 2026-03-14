@@ -1355,6 +1355,7 @@
       html,body{ height:auto; overflow:auto; }
       .wrap{ height:auto; overflow:visible; }
       .triGrid{ flex:none; }
+      .quadGrid{ flex:none; }
       .modeCol{ overflow-y:visible; overflow-x:visible; }
     }
     .modeHeader{
@@ -1642,6 +1643,62 @@
       justify-content:flex-end;
     }
     .gbMeta .sep{ opacity:0.6; }
+
+    /* ---------- Past Elections Page ---------- */
+    .quadGrid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:14px;
+      flex:1;
+      min-height:0;
+    }
+    @media (min-width: 980px){
+      .quadGrid{
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap:10px;
+      }
+    }
+    .yearBar{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:3px;
+      padding:4px;
+      background: var(--neutral-bg);
+      border:1px solid var(--line);
+      border-radius:var(--radius-pill);
+      width:fit-content;
+      margin:0 auto 10px;
+      flex-wrap:wrap;
+    }
+    .yearBtn{
+      appearance:none;
+      border:none;
+      background:transparent;
+      color:var(--muted);
+      font-family:var(--sans);
+      font-weight:700;
+      font-size:11px;
+      padding:5px 10px;
+      border-radius:var(--radius-pill);
+      cursor:pointer;
+      transition: all 0.15s ease;
+      white-space:nowrap;
+    }
+    .yearBtn:hover:not(.disabled){ color:var(--ink-dim); background:rgba(0,0,0,0.03); }
+    .yearBtn.active{
+      color:var(--ink);
+      background:#fff;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 1px rgba(0,0,0,0.04);
+    }
+    .yearBtn.disabled{
+      opacity:0.35;
+      cursor:not-allowed;
+    }
+    @media (max-width: 600px){
+      .yearBar{ gap:2px; padding:3px; }
+      .yearBtn{ font-size:10px; padding:4px 7px; }
+    }
 
     /* ---------- Swingometer Page ---------- */
     .swingSliderCard{
@@ -2194,6 +2251,213 @@
 
 </div>
 
+<!-- PAST ELECTIONS PAGE -->
+<div class="quadGrid" id="pastElectionsPage" style="display:none" aria-label="Past Elections">
+
+  <div style="grid-column:1/-1" data-past-year-bar class="yearBar"></div>
+
+  <!-- PRESIDENT -->
+  <section class="modeCol" data-past-mode="president">
+    <section class="card topCard">
+      <div class="panelHeaderRow">
+        <div class="panelTitleWrap">
+          <div class="panelTitle">President</div>
+          <div class="panelSub">59th Presidential Election</div>
+        </div>
+        <div class="pillRow">
+          <div class="metricPill blue"><span class="dot"></span><span class="val" data-past-pill-d>50.0</span></div>
+          <div class="metricPill red"><span class="dot"></span><span class="val" data-past-pill-r>50.0</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card seatsCard">
+      <div class="seatsSummary">
+        <div class="seatsLine">
+          <div class="seatsSide d"><span class="lbl">D</span><span class="num" data-past-seats-d>—</span></div>
+          <div class="seatsDivider"></div>
+          <div class="seatsSide r"><span class="lbl">R</span><span class="num" data-past-seats-r>—</span></div>
+        </div>
+        <div class="simMini"><canvas class="simCanvas" data-past-sim></canvas></div>
+      </div>
+    </section>
+
+    <section class="card mapCard">
+      <div class="mapGrid"><div class="mapStage">
+        <svg class="mapSvg"></svg>
+        <div class="stateInfoPanel" data-past-state-panel></div>
+      </div></div>
+    </section>
+
+    <section class="card oddsCard">
+      <div class="oddsHead">
+        <div><div class="oddsTitle">President</div></div>
+        <div class="chartTabs">
+          <button class="chartTab active" data-past-chart-tab="prob">Win Prob</button>
+          <button class="chartTab" data-past-chart-tab="seats">Seats</button>
+        </div>
+      </div>
+      <div class="oddsChartWrap">
+        <div class="chartYLabel" data-past-ylabel>Win probability</div>
+        <svg class="comboSvg" data-past-combo></svg>
+        <div class="oddsStatus" data-past-status></div>
+      </div>
+    </section>
+  </section>
+
+  <!-- SENATE -->
+  <section class="modeCol" data-past-mode="senate">
+    <section class="card topCard">
+      <div class="panelHeaderRow">
+        <div class="panelTitleWrap">
+          <div class="panelTitle">Senate</div>
+          <div class="panelSub">Class I & III - 2024</div>
+        </div>
+        <div class="pillRow">
+          <div class="metricPill blue"><span class="dot"></span><span class="val" data-past-pill-d>50.0</span></div>
+          <div class="metricPill red"><span class="dot"></span><span class="val" data-past-pill-r>50.0</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card seatsCard">
+      <div class="seatsSummary">
+        <div class="seatsLine">
+          <div class="seatsSide d"><span class="lbl">D</span><span class="num" data-past-seats-d>—</span></div>
+          <div class="seatsDivider"></div>
+          <div class="seatsSide r"><span class="lbl">R</span><span class="num" data-past-seats-r>—</span></div>
+        </div>
+        <div class="simMini"><canvas class="simCanvas" data-past-sim></canvas></div>
+      </div>
+    </section>
+
+    <section class="card mapCard">
+      <div class="mapGrid"><div class="mapStage">
+        <svg class="mapSvg"></svg>
+        <div class="stateInfoPanel" data-past-state-panel></div>
+      </div></div>
+    </section>
+
+    <section class="card oddsCard">
+      <div class="oddsHead">
+        <div><div class="oddsTitle">Senate</div></div>
+        <div class="chartTabs">
+          <button class="chartTab active" data-past-chart-tab="prob">Win Prob</button>
+          <button class="chartTab" data-past-chart-tab="seats">Seats</button>
+        </div>
+      </div>
+      <div class="oddsChartWrap">
+        <div class="chartYLabel" data-past-ylabel>Win probability</div>
+        <svg class="comboSvg" data-past-combo></svg>
+        <div class="oddsStatus" data-past-status></div>
+      </div>
+    </section>
+  </section>
+
+  <!-- GOVERNOR -->
+  <section class="modeCol" data-past-mode="governor">
+    <section class="card topCard">
+      <div class="panelHeaderRow">
+        <div class="panelTitleWrap">
+          <div class="panelTitle">Governor</div>
+          <div class="panelSub">Gubernatorial - 2024</div>
+        </div>
+        <div class="pillRow">
+          <div class="metricPill blue"><span class="dot"></span><span class="val" data-past-pill-d>50.0</span></div>
+          <div class="metricPill red"><span class="dot"></span><span class="val" data-past-pill-r>50.0</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card seatsCard">
+      <div class="seatsSummary">
+        <div class="seatsLine">
+          <div class="seatsSide d"><span class="lbl">D</span><span class="num" data-past-seats-d>—</span></div>
+          <div class="seatsDivider"></div>
+          <div class="seatsSide r"><span class="lbl">R</span><span class="num" data-past-seats-r>—</span></div>
+        </div>
+        <div class="simMini"><canvas class="simCanvas" data-past-sim></canvas></div>
+      </div>
+    </section>
+
+    <section class="card mapCard">
+      <div class="mapGrid"><div class="mapStage">
+        <svg class="mapSvg"></svg>
+        <div class="stateInfoPanel" data-past-state-panel></div>
+      </div></div>
+    </section>
+
+    <section class="card oddsCard">
+      <div class="oddsHead">
+        <div><div class="oddsTitle">Governor</div></div>
+        <div class="chartTabs">
+          <button class="chartTab active" data-past-chart-tab="prob">Win Prob</button>
+          <button class="chartTab" data-past-chart-tab="seats">Seats</button>
+        </div>
+      </div>
+      <div class="oddsChartWrap">
+        <div class="chartYLabel" data-past-ylabel>Win probability</div>
+        <svg class="comboSvg" data-past-combo></svg>
+        <div class="oddsStatus" data-past-status></div>
+      </div>
+    </section>
+  </section>
+
+  <!-- HOUSE -->
+  <section class="modeCol" data-past-mode="house">
+    <section class="card topCard">
+      <div class="panelHeaderRow">
+        <div class="panelTitleWrap">
+          <div class="panelTitle">Congress</div>
+          <div class="panelSub">119th Congress - 2024</div>
+        </div>
+        <div class="pillRow">
+          <div class="metricPill blue"><span class="dot"></span><span class="val" data-past-pill-d>50.0</span></div>
+          <div class="metricPill red"><span class="dot"></span><span class="val" data-past-pill-r>50.0</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card seatsCard">
+      <div class="seatsSummary">
+        <div class="seatsLine">
+          <div class="seatsSide d"><span class="lbl">D</span><span class="num" data-past-seats-d>—</span></div>
+          <div class="seatsDivider"></div>
+          <div class="seatsSide r"><span class="lbl">R</span><span class="num" data-past-seats-r>—</span></div>
+        </div>
+        <div class="simMini"><canvas class="simCanvas" data-past-sim></canvas></div>
+      </div>
+    </section>
+
+    <section class="card mapCard">
+      <div class="mapGrid"><div class="mapStage">
+        <svg class="mapSvg"></svg>
+        <div class="stateInfoPanel" data-past-state-panel></div>
+      </div></div>
+    </section>
+
+    <section class="card oddsCard">
+      <div class="oddsHead">
+        <div><div class="oddsTitle">Congress</div></div>
+        <div class="chartTabs">
+          <button class="chartTab active" data-past-chart-tab="prob">Win Prob</button>
+          <button class="chartTab" data-past-chart-tab="seats">Seats</button>
+        </div>
+      </div>
+      <div class="oddsChartWrap">
+        <div class="chartYLabel" data-past-ylabel>Win probability</div>
+        <svg class="comboSvg" data-past-combo></svg>
+        <div class="oddsStatus" data-past-status></div>
+      </div>
+    </section>
+  </section>
+
+</div>
+
+<!-- Past Elections Tooltip -->
+<div id="pastTip" style="position:fixed;left:0;top:0;transform:translate(-9999px,-9999px);pointer-events:none;width:min(240px,calc(100vw - 28px));z-index:100;border-radius:var(--radius-lg);background:rgba(255,255,255,0.98);backdrop-filter:blur(16px);border:1px solid rgba(0,0,0,0.08);box-shadow:0 20px 40px -5px rgba(0,0,0,0.15),0 10px 20px -5px rgba(0,0,0,0.1);overflow:hidden;font-family:var(--sans);opacity:0;transition:opacity 0.12s ease"></div>
+<div id="pastSimTip" class="simTip" aria-hidden="true"></div>
+
 <!-- SWINGOMETER PAGE -->
 <div class="triGrid" id="swingometerPage" style="display:none" aria-label="Swingometer">
 
@@ -2388,6 +2652,7 @@
 <script src="ratings.js?v=20"></script>
 <script src="polls.js?v=25"></script>
 <script src="swingometer.js?v=1"></script>
+<script src="past-elections.js?v=1"></script>
 
 </body>
 </html>
