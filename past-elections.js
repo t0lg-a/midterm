@@ -180,10 +180,20 @@ function getPastUI(){
 }
 
 /* ---------- CSV + JSON loaders ---------- */
+const GB_WINDOW = 20; // rolling average of last N polls
+
+function rollingAvg(polls, n){
+  // polls must be sorted by end_date ascending, each has .dem .rep
+  if (!polls || !polls.length) return null;
+  const last = polls.slice(-n);
+  const dSum = last.reduce((s,p) => s + p.dem, 0);
+  const rSum = last.reduce((s,p) => s + p.rep, 0);
+  return normalizePair(dSum / last.length, rSum / last.length);
+}
+
 async function loadPastEntries(year){
-  // csv/past/{year}_entries.csv — same schema as entries_all.csv
-  // mode,state,ratioD,ratioR,gbD,gbR,pollD,pollR,pollSigma
-  const file = `csv/past/${year}_entries.csv`;
+  // Entries at root: {year}_entries.csv
+  const file = `${year}_entries.csv`;
   try {
     const txt = await fetch(file, {cache:"no-store"}).then(r=>{ if(!r.ok) throw new Error(`HTTP ${r.status}`); return r.text(); });
     const rows = d3.csvParse(txt);
@@ -201,26 +211,6 @@ async function loadPastEntries(year){
       if (st && isFinite(ratioD) && isFinite(ratioR)){
         PAST_DATA[year][mode].ratios[st] = {D: ratioD, R: ratioR};
       }
-      const gbD = toNum(row.gbD), gbR = toNum(row.gbR);
-      if (!PAST_DATA[year][mode].gb && isFinite(gbD) && isFinite(gbR)){
-        PAST_DATA[year][mode].gb = normalizePair(gbD, gbR);
-      }
-      const pollD = toNum(row.pollD), pollR = toNum(row.pollR), pollS = toNum(row.pollSigma);
-      if (isFinite(pollD) && isFinite(pollR)){
-        PAST_DATA[year][mode].polls[st] = { D: pollD, R: pollR, S: isFinite(pollS) ? pollS : 3 };
-      }
-    }
-
-    // Cross-fill GB
-    const modes = PAST_MODES;
-    const anyGb = modes.map(m => PAST_DATA[year][m]?.gb).find(g => g);
-    for (const m of modes){ if (!PAST_DATA[year][m].gb && anyGb) PAST_DATA[year][m].gb = anyGb; }
-
-    // Precompute indicator nationals
-    if (!PAST_IND[year]) PAST_IND[year] = {};
-    for (const m of modes){
-      const dd = PAST_DATA[year][m];
-      PAST_IND[year][m] = computeIndicatorNat(dd.ratios, dd.polls);
     }
 
     console.log(`Loaded past entries for ${year}: ${rows.length} rows`);
@@ -231,9 +221,108 @@ async function loadPastEntries(year){
   }
 }
 
+async function loadPastPresidentialPolls(year){
+  // Presidential national polls → GB for "president" mode
+  const file = `${year}_presidential_polls.json`;
+  try {
+    const j = await fetch(file, {cache:"no-store"}).then(r=>{ if(!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); });
+    const polls = (j.polls || []).map(p => ({
+      date: p.end_date,
+      dem: +p.dem,
+      rep: +p.rep
+    })).filter(p => p.date && isFinite(p.dem) && isFinite(p.rep))
+      .sort((a,b) => a.date.localeCompare(b.date));
+
+    if (!PAST_DATA[year]) PAST_DATA[year] = {};
+    if (!PAST_DATA[year].president) PAST_DATA[year].president = { gb:null, ratios:{}, polls:{} };
+
+    // Set GB as rolling average of last N polls
+    const gb = rollingAvg(polls, GB_WINDOW);
+    if (gb) PAST_DATA[year].president.gb = gb;
+
+    console.log(`Loaded ${polls.length} presidential polls for ${year}, GB: D=${gb?.D?.toFixed(1)} R=${gb?.R?.toFixed(1)}`);
+    return polls;
+  } catch(e){
+    console.warn(`Could not load ${file}:`, e);
+    return [];
+  }
+}
+
+async function loadPastGBPolls(year){
+  // Generic ballot polls → GB for senate/governor/house
+  const file = `${year}_gb_polls.json`;
+  try {
+    const j = await fetch(file, {cache:"no-store"}).then(r=>{ if(!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); });
+    const polls = (j.genericBallot || []).map(p => ({
+      date: p.end_date,
+      dem: +p.dem,
+      rep: +p.rep
+    })).filter(p => p.date && isFinite(p.dem) && isFinite(p.rep))
+      .sort((a,b) => a.date.localeCompare(b.date));
+
+    if (!PAST_DATA[year]) PAST_DATA[year] = {};
+
+    const gb = rollingAvg(polls, GB_WINDOW);
+    for (const mode of ["senate","governor","house"]){
+      if (!PAST_DATA[year][mode]) PAST_DATA[year][mode] = { gb:null, ratios:{}, polls:{} };
+      if (gb) PAST_DATA[year][mode].gb = gb;
+    }
+
+    console.log(`Loaded ${polls.length} GB polls for ${year}, GB: D=${gb?.D?.toFixed(1)} R=${gb?.R?.toFixed(1)}`);
+    return polls;
+  } catch(e){
+    console.warn(`Could not load ${file}:`, e);
+    return [];
+  }
+}
+
+async function loadPastStatePolls(year){
+  // State polls CSV → overlay onto president mode polls
+  const file = `${year}_state_presidential_polls.csv`;
+  try {
+    const txt = await fetch(file, {cache:"no-store"}).then(r=>{ if(!r.ok) throw new Error(`HTTP ${r.status}`); return r.text(); });
+    const rows = d3.csvParse(txt);
+
+    if (!PAST_DATA[year]) PAST_DATA[year] = {};
+
+    // Group by mode+state, take rolling avg of last 6 polls per state
+    const byModeState = {};
+    for (const row of rows){
+      const mode = String(row.mode || "").trim().toLowerCase();
+      const st = String(row.state || "").trim().toUpperCase();
+      if (!mode || !st) continue;
+      const dem = toNum(row.dem), rep = toNum(row.rep);
+      if (!isFinite(dem) || !isFinite(rep)) continue;
+      const key = `${mode}|${st}`;
+      if (!byModeState[key]) byModeState[key] = [];
+      byModeState[key].push({ date: row.date, dem, rep, sigma: toNum(row.sigma) || 3 });
+    }
+
+    let count = 0;
+    for (const [key, polls] of Object.entries(byModeState)){
+      const [mode, st] = key.split("|");
+      if (!PAST_DATA[year][mode]) continue;
+
+      polls.sort((a,b) => a.date.localeCompare(b.date));
+      const last = polls.slice(-6); // last 6 polls per state
+      const avgD = last.reduce((s,p) => s + p.dem, 0) / last.length;
+      const avgR = last.reduce((s,p) => s + p.rep, 0) / last.length;
+      const avgS = last.reduce((s,p) => s + p.sigma, 0) / last.length;
+
+      PAST_DATA[year][mode].polls[st] = { D: avgD, R: avgR, S: avgS };
+      count++;
+    }
+
+    console.log(`Loaded state polls for ${year}: ${rows.length} rows → ${count} state averages`);
+    return true;
+  } catch(e){
+    console.warn(`Could not load ${file}:`, e);
+    return false;
+  }
+}
+
 async function loadPastOdds(year, mode){
-  // json/past/{year}_{mode}_odds.json — same schema as senate_odds.json
-  // { results: [{date, pDem, expDem}], latestHist? }
+  // Precomputed odds JSON (optional — may not exist yet)
   const file = `json/past/${year}_${mode}_odds.json`;
   try {
     const j = await fetch(file, {cache:"no-store"}).then(r=>{ if(!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); });
@@ -243,7 +332,7 @@ async function loadPastOdds(year, mode){
     if (j.latestHist) PAST_HIST[year][mode] = j.latestHist;
     return true;
   } catch(e){
-    console.warn(`Could not load ${file}:`, e);
+    // Silently fail — odds files may not exist yet
     return false;
   }
 }
@@ -271,8 +360,22 @@ function initYearSelector(){
 
 /* ---------- Render year ---------- */
 async function renderPastYear(year){
-  // Load data
+  // Load ratios
   await loadPastEntries(year);
+  // Load national polls → GB for each mode
+  await loadPastPresidentialPolls(year);
+  await loadPastGBPolls(year);
+  // Load state polls → overlay onto model
+  await loadPastStatePolls(year);
+
+  // Precompute indicator nationals (needs polls loaded first)
+  if (!PAST_IND[year]) PAST_IND[year] = {};
+  for (const m of PAST_MODES){
+    const dd = PAST_DATA[year]?.[m];
+    if (dd) PAST_IND[year][m] = computeIndicatorNat(dd.ratios, dd.polls);
+  }
+
+  // Try loading precomputed odds (may not exist)
   for (const mode of PAST_MODES){
     await loadPastOdds(year, mode);
   }
@@ -329,7 +432,7 @@ async function renderPastYear(year){
       if (ui.status) ui.status.textContent = `${odds.length} days · ${year} hindcast`;
       if (ui.status) ui.status.style.display = "block";
     } else {
-      if (ui.status) ui.status.textContent = `No precomputed odds (json/past/${year}_${mode}_odds.json)`;
+      if (ui.status) ui.status.textContent = `Awaiting precomputed odds`;
       if (ui.status) ui.status.style.display = "block";
     }
   }
