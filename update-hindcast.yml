@@ -1,0 +1,29 @@
+name: Compute 2024 Hindcast Odds
+
+on:
+  workflow_dispatch:         # manual trigger only
+
+permissions:
+  contents: write
+
+jobs:
+  compute-hindcast:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Compute 2024 hindcast odds
+        run: node js/compute_odds_2024.js
+
+      - name: Save changes
+        run: |
+          git config user.name "Bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add json/past/
+          git commit -m "Compute 2024 hindcast odds $(date -u +%Y-%m-%d)" || exit 0
+          git push
