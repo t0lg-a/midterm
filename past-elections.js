@@ -309,6 +309,7 @@ async function loadPastStatePolls(year){
       const mode = String(row.mode || "").trim().toLowerCase();
       const st = String(row.state || "").trim().toUpperCase();
       if (!mode || !st) continue;
+      if (st === "ME" && mode === "senate") continue; // Maine senate has independent (King), disregard
       const dem = toNum(row.dem), rep = toNum(row.rep);
       if (!isFinite(dem) || !isFinite(rep)) continue;
       const key = `${mode}|${st}`;
@@ -403,29 +404,46 @@ async function renderPastYear(year){
     const rule = rules[mode] || { total:0, majorityLine:0 };
     const raceFilter = raceFilters[mode];
 
-    // Only count contested states for seats
+    // Seat tally: binary call per state, matching forecast.js computeSeatTally
     const allStates = Object.keys(d?.ratios || {});
     const contested = raceFilter ? allStates.filter(st => raceFilter.has(st)) : allStates;
     const baseD = rule.baseD || 0;
+    const baseR = rule.baseR || 0;
 
-    let demWins = baseD;
-    let variance = 0;
+    let winsD = 0, winsR = 0, toss = 0;
+    // For win probability: collect per-state pD and weight
+    const pDems = [];
+    const weights = [];
+
     for (const st of contested){
       const model = getStateModelPast(year, mode, st);
       if (!model) continue;
-      const p = model.winProb.pD;
-      // President: weight by electoral votes. Others: 1 seat per state/district.
-      const weight = (mode === "president") ? (EV[st] || 1) : 1;
-      demWins += p * weight;
-      variance += p * (1 - p) * weight * weight;
-    }
-    const expDem = Math.round(demWins * 10) / 10;
-    const expRep = rule.total - expDem;
+      const m = model.mFinal;
+      const w = (mode === "president") ? (EV[st] || 1) : 1;
 
-    // Overall chamber win probability (normal approx)
+      // Binary seat call (same as forecast.js)
+      if (!isFinite(m)) continue;
+      if (Math.abs(m) < 1e-9){ winsD += w; toss += w; }
+      else if (m < 0) winsD += w;  // D leads
+      else winsR += w;             // R leads
+
+      // Probabilistic for win prob calc
+      pDems.push(model.winProb.pD);
+      weights.push(w);
+    }
+
+    const totalD = baseD + winsD;
+    const totalR = baseR + winsR;
+
+    // Overall win probability (weighted normal approximation)
+    let expSum = baseD, varSum = 0;
+    for (let i = 0; i < pDems.length; i++){
+      expSum += pDems[i] * weights[i];
+      varSum += pDems[i] * (1 - pDems[i]) * weights[i] * weights[i];
+    }
     const maj = rule.majorityLine;
-    const sd = Math.sqrt(variance) || 1;
-    const zDem = (demWins - maj) / sd;
+    const sd = Math.sqrt(varSum) || 1;
+    const zDem = (expSum - maj) / sd;
     const overallPDem = 0.5 * (1 + erf(zDem / Math.SQRT2));
     const overallPRep = 1 - overallPDem;
 
@@ -433,9 +451,9 @@ async function renderPastYear(year){
     if (ui.pillD) ui.pillD.textContent = (overallPDem * 100).toFixed(1);
     if (ui.pillR) ui.pillR.textContent = (overallPRep * 100).toFixed(1);
 
-    // Seats
-    if (ui.seatsD) ui.seatsD.textContent = Math.round(expDem);
-    if (ui.seatsR) ui.seatsR.textContent = Math.round(expRep);
+    // Seats = binary tally
+    if (ui.seatsD) ui.seatsD.textContent = totalD;
+    if (ui.seatsR) ui.seatsR.textContent = totalR;
 
     // Lead color
     if (ui.topCard){
