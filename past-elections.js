@@ -220,6 +220,9 @@ async function loadPastEntries(year){
       const st = String(row.state || "").trim().toUpperCase();
       const ratioD = toNum(row.ratioD), ratioR = toNum(row.ratioR);
       if (st && isFinite(ratioD) && isFinite(ratioR)){
+        // Only load contested races for senate/governor
+        const filter = RACES_2024[mode];
+        if (filter && !filter.has(st)) continue;
         PAST_DATA[year][mode].ratios[st] = {D: ratioD, R: ratioR};
       }
     }
@@ -421,7 +424,7 @@ async function renderPastYear(year){
     }
 
     renderPastSim(mode, hist, rule);
-    renderPastMap(year, mode, d, rule);
+    renderPastMap(year, mode, d, rule, raceFilter);
 
     if (odds && odds.length){
       renderPastComboChart(mode, odds, rule);
@@ -482,7 +485,7 @@ async function loadPastStateGeo(){
   return PAST_STATE_GEO;
 }
 
-async function renderPastMap(year, mode, d, rule){
+async function renderPastMap(year, mode, d, rule, raceFilter){
   const ui = PAST_UI[mode];
   if (!ui?.svgEl) return;
   const geo = await loadPastStateGeo();
@@ -495,25 +498,30 @@ async function renderPastMap(year, mode, d, rule){
   svg.selectAll("*").remove();
   const gRoot = svg.append("g");
 
+  function isContested(st){
+    if (!raceFilter) return true; // null = all states (president/house)
+    return raceFilter.has(st);
+  }
+
   gRoot.selectAll("path")
     .data(geo.features)
     .join("path")
     .attr("class", dd => {
       const st = _fips(dd.id);
-      return (st && d?.ratios[st]) ? "state active" : "state";
+      return (st && d?.ratios[st] && isContested(st)) ? "state active" : "state";
     })
     .attr("data-st", dd => _fips(dd.id))
     .attr("d", dd => pathGen(dd))
     .attr("fill", dd => {
       const st = _fips(dd.id);
-      if (!st || !d?.ratios[st]) return "#e5e7eb";
+      if (!st || !d?.ratios[st] || !isContested(st)) return "#e5e7eb";
       const model = getStateModelPast(year, mode, st);
       if (!model) return "#e5e7eb";
       return marginColor(model.mFinal);
     })
     .on("mouseenter", (event, dd) => {
       const st = _fips(dd.id);
-      if (!st || !d?.ratios[st]) return;
+      if (!st || !d?.ratios[st] || !isContested(st)) return;
       d3.select(event.currentTarget).classed("hovered", true);
       showPastTip(event, year, mode, st);
     })
