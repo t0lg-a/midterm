@@ -1,6 +1,86 @@
 {
-  "updatedAt": "2026-03-13T11:48:40.689Z",
+  "updatedAt": "2026-03-14T11:42:44.833Z",
   "approval": [
+    {
+      "id": "appdonrmg3ff7f1b9",
+      "poll_type": "approval",
+      "sample_size": 3000,
+      "population": "rv",
+      "url": "https://napolitannews.org/jobapproval#03-12-2026",
+      "created_at": "2026-03-14",
+      "start_date": "2026-03-04",
+      "end_date": "2026-03-12",
+      "pollster": "RMG Research",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 45
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 53
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Napolitan Institute"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonfoc6393de5f",
+      "poll_type": "approval",
+      "sample_size": 1534,
+      "population": "rv",
+      "url": "https://www.focaldata.com/blog/democrats-increase-lead-and-rubio-stock-surges-amid-iran-war",
+      "created_at": "2026-03-14",
+      "start_date": "2026-03-06",
+      "end_date": "2026-03-10",
+      "pollster": "Focaldata",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 39
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 51
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonfocf1b741d8",
+      "poll_type": "approval",
+      "sample_size": 1782,
+      "population": "a",
+      "url": "https://www.focaldata.com/blog/democrats-increase-lead-and-rubio-stock-surges-amid-iran-war",
+      "created_at": "2026-03-14",
+      "start_date": "2026-03-06",
+      "end_date": "2026-03-10",
+      "pollster": "Focaldata",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 37
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 51
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
     {
       "id": "appdonyou02c91a10",
       "poll_type": "approval",
@@ -20737,89 +20817,9 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonrmg6z6g1o7h",
-      "poll_type": "approval",
-      "sample_size": 3000,
-      "population": "rv",
-      "url": "https://napolitannews.org/posts/president-trump-job-approval-51-percent-approve-45-disapprove",
-      "created_at": "2025-02-07",
-      "start_date": "2025-02-03",
-      "end_date": "2025-02-06",
-      "pollster": "RMG Research",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 51
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 45
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Napolitan Institute"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonclaqinjpjov",
-      "poll_type": "approval",
-      "sample_size": 1102,
-      "population": "rv",
-      "url": "https://static1.squarespace.com/static/61ae8d5e55be5c7314b4c83a/t/67aa57a7976e415c4d212706/1739216809584/Clarity+Omnibus+Overview+-+Jan_Feb+2025.pdf",
-      "created_at": "2025-02-11",
-      "start_date": "2025-01-31",
-      "end_date": "2025-02-06",
-      "pollster": "Clarity Campaign Labs",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 48
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 43
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
-    {
-      "id": "gen202clamw35tq8u",
-      "poll_type": "generic-ballot",
-      "sample_size": 1102,
-      "population": "rv",
-      "url": "https://static1.squarespace.com/static/61ae8d5e55be5c7314b4c83a/t/67aa57a7976e415c4d212706/1739216809584/Clarity+Omnibus+Overview+-+Jan_Feb+2025.pdf",
-      "created_at": "2025-02-11",
-      "start_date": "2025-01-31",
-      "end_date": "2025-02-06",
-      "pollster": "Clarity Campaign Labs",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 45
-        },
-        {
-          "choice": "Rep",
-          "pct": 44
-        }
-      ],
-      "seat_name": "Generic",
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "2026"
-    },
     {
       "id": "gen202quasdivo0qp",
       "poll_type": "generic-ballot",
@@ -29974,6 +29974,110 @@
       "start_date": "2026-03-06",
       "end_date": "2026-03-08",
       "pollster": "Morning Consult",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 47
+        },
+        {
+          "choice": "Rep",
+          "pct": 43
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202foccaecc3f9",
+      "poll_type": "generic-ballot",
+      "sample_size": 1534,
+      "population": "rv",
+      "url": "https://www.focaldata.com/blog/democrats-increase-lead-and-rubio-stock-surges-amid-iran-war",
+      "created_at": "2026-03-14",
+      "start_date": "2026-03-06",
+      "end_date": "2026-03-10",
+      "pollster": "Focaldata",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 48
+        },
+        {
+          "choice": "Rep",
+          "pct": 42
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202foc4dadf601",
+      "poll_type": "generic-ballot",
+      "sample_size": 1782,
+      "population": "a",
+      "url": "https://www.focaldata.com/blog/democrats-increase-lead-and-rubio-stock-surges-amid-iran-war",
+      "created_at": "2026-03-14",
+      "start_date": "2026-03-06",
+      "end_date": "2026-03-10",
+      "pollster": "Focaldata",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 45
+        },
+        {
+          "choice": "Rep",
+          "pct": 39
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202tipce47db1a",
+      "poll_type": "generic-ballot",
+      "sample_size": 1264,
+      "population": "rv",
+      "url": "https://tippinsights.com/americas-stalemate",
+      "created_at": "2026-03-14",
+      "start_date": "2026-02-24",
+      "end_date": "2026-02-27",
+      "pollster": "TIPP Insights",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 46
+        },
+        {
+          "choice": "Rep",
+          "pct": 44
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202mclb94b7c24",
+      "poll_type": "generic-ballot",
+      "sample_size": 1000,
+      "population": "lv",
+      "url": "https://mclaughlinonline.com/pols/wp-content/uploads/2026/03/National-March-Presentation-RELEASE-03-10-26.pdf",
+      "created_at": "2026-03-14",
+      "start_date": "2026-03-04",
+      "end_date": "2026-03-09",
+      "pollster": "McLaughlin & Associates",
       "answers": [
         {
           "choice": "Dem",
