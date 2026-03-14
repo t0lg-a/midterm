@@ -18,8 +18,8 @@ let PAST_STATE_GEO = null;
 const SEAT_RULES = {
   2024: {
     president: { total:538, majorityLine:270, baseR:0, baseD:0 },
-    senate:    { total:100, majorityLine:51,  baseR:31, baseD:36 },
-    governor:  { total:50,  majorityLine:26,  baseR:16, baseD:23 },
+    senate:    { total:100, majorityLine:51,  baseD:28, baseR:39 },
+    governor:  { total:50,  majorityLine:26,  baseD:20, baseR:19 },
     house:     { total:435, majorityLine:218, baseR:0,  baseD:0  }
   }
 };
