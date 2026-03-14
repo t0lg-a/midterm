@@ -24,6 +24,14 @@ const SEAT_RULES = {
   }
 };
 
+/* ---------- Electoral votes per state (2024 apportionment) ---------- */
+const EV = {
+  AL:9,AK:3,AZ:11,AR:6,CA:54,CO:10,CT:7,DE:3,DC:3,FL:30,GA:16,HI:4,ID:4,IL:19,
+  IN:11,IA:6,KS:6,KY:8,LA:8,ME:4,MD:10,MA:11,MI:15,MN:10,MS:6,MO:10,MT:4,NE:5,
+  NV:6,NH:4,NJ:14,NM:5,NY:28,NC:16,ND:3,OH:17,OK:7,OR:8,PA:19,RI:4,SC:9,SD:3,
+  TN:11,TX:40,UT:6,VT:3,VA:13,WA:12,WV:4,WI:10,WY:3
+};
+
 /* ---------- States that had races in 2024 (filter for senate/governor) ---------- */
 const RACES_2024 = {
   president: null, // all states
@@ -67,11 +75,22 @@ function formatMarginDR(m){
   return (m < 0) ? `D+${a.toFixed(1)}` : `R+${a.toFixed(1)}`;
 }
 function marginColor(m){
-  const t = clamp(Math.abs(m)/30, 0, 1);
+  if (!isFinite(m)) return "#e5e7eb";
+  const max = 25;
+  const a = Math.abs(m);
+  // Under 2 pts: tossup yellow
+  if (a < 2.0) return "rgb(253,224,71)";
+  const t = clamp(a/max, 0, 1);
   if (m < 0){
-    return `rgb(${Math.round(219*(1-t)+37*t)},${Math.round(225*(1-t)+99*t)},${Math.round(232*(1-t)+235*t)})`;
+    const r = Math.round(248*(1-t) + 37*t);
+    const g = Math.round(250*(1-t) + 99*t);
+    const b = Math.round(252*(1-t) + 235*t);
+    return `rgb(${r},${g},${b})`;
   } else {
-    return `rgb(${Math.round(219*(1-t)+220*t)},${Math.round(225*(1-t)+38*t)},${Math.round(232*(1-t)+38*t)})`;
+    const r = Math.round(252*(1-t) + 220*t);
+    const g = Math.round(250*(1-t) + 38*t);
+    const b = Math.round(250*(1-t) + 38*t);
+    return `rgb(${r},${g},${b})`;
   }
 }
 function median(arr){
@@ -395,8 +414,10 @@ async function renderPastYear(year){
       const model = getStateModelPast(year, mode, st);
       if (!model) continue;
       const p = model.winProb.pD;
-      demWins += p;
-      variance += p * (1 - p);
+      // President: weight by electoral votes. Others: 1 seat per state/district.
+      const weight = (mode === "president") ? (EV[st] || 1) : 1;
+      demWins += p * weight;
+      variance += p * (1 - p) * weight * weight;
     }
     const expDem = Math.round(demWins * 10) / 10;
     const expRep = rule.total - expDem;
