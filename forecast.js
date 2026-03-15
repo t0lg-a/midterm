@@ -2243,7 +2243,7 @@ function showStateInfoPanel(modeKey, usps){
         <div class="panelMarginNum ${isDem?'dem':'rep'}">${resultText}</div>
         <div class="panelMarginLabel">Projected margin</div>
       </div>
-      <div class="panelArc">${winArcSVG(pD, 88)}</div>
+      <div class="panelArc">${winArcSVG(pD, 72)}</div>
     </div>
     <div class="panelFactors">
       ${detail.body}

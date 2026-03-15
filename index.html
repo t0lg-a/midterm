@@ -1451,38 +1451,15 @@
       border:1px solid var(--line);
       border-radius:var(--radius-sm);
     }
-    .stateInfoPanel{
-      position:absolute;
-      top:4px;
-      left:4px;
-      z-index:10;
-      width:min(264px, 48%);
-      border-radius:16px;
-      background: rgba(255,255,255,0.98);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      border:1px solid rgba(0,0,0,0.05);
-      box-shadow: 0 0 0 0.5px rgba(0,0,0,0.02), 0 1px 3px rgba(0,0,0,0.04), 0 6px 16px -2px rgba(0,0,0,0.08), 0 24px 56px -12px rgba(0,0,0,0.07);
-      font-family: var(--sans);
-      display:none;
-      overflow:hidden;
-    }
-    .stateInfoPanel.visible{ display:block; animation: panelSlide 0.3s cubic-bezier(0.16,1,0.3,1); }
-    @keyframes panelSlide { from { opacity:0; transform:translateY(10px) scale(0.96); } to { opacity:1; transform:translateY(0) scale(1); } }
-
-    /* Accent strip */
+    /* ---- Shared panel component classes (used by #tip and .stateInfoPanel) ---- */
     .panelAccent{ height:3px; }
     .panelAccent.dem{ background:linear-gradient(90deg, var(--blue), #93c5fd, transparent 70%); }
     .panelAccent.rep{ background:linear-gradient(270deg, var(--red), #fca5a5, transparent 70%); }
-
-    /* Header */
     .panelHeader{ padding:10px 12px 0; }
     .panelNameRow{ display:flex; justify-content:space-between; align-items:flex-start; gap:4px; }
     .panelName{ font-size:16px; font-weight:900; color:var(--ink); letter-spacing:-0.025em; line-height:1; }
     .panelUsps{ font-size:10px; font-weight:600; color:#c4c9d0; }
     .panelClassify{ font-size:7.5px; font-weight:800; text-transform:uppercase; letter-spacing:0.06em; line-height:1; padding:3px 7px; border-radius:5px; white-space:nowrap; flex-shrink:0; }
-
-    /* Share bar */
     .panelShareBar{ margin-top:8px; }
     .panelShareLabels{ display:flex; justify-content:space-between; font-size:9.5px; font-weight:800; margin-bottom:3px; font-family:var(--mono); font-variant-numeric:tabular-nums; }
     .panelShareD{ color:var(--blue); }
@@ -1493,8 +1470,6 @@
     .panelShareFillD{ background:linear-gradient(90deg, #93c5fd, var(--blue)); border-radius:9999px 0 0 9999px; }
     .panelShareGap{ width:2px; background:white; flex-shrink:0; }
     .panelShareFillR{ flex:1; background:linear-gradient(90deg, var(--red), #fca5a5); border-radius:0 9999px 9999px 0; }
-
-    /* Hero zone */
     .panelHero{ display:flex; align-items:center; justify-content:space-between; padding:10px 12px 6px; }
     .panelMarginBlock{}
     .panelMarginNum{ font-size:24px; font-weight:900; letter-spacing:-0.04em; font-family:var(--mono); font-variant-numeric:tabular-nums; line-height:1; }
@@ -1502,56 +1477,7 @@
     .panelMarginNum.rep{ color:var(--red); }
     .panelMarginLabel{ font-size:6.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.12em; color:#b0b5bc; margin-top:3px; }
     .panelArc{ flex-shrink:0; }
-
-    /* Factor rows in panel */
     .panelFactors{ padding:2px 12px 4px; border-top:1px solid rgba(0,0,0,0.05); }
-    .stateInfoPanel .miniRow{
-      display:grid; grid-template-columns:64px 42px 1fr;
-      align-items:center; gap:4px;
-      margin:0; padding:4px 0;
-    }
-    .stateInfoPanel .miniRowFinal{ padding:8px 0 4px; border-top:1px solid rgba(0,0,0,0.08); margin-top:2px; }
-    .stateInfoPanel .miniRowNoData{ opacity:0.25; }
-    .stateInfoPanel .miniLbl{ width:auto; font-size:7.5px; font-weight:700; color:#8b919a; letter-spacing:0.04em; }
-    .stateInfoPanel .miniLblFinal{ font-size:9px; font-weight:900; color:var(--ink); letter-spacing:0.02em; }
-    .stateInfoPanel .miniVal{ width:auto; font-size:9px; font-weight:700; color:#374151; }
-    .stateInfoPanel .miniValFinal{ font-size:11px; font-weight:900; }
-    .stateInfoPanel .miniVal.blue{ color:var(--blue-dark); }
-    .stateInfoPanel .miniVal.red{ color:var(--red); }
-    .stateInfoPanel .miniBar{ height:7px; border-radius:4px; background:#eef0f2; border:none; }
-    .stateInfoPanel .miniBarFinal{ height:10px; border-radius:5px; background:rgba(0,0,0,0.055); }
-    .stateInfoPanel .miniZero{
-      position:absolute; left:calc(50% - 0.5px); top:0; bottom:0;
-      width:1px; background:#ced2d8;
-    }
-    .stateInfoPanel .miniFill{
-      top:0; bottom:0; opacity:1;
-    }
-    .stateInfoPanel .miniFill.blue{ background:#bfdbfe; }
-    .stateInfoPanel .miniFill.red{ background:#fecaca; }
-    .stateInfoPanel .miniFillFinal.blue{ background:var(--blue); box-shadow:0 0 8px rgba(37,99,235,0.3); }
-    .stateInfoPanel .miniFillFinal.red{ background:var(--red); box-shadow:0 0 8px rgba(220,38,38,0.3); }
-
-    /* Tick markers */
-    .stateInfoPanel .miniTick{
-      position:absolute; top:-2px; bottom:-2px;
-      width:2px; border-radius:1px;
-      transform:translateX(-50%);
-      z-index:5;
-    }
-    .stateInfoPanel .miniTick.blue{ background:var(--blue); }
-    .stateInfoPanel .miniTick.red{ background:var(--red); }
-    .stateInfoPanel .miniTick.neutral{ background:var(--muted-light); }
-    .stateInfoPanel .miniTickFinal{
-      width:3px; top:-3px; bottom:-3px; border-radius:1.5px;
-    }
-    .stateInfoPanel .miniTickFinal.blue{ box-shadow:0 0 4px rgba(37,99,235,0.4); }
-    .stateInfoPanel .miniTickFinal.red{ box-shadow:0 0 4px rgba(220,38,38,0.4); }
-
-    /* Hide old dots in panel context */
-    .stateInfoPanel .miniDot{ display:none; }
-
-    /* Sparkline */
     .panelSpark{ padding:6px 12px 10px; border-top:1px solid rgba(0,0,0,0.05); }
     .panelSparkHead{ display:flex; justify-content:space-between; align-items:center; margin-bottom:4px; }
     .panelSparkLabel{ font-size:7px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:#b0b5bc; }
@@ -1559,13 +1485,103 @@
     .panelSparkPill{ font-size:8px; font-weight:800; font-family:var(--mono); font-variant-numeric:tabular-nums; padding:1.5px 5px; border-radius:4px; }
     .panelSparkPill.dem{ background:rgba(37,99,235,0.08); color:var(--blue); }
     .panelSparkPill.rep{ background:rgba(220,38,38,0.08); color:var(--red); }
-    .panelSpark canvas,
+
+    /* ---- State info panel (compact overlay on map) ---- */
+    .stateInfoPanel{
+      position:absolute;
+      top:4px;
+      left:4px;
+      z-index:10;
+      width:min(220px, 42%);
+      border-radius:12px;
+      background: rgba(255,255,255,0.98);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border:1px solid rgba(0,0,0,0.05);
+      box-shadow: 0 0 0 0.5px rgba(0,0,0,0.02), 0 1px 3px rgba(0,0,0,0.04), 0 6px 16px -2px rgba(0,0,0,0.08);
+      font-family: var(--sans);
+      display:none;
+      overflow:hidden;
+    }
+    .stateInfoPanel.visible{ display:block; animation: panelSlide 0.25s cubic-bezier(0.16,1,0.3,1); }
+    @keyframes panelSlide { from { opacity:0; transform:translateY(6px) scale(0.97); } to { opacity:1; transform:translateY(0) scale(1); } }
+
+    /* Compact panel accent */
+    .stateInfoPanel .panelAccent{ height:2px; }
+
+    /* Compact header */
+    .stateInfoPanel .panelHeader{ padding:7px 9px 0; }
+    .stateInfoPanel .panelNameRow{ gap:3px; }
+    .stateInfoPanel .panelName{ font-size:12px; }
+    .stateInfoPanel .panelUsps{ font-size:8px; }
+    .stateInfoPanel .panelClassify{ font-size:6.5px; padding:2px 5px; border-radius:4px; }
+
+    /* Compact share bar */
+    .stateInfoPanel .panelShareBar{ margin-top:5px; }
+    .stateInfoPanel .panelShareLabels{ font-size:8px; margin-bottom:2px; }
+    .stateInfoPanel .panelShareD small,
+    .stateInfoPanel .panelShareR small{ font-size:5.5px; }
+    .stateInfoPanel .panelShareTrack{ height:4px; }
+
+    /* Compact hero */
+    .stateInfoPanel .panelHero{ padding:6px 9px 4px; }
+    .stateInfoPanel .panelMarginNum{ font-size:16px; }
+    .stateInfoPanel .panelMarginLabel{ font-size:5.5px; margin-top:2px; }
+    .stateInfoPanel .panelArc svg{ transform:scale(0.65); transform-origin:top right; }
+
+    /* Compact factor rows */
+    .stateInfoPanel .panelFactors{ padding:1px 9px 3px; }
+    .stateInfoPanel .miniRow{
+      display:grid; grid-template-columns:52px 36px 1fr;
+      align-items:center; gap:3px;
+      margin:0; padding:3px 0;
+    }
+    .stateInfoPanel .miniRowFinal{ padding:5px 0 3px; border-top:1px solid rgba(0,0,0,0.08); margin-top:1px; }
+    .stateInfoPanel .miniRowNoData{ opacity:0.25; }
+    .stateInfoPanel .miniLbl{ width:auto; font-size:6.5px; font-weight:700; color:#8b919a; letter-spacing:0.04em; }
+    .stateInfoPanel .miniLblFinal{ font-size:7.5px; font-weight:900; color:var(--ink); letter-spacing:0.02em; }
+    .stateInfoPanel .miniVal{ width:auto; font-size:8px; font-weight:700; color:#374151; }
+    .stateInfoPanel .miniValFinal{ font-size:9px; font-weight:900; }
+    .stateInfoPanel .miniVal.blue{ color:var(--blue-dark); }
+    .stateInfoPanel .miniVal.red{ color:var(--red); }
+    .stateInfoPanel .miniBar{ height:5px; border-radius:3px; background:#eef0f2; border:none; }
+    .stateInfoPanel .miniBarFinal{ height:7px; border-radius:4px; background:rgba(0,0,0,0.055); }
+    .stateInfoPanel .miniZero{
+      position:absolute; left:calc(50% - 0.5px); top:0; bottom:0;
+      width:1px; background:#ced2d8;
+    }
+    .stateInfoPanel .miniFill{ top:0; bottom:0; opacity:1; }
+    .stateInfoPanel .miniFill.blue{ background:#bfdbfe; }
+    .stateInfoPanel .miniFill.red{ background:#fecaca; }
+    .stateInfoPanel .miniFillFinal.blue{ background:var(--blue); box-shadow:0 0 6px rgba(37,99,235,0.25); }
+    .stateInfoPanel .miniFillFinal.red{ background:var(--red); box-shadow:0 0 6px rgba(220,38,38,0.25); }
+
+    /* Compact tick markers */
+    .stateInfoPanel .miniTick{
+      position:absolute; top:-1px; bottom:-1px;
+      width:2px; border-radius:1px;
+      transform:translateX(-50%); z-index:5;
+    }
+    .stateInfoPanel .miniTick.blue{ background:var(--blue); }
+    .stateInfoPanel .miniTick.red{ background:var(--red); }
+    .stateInfoPanel .miniTick.neutral{ background:var(--muted-light); }
+    .stateInfoPanel .miniTickFinal{ width:2.5px; top:-2px; bottom:-2px; }
+    .stateInfoPanel .miniTickFinal.blue{ box-shadow:0 0 3px rgba(37,99,235,0.35); }
+    .stateInfoPanel .miniTickFinal.red{ box-shadow:0 0 3px rgba(220,38,38,0.35); }
+    .stateInfoPanel .miniDot{ display:none; }
+
+    /* Compact sparkline */
+    .stateInfoPanel .panelSpark{ padding:4px 9px 7px; }
+    .stateInfoPanel .panelSparkHead{ margin-bottom:3px; }
+    .stateInfoPanel .panelSparkLabel{ font-size:6px; }
+    .stateInfoPanel .panelSparkPill{ font-size:7px; padding:1px 4px; }
+    .stateInfoPanel .panelSpark canvas,
     .stateInfoPanel [data-panel-spark]{
-      width:100%; height:52px; display:block;
-      border-radius:8px;
+      width:100%; height:36px; display:block;
+      border-radius:6px;
       background:linear-gradient(180deg, rgba(0,0,0,0.008) 0%, rgba(0,0,0,0.022) 100%);
       border:1px solid rgba(0,0,0,0.04);
-      box-shadow:inset 0 1px 3px rgba(0,0,0,0.025);
+      box-shadow:inset 0 1px 2px rgba(0,0,0,0.02);
     }
     .mapCtrlBtn{
       appearance:none;
