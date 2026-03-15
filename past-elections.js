@@ -878,15 +878,32 @@ function showPastSimTip(ev, html){
   if (!tip) return;
   tip.innerHTML = html;
   const pad = 12;
-  let x = ev.clientX+pad, y = ev.clientY+pad;
-  const tr = tip.getBoundingClientRect();
-  if (x + tr.width > window.innerWidth - 8) x = ev.clientX - tr.width - pad;
-  if (y + tr.height > window.innerHeight - 8) y = ev.clientY - tr.height - pad;
-  tip.style.transform = `translate(${x}px,${y}px)`;
+
+  // Measure size first
+  tip.style.transform = "translate(0,0)";
+  tip.style.left = "0px";
+  tip.style.top  = "0px";
+
+  const tw = tip.offsetWidth;
+  const th = tip.offsetHeight;
+
+  let x = ev.clientX + pad;
+  let y = ev.clientY + pad;
+
+  if (x + tw + pad > window.innerWidth) x = ev.clientX - tw - pad;
+  if (y + th + pad > window.innerHeight) y = ev.clientY - th - pad;
+
+  tip.style.left = x + "px";
+  tip.style.top  = y + "px";
+  tip.style.transform = "";
 }
 function hidePastSimTip(){
   const tip = document.getElementById("pastSimTip");
-  if (tip) tip.style.transform = "translate(-9999px,-9999px)";
+  if (tip){
+    tip.style.transform = "translate(-9999px,-9999px)";
+    tip.style.left = "";
+    tip.style.top = "";
+  }
 }
 
 /* ---------- Chart tab switching ---------- */
