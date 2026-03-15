@@ -22,6 +22,72 @@ function bucketKeyFromMargin(m){
   // Likely: 7.5 < |margin| < 12.5
   return `Likely ${side}`;
 }
+function classifyMargin(m){
+  if (!isFinite(m)) return "—";
+  const a = Math.abs(m);
+  if (a <= VIS.lean) return "Tossup";
+  if (a <= VIS.likely) return m < 0 ? "Lean D" : "Lean R";
+  if (a <= VIS.show) return m < 0 ? "Likely D" : "Likely R";
+  return m < 0 ? "Safe D" : "Safe R";
+}
+function classifyColorAttr(cls){
+  if (cls.includes("Safe D"))   return "bg:#1e40af;color:#fff";
+  if (cls.includes("Likely D")) return "bg:#3b82f6;color:#fff";
+  if (cls.includes("Lean D"))   return "bg:#93c5fd;color:#1e3a5f";
+  if (cls === "Tossup")         return "bg:#fbbf24;color:#78350f";
+  if (cls.includes("Lean R"))   return "bg:#fca5a5;color:#7f1d1d";
+  if (cls.includes("Likely R")) return "bg:#ef4444;color:#fff";
+  return "bg:#991b1b;color:#fff";
+}
+
+function winArcSVG(pD, size){
+  const strokeW = 7;
+  const r = (size - strokeW * 2) / 2;
+  const cx = size / 2, cy = size / 2;
+  const sc = Math.PI * r;
+  const pDc = Math.max(1, Math.min(99, pD));
+  const pRc = 100 - pDc;
+  const rLen = (pRc / 100) * sc;
+  const dLen = (pDc / 100) * sc;
+  const gap = 3;
+  const seg = len => Math.max(0, len - gap/2);
+  const favored = pD >= 50 ? "D" : "R";
+  const pct = pD >= 50 ? pD : 100 - pD;
+  const bDeg = -180 + (pRc / 100) * 180;
+  const bRad = (bDeg * Math.PI) / 180;
+  const nLen = r - 6;
+  const nx = cx + nLen * Math.cos(bRad);
+  const ny = cy + nLen * Math.sin(bRad);
+  const pathD = `M ${cx-r} ${cy} A ${r} ${r} 0 0 1 ${cx+r} ${cy}`;
+  const totalH = size/2 + strokeW + 22;
+  const pctColor = favored === "D" ? "var(--blue-dark,#1d4ed8)" : "var(--red,#dc2626)";
+
+  let ticks = "";
+  [0,0.25,0.5,0.75,1].forEach(frac => {
+    const ang = -Math.PI + frac * Math.PI;
+    const inner = r - 2, outer = r + (frac===0.5?5:3);
+    const s = frac===0.5 ? "rgba(0,0,0,0.2)" : "rgba(0,0,0,0.1)";
+    const w = frac===0.5 ? 1.2 : 0.8;
+    ticks += `<line x1="${cx+inner*Math.cos(ang)}" y1="${cy+inner*Math.sin(ang)}" x2="${cx+outer*Math.cos(ang)}" y2="${cy+outer*Math.sin(ang)}" stroke="${s}" stroke-width="${w}" stroke-linecap="round"/>`;
+  });
+
+  return `<svg viewBox="0 0 ${size} ${totalH}" width="${size}" height="${totalH}" style="overflow:visible">
+    <defs>
+      <linearGradient id="gaR" x1="0%" y1="50%" x2="50%" y2="50%"><stop offset="0%" stop-color="#fca5a5"/><stop offset="100%" stop-color="#ef4444"/></linearGradient>
+      <linearGradient id="gaB" x1="50%" y1="50%" x2="100%" y2="50%"><stop offset="0%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#93c5fd"/></linearGradient>
+      <filter id="nSh"><feDropShadow dx="0" dy="0.5" stdDeviation="1" flood-opacity="0.18"/></filter>
+      <filter id="sGl"><feGaussianBlur stdDeviation="1.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    </defs>
+    <path d="${pathD}" fill="none" stroke="rgba(0,0,0,0.04)" stroke-width="${strokeW}" stroke-linecap="round"/>
+    ${seg(rLen)>0?`<path d="${pathD}" fill="none" stroke="url(#gaR)" stroke-width="${strokeW}" stroke-linecap="round" stroke-dasharray="${seg(rLen)} ${sc}" stroke-dashoffset="0" filter="url(#sGl)" opacity="0.85"/>`:""}
+    ${seg(dLen)>0?`<path d="${pathD}" fill="none" stroke="url(#gaB)" stroke-width="${strokeW}" stroke-linecap="round" stroke-dasharray="${seg(dLen)} ${sc}" stroke-dashoffset="${-(rLen+gap/2)}" filter="url(#sGl)" opacity="0.85"/>`:""}
+    ${ticks}
+    <line x1="${cx}" y1="${cy}" x2="${nx.toFixed(1)}" y2="${ny.toFixed(1)}" stroke="#1f2937" stroke-width="1.8" stroke-linecap="round" filter="url(#nSh)"/>
+    <circle cx="${cx}" cy="${cy}" r="3.5" fill="#1f2937"/><circle cx="${cx}" cy="${cy}" r="1.8" fill="white"/>
+    <text x="${cx}" y="${cy+16}" text-anchor="middle" style="font-size:16px;font-weight:900;letter-spacing:-0.04em;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;fill:${pctColor}">${pct}%</text>
+  </svg>`;
+}
+
 function formatMarginDR(m){
   if (!isFinite(m)) return "—";
   const mm = clamp(m, -25, 25); // display clamp
@@ -989,42 +1055,45 @@ function sliderEmptyHTML(title, note="No data"){
 }
 
 
-function miniMeterHTML(label, m, note=null){
+function miniMeterHTML(label, m, note=null, isFinal=false){
   const min = -25, max = 25;
   const safeLabel = label;
+  const rowCls = isFinal ? "miniRow miniRowFinal" : "miniRow";
+  const lblCls = isFinal ? "miniLbl miniLblFinal" : "miniLbl";
+  const valCls = isFinal ? "miniVal miniValFinal" : "miniVal";
+  const barCls = isFinal ? "miniBar miniBarFinal" : "miniBar";
 
   if (!isFinite(m)){
     const val = (note !== null) ? note : "—";
     return `
-      <div class="miniRow">
-        <div class="miniLbl">${safeLabel}</div>
-        <div class="miniVal">${val}</div>
-        <div class="miniBar"><div class="miniZero"></div></div>
+      <div class="${rowCls} miniRowNoData">
+        <div class="${lblCls}">${safeLabel}</div>
+        <div class="${valCls}">${val}</div>
+        <div class="${barCls}"><div class="miniZero"></div></div>
       </div>
     `;
   }
 
   const overflow = Math.abs(m) > max;
-
-  // Visual scale stays at +/-25 for readability,
-  // but the numeric readout should show the true value.
   const mm = clamp(m, min, max);
   const p = ((mm - min) / (max - min)) * 100;
-
   const cls = (m < 0) ? "blue" : (m > 0 ? "red" : "neutral");
-
-  // Normal: fill from 0-line. Overflow: fill the whole bar (so it doesn't look like "exactly 25").
   const left = overflow ? 0 : Math.min(50, p);
   const width = overflow ? 100 : Math.abs(p - 50);
 
+  // Fill rounded end: left side rounded if Dem, right side if Rep
+  const fillRound = (m < 0)
+    ? "border-radius:9999px 0 0 9999px"
+    : "border-radius:0 9999px 9999px 0";
+
   return `
-    <div class="miniRow">
-      <div class="miniLbl">${safeLabel}</div>
-      <div class="miniVal">${fmtLead(m)}</div>
-      <div class="miniBar">
+    <div class="${rowCls}">
+      <div class="${lblCls}">${safeLabel}</div>
+      <div class="${valCls} ${isFinal ? cls : ''}">${fmtLead(m)}</div>
+      <div class="${barCls}">
         <div class="miniZero"></div>
-        <div class="miniFill ${cls}" style="left:${left}%; width:${width}%;"></div>
-        <div class="miniDot ${cls}" style="left:${p}%"></div>
+        <div class="miniFill ${cls}${isFinal?' miniFillFinal':''}" style="left:${left}%; width:${width}%; ${fillRound}"></div>
+        <div class="miniTick ${cls}${isFinal?' miniTickFinal':''}" style="left:${p}%"></div>
       </div>
     </div>
   `;
@@ -1055,14 +1124,16 @@ function buildDetailHTML(modeKey, key, cachedIndNat){
 
     rows.push(miniMeterHTML("Polls", NaN, "—"));
     rows.push(miniMeterHTML("National trend", NaN, "—"));
-    rows.push(miniMeterHTML("Final", mFinal));
+    rows.push(miniMeterHTML("Final", mFinal, null, true));
 
     return {
       header: {
         resultText: `${fmtLead(mFinal)}`,
         probText: `D ${pD}% · R ${pR}%`,
         metaText: `D ${model.combinedPair.D.toFixed(1)} · R ${model.combinedPair.R.toFixed(1)}`,
-        mFinal
+        mFinal, pD, pR,
+        dShare: model.combinedPair.D,
+        rShare: model.combinedPair.R,
       },
       body: rows.join("")
     };
@@ -1079,7 +1150,7 @@ function buildDetailHTML(modeKey, key, cachedIndNat){
   rows.push(miniMeterHTML("Generic ballot", gbM));
   rows.push(model.pollPair ? miniMeterHTML("Polls", pollM) : miniMeterHTML("Polls", NaN, "—"));
   rows.push((cachedIndNat && model.indPair) ? miniMeterHTML("National trend", indM) : miniMeterHTML("National trend", NaN, "—"));
-  rows.push(miniMeterHTML("Final", mFinal));
+  rows.push(miniMeterHTML("Final", mFinal, null, true));
 
   const pD = Math.round(model.winProb.pD*100);
   const pR = Math.round(model.winProb.pR*100);
@@ -1089,7 +1160,9 @@ function buildDetailHTML(modeKey, key, cachedIndNat){
       resultText: `${fmtLead(mFinal)}`,
       probText: `D ${pD}% · R ${pR}%`,
       metaText: `D ${model.combinedPair.D.toFixed(1)} · R ${model.combinedPair.R.toFixed(1)}`,
-      mFinal
+      mFinal, pD, pR,
+      dShare: model.combinedPair.D,
+      rShare: model.combinedPair.R,
     },
     body: rows.join("")
   };
@@ -2100,51 +2173,66 @@ function showStateInfoPanel(modeKey, usps){
   const detail = buildDetailHTML(modeKey, usps, IND_CACHE[modeKey]);
   if (!detail.header){ panel.classList.remove("visible"); return; }
 
-  const { resultText, probText, metaText, mFinal } = detail.header;
+  const { resultText, probText, metaText, mFinal, pD, pR, dShare, rShare } = detail.header;
   const name = USPS_TO_NAME[usps] || usps;
+  const isDem = mFinal <= 0;
+  const cls = classifyMargin(mFinal);
+  const clsStyle = classifyColorAttr(cls);
+  const bgParts = clsStyle.split(";");
+  const clsBg = (bgParts[0]||"").replace("bg:","");
+  const clsCol = (bgParts[1]||"").replace("color:","");
 
-  const dotColor = mFinal <= 0 ? "blue" : "red";
-  const pd = parseInt(probText.match(/D\s(\d+)%/)?.[1] || "50", 10);
-  const pr = parseInt(probText.match(/R\s(\d+)%/)?.[1] || "50", 10);
-  const probDotColor = pd > pr ? "blue" : "red";
+  // Normalized shares for bar
+  const ns = normalizePair(dShare, rShare);
 
   panel.innerHTML = `
-    <div class="tipTop">
-      <div class="tipHeader">
-        <h3 class="tipTitle">${usps}</h3>
-        <div class="tipMeta">${metaText}</div>
+    <div class="panelAccent ${isDem?'dem':'rep'}"></div>
+    <div class="panelHeader">
+      <div class="panelNameRow">
+        <span class="panelName">${name} <span class="panelUsps">${usps}</span></span>
+        <span class="panelClassify" style="background:${clsBg};color:${clsCol};box-shadow:0 1px 3px ${clsBg}44">${cls}</span>
       </div>
-      <div class="tipSub">
-        <span class="badge"><span class="dot ${dotColor}"></span>${resultText}</span>
-        <span class="badge"><span class="dot ${probDotColor}"></span>${probText}</span>
+      <div class="panelShareBar">
+        <div class="panelShareLabels">
+          <span class="panelShareD"><small>DEM</small> ${ns.D.toFixed(1)}</span>
+          <span class="panelShareR">${ns.R.toFixed(1)} <small>GOP</small></span>
+        </div>
+        <div class="panelShareTrack">
+          <div class="panelShareFillD" style="width:${ns.D}%"></div>
+          <div class="panelShareGap"></div>
+          <div class="panelShareFillR"></div>
+        </div>
       </div>
     </div>
-    <div class="tipBody">
-      ${detail.body}
-      <div class="tipSparkWrap">
-        <div class="tipSparkTitle">
-          <span>Win prob</span>
-          <span class="sparkPill" data-panel-spark-val>—</span>
-        </div>
-        <canvas data-panel-spark></canvas>
+    <div class="panelHero">
+      <div class="panelMarginBlock">
+        <div class="panelMarginNum ${isDem?'dem':'rep'}">${resultText}</div>
+        <div class="panelMarginLabel">Projected margin</div>
       </div>
+      <div class="panelArc">${winArcSVG(pD, 88)}</div>
+    </div>
+    <div class="panelFactors">
+      ${detail.body}
+    </div>
+    <div class="panelSpark">
+      <div class="panelSparkHead">
+        <span class="panelSparkLabel">Win probability</span>
+        <span class="panelSparkPills">
+          <span class="panelSparkPill dem">D ${pD}%</span>
+          <span class="panelSparkPill rep">R ${pR}%</span>
+        </span>
+      </div>
+      <canvas data-panel-spark></canvas>
     </div>
   `;
 
   panel.classList.add("visible");
 
-  // Render spark chart (scope to this panel, not by global ID)
   requestAnimationFrame(() => {
     const canvas = panel.querySelector("[data-panel-spark]");
-    const label = panel.querySelector("[data-panel-spark-val]");
     if (!canvas) return;
-
     const gbSub = (GB_SRC.series || []).slice();
     const vals = computeWinProbSeries(modeKey, usps, IND_CACHE[modeKey], gbSub);
-
-    if (vals && vals.length && label){
-      label.textContent = `${(vals[vals.length-1]*100).toFixed(0)}%`;
-    }
     drawProbSpark(canvas, vals);
   });
 }

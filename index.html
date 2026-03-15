@@ -651,6 +651,34 @@
     .miniDot.blue{ background: var(--blue); }
     .miniDot.red{ background: var(--red); }
     .miniDot.neutral{ background: var(--muted-light); }
+
+    /* Tick marker (replaces dot in newer layouts) */
+    .miniTick{
+      position:absolute;
+      top:-2px; bottom:-2px;
+      width:2px;
+      border-radius:1px;
+      transform:translateX(-50%);
+      z-index:5;
+    }
+    .miniTick.blue{ background: var(--blue); }
+    .miniTick.red{ background: var(--red); }
+    .miniTick.neutral{ background: var(--muted-light); }
+    .miniTickFinal{ width:3px; top:-3px; bottom:-3px; border-radius:1.5px; }
+    .miniTickFinal.blue{ box-shadow:0 0 4px rgba(37,99,235,0.4); }
+    .miniTickFinal.red{ box-shadow:0 0 4px rgba(220,38,38,0.4); }
+
+    /* Final row emphasis */
+    .miniRowFinal{ padding-top:6px; border-top:1px solid rgba(0,0,0,0.08); margin-top:2px; }
+    .miniLblFinal{ color:var(--ink) !important; font-weight:900 !important; font-size:10px !important; }
+    .miniValFinal{ font-size:11px !important; font-weight:900 !important; }
+    .miniValFinal.blue{ color:var(--blue-dark) !important; }
+    .miniValFinal.red{ color:var(--red) !important; }
+    .miniBarFinal{ height:10px !important; }
+    .miniFillFinal.blue{ background:var(--blue) !important; box-shadow:0 0 8px rgba(37,99,235,0.3); }
+    .miniFillFinal.red{ background:var(--red) !important; box-shadow:0 0 8px rgba(220,38,38,0.3); }
+    .miniRowNoData{ opacity:0.25; }
+
     .miniNote{
       font-size:11px;
       color: var(--muted);
@@ -1404,34 +1432,117 @@
       top:4px;
       left:4px;
       z-index:10;
-      width:min(210px, 42%);
-      border-radius:var(--radius-md);
-      background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border:1px solid rgba(0,0,0,0.07);
-      box-shadow: 0 4px 12px -2px rgba(0,0,0,0.08);
+      width:min(264px, 48%);
+      border-radius:16px;
+      background: rgba(255,255,255,0.98);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border:1px solid rgba(0,0,0,0.05);
+      box-shadow: 0 0 0 0.5px rgba(0,0,0,0.02), 0 1px 3px rgba(0,0,0,0.04), 0 6px 16px -2px rgba(0,0,0,0.08), 0 24px 56px -12px rgba(0,0,0,0.07);
       font-family: var(--sans);
       display:none;
       overflow:hidden;
     }
-    .stateInfoPanel.visible{ display:block; }
-    .stateInfoPanel .tipTop{ padding:6px 9px 5px; border-bottom:1px solid var(--line); background:var(--neutral-bg); border-radius:var(--radius-md) var(--radius-md) 0 0; }
-    .stateInfoPanel .tipHeader{ gap:3px; }
-    .stateInfoPanel .tipTitle{ font-size:13px; font-weight:800; line-height:1.1; }
-    .stateInfoPanel .tipMeta{ font-size:9px; line-height:1.15; }
-    .stateInfoPanel .tipSub{ margin-top:3px; gap:3px; }
-    .stateInfoPanel .tipBody{ padding:6px 9px 6px; }
-    .stateInfoPanel .badge{ font-size:10px; padding:2px 6px; }
-    .stateInfoPanel .dot{ width:6px; height:6px; }
-    .stateInfoPanel .miniRow{ margin:3px 0; gap:4px; }
-    .stateInfoPanel .miniLbl{ font-size:8px; width:62px; }
-    .stateInfoPanel .miniVal{ font-size:9px; width:38px; }
-    .stateInfoPanel .miniBar{ height:4px; }
-    .stateInfoPanel .tipSparkWrap{ margin-top:4px; padding-top:4px; border-top:1px solid var(--line); }
-    .stateInfoPanel .tipSparkTitle{ font-size:9px; margin-bottom:2px; }
-    .stateInfoPanel .sparkPill{ font-size:8px; padding:1px 5px; }
-    .stateInfoPanel [data-panel-spark]{ width:100%; height:36px; display:block; border-radius:4px; background:rgba(0,0,0,0.02); border:1px solid rgba(0,0,0,0.04); }
+    .stateInfoPanel.visible{ display:block; animation: panelSlide 0.3s cubic-bezier(0.16,1,0.3,1); }
+    @keyframes panelSlide { from { opacity:0; transform:translateY(10px) scale(0.96); } to { opacity:1; transform:translateY(0) scale(1); } }
+
+    /* Accent strip */
+    .panelAccent{ height:3px; }
+    .panelAccent.dem{ background:linear-gradient(90deg, var(--blue), #93c5fd, transparent 70%); }
+    .panelAccent.rep{ background:linear-gradient(270deg, var(--red), #fca5a5, transparent 70%); }
+
+    /* Header */
+    .panelHeader{ padding:10px 12px 0; }
+    .panelNameRow{ display:flex; justify-content:space-between; align-items:flex-start; gap:4px; }
+    .panelName{ font-size:16px; font-weight:900; color:var(--ink); letter-spacing:-0.025em; line-height:1; }
+    .panelUsps{ font-size:10px; font-weight:600; color:#c4c9d0; }
+    .panelClassify{ font-size:7.5px; font-weight:800; text-transform:uppercase; letter-spacing:0.06em; line-height:1; padding:3px 7px; border-radius:5px; white-space:nowrap; flex-shrink:0; }
+
+    /* Share bar */
+    .panelShareBar{ margin-top:8px; }
+    .panelShareLabels{ display:flex; justify-content:space-between; font-size:9.5px; font-weight:800; margin-bottom:3px; font-family:var(--mono); font-variant-numeric:tabular-nums; }
+    .panelShareD{ color:var(--blue); }
+    .panelShareD small{ font-size:6.5px; font-weight:700; opacity:0.6; margin-right:1px; }
+    .panelShareR{ color:var(--red); }
+    .panelShareR small{ font-size:6.5px; font-weight:700; opacity:0.6; margin-left:1px; }
+    .panelShareTrack{ display:flex; height:5px; border-radius:9999px; overflow:hidden; box-shadow:inset 0 1px 2px rgba(0,0,0,0.07); }
+    .panelShareFillD{ background:linear-gradient(90deg, #93c5fd, var(--blue)); border-radius:9999px 0 0 9999px; }
+    .panelShareGap{ width:2px; background:white; flex-shrink:0; }
+    .panelShareFillR{ flex:1; background:linear-gradient(90deg, var(--red), #fca5a5); border-radius:0 9999px 9999px 0; }
+
+    /* Hero zone */
+    .panelHero{ display:flex; align-items:center; justify-content:space-between; padding:10px 12px 6px; }
+    .panelMarginBlock{}
+    .panelMarginNum{ font-size:24px; font-weight:900; letter-spacing:-0.04em; font-family:var(--mono); font-variant-numeric:tabular-nums; line-height:1; }
+    .panelMarginNum.dem{ color:var(--blue-dark); }
+    .panelMarginNum.rep{ color:var(--red); }
+    .panelMarginLabel{ font-size:6.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.12em; color:#b0b5bc; margin-top:3px; }
+    .panelArc{ flex-shrink:0; }
+
+    /* Factor rows in panel */
+    .panelFactors{ padding:2px 12px 4px; border-top:1px solid rgba(0,0,0,0.05); }
+    .stateInfoPanel .miniRow{
+      display:grid; grid-template-columns:64px 42px 1fr;
+      align-items:center; gap:4px;
+      margin:0; padding:4px 0;
+    }
+    .stateInfoPanel .miniRowFinal{ padding:8px 0 4px; border-top:1px solid rgba(0,0,0,0.08); margin-top:2px; }
+    .stateInfoPanel .miniRowNoData{ opacity:0.25; }
+    .stateInfoPanel .miniLbl{ width:auto; font-size:7.5px; font-weight:700; color:#8b919a; letter-spacing:0.04em; }
+    .stateInfoPanel .miniLblFinal{ font-size:9px; font-weight:900; color:var(--ink); letter-spacing:0.02em; }
+    .stateInfoPanel .miniVal{ width:auto; font-size:9px; font-weight:700; color:#374151; }
+    .stateInfoPanel .miniValFinal{ font-size:11px; font-weight:900; }
+    .stateInfoPanel .miniVal.blue{ color:var(--blue-dark); }
+    .stateInfoPanel .miniVal.red{ color:var(--red); }
+    .stateInfoPanel .miniBar{ height:7px; border-radius:4px; background:#eef0f2; border:none; }
+    .stateInfoPanel .miniBarFinal{ height:10px; border-radius:5px; background:rgba(0,0,0,0.055); }
+    .stateInfoPanel .miniZero{
+      position:absolute; left:calc(50% - 0.5px); top:0; bottom:0;
+      width:1px; background:#ced2d8;
+    }
+    .stateInfoPanel .miniFill{
+      top:0; bottom:0; opacity:1;
+    }
+    .stateInfoPanel .miniFill.blue{ background:#bfdbfe; }
+    .stateInfoPanel .miniFill.red{ background:#fecaca; }
+    .stateInfoPanel .miniFillFinal.blue{ background:var(--blue); box-shadow:0 0 8px rgba(37,99,235,0.3); }
+    .stateInfoPanel .miniFillFinal.red{ background:var(--red); box-shadow:0 0 8px rgba(220,38,38,0.3); }
+
+    /* Tick markers */
+    .stateInfoPanel .miniTick{
+      position:absolute; top:-2px; bottom:-2px;
+      width:2px; border-radius:1px;
+      transform:translateX(-50%);
+      z-index:5;
+    }
+    .stateInfoPanel .miniTick.blue{ background:var(--blue); }
+    .stateInfoPanel .miniTick.red{ background:var(--red); }
+    .stateInfoPanel .miniTick.neutral{ background:var(--muted-light); }
+    .stateInfoPanel .miniTickFinal{
+      width:3px; top:-3px; bottom:-3px; border-radius:1.5px;
+    }
+    .stateInfoPanel .miniTickFinal.blue{ box-shadow:0 0 4px rgba(37,99,235,0.4); }
+    .stateInfoPanel .miniTickFinal.red{ box-shadow:0 0 4px rgba(220,38,38,0.4); }
+
+    /* Hide old dots in panel context */
+    .stateInfoPanel .miniDot{ display:none; }
+
+    /* Sparkline */
+    .panelSpark{ padding:6px 12px 10px; border-top:1px solid rgba(0,0,0,0.05); }
+    .panelSparkHead{ display:flex; justify-content:space-between; align-items:center; margin-bottom:4px; }
+    .panelSparkLabel{ font-size:7px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:#b0b5bc; }
+    .panelSparkPills{ display:flex; gap:3px; }
+    .panelSparkPill{ font-size:8px; font-weight:800; font-family:var(--mono); font-variant-numeric:tabular-nums; padding:1.5px 5px; border-radius:4px; }
+    .panelSparkPill.dem{ background:rgba(37,99,235,0.08); color:var(--blue); }
+    .panelSparkPill.rep{ background:rgba(220,38,38,0.08); color:var(--red); }
+    .panelSpark canvas,
+    .stateInfoPanel [data-panel-spark]{
+      width:100%; height:52px; display:block;
+      border-radius:8px;
+      background:linear-gradient(180deg, rgba(0,0,0,0.008) 0%, rgba(0,0,0,0.022) 100%);
+      border:1px solid rgba(0,0,0,0.04);
+      box-shadow:inset 0 1px 3px rgba(0,0,0,0.025);
+    }
     .mapCtrlBtn{
       appearance:none;
       border:1px solid var(--line);
