@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-14T11:42:44.833Z",
+  "updatedAt": "2026-03-15T09:05:21.548Z",
   "approval": [
     {
       "id": "appdonrmg3ff7f1b9",
@@ -237,6 +237,34 @@
       ],
       "seat_name": null,
       "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonnob54af9898",
+      "poll_type": "approval",
+      "sample_size": 2659,
+      "population": "rv",
+      "url": "https://www.thecentersquare.com/national/article_c3795c17-be14-4566-a625-eb38b4ffc1bf.html",
+      "created_at": "2026-03-14",
+      "start_date": "2026-03-02",
+      "end_date": "2026-03-05",
+      "pollster": "Noble Predictive Insights",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 46
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 52
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "The Center Square"
+      ],
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
@@ -20789,34 +20817,6 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonyouqdbegflc",
-      "poll_type": "approval",
-      "sample_size": 2175,
-      "population": "a",
-      "url": "https://www.cbsnews.com/news/trump-approval-opinion-poll-2025-2-9/",
-      "created_at": "2025-02-10",
-      "start_date": "2025-02-05",
-      "end_date": "2025-02-07",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 53
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 47
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "CBS News"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -30090,6 +30090,34 @@
       ],
       "seat_name": null,
       "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202nob842fb127",
+      "poll_type": "generic-ballot",
+      "sample_size": 2659,
+      "population": "rv",
+      "url": "https://www.thecentersquare.com/national/article_c3795c17-be14-4566-a625-eb38b4ffc1bf.html",
+      "created_at": "2026-03-14",
+      "start_date": "2026-03-02",
+      "end_date": "2026-03-05",
+      "pollster": "Noble Predictive Insights",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 44
+        },
+        {
+          "choice": "Rep",
+          "pct": 43
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "The Center Square"
+      ],
       "internal": false,
       "partisan": null,
       "subject": "2026"
