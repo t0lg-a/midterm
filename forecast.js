@@ -1395,35 +1395,69 @@ function showTooltip(evt, modeKey, key, cachedIndNat){
   const detail = buildDetailHTML(modeKey, key, cachedIndNat);
   if (!detail.header) return;
 
-  const { resultText, probText, metaText, mFinal } = detail.header;
+  const { resultText, probText, metaText, mFinal, pD, pR, dShare, rShare } = detail.header;
+  const isDem = mFinal <= 0;
+  let title, subtitle;
 
   if (modeKey === "house"){
     const meta = DATA.house.meta[key] || {};
-    const code = meta.code || key;
-    tipState.textContent = code;
-    tipMeta.textContent = (meta.name ? `${meta.name} · ${metaText}` : metaText);
+    title = meta.code || key;
+    subtitle = meta.name || "";
   } else {
     const name = USPS_TO_NAME[key] || key;
-    tipState.textContent = `${name} (${key})`;
-    tipMeta.textContent = metaText;
+    title = name;
+    subtitle = key;
   }
 
-  const resDot = tipResultBadge.querySelector(".dot");
-  resDot.classList.toggle("blue", mFinal <= 0);
-  resDot.classList.toggle("red",  mFinal > 0);
+  const cls = classifyMargin(mFinal);
+  const clsStyle = classifyColorAttr(cls);
+  const bgParts = clsStyle.split(";");
+  const clsBg = (bgParts[0]||"").replace("bg:","");
+  const clsCol = (bgParts[1]||"").replace("color:","");
+  const ns = normalizePair(dShare||50, rShare||50);
+  const pd = pD ?? 50;
+  const pr = pR ?? 50;
 
-  tipWinner.textContent = resultText;
-  tipProb.textContent = probText;
-
-  const probDot = tipProbBadge.querySelector(".dot");
-  const pd = parseInt(probText.match(/D\s(\d+)%/)?.[1] || "50", 10);
-  const pr = parseInt(probText.match(/R\s(\d+)%/)?.[1] || "50", 10);
-  if (pd > pr){ probDot.classList.add("blue"); probDot.classList.remove("red"); }
-  else if (pr > pd){ probDot.classList.add("red"); probDot.classList.remove("blue"); }
-  else { probDot.classList.remove("blue"); probDot.classList.remove("red"); }
-
-  tip.classList.toggle("compact", TOOLTIP_COMPACT);
-  tipSliders.innerHTML = detail.body + ((GB_SRC.series && GB_SRC.series.length) ? tipSparkHTML() : "");
+  tip.innerHTML = `
+    <div class="panelAccent ${isDem?'dem':'rep'}"></div>
+    <div class="panelHeader">
+      <div class="panelNameRow">
+        <span class="panelName">${title} <span class="panelUsps">${subtitle}</span></span>
+        <span class="panelClassify" style="background:${clsBg};color:${clsCol};box-shadow:0 1px 3px ${clsBg}44">${cls}</span>
+      </div>
+      <div class="panelShareBar">
+        <div class="panelShareLabels">
+          <span class="panelShareD"><small>DEM</small> ${ns.D.toFixed(1)}</span>
+          <span class="panelShareR">${ns.R.toFixed(1)} <small>GOP</small></span>
+        </div>
+        <div class="panelShareTrack">
+          <div class="panelShareFillD" style="width:${ns.D}%"></div>
+          <div class="panelShareGap"></div>
+          <div class="panelShareFillR"></div>
+        </div>
+      </div>
+    </div>
+    <div class="panelHero">
+      <div class="panelMarginBlock">
+        <div class="panelMarginNum ${isDem?'dem':'rep'}">${resultText}</div>
+        <div class="panelMarginLabel">Projected margin</div>
+      </div>
+      <div class="panelArc">${winArcSVG(pd, 88)}</div>
+    </div>
+    <div class="panelFactors">
+      ${detail.body}
+    </div>
+    <div class="panelSpark">
+      <div class="panelSparkHead">
+        <span class="panelSparkLabel">Win probability</span>
+        <span class="panelSparkPills">
+          <span class="panelSparkPill dem">D ${pd}%</span>
+          <span class="panelSparkPill rep">R ${pr}%</span>
+        </span>
+      </div>
+      <canvas id="tipSpark"></canvas>
+    </div>
+  `;
 
   tip.style.transform = "translate(0,0)";
   positionTooltip(evt);
@@ -2250,24 +2284,26 @@ function showCountyTooltip(event, modeKey, usps, countyName){
   const cd = COUNTY_RATIOS?.[usps]?.counties?.[countyName];
 
   if (!cd){
-    // No county-level data — show name + state-level margin
     const stModel = getStateModel(modeKey, usps, IND_CACHE[modeKey]);
     const stMargin = stModel ? marginRD(stModel.combinedPair) : NaN;
-    tipState.textContent = `${countyName} Co.`;
-    tipMeta.textContent = `${usps} · state-level only`;
-    tipWinner.textContent = isFinite(stMargin) ? fmtLead(stMargin) : "—";
-    tipProb.textContent = "";
-    const resDot = tipResultBadge.querySelector(".dot");
-    resDot.classList.toggle("blue", stMargin <= 0);
-    resDot.classList.toggle("red", stMargin > 0);
-    tipSliders.innerHTML = "";
-    tip.classList.toggle("compact", TOOLTIP_COMPACT);
+    const isDem = stMargin <= 0;
+    tip.innerHTML = `
+      <div class="panelAccent ${isDem?'dem':'rep'}"></div>
+      <div class="panelHeader">
+        <div class="panelNameRow">
+          <span class="panelName">${countyName} Co. <span class="panelUsps">${usps}</span></span>
+        </div>
+      </div>
+      <div style="padding:6px 12px 10px;">
+        <div class="panelMarginNum ${isDem?'dem':'rep'}" style="font-size:18px">${isFinite(stMargin) ? fmtLead(stMargin) : "—"}</div>
+        <div class="panelMarginLabel">State-level estimate</div>
+      </div>
+    `;
     tip.style.transform = "translate(0,0)";
     positionTooltipLeft(event);
     return;
   }
 
-  // Compute county estimate from state model × ratios
   const stModel = getStateModel(modeKey, usps, IND_CACHE[modeKey]);
   const stD = stModel ? stModel.combinedPair.D : (DATA[modeKey]?.gb?.D || 50);
   const stR = stModel ? stModel.combinedPair.R : (DATA[modeKey]?.gb?.R || 50);
@@ -2277,31 +2313,11 @@ function showCountyTooltip(event, modeKey, usps, countyName){
   const estR = s > 0 ? 100 * rawR / s : 50;
   const margin = estR - estD;
   const wp = winProbFromMargin(margin);
-
-  tipState.textContent = `${countyName} Co.`;
-  tipMeta.textContent = `${usps} · ${modeKey === "senate" ? "Senate" : "Gov"} '26`;
-
-  tipWinner.textContent = fmtLead(margin);
-  const resDot = tipResultBadge.querySelector(".dot");
-  resDot.classList.toggle("blue", margin <= 0);
-  resDot.classList.toggle("red", margin > 0);
-
+  const isDem = margin <= 0;
   const pD = Math.round(wp.pD * 100);
   const pR = Math.round(wp.pR * 100);
-  tipProb.textContent = `D ${pD}% · R ${pR}%`;
-  const probDot = tipProbBadge.querySelector(".dot");
-  probDot.classList.toggle("blue", pD > pR);
-  probDot.classList.toggle("red", pR > pD);
 
-  // Build body with estimate + historical
-  let bodyHTML = `
-    <div class="miniRow">
-      <span class="miniLbl">Estimate</span>
-      <span class="miniVal" style="color:var(--blue)">${estD.toFixed(1)}%</span>
-      <span class="miniVal" style="color:var(--red)">${estR.toFixed(1)}%</span>
-    </div>
-  `;
-
+  let histHTML = "";
   if (cd.hist){
     const h = cd.hist;
     const rows = [];
@@ -2310,19 +2326,45 @@ function showCountyTooltip(event, modeKey, usps, countyName){
     if (h.pres20) rows.push(["'20 Pres", h.pres20[0], h.pres20[1]]);
     if (h.sen18)  rows.push(["'18 Sen",  h.sen18[0],  h.sen18[1]]);
     if (rows.length){
-      bodyHTML += `
-        <div style="margin-top:8px;border-top:1px solid var(--line);padding-top:6px;">
-          <div style="font-size:10px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px;">Historical</div>
-          <div style="display:grid;grid-template-columns:auto 1fr 1fr;gap:2px 8px;font-size:11px;font-variant-numeric:tabular-nums;">
-            ${rows.map(([label,d,r])=>`<span style="color:var(--muted);font-weight:700;">${label}</span><span style="color:var(--blue);font-weight:700;">${Number(d).toFixed(1)}</span><span style="color:var(--red);font-weight:700;">${Number(r).toFixed(1)}</span>`).join("")}
+      histHTML = `
+        <div style="margin-top:6px;border-top:1px solid rgba(0,0,0,0.05);padding-top:6px;">
+          <div style="font-size:7px;font-weight:700;color:#b0b5bc;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:3px;">Historical</div>
+          <div style="display:grid;grid-template-columns:auto 1fr 1fr;gap:2px 8px;font-size:10px;font-variant-numeric:tabular-nums;font-family:var(--mono);">
+            ${rows.map(([label,d,r])=>`<span style="color:#8b919a;font-weight:700;">${label}</span><span style="color:var(--blue);font-weight:700;">${Number(d).toFixed(1)}</span><span style="color:var(--red);font-weight:700;">${Number(r).toFixed(1)}</span>`).join("")}
           </div>
         </div>
       `;
     }
   }
 
-  tipSliders.innerHTML = bodyHTML;
-  tip.classList.toggle("compact", TOOLTIP_COMPACT);
+  tip.innerHTML = `
+    <div class="panelAccent ${isDem?'dem':'rep'}"></div>
+    <div class="panelHeader">
+      <div class="panelNameRow">
+        <span class="panelName">${countyName} Co. <span class="panelUsps">${usps}</span></span>
+      </div>
+      <div style="margin-top:4px;font-size:8px;font-weight:600;color:#8b919a;">${modeKey === "senate" ? "Senate" : "Gov"} '26 estimate</div>
+    </div>
+    <div class="panelHero" style="padding:8px 12px 6px;">
+      <div class="panelMarginBlock">
+        <div class="panelMarginNum ${isDem?'dem':'rep'}" style="font-size:20px">${fmtLead(margin)}</div>
+        <div class="panelMarginLabel">County estimate</div>
+      </div>
+      <div style="text-align:right;">
+        <div style="font-size:9px;font-weight:800;font-family:var(--mono);font-variant-numeric:tabular-nums;">
+          <span style="color:var(--blue)">D ${estD.toFixed(1)}</span>
+          <span style="color:#ced2d8;margin:0 2px;">·</span>
+          <span style="color:var(--red)">R ${estR.toFixed(1)}</span>
+        </div>
+        <div style="margin-top:2px;display:flex;gap:3px;justify-content:flex-end;">
+          <span class="panelSparkPill dem">D ${pD}%</span>
+          <span class="panelSparkPill rep">R ${pR}%</span>
+        </div>
+      </div>
+    </div>
+    ${histHTML ? `<div style="padding:0 12px 8px;">${histHTML}</div>` : ""}
+  `;
+
   tip.style.transform = "translate(0,0)";
   positionTooltipLeft(event);
 }
