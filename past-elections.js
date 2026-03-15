@@ -18,26 +18,10 @@ let PAST_STATE_GEO = null;
 const SEAT_RULES = {
   2024: {
     president: { total:538, majorityLine:270, baseR:0, baseD:0 },
-    senate:    { total:100, majorityLine:51,  baseD:28, baseR:39 },
-    governor:  { total:50,  majorityLine:26,  baseD:20, baseR:19 },
+    senate:    { total:100, majorityLine:51,  baseR:31, baseD:36 },
+    governor:  { total:11,  majorityLine:6,   baseR:0,  baseD:0  },
     house:     { total:435, majorityLine:218, baseR:0,  baseD:0  }
   }
-};
-
-/* ---------- Electoral votes per state (2024 apportionment) ---------- */
-const EV = {
-  AL:9,AK:3,AZ:11,AR:6,CA:54,CO:10,CT:7,DE:3,DC:3,FL:30,GA:16,HI:4,ID:4,IL:19,
-  IN:11,IA:6,KS:6,KY:8,LA:8,ME:4,MD:10,MA:11,MI:15,MN:10,MS:6,MO:10,MT:4,NE:5,
-  NV:6,NH:4,NJ:14,NM:5,NY:28,NC:16,ND:3,OH:17,OK:7,OR:8,PA:19,RI:4,SC:9,SD:3,
-  TN:11,TX:40,UT:6,VT:3,VA:13,WA:12,WV:4,WI:10,WY:3
-};
-
-/* ---------- States that had races in 2024 (filter for senate/governor) ---------- */
-const RACES_2024 = {
-  president: null, // all states
-  senate: new Set(["AZ","CA","CT","DE","FL","HI","IN","ME","MD","MA","MI","MN","MS","MO","MT","NE","NV","NJ","NM","NY","ND","OH","PA","RI","TN","TX","UT","VT","VA","WA","WV","WI","WY"]),
-  governor: new Set(["DE","IN","MO","MT","NC","NH","ND","UT","VT","WA","WV"]),
-  house: null // all districts
 };
 
 /* ---------- Weights (same as forecast.js) ---------- */
@@ -75,22 +59,11 @@ function formatMarginDR(m){
   return (m < 0) ? `D+${a.toFixed(1)}` : `R+${a.toFixed(1)}`;
 }
 function marginColor(m){
-  if (!isFinite(m)) return "#e5e7eb";
-  const max = 25;
-  const a = Math.abs(m);
-  // Under 2 pts: tossup yellow
-  if (a < 2.0) return "rgb(253,224,71)";
-  const t = clamp(a/max, 0, 1);
+  const t = clamp(Math.abs(m)/30, 0, 1);
   if (m < 0){
-    const r = Math.round(248*(1-t) + 37*t);
-    const g = Math.round(250*(1-t) + 99*t);
-    const b = Math.round(252*(1-t) + 235*t);
-    return `rgb(${r},${g},${b})`;
+    return `rgb(${Math.round(219*(1-t)+37*t)},${Math.round(225*(1-t)+99*t)},${Math.round(232*(1-t)+235*t)})`;
   } else {
-    const r = Math.round(252*(1-t) + 220*t);
-    const g = Math.round(250*(1-t) + 38*t);
-    const b = Math.round(250*(1-t) + 38*t);
-    return `rgb(${r},${g},${b})`;
+    return `rgb(${Math.round(219*(1-t)+220*t)},${Math.round(225*(1-t)+38*t)},${Math.round(232*(1-t)+38*t)})`;
   }
 }
 function median(arr){
@@ -99,13 +72,6 @@ function median(arr){
   if (!n) return NaN;
   const mid = Math.floor(n/2);
   return (n%2===1) ? a[mid] : (a[mid-1]+a[mid])/2;
-}
-function erf(x){
-  const a1=0.254829592, a2=-0.284496736, a3=1.421413741, a4=-1.453152027, a5=1.061405429, p=0.3275911;
-  const sign = x < 0 ? -1 : 1;
-  const ax = Math.abs(x);
-  const t = 1 / (1 + p * ax);
-  return sign * (1 - ((((a5*t + a4)*t + a3)*t + a2)*t + a1) * t * Math.exp(-ax*ax));
 }
 function toNum(v){ const n = Number(String(v||"").trim()); return isFinite(n) ? n : NaN; }
 function parseDate(s){
@@ -173,13 +139,8 @@ function getStateModelPast(year, mode, st){
   const indPair = indNat ? computeIndicatorState(indNat, ratio) : null;
 
   let wGb = WEIGHTS.gb, wPolls = WEIGHTS.polls, wInd = WEIGHTS.ind;
-  // Circuit breaker: this state's poll ÷ ratio = its implied national environment.
-  // If that implies >=70% for either party, polls dominate.
-  if (pollPair && ratio) {
-    const stateImpliedNat = normalizePair(pollPair.D / ratio.D, pollPair.R / ratio.R);
-    if (Math.max(stateImpliedNat.D, stateImpliedNat.R) >= 70){
-      wPolls = 80; wGb = 15; wInd = 5;
-    }
+  if (indPair && Math.max(indPair.D, indPair.R) >= 70){
+    wPolls = 80; wGb = 15; wInd = 5;
   }
 
   const comps = [
@@ -219,37 +180,49 @@ function getPastUI(){
 }
 
 /* ---------- CSV + JSON loaders ---------- */
-const GB_WINDOW = 20;
-
-function rollingAvg(polls, n){
-  if (!polls || !polls.length) return null;
-  const last = polls.slice(-n);
-  const dSum = last.reduce((s,p) => s + p.dem, 0);
-  const rSum = last.reduce((s,p) => s + p.rep, 0);
-  return normalizePair(dSum / last.length, rSum / last.length);
-}
-
 async function loadPastEntries(year){
-  const file = `${year}_entries.csv`;
+  // csv/past/{year}_entries.csv — same schema as entries_all.csv
+  // mode,state,ratioD,ratioR,gbD,gbR,pollD,pollR,pollSigma
+  const file = `csv/past/${year}_entries.csv`;
   try {
     const txt = await fetch(file, {cache:"no-store"}).then(r=>{ if(!r.ok) throw new Error(`HTTP ${r.status}`); return r.text(); });
     const rows = d3.csvParse(txt);
     if (!PAST_DATA[year]) PAST_DATA[year] = {};
+
     for (const mode of PAST_MODES){
       if (!PAST_DATA[year][mode]) PAST_DATA[year][mode] = { gb:null, ratios:{}, polls:{} };
     }
+
     for (const row of rows){
       const mode = String(row.mode || "").trim().toLowerCase();
       if (!PAST_DATA[year][mode]) continue;
       const st = String(row.state || "").trim().toUpperCase();
       const ratioD = toNum(row.ratioD), ratioR = toNum(row.ratioR);
       if (st && isFinite(ratioD) && isFinite(ratioR)){
-        // Only load contested races for senate/governor
-        const filter = RACES_2024[mode];
-        if (filter && !filter.has(st)) continue;
         PAST_DATA[year][mode].ratios[st] = {D: ratioD, R: ratioR};
       }
+      const gbD = toNum(row.gbD), gbR = toNum(row.gbR);
+      if (!PAST_DATA[year][mode].gb && isFinite(gbD) && isFinite(gbR)){
+        PAST_DATA[year][mode].gb = normalizePair(gbD, gbR);
+      }
+      const pollD = toNum(row.pollD), pollR = toNum(row.pollR), pollS = toNum(row.pollSigma);
+      if (isFinite(pollD) && isFinite(pollR)){
+        PAST_DATA[year][mode].polls[st] = { D: pollD, R: pollR, S: isFinite(pollS) ? pollS : 3 };
+      }
     }
+
+    // Cross-fill GB
+    const modes = PAST_MODES;
+    const anyGb = modes.map(m => PAST_DATA[year][m]?.gb).find(g => g);
+    for (const m of modes){ if (!PAST_DATA[year][m].gb && anyGb) PAST_DATA[year][m].gb = anyGb; }
+
+    // Precompute indicator nationals
+    if (!PAST_IND[year]) PAST_IND[year] = {};
+    for (const m of modes){
+      const dd = PAST_DATA[year][m];
+      PAST_IND[year][m] = computeIndicatorNat(dd.ratios, dd.polls);
+    }
+
     console.log(`Loaded past entries for ${year}: ${rows.length} rows`);
     return true;
   } catch(e){
@@ -258,91 +231,9 @@ async function loadPastEntries(year){
   }
 }
 
-async function loadPastPresidentialPolls(year){
-  const file = `${year}_presidential_polls.json`;
-  try {
-    const j = await fetch(file, {cache:"no-store"}).then(r=>{ if(!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); });
-    const polls = (j.polls || []).map(p => ({
-      date: p.end_date, dem: +p.dem, rep: +p.rep
-    })).filter(p => p.date && isFinite(p.dem) && isFinite(p.rep))
-      .sort((a,b) => a.date.localeCompare(b.date));
-
-    if (!PAST_DATA[year]) PAST_DATA[year] = {};
-    if (!PAST_DATA[year].president) PAST_DATA[year].president = { gb:null, ratios:{}, polls:{} };
-    const gb = rollingAvg(polls, GB_WINDOW);
-    if (gb) PAST_DATA[year].president.gb = gb;
-    console.log(`Loaded ${polls.length} presidential polls for ${year}, GB: D=${gb?.D?.toFixed(1)} R=${gb?.R?.toFixed(1)}`);
-    return polls;
-  } catch(e){
-    console.warn(`Could not load ${file}:`, e);
-    return [];
-  }
-}
-
-async function loadPastGBPolls(year){
-  const file = `${year}_gb_polls.json`;
-  try {
-    const j = await fetch(file, {cache:"no-store"}).then(r=>{ if(!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); });
-    const polls = (j.genericBallot || []).map(p => ({
-      date: p.end_date, dem: +p.dem, rep: +p.rep
-    })).filter(p => p.date && isFinite(p.dem) && isFinite(p.rep))
-      .sort((a,b) => a.date.localeCompare(b.date));
-
-    if (!PAST_DATA[year]) PAST_DATA[year] = {};
-    const gb = rollingAvg(polls, GB_WINDOW);
-    for (const mode of ["senate","governor","house"]){
-      if (!PAST_DATA[year][mode]) PAST_DATA[year][mode] = { gb:null, ratios:{}, polls:{} };
-      if (gb) PAST_DATA[year][mode].gb = gb;
-    }
-    console.log(`Loaded ${polls.length} GB polls for ${year}, GB: D=${gb?.D?.toFixed(1)} R=${gb?.R?.toFixed(1)}`);
-    return polls;
-  } catch(e){
-    console.warn(`Could not load ${file}:`, e);
-    return [];
-  }
-}
-
-async function loadPastStatePolls(year){
-  const file = `${year}_state_presidential_polls.csv`;
-  try {
-    const txt = await fetch(file, {cache:"no-store"}).then(r=>{ if(!r.ok) throw new Error(`HTTP ${r.status}`); return r.text(); });
-    const rows = d3.csvParse(txt);
-    if (!PAST_DATA[year]) PAST_DATA[year] = {};
-
-    const byModeState = {};
-    for (const row of rows){
-      const mode = String(row.mode || "").trim().toLowerCase();
-      const st = String(row.state || "").trim().toUpperCase();
-      if (!mode || !st) continue;
-      if (st === "ME" && mode === "senate") continue; // Maine senate has independent (King), disregard
-      const dem = toNum(row.dem), rep = toNum(row.rep);
-      if (!isFinite(dem) || !isFinite(rep)) continue;
-      const key = `${mode}|${st}`;
-      if (!byModeState[key]) byModeState[key] = [];
-      byModeState[key].push({ date: row.date, dem, rep, sigma: toNum(row.sigma) || 3 });
-    }
-
-    let count = 0;
-    for (const [key, polls] of Object.entries(byModeState)){
-      const [mode, st] = key.split("|");
-      if (!PAST_DATA[year][mode]) continue;
-      polls.sort((a,b) => a.date.localeCompare(b.date));
-      const last = polls.slice(-6);
-      const avgD = last.reduce((s,p) => s + p.dem, 0) / last.length;
-      const avgR = last.reduce((s,p) => s + p.rep, 0) / last.length;
-      const avgS = last.reduce((s,p) => s + p.sigma, 0) / last.length;
-      PAST_DATA[year][mode].polls[st] = { D: avgD, R: avgR, S: avgS };
-      count++;
-    }
-    console.log(`Loaded state polls for ${year}: ${rows.length} rows → ${count} state averages`);
-    return true;
-  } catch(e){
-    console.warn(`Could not load ${file}:`, e);
-    return false;
-  }
-}
-
 async function loadPastOdds(year, mode){
+  // json/past/{year}_{mode}_odds.json — same schema as senate_odds.json
+  // { results: [{date, pDem, expDem}], latestHist? }
   const file = `json/past/${year}_${mode}_odds.json`;
   try {
     const j = await fetch(file, {cache:"no-store"}).then(r=>{ if(!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); });
@@ -352,6 +243,7 @@ async function loadPastOdds(year, mode){
     if (j.latestHist) PAST_HIST[year][mode] = j.latestHist;
     return true;
   } catch(e){
+    console.warn(`Could not load ${file}:`, e);
     return false;
   }
 }
@@ -379,26 +271,13 @@ function initYearSelector(){
 
 /* ---------- Render year ---------- */
 async function renderPastYear(year){
-  // Load ratios
+  // Load data
   await loadPastEntries(year);
-  // Load national polls → GB
-  await loadPastPresidentialPolls(year);
-  await loadPastGBPolls(year);
-  // Load state polls
-  await loadPastStatePolls(year);
-
-  // Precompute indicator nationals
-  if (!PAST_IND[year]) PAST_IND[year] = {};
-  for (const m of PAST_MODES){
-    const dd = PAST_DATA[year]?.[m];
-    if (dd) PAST_IND[year][m] = computeIndicatorNat(dd.ratios, dd.polls);
+  for (const mode of PAST_MODES){
+    await loadPastOdds(year, mode);
   }
 
-  // Try precomputed odds
-  for (const mode of PAST_MODES) await loadPastOdds(year, mode);
-
   const rules = SEAT_RULES[year] || {};
-  const raceFilters = RACES_2024;
 
   for (const mode of PAST_MODES){
     const ui = PAST_UI[mode];
@@ -407,75 +286,66 @@ async function renderPastYear(year){
     const odds = PAST_ODDS[year]?.[mode];
     const hist = PAST_HIST[year]?.[mode];
     const rule = rules[mode] || { total:0, majorityLine:0 };
-    const raceFilter = raceFilters[mode];
 
-    // Seat tally: binary call per state, matching forecast.js computeSeatTally
-    const allStates = Object.keys(d?.ratios || {});
-    const contested = raceFilter ? allStates.filter(st => raceFilter.has(st)) : allStates;
+    // --- Compute expected seats + Dem win prob for latest snapshot ---
+    let expDem = 0;
+    const states = Object.keys(d?.ratios || {});
     const baseD = rule.baseD || 0;
     const baseR = rule.baseR || 0;
 
-    let winsD = 0, winsR = 0, toss = 0;
-    // For win probability: collect per-state pD and weight
-    const pDems = [];
-    const weights = [];
-
-    for (const st of contested){
+    let demWins = baseD;
+    for (const st of states){
       const model = getStateModelPast(year, mode, st);
       if (!model) continue;
-      const m = model.mFinal;
-      const w = (mode === "president") ? (EV[st] || 1) : 1;
-
-      // Binary seat call (same as forecast.js)
-      if (!isFinite(m)) continue;
-      if (Math.abs(m) < 1e-9){ winsD += w; toss += w; }
-      else if (m < 0) winsD += w;  // D leads
-      else winsR += w;             // R leads
-
-      // Probabilistic for win prob calc
-      pDems.push(model.winProb.pD);
-      weights.push(w);
+      demWins += model.winProb.pD;
     }
+    expDem = Math.round(demWins * 10) / 10;
+    const expRep = rule.total - expDem;
 
-    const totalD = baseD + winsD;
-    const totalR = baseR + winsR;
+    if (ui.seatsD) ui.seatsD.textContent = Math.round(expDem);
+    if (ui.seatsR) ui.seatsR.textContent = Math.round(expRep);
 
-    // Overall win probability (weighted normal approximation)
-    let expSum = baseD, varSum = 0;
-    for (let i = 0; i < pDems.length; i++){
-      expSum += pDems[i] * weights[i];
-      varSum += pDems[i] * (1 - pDems[i]) * weights[i] * weights[i];
+    // --- Top card pills: show chamber win probability ---
+    // Use last-day pDem from precomputed odds if available
+    let chamberProbD = 0.5;
+    if (odds && odds.length){
+      const last = odds[odds.length - 1];
+      chamberProbD = +last.pDem;
+    } else if (rule.total > 0) {
+      // Normal approx: how likely is expDem >= majority?
+      const maj = (mode === "senate") ? 51 : (rule.majorityLine || Math.floor(rule.total / 2) + 1);
+      const sd = Math.max(1, Math.sqrt(states.length) * 0.8);
+      const z = (expDem - maj + 0.5) / sd;
+      const sign = z < 0 ? -1 : 1;
+      const xv = Math.abs(z) / Math.SQRT2;
+      const t2 = 1 / (1 + 0.3275911 * xv);
+      const erf = 1 - ((((1.061405429*t2-1.453152027)*t2+1.421413741)*t2-0.284496736)*t2+0.254829592)*t2*Math.exp(-xv*xv);
+      chamberProbD = 0.5 * (1 + sign * erf);
     }
-    const maj = rule.majorityLine;
-    const sd = Math.sqrt(varSum) || 1;
-    const zDem = (expSum - maj) / sd;
-    const overallPDem = 0.5 * (1 + erf(zDem / Math.SQRT2));
-    const overallPRep = 1 - overallPDem;
-
-    // Pills = win probability
-    if (ui.pillD) ui.pillD.textContent = (overallPDem * 100).toFixed(1);
-    if (ui.pillR) ui.pillR.textContent = (overallPRep * 100).toFixed(1);
-
-    // Seats = binary tally
-    if (ui.seatsD) ui.seatsD.textContent = totalD;
-    if (ui.seatsR) ui.seatsR.textContent = totalR;
+    const chamberProbR = 1 - chamberProbD;
+    if (ui.pillD) ui.pillD.textContent = (chamberProbD * 100).toFixed(1);
+    if (ui.pillR) ui.pillR.textContent = (chamberProbR * 100).toFixed(1);
 
     // Lead color
     if (ui.topCard){
       ui.topCard.classList.remove("leads-d","leads-r");
-      if (overallPDem > 0.5) ui.topCard.classList.add("leads-d");
-      else ui.topCard.classList.add("leads-r");
+      if (chamberProbD > chamberProbR) ui.topCard.classList.add("leads-d");
+      else if (chamberProbR > chamberProbD) ui.topCard.classList.add("leads-r");
     }
 
+    // --- Simulation histogram ---
     renderPastSim(mode, hist, rule);
-    renderPastMap(year, mode, d, rule, raceFilter);
 
+    // --- Map ---
+    renderPastMap(year, mode, d, rule);
+
+    // --- Combo chart (Win Prob / Seats) ---
     if (odds && odds.length){
       renderPastComboChart(mode, odds, rule);
       if (ui.status) ui.status.textContent = `${odds.length} days · ${year} hindcast`;
       if (ui.status) ui.status.style.display = "block";
     } else {
-      if (ui.status) ui.status.textContent = `Awaiting precomputed odds`;
+      if (ui.status) ui.status.textContent = `No precomputed odds (json/past/${year}_${mode}_odds.json)`;
       if (ui.status) ui.status.style.display = "block";
     }
   }
@@ -529,7 +399,7 @@ async function loadPastStateGeo(){
   return PAST_STATE_GEO;
 }
 
-async function renderPastMap(year, mode, d, rule, raceFilter){
+async function renderPastMap(year, mode, d, rule){
   const ui = PAST_UI[mode];
   if (!ui?.svgEl) return;
   const geo = await loadPastStateGeo();
@@ -542,30 +412,25 @@ async function renderPastMap(year, mode, d, rule, raceFilter){
   svg.selectAll("*").remove();
   const gRoot = svg.append("g");
 
-  function isContested(st){
-    if (!raceFilter) return true; // null = all states (president/house)
-    return raceFilter.has(st);
-  }
-
   gRoot.selectAll("path")
     .data(geo.features)
     .join("path")
     .attr("class", dd => {
       const st = _fips(dd.id);
-      return (st && d?.ratios[st] && isContested(st)) ? "state active" : "state";
+      return (st && d?.ratios[st]) ? "state active" : "state";
     })
     .attr("data-st", dd => _fips(dd.id))
     .attr("d", dd => pathGen(dd))
     .attr("fill", dd => {
       const st = _fips(dd.id);
-      if (!st || !d?.ratios[st] || !isContested(st)) return "#e5e7eb";
+      if (!st || !d?.ratios[st]) return "#e5e7eb";
       const model = getStateModelPast(year, mode, st);
       if (!model) return "#e5e7eb";
       return marginColor(model.mFinal);
     })
     .on("mouseenter", (event, dd) => {
       const st = _fips(dd.id);
-      if (!st || !d?.ratios[st] || !isContested(st)) return;
+      if (!st || !d?.ratios[st]) return;
       d3.select(event.currentTarget).classed("hovered", true);
       showPastTip(event, year, mode, st);
     })
@@ -657,7 +522,7 @@ function renderPastComboChart(mode, data, rule, chartMode){
   svg.selectAll("*").remove();
   svg.attr("viewBox", `0 0 ${width} ${height}`);
 
-  const m = {l:34, r:8, t:8, b:20};
+  const m = {l:42, r:8, t:8, b:20};
   const iw = width - m.l - m.r;
   const ih = height - m.t - m.b;
 
