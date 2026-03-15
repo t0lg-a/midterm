@@ -18,7 +18,7 @@ let PAST_STATE_GEO = null;
 const SEAT_RULES = {
   2024: {
     president: { total:538, majorityLine:270, baseR:0, baseD:0 },
-    senate:    { total:100, majorityLine:51,  baseD:28, baseR:39 },
+    senate:    { total:100, majorityLine:50,  baseD:28, baseR:39 },
     governor:  { total:50,  majorityLine:26,  baseD:20, baseR:19 },
     house:     { total:435, majorityLine:218, baseR:0,  baseD:0  }
   }
@@ -480,9 +480,16 @@ async function renderPastYear(year){
     const overallPDem = 0.5 * (1 + erf(zDem / Math.SQRT2));
     const overallPRep = 1 - overallPDem;
 
-    // Pills = win probability
-    if (ui.pillD) ui.pillD.textContent = (overallPDem * 100).toFixed(1);
-    if (ui.pillR) ui.pillR.textContent = (overallPRep * 100).toFixed(1);
+    // Pills = win probability (prefer precomputed MC odds for all modes)
+    // Senate odds already include VP tiebreaker blending from compute step
+    let pillPDem = overallPDem, pillPRep = overallPRep;
+    if (odds && odds.length){
+      const latest = odds[odds.length - 1];
+      const mc = +latest.pDem;
+      if (isFinite(mc)){ pillPDem = mc; pillPRep = 1 - mc; }
+    }
+    if (ui.pillD) ui.pillD.textContent = (pillPDem * 100).toFixed(1);
+    if (ui.pillR) ui.pillR.textContent = (pillPRep * 100).toFixed(1);
 
     // Seats = binary tally
     if (ui.seatsD) ui.seatsD.textContent = totalD;
@@ -491,7 +498,7 @@ async function renderPastYear(year){
     // Lead color
     if (ui.topCard){
       ui.topCard.classList.remove("leads-d","leads-r");
-      if (overallPDem > 0.5) ui.topCard.classList.add("leads-d");
+      if (pillPDem > 0.5) ui.topCard.classList.add("leads-d");
       else ui.topCard.classList.add("leads-r");
     }
 
@@ -530,17 +537,21 @@ function renderPastSim(mode, histData, rule){
   const total = rule.total || 1;
   const maj = rule.majorityLine || Math.ceil(total/2);
 
-  if (histData && histData.length){
-    // Draw histogram bars just like forecast.js
+  // histData may be a flat array OR an object {counts, min, max, total, binSize}
+  const counts = Array.isArray(histData) ? histData : histData?.counts;
+  const minBin = Array.isArray(histData) ? 0 : (histData?.min || 0);
+
+  if (counts && counts.length){
     const barW = w / total;
     let maxC = 1;
-    for (const v of histData) if (v > maxC) maxC = v;
+    for (const v of counts) if (v > maxC) maxC = v;
 
-    for (let i = 0; i < histData.length; i++){
-      if (!histData[i]) continue;
-      const barH2 = (histData[i] / maxC) * h * 0.9;
-      const bx = i * barW;
-      ctx.fillStyle = i < maj ? "rgba(37,99,235,0.5)" : "rgba(220,38,38,0.5)";
+    for (let i = 0; i < counts.length; i++){
+      if (!counts[i]) continue;
+      const seatIdx = minBin + i;
+      const barH2 = (counts[i] / maxC) * h * 0.9;
+      const bx = seatIdx * barW;
+      ctx.fillStyle = seatIdx < maj ? "rgba(37,99,235,0.5)" : "rgba(220,38,38,0.5)";
       ctx.fillRect(bx, h - barH2, Math.max(barW - 0.5, 0.5), barH2);
     }
   }
@@ -707,7 +718,7 @@ function renderPastComboChart(mode, data, rule, chartMode){
 
   if (cMode === "seats"){
     const total = rule?.total ?? 0;
-    const maj = (mode==="senate") ? 51 : (rule?.majorityLine ?? Math.floor(total/2)+1);
+    const maj = rule?.majorityLine ?? Math.floor(total/2)+1;
     const ext = d3.extent(parsed, d=>d.expDem);
     const pad = 3;
     const yMin = clamp((ext[0]??0)-pad, 0, total||1000);
