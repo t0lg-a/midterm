@@ -34,9 +34,6 @@ NC-SEN,Senate,NC,Harper Polling,R,2025-09-14,2025-09-15,600,RV,4.0,Republican,R,
 NC-SEN,Senate,NC,Change Research,D,2025-09-02,2025-09-08,855,LV,3.6,Republican,R,41,Democratic,D,48,0,11,3,Candidate names not in paste
 NC-SEN,Senate,NC,Harper Polling,R,2025-08-11,2025-08-12,600,RV,4.0,Republican,R,39,Democratic,D,47,4,10,3,Candidate names not in paste
 NC-SEN,Senate,NC,Emerson College,,2025-07-28,2025-07-30,1000,RV,3.0,Republican,R,41,Democratic,D,47,0,12,3,Candidate names not in paste
-OH-SEN,Senate,OH,Emerson College,,2025-12-06,2025-12-08,850,RV,3.3,Candidate A,,49,Candidate B,,46,0,5,3,Candidate names/parties not in paste
-OH-SEN,Senate,OH,Bowling Green State University/YouGov,,2025-10-02,2025-10-14,800,RV,4.5,Candidate A,,48,Candidate B,,49,3,0,3,Candidate names/parties not in paste
-OH-SEN,Senate,OH,Hart Research,D,2025-09-19,2025-09-22,800,LV,3.5,Candidate A,,45,Candidate B,,48,0,7,3,Candidate names/parties not in paste
 SC-SEN,Senate,SC,Public Policy Polling,D,2025-11-21,2025-11-22,704,V,3.7,Lindsey Graham,R,42,Annie Andrews,D,36,0,22,3,
 TX-SEN,Senate,TX,Emerson College,,2026-01-10,2026-01-12,1165,RV,2.8,Ken Paxton,R,46,James Talarico,D,46,0,9,3,
 TX-SEN,Senate,TX,Ragnar Research Partners,R,2025-11-12,2025-11-17,1000,LV,3.0,Ken Paxton,R,44,James Talarico,D,44,0,12,3,
@@ -63,6 +60,9 @@ TX-GOV,Governor,TX,Emerson College,,2026-01-10,2026-01-12,1165,RV,2.8,Greg Abbot
 IA-SEN,Senate,IA,Change Research,,2026-02-01,2026-02-08,1000,RV,2.8,Ashley Hinson,R,44,Josh Turek,D,41,0,15,3,
 IA-SEN,Senate,IA,Change Research,,2026-02-01,2026-02-08,1000,RV,2.8,Ashley Hinson,R,46,Josh Turek,D,46,0,15,3,
 TX-SEN,Senate,TX,PPP,,2026-03-05,2026-03-07,1000,LV,3.0,Ken Paxton,R,45,James Talarico,D,47,0,5,3,
-OH-SEN,Senate,OH,On Message,,2026-03-10,2025-03-11,800,LV,3.5,Candidate A,,45,Candidate B,,47,0,7,3,Candidate names/parties not in paste
 OH-GOV,Governor,OH,EMC,D,2025-09-19,2025-09-22,800,LV,3.0,Vivek Ramaswamy,R,43,Amy Acton,D,53,0,9,3,
-OH-SEN,Senate,OH,EMC,,2026-03-10,2025-03-11,800,LV,3.5,Candidate A,,47,Candidate B,,51,0,7,3,Candidate names/parties not in paste
+OH-SEN,Senate,OH,EMC Research,,2026-02-10,2026-02-22,1343,LV,,Jon Husted,R,47,Sherrod Brown,D,51,0,2,3,
+OH-SEN,Senate,OH,On Message,R,2026-03-03,2026-03-08,600,LV,,Jon Husted,R,45,Sherrod Brown,D,47,0,8,3,
+OH-SEN,Senate,OH,Emerson College,,2025-12-06,2025-12-08,850,RV,3.3,Jon Husted,R,49,Sherrod Brown,D,46,0,5,3,
+OH-SEN,Senate,OH,Hart Research,D,2025-09-19,2025-09-22,800,LV,3.5,Jon Husted,R,45,Sherrod Brown,D,48,0,7,3,
+OH-SEN,Senate,OH,Bowling Green State University/YouGov,,2025-10-02,2025-10-14,800,RV,4.5,Jon Husted,R,48,Sherrod Brown,D,49,3,0,3,
