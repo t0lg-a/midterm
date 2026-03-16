@@ -251,6 +251,10 @@ async function initRtgHouseMap(ui, modeKey){
     if (!DATA.house.ratios[did]) return;
     this.classList.add("district","active");
     this.setAttribute("data-did", did);
+
+    // Tag with state USPS for zoom grouping
+    const meta = DATA.house.meta[did];
+    if (meta?.usps) this.setAttribute("data-state", meta.usps);
   });
 
   // Hover tooltips for districts
@@ -275,7 +279,161 @@ async function initRtgHouseMap(ui, modeKey){
       hideSimTip();
     });
 
-  RTG_MAP[modeKey] = { svg, gRoot };
+  // ── D3 Zoom ──
+  const zoom = d3.zoom()
+    .scaleExtent([1, 12])
+    .on("zoom", (event) => {
+      gZoom.attr("transform", event.transform);
+    });
+
+  svg.call(zoom);
+
+  // Double-click resets to US
+  svg.on("dblclick.zoom", null);
+  svg.on("dblclick", () => {
+    svg.transition().duration(500).call(zoom.transform, d3.zoomIdentity);
+    setActiveRtgZoomBtn("us");
+  });
+
+  RTG_MAP[modeKey] = { svg, gRoot, gZoom, zoom, width, height };
+
+  // Click district → zoom to its state
+  gRoot.selectAll(".district.active").on("click", (event) => {
+    const st = event.currentTarget.getAttribute("data-state");
+    if (st) zoomRtgHouseTo(st);
+  });
+
+  // ── Setup zoom controls ──
+  requestAnimationFrame(() => setupRtgHouseZoomControls());
+}
+
+/* ---------- Ratings House map zoom presets ---------- */
+const RTG_METRO_DISTRICTS = {
+  nyc: ["NY-05","NY-06","NY-07","NY-08","NY-09","NY-10","NY-11","NY-12","NY-13","NY-14","NY-15","NY-16","NY-17","NJ-08","NJ-09","NJ-10","NJ-11"],
+  la:  ["CA-25","CA-26","CA-27","CA-28","CA-29","CA-30","CA-31","CA-32","CA-33","CA-34","CA-35","CA-36","CA-37","CA-38","CA-39","CA-40","CA-43","CA-44","CA-45","CA-46","CA-47"],
+  chi: ["IL-01","IL-02","IL-03","IL-04","IL-05","IL-06","IL-07","IL-08","IL-09","IL-10","IL-11"],
+  dfw: ["TX-03","TX-05","TX-06","TX-12","TX-24","TX-25","TX-26","TX-30","TX-32","TX-33"],
+  hou: ["TX-02","TX-07","TX-08","TX-09","TX-10","TX-18","TX-22","TX-29","TX-36","TX-38"],
+  atl: ["GA-04","GA-05","GA-06","GA-07","GA-10","GA-11","GA-13"],
+  dc:  ["VA-07","VA-08","VA-10","VA-11","MD-03","MD-04","MD-05","MD-06","MD-08","DC-AL"],
+  phx: ["AZ-01","AZ-03","AZ-04","AZ-08","AZ-09"],
+  mia: ["FL-20","FL-21","FL-22","FL-23","FL-24","FL-25","FL-26","FL-27","FL-28"],
+};
+
+function setActiveRtgZoomBtn(id){
+  const root = document.querySelector('[data-ratings-mode="house"]');
+  if (!root) return;
+  root.querySelectorAll(".zoomBtn").forEach(b => b.classList.toggle("active", b.dataset.zoom === id));
+}
+
+function zoomRtgHouseTo(targetId){
+  const m = RTG_MAP.house;
+  if (!m?.zoom || !m?.svg) return;
+
+  if (targetId === "us"){
+    m.svg.transition().duration(500).call(m.zoom.transform, d3.zoomIdentity);
+    setActiveRtgZoomBtn("us");
+    return;
+  }
+
+  // Collect district elements to zoom to
+  let districts = d3.selectAll([]); // empty
+
+  // Metro preset — match by district code
+  const metroCodes = RTG_METRO_DISTRICTS[targetId];
+  if (metroCodes){
+    const codeSet = new Set(metroCodes);
+    const dids = [];
+    for (const [did, meta] of Object.entries(DATA.house.meta || {})){
+      if (meta?.code && codeSet.has(meta.code)) dids.push(did);
+    }
+    if (dids.length){
+      const sel = dids.map(d => `.district[data-did="${d}"]`).join(",");
+      districts = m.gRoot.selectAll(sel);
+    }
+  }
+
+  // State zoom
+  if (districts.empty()){
+    const usps = targetId.toUpperCase();
+    districts = m.gRoot.selectAll(`.district[data-state="${usps}"]`);
+  }
+
+  if (districts.empty()) return;
+
+  // Compute combined bbox in gRoot space, then transform to viewBox
+  let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+  districts.each(function(){
+    try {
+      const bb = this.getBBox();
+      if (bb.x < x0) x0 = bb.x;
+      if (bb.y < y0) y0 = bb.y;
+      if (bb.x + bb.width > x1) x1 = bb.x + bb.width;
+      if (bb.y + bb.height > y1) y1 = bb.y + bb.height;
+    } catch(e){}
+  });
+
+  if (!isFinite(x0)) return;
+
+  // gRoot has a fit transform — apply to get viewBox coords
+  const gT = m.gRoot.attr("transform") || "";
+  const tm = gT.match(/translate\(([\d.\-e]+),([\d.\-e]+)\)\s*scale\(([\d.\-e]+)\)/);
+  let gtx = 0, gty = 0, gs = 1;
+  if (tm){ gtx = +tm[1]; gty = +tm[2]; gs = +tm[3]; }
+
+  const vx0 = x0 * gs + gtx, vy0 = y0 * gs + gty;
+  const vx1 = x1 * gs + gtx, vy1 = y1 * gs + gty;
+  const bw = vx1 - vx0, bh = vy1 - vy0;
+  const cx = (vx0 + vx1) / 2, cy = (vy0 + vy1) / 2;
+
+  const pad = 1.2;
+  const k = Math.min(m.width / (bw * pad), m.height / (bh * pad), 10);
+  const tx = m.width / 2 - cx * k;
+  const ty = m.height / 2 - cy * k;
+
+  const t = d3.zoomIdentity.translate(tx, ty).scale(k);
+  m.svg.transition().duration(500).call(m.zoom.transform, t);
+  setActiveRtgZoomBtn(metroCodes ? targetId : "");
+}
+
+function setupRtgHouseZoomControls(){
+  const root = document.querySelector('[data-ratings-mode="house"]');
+  if (!root) return;
+
+  // Populate state dropdown
+  const select = root.querySelector("[data-rtg-zoom-select]");
+  if (select){
+    const states = new Set();
+    for (const did of Object.keys(DATA.house.meta || {})){
+      const usps = DATA.house.meta[did]?.usps;
+      if (usps) states.add(usps);
+    }
+    const sorted = Array.from(states).sort();
+    for (const usps of sorted){
+      const opt = document.createElement("option");
+      opt.value = usps;
+      opt.textContent = USPS_TO_NAME[usps] || usps;
+      select.appendChild(opt);
+    }
+    select.addEventListener("change", ()=>{
+      if (select.value) zoomRtgHouseTo(select.value);
+      select.value = "";
+    });
+  }
+
+  // Preset buttons
+  root.querySelectorAll(".zoomBtn[data-zoom]").forEach(btn=>{
+    btn.addEventListener("click", ()=> zoomRtgHouseTo(btn.dataset.zoom));
+  });
+
+  // "More…" metro dropdown
+  const metroMore = root.querySelector("[data-rtg-zoom-metro-more]");
+  if (metroMore){
+    metroMore.addEventListener("change", ()=>{
+      if (metroMore.value) zoomRtgHouseTo(metroMore.value);
+      metroMore.value = "";
+    });
+  }
 }
 
 function recolorRtgMap(modeKey, perRace){
