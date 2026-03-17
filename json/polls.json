@@ -1,6 +1,32 @@
 {
-  "updatedAt": "2026-03-16T12:01:39.698Z",
+  "updatedAt": "2026-03-17T11:58:47.362Z",
   "approval": [
+    {
+      "id": "appdonech9666274e",
+      "poll_type": "approval",
+      "sample_size": 1033,
+      "population": "lv",
+      "url": "https://docs.google.com/spreadsheets/d/1KWEl_e6oGvnVZFbCnbJjk9MHy9OAE0y_/edit?gid=537850620#gid=537850620",
+      "created_at": "2026-03-17",
+      "start_date": "2026-03-12",
+      "end_date": "2026-03-16",
+      "pollster": "Echelon Insights",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 41
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 57
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
     {
       "id": "appdonrmg3ff7f1b9",
       "poll_type": "approval",
@@ -20765,58 +20791,6 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonmor3uyr6t9v",
-      "poll_type": "approval",
-      "sample_size": 2230,
-      "population": "rv",
-      "url": "https://pro.morningconsult.com/trackers/donald-trump-congress-policy-republicans-polling",
-      "created_at": "2025-02-11",
-      "start_date": "2025-02-07",
-      "end_date": "2025-02-09",
-      "pollster": "Morning Consult",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 50
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 48
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdontramjlkgx99",
-      "poll_type": "approval",
-      "sample_size": 1321,
-      "population": "rv",
-      "url": "https://www.thetrafalgargroup.org/wp-content/uploads/2025/02/National-25-Trump-Approval-Full-Report-0210.pdf",
-      "created_at": "2025-02-11",
-      "start_date": "2025-02-07",
-      "end_date": "2025-02-09",
-      "pollster": "Trafalgar Group/InsiderAdvantage",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 53.9
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 45.3
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -30118,6 +30092,58 @@
       "sponsors": [
         "The Center Square"
       ],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202cla8ed0b7c5",
+      "poll_type": "generic-ballot",
+      "sample_size": 1004,
+      "population": "lv",
+      "url": "https://www.claritycampaigns.com/clarity-omnibus-2026-mar",
+      "created_at": "2026-03-17",
+      "start_date": "2026-02-26",
+      "end_date": "2026-03-07",
+      "pollster": "Clarity Campaign Labs",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 47
+        },
+        {
+          "choice": "Rep",
+          "pct": 43
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202echa62b259e",
+      "poll_type": "generic-ballot",
+      "sample_size": 1033,
+      "population": "lv",
+      "url": "https://docs.google.com/spreadsheets/d/1KWEl_e6oGvnVZFbCnbJjk9MHy9OAE0y_/edit?gid=537850620#gid=537850620",
+      "created_at": "2026-03-17",
+      "start_date": "2026-03-12",
+      "end_date": "2026-03-16",
+      "pollster": "Echelon Insights",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 49
+        },
+        {
+          "choice": "Rep",
+          "pct": 44
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
       "internal": false,
       "partisan": null,
       "subject": "2026"
