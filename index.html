@@ -1289,6 +1289,7 @@
       display:grid;
       grid-template-columns:1fr;
       grid-template-areas:
+        "pfc"
         "t1" "n1" "m1" "b1"
         "t2" "n2" "m2" "b2"
         "t3" "n3" "m3" "b3";
@@ -1300,8 +1301,9 @@
     @media (min-width:980px){
       .pollsGrid{
         grid-template-columns:repeat(3,minmax(0,1fr));
-        grid-template-rows:auto auto auto auto;
+        grid-template-rows:auto auto auto auto auto;
         grid-template-areas:
+          "pfc pfc pfc"
           "t1 t2 t3"
           "n1 n2 n3"
           "m1 m2 m3"
@@ -2041,7 +2043,7 @@
 
   <!-- Forecast / Nowcast Toggle -->
   <div class="forecastToggleWrap" id="forecastToggleWrap">
-    <div class="forecastToggle" id="forecastToggle">
+    <div class="forecastToggle fcToggleSync" id="forecastToggle">
       <button class="fcBtn active" data-fc="forecast">Forecast</button>
       <button class="fcBtn" data-fc="nowcast">Nowcast</button>
     </div>
@@ -2392,6 +2394,14 @@
 
 <!-- POLLS PAGE -->
 <div id="pollsPage" class="pollsGrid" style="display:none">
+
+  <!-- Forecast / Nowcast Toggle -->
+  <div class="forecastToggleWrap" style="grid-area:pfc">
+    <div class="forecastToggle fcToggleSync">
+      <button class="fcBtn active" data-fc="forecast">Forecast</button>
+      <button class="fcBtn" data-fc="nowcast">Nowcast</button>
+    </div>
+  </div>
 
   <!-- ROW 1: Top cards -->
   <section class="card topCard" data-polls-mode="gb" style="grid-area:t1">
@@ -2866,7 +2876,7 @@
 
 <script src="forecast.js?v=v21"></script>
 <script src="ratings.js?v=20"></script>
-<script src="polls.js?v=25"></script>
+<script src="polls.js?v=26"></script>
 <script src="swingometer.js?v=1"></script>
 <script src="past-elections.js?v=1"></script>
 

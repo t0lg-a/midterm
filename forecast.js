@@ -111,9 +111,9 @@ const SENATE_CONTROL_RULE = { demAtLeast: 51, repAtLeast: 50 };
 /* ---------- Forecast / Nowcast Mode ---------- */
 const ELECTION_DAY     = new Date(2026, 10, 3);   // Nov 3 2026
 const FULL_ALLOC_DATE  = new Date(2026, 9, 1);    // Oct 1 2026
-const UNDECIDED_SPLIT_D = 0.65;
-const UNDECIDED_SPLIT_R = 0.35;
-const POLL_SHIFT_D = 3;           // shift polls 3pts toward D by election day
+const UNDECIDED_SPLIT_D = 0.60;
+const UNDECIDED_SPLIT_R = 0.40;
+const POLL_SHIFT_D = 2;           // shift polls 2pts toward D by election day
 let FORECAST_MODE = "forecast";                    // "forecast" (default) or "nowcast"
 let _savedNowcastGb = null;                        // original GB pair, saved when switching to forecast
 let _savedNowcastPolls = null;                     // original polls, saved when switching to forecast
@@ -3445,20 +3445,33 @@ function toggleForecastMode(mode){
   }
 
   updateForecastMeta();
+
+  // Refresh polls page if initialized
+  if (typeof window.refreshPollsForForecast === "function"){
+    try{ window.refreshPollsForForecast(); }catch(e){}
+  }
 }
 
 function updateForecastMeta(){}
 
 function setupForecastToggle(){
-  const wrap = document.getElementById("forecastToggle");
-  if (!wrap) return;
+  const allToggles = document.querySelectorAll(".fcToggleSync");
+  if (!allToggles.length) return;
 
-  const btns = wrap.querySelectorAll("[data-fc]");
-  btns.forEach(btn=>{
-    btn.addEventListener("click", ()=>{
-      btns.forEach(b=>b.classList.remove("active"));
-      btn.classList.add("active");
-      toggleForecastMode(btn.dataset.fc);
+  function syncAll(mode){
+    allToggles.forEach(wrap=>{
+      wrap.querySelectorAll("[data-fc]").forEach(b=>{
+        b.classList.toggle("active", b.dataset.fc === mode);
+      });
+    });
+  }
+
+  allToggles.forEach(wrap=>{
+    wrap.querySelectorAll("[data-fc]").forEach(btn=>{
+      btn.addEventListener("click", ()=>{
+        syncAll(btn.dataset.fc);
+        toggleForecastMode(btn.dataset.fc);
+      });
     });
   });
 
