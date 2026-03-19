@@ -113,7 +113,7 @@ const ELECTION_DAY     = new Date(2026, 10, 3);   // Nov 3 2026
 const FULL_ALLOC_DATE  = new Date(2026, 9, 1);    // Oct 1 2026
 const UNDECIDED_SPLIT_D = 0.60;
 const UNDECIDED_SPLIT_R = 0.40;
-const POLL_SHIFT_D = 2;           // shift polls 2pts toward D by election day
+const POLL_SHIFT_D = 1;           // shift polls 1pt toward D by election day
 let FORECAST_MODE = "forecast";                    // "forecast" (default) or "nowcast"
 let _savedNowcastGb = null;                        // original GB pair, saved when switching to forecast
 let _savedNowcastPolls = null;                     // original polls, saved when switching to forecast
@@ -2886,7 +2886,6 @@ async function loadPrecomputedOdds(modeKey){
     const results = j.results || [];
     PRECOMPUTED_ODDS[modeKey] = results;
     if (j.latestHist) PRECOMPUTED_HIST[modeKey] = j.latestHist;
-    renderComboChart(modeKey, results);
     setOddsStatus(modeKey, `${results.length} days • precomputed ${j.config?.sims?.toLocaleString() || "10k"} sims/day`);
   }catch(e){
     console.warn(`Could not load ${file}:`, e);
@@ -3100,7 +3099,7 @@ function initChartTabs(modeKey){
       tab.classList.add("active");
       const mode = tab.dataset.chartTab;
       if (ylabel) ylabel.textContent = (mode === "seats") ? "Expected seats" : "Win probability";
-      const data = PRECOMPUTED_ODDS[modeKey];
+      const data = getOddsDataForMode(modeKey);
       if (data) renderComboChart(modeKey, data, mode);
     });
   });
@@ -3325,10 +3324,8 @@ function renderSeatAvgChart(modeKey, data){
 function setupOddsUI(modeKey){
   const ui = UI[modeKey];
   if (!ui?.comboSvg) return;
-  // Odds are precomputed; just render from cache
-  if (PRECOMPUTED_ODDS[modeKey]){
-    renderComboChart(modeKey, PRECOMPUTED_ODDS[modeKey]);
-  }
+  const data = getOddsDataForMode(modeKey);
+  if (data) renderComboChart(modeKey, data);
 }
 
 /* ---------- Forecast / Nowcast (reads precomputed isForecast from odds JSON) ---------- */
@@ -3474,11 +3471,6 @@ function setupForecastToggle(){
       });
     });
   });
-
-  if (FORECAST_MODE === "forecast"){
-    applyForecastGbOverride();
-  }
-  updateForecastMeta();
 }
 
 /* ---------- Boot ---------- */
@@ -3504,7 +3496,13 @@ function setupForecastToggle(){
   await loadHispanicCDShare();
   await loadHispanicPolls();
 
-  // cache indicators per mode (House intentionally has none)
+  // Apply forecast overrides BEFORE computing indicators or rendering anything
+  setupForecastToggle();
+  if (FORECAST_MODE === "forecast"){
+    applyForecastGbOverride();
+  }
+
+  // cache indicators per mode (uses forecast-shifted polls/GB if active)
   IND_CACHE.senate = computeIndicatorNationalFromPolls("senate");
   IND_CACHE.governor = computeIndicatorNationalFromPolls("governor");
   IND_CACHE.house = null;
@@ -3529,15 +3527,10 @@ function setupForecastToggle(){
 
   setupMapControlBars();
 
-  // Forecast toggle
-  setupForecastToggle();
-
-  // If default mode is forecast, re-render charts with forecast extension
-  if (FORECAST_MODE === "forecast"){
-    for (const mode of MODES){
-      const data = getOddsDataForMode(mode);
-      if (data) try{ renderComboChart(mode, data); }catch(e){}
-    }
+  // Render charts with forecast-aware data
+  for (const mode of MODES){
+    const data = getOddsDataForMode(mode);
+    if (data) try{ renderComboChart(mode, data); }catch(e){}
   }
 
   // Redraw charts on resize
