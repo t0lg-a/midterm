@@ -2960,93 +2960,51 @@
   <div class="methCard">
     <h1 class="methH1">Methodology</h1>
     <p class="methSub">How the 2026 midterm forecast works</p>
-
-    <p class="methP">This forecast combines generic ballot polling, state-level polls, and historical voting patterns to project the outcome of every Senate, gubernatorial, and House race. The model runs 10,000 Monte Carlo simulations per day to produce win probabilities and expected seat counts for each chamber.</p>
+    <p class="methP">This forecast projects the outcome of every Senate, gubernatorial, and House race in the 2026 midterm elections. It combines national polling, state-level surveys, and historical voting patterns into a probabilistic model that runs thousands of election simulations daily.</p>
   </div>
 
   <div class="methCard">
-    <h2 class="methH2">Generic Ballot</h2>
-    <p class="methP">The generic ballot is the national-level backbone of the model. We compute a daily rolling weighted average of the last 24 qualified polls, using a strict pollster allowlist. Pollster weights are tiered by historical accuracy:</p>
-    <table class="methTable">
-      <thead><tr><th>Tier</th><th>Weight</th><th>Examples</th></tr></thead>
-      <tbody>
-        <tr><td>A+ / A</td><td><span class="methMono">1.0×</span></td><td>Marist, NYT/Siena, Marquette, Beacon/Shaw</td></tr>
-        <tr><td>B (Allowlist)</td><td><span class="methMono">0.75×</span></td><td>YouGov, Emerson, Quinnipiac, Fox News, AtlasIntel</td></tr>
-        <tr><td>Other</td><td><span class="methMono">0.1×</span></td><td>Unrated or partisan pollsters</td></tr>
-      </tbody>
-    </table>
-    <p class="methP">The generic ballot is then projected to individual races using state and district ratios derived from 2024 election results.</p>
+    <h2 class="methH2">Inputs</h2>
+    <p class="methP">The model ingests three main signals: a <strong>generic ballot</strong> average computed from a quality-filtered, weighted rolling window of national polls; <strong>state and district polls</strong> where available; and <strong>historical partisan ratios</strong> derived from recent election results. These are blended together with weights that reflect their relative informativeness — state polls carry the most influence where they exist, and the generic ballot fills in everywhere else.</p>
+    <p class="methP">A <strong>national indicator</strong> is also computed by reverse-engineering the implied national environment from all available state polls, providing an additional cross-check on the generic ballot signal.</p>
   </div>
 
   <div class="methCard">
-    <h2 class="methH2">Senate &amp; Governor Model</h2>
-    <p class="methP">Each race's projected margin is a weighted combination of three components:</p>
-    <table class="methTable">
-      <thead><tr><th>Component</th><th>Weight</th><th>Description</th></tr></thead>
-      <tbody>
-        <tr><td><span class="methDot" style="background:var(--blue-dark)"></span>Generic Ballot</td><td><span class="methMono">35%</span></td><td>National GB projected through the state's partisan ratio</td></tr>
-        <tr><td><span class="methDot" style="background:#10b981"></span>State Polls</td><td><span class="methMono">50%</span></td><td>Rolling average of last 6 state-level polls (when available)</td></tr>
-        <tr><td><span class="methDot" style="background:#f59e0b"></span>National Indicator</td><td><span class="methMono">15%</span></td><td>Median implied national environment from all polled states</td></tr>
-      </tbody>
-    </table>
-    <p class="methP">A circuit breaker activates in deep states: when the indicator implies &gt;70% for either party, poll weight increases to 80% and the GB drops to 15%, preventing the national trend from overriding strong local data.</p>
+    <h2 class="methH2">Adjustments</h2>
+    <p class="methP">The model applies several corrections to improve accuracy. A <strong>pollster quality filter</strong> screens polls by historical track record and weights them accordingly. A <strong>circuit breaker</strong> in non-competitive states prevents the national trend from overriding strong local polling. A <strong>Hispanic voter adjustment</strong> accounts for shifts in Hispanic voter preference relative to recent baselines, scaled by each district's demographic composition.</p>
   </div>
 
   <div class="methCard">
-    <h2 class="methH2">House Model</h2>
-    <p class="methP">All 435 House districts are modeled using the generic ballot multiplied by district-level partisan ratios from 2024 results. Individual district polls are not currently incorporated (most districts are unpolled).</p>
-    <p class="methP">A Hispanic voter adjustment is applied to districts with significant Hispanic populations. The model computes the swing between a rolling average of trusted Hispanic voter polls and the 2024 exit poll baseline (<span class="methMono">D 53 – R 47</span>), then scales each district's ratio by its Hispanic population share with a 0.75× dampening factor.</p>
-  </div>
-
-  <div class="methCard">
-    <h2 class="methH2">Win Probabilities</h2>
-    <p class="methP">Individual race win probabilities are computed using a normal CDF with <span class="methMono">σ = 7</span> points of polling error. A projected margin of D+7 corresponds to roughly 84% D win probability; a Tossup (margin near 0) sits at ~50%.</p>
-  </div>
-
-  <div class="methCard">
-    <h2 class="methH2">Monte Carlo Simulation</h2>
-    <p class="methP">Chamber-level control probabilities are computed via 10,000 Monte Carlo simulations per day. Each simulation:</p>
-    <p class="methP"><strong>Senate / Governor:</strong> A uniform national swing of <span class="methMono">±7 points</span> is drawn. Each seat is then decided independently — a Bernoulli draw based on the race's win probability after applying the swing. The total D seats determines whether Democrats control the chamber.</p>
-    <p class="methP"><strong>House:</strong> A swing value is drawn from a discrete grid (<span class="methMono">±7 pts, step 0.1</span>). For each swing value, the model precomputes the conditional mean and variance of the D seat total across all 435 districts. The seat count is then drawn from a normal approximation of the Bernoulli sum, avoiding 435 individual coin flips per simulation.</p>
+    <h2 class="methH2">Simulation</h2>
+    <p class="methP">Individual race win probabilities are derived from projected margins using a normal distribution that accounts for polling uncertainty. Chamber-level outcomes are determined through <strong>Monte Carlo simulation</strong> — each run draws a correlated national swing and resolves every race, producing a full election map. The share of simulations in which each party reaches a majority determines the control probability.</p>
   </div>
 
   <div class="methCard">
     <h2 class="methH2">Forecast vs. Nowcast</h2>
-    <p class="methP">The model runs in two modes, toggled by the Forecast / Nowcast button:</p>
-    <p class="methP"><strong>Nowcast</strong> shows probabilities based on today's polling data only — what would happen if the election were held today.</p>
-    <p class="methP"><strong>Forecast</strong> extends the model to Election Day (November 3, 2026). Two adjustments are applied, ramping linearly from today to October 1:</p>
+    <p class="methP"><strong>Nowcast</strong> reflects what would happen if the election were held today — a pure snapshot of current polling.</p>
+    <p class="methP"><strong>Forecast</strong> projects forward to Election Day by modeling how the race is likely to evolve. Undecided voters are gradually allocated based on historical patterns, and a small structural adjustment is applied to account for the typical relationship between midterm polling and final results. Both adjustments ramp gradually to full strength by early fall.</p>
+  </div>
+
+  <div class="methCard">
+    <h2 class="methH2">Ratings</h2>
+    <p class="methP">Each race is classified on a seven-point scale from Safe D to Safe R based on its projected margin. The thresholds are calibrated to reflect meaningful differences in competitiveness.</p>
     <table class="methTable">
-      <thead><tr><th>Adjustment</th><th>Value</th><th>Rationale</th></tr></thead>
+      <thead><tr><th>Rating</th><th>Description</th></tr></thead>
       <tbody>
-        <tr><td>Undecided allocation</td><td><span class="methMono">60% D / 40% R</span></td><td>Historically, the party leading in the generic ballot captures a disproportionate share of late-deciding voters</td></tr>
-        <tr><td>Poll shift</td><td><span class="methMono">D+1</span></td><td>Structural adjustment for historical Democratic overperformance in midterm generic ballot polling relative to final results when the opposing party holds the White House</td></tr>
+        <tr><td><span class="methDot" style="background:#1e40af"></span>Safe D</td><td>Strong Democratic advantage</td></tr>
+        <tr><td><span class="methDot" style="background:#2563eb"></span>Likely D</td><td>Clear Democratic lead</td></tr>
+        <tr><td><span class="methDot" style="background:#93c5fd"></span>Lean D</td><td>Slight Democratic edge</td></tr>
+        <tr><td><span class="methDot" style="background:#fde047"></span>Tossup</td><td>Either party could win</td></tr>
+        <tr><td><span class="methDot" style="background:#fca5a5"></span>Lean R</td><td>Slight Republican edge</td></tr>
+        <tr><td><span class="methDot" style="background:#dc2626"></span>Likely R</td><td>Clear Republican lead</td></tr>
+        <tr><td><span class="methDot" style="background:#991b1b"></span>Safe R</td><td>Strong Republican advantage</td></tr>
       </tbody>
     </table>
-    <p class="methP">These adjustments are baked into the Monte Carlo simulations for each future day. By October 1, both are fully applied; the model holds steady from there through Election Day.</p>
   </div>
 
   <div class="methCard">
     <h2 class="methH2">Data Sources</h2>
-    <p class="methP"><strong>Polls:</strong> FiveThirtyEight / Silver Bulletin poll database via API. State polls manually curated from public releases.</p>
-    <p class="methP"><strong>Election results:</strong> 2024 presidential and congressional results by state and district (MIT Election Data + Science Lab, Dave's Redistricting App).</p>
-    <p class="methP"><strong>Hispanic voter data:</strong> Census ACS 5-year estimates for congressional district Hispanic population shares. Hispanic voter preference polls from trusted pollsters.</p>
-    <p class="methP"><strong>Maps:</strong> US Atlas TopoJSON (Census Bureau TIGER/Line shapefiles).</p>
-  </div>
-
-  <div class="methCard">
-    <h2 class="methH2">Rating Scale</h2>
-    <table class="methTable">
-      <thead><tr><th>Rating</th><th>Margin Range</th></tr></thead>
-      <tbody>
-        <tr><td><span class="methDot" style="background:#1e40af"></span>Safe D</td><td>D+15 or more</td></tr>
-        <tr><td><span class="methDot" style="background:#2563eb"></span>Likely D</td><td>D+7.5 to D+15</td></tr>
-        <tr><td><span class="methDot" style="background:#93c5fd"></span>Lean D</td><td>D+2.5 to D+7.5</td></tr>
-        <tr><td><span class="methDot" style="background:#fde047"></span>Tossup</td><td>Within 2.5 points</td></tr>
-        <tr><td><span class="methDot" style="background:#fca5a5"></span>Lean R</td><td>R+2.5 to R+7.5</td></tr>
-        <tr><td><span class="methDot" style="background:#dc2626"></span>Likely R</td><td>R+7.5 to R+15</td></tr>
-        <tr><td><span class="methDot" style="background:#991b1b"></span>Safe R</td><td>R+15 or more</td></tr>
-      </tbody>
-    </table>
+    <p class="methP">National and state polls are sourced from public polling databases and manually curated releases. Election baselines come from recent presidential and congressional results. Demographic adjustments use Census population estimates. Maps use US Census Bureau shapefiles.</p>
   </div>
 
   <div class="methCard" style="text-align:center;padding:20px">
