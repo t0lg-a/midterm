@@ -650,6 +650,7 @@ document.querySelector('.pageTabs').addEventListener('click', e => {
   document.getElementById('pollsPage').style.display = page === 'polls' ? 'grid' : 'none';
   document.getElementById('swingometerPage').style.display = page === 'swingometer' ? '' : 'none';
   document.getElementById('pastElectionsPage').style.display = page === 'past-elections' ? '' : 'none';
+  document.getElementById('methodologyPage').style.display = page === 'methodology' ? '' : 'none';
 
   if (page === 'ratings') initRatingsPage();
   if (page === 'polls' && window.initPollsPage) window.initPollsPage();
