@@ -8,6 +8,50 @@ const PUI = {};          // per-mode UI refs
 const PMAP = {};         // per-mode map handles
 const PSEL = { senate:null, governor:null }; // selected state
 
+/* ---- Pollster weight tiers ---- */
+// A+/A rated pollsters → 1x
+const TIER_A = new Set([
+  "marquette","marquette law school",
+  "beacon","beaconresearch","shaw","beacon-shaw","beacon/shaw",
+  "echelon","echelon insights",
+  "hart","hartresearch","publicopinionstrategies","hart-pos","hart/pos",
+  "insideradvantage","insider advantage",
+  "marist",
+  "research co.","research co",
+  "siena","siena-nyt","newyorktimes","siena college/the new york times","nyt/siena",
+  "susquehanna",
+  "east carolina university","east carolina",
+  "fabrizio-impact","fabrizio/impact"
+]);
+// Everything else on the AP list (not A+/A rated) → 0.75x
+const TIER_B = new Set([
+  "yougov",
+  "verasight",
+  "ipsos",
+  "arg","americanresearchgroup","american research group",
+  "tipp","tipp insights",
+  "emerson","emerson college",
+  "gallup",
+  "quinnipiac","quinnipiac university",
+  "apnorc","ap-norc","norc",
+  "cnnssrs","cnn/ssrs","cnn-ssrs","ssrs",
+  "atlasintel","atlas",
+  "pew","pewresearch","pew research",
+  "surveymonkey","survey monkey",
+  "leger",
+  "umass","massachusetts","departmentofpoliticalscience",
+  "foxnews","fox news","fox news/beacon","fox/beacon",
+  "wsj","wallstreetjournal","wall street journal"
+]);
+
+function pollWeight(pollster){
+  if(!pollster) return 0.1;
+  const key = String(pollster).toLowerCase().trim();
+  if(TIER_A.has(key)) return 1;
+  if(TIER_B.has(key)) return 0.75;
+  return 0.1;
+}
+
 /* ---- Approval data ---- */
 let APP_RAW = [];        // {date,approve,disapprove,pollster}
 let APP_SERIES = [];     // moving avg [{date,a,b}]
@@ -28,7 +72,7 @@ function loadApproval(j){
   APP_RAW = dedupe(APP_RAW,"date","pollster");
   const strict=!!GB_SRC.filterStrict;
   const f=APP_RAW.filter(p=>isAllowedPollster(p.pollster,strict));
-  APP_SERIES=movAvg(f.map(p=>({date:p.date,a:p.approve,b:p.disapprove})),24);
+  APP_SERIES=movAvg(f.map(p=>({date:p.date,a:p.approve,b:p.disapprove,pollster:p.pollster})),24);
 }
 
 function dedupe(arr,dk,pk){
@@ -40,7 +84,26 @@ function dedupe(arr,dk,pk){
   });
 }
 
-function movAvg(sorted,N){
+function movAvg(sorted,targetW){
+  if(!sorted.length)return[];
+  const n=sorted.length;
+  const out=[];let hi=0;
+  const t1=new Date();t1.setHours(0,0,0,0);
+  const end=t1>sorted[n-1].date?t1:sorted[n-1].date;
+  for(let d=new Date(sorted[0].date);d<=end;d.setDate(d.getDate()+1)){
+    while(hi<n&&sorted[hi].date<=d)hi++;
+    if(hi===0)continue;
+    let wS=0,wA=0,wB=0;
+    for(let i=hi-1;i>=0&&wS<targetW;i--){
+      const pw=pollWeight(sorted[i].pollster);
+      wA+=sorted[i].a*pw; wB+=sorted[i].b*pw; wS+=pw;
+    }
+    if(wS>0)out.push({date:new Date(d),a:wA/wS,b:wB/wS});
+  }
+  return out;
+}
+
+function movAvgSimple(sorted,N){
   if(!sorted.length)return[];
   const n=sorted.length;
   const pA=new Float64Array(n+1),pB=new Float64Array(n+1);
@@ -313,7 +376,7 @@ async function initMode(mk){
     const pts=[];
     for(const st of Object.keys(src)) for(const p of src[st]) if(p.date&&isFinite(p.D)&&isFinite(p.R)) pts.push({date:p.date,a:p.D,b:p.R});
     pts.sort((a,b)=>a.date-b.date);
-    const avg=movAvg(pts,6);
+    const avg=movAvgSimple(pts,6);
     drawMarginTimeline(ui.hist, avg.map(d=>({date:d.date,margin:d.a-d.b})));
   }
 

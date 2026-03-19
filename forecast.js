@@ -582,23 +582,14 @@ function getAns(p, keys){
   }
   return null;
 }
-function calcLastNPollsSeries(gbPolls, N){
+function calcLastNPollsSeries(gbPolls, targetW){
   const polls = (gbPolls||[]).filter(p=>p && p.date instanceof Date && isFinite(p.dem) && isFinite(p.rep))
     .slice().sort((a,b)=>a.date-b.date);
   if (!polls.length) return [];
   const n = polls.length;
 
   const dates = new Array(n);
-  const psD = new Float64Array(n+1);
-  const psR = new Float64Array(n+1);
-
-  for (let i=0;i<n;i++){
-    dates[i] = polls[i].date;
-    const d = +polls[i].dem;
-    const r = +polls[i].rep;
-    psD[i+1] = psD[i] + d;
-    psR[i+1] = psR[i] + r;
-  }
+  for (let i=0;i<n;i++) dates[i] = polls[i].date;
 
   const t0 = new Date(dates[0]);
   const lastPollDay = new Date(dates[n-1]);
@@ -609,12 +600,16 @@ function calcLastNPollsSeries(gbPolls, N){
 
   for (let day = new Date(t0); day <= t1; day.setDate(day.getDate()+1)){
     while (hi < n && dates[hi] <= day) hi++;
-    const lo = Math.max(0, hi - N);
-    const cnt = hi - lo;
-    if (cnt <= 0) continue;
-    const meanD = (psD[hi] - psD[lo]) / cnt;
-    const meanR = (psR[hi] - psR[lo]) / cnt;
-    out.push({ date: ds(day), dem: meanD, rep: meanR, count: cnt });
+    if (hi === 0) continue;
+    let wS=0, wD=0, wR=0;
+    for (let i=hi-1; i>=0 && wS<targetW; i--){
+      const pw = pollWeight(polls[i].pollster);
+      wD += polls[i].dem * pw;
+      wR += polls[i].rep * pw;
+      wS += pw;
+    }
+    if (wS <= 0) continue;
+    out.push({ date: ds(day), dem: wD/wS, rep: wR/wS, count: wS });
   }
   return out;
 }
@@ -630,6 +625,19 @@ function isAllowedPollster(pollster, strict){
   const n = normPollster(pollster);
   if (!n) return false;
   return AP.some(x=>x.pattern.test(n));
+}
+
+/* ---------- Pollster quality weights ---------- */
+const TIER_A_PAT = [/marquette/,/beaconresearch|shaw/,/echelon/,/hartresearch|publicopinionstrategies/,
+  /insideradvantage/,/marist/,/researchco/,/siena|newyorktimes/,/susquehanna/,
+  /eastcarolina/,/fabrizioimp/];
+function pollWeight(pollster){
+  if(!pollster) return 0.1;
+  const n = normPollster(pollster);
+  if(!n) return 0.1;
+  if(TIER_A_PAT.some(p=>p.test(n))) return 1;
+  if(AP.some(x=>x.pattern.test(n))) return 0.75;
+  return 0.1;
 }
 
 function updateGbControlsMeta(){
