@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-18T12:02:20.432Z",
+  "updatedAt": "2026-03-19T10:16:50.226Z",
   "approval": [
     {
       "id": "appdonech9666274e",
@@ -20816,90 +20816,6 @@
       ],
       "internal": false,
       "partisan": "REP",
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonyou4a3elrdb",
-      "poll_type": "approval",
-      "sample_size": 1595,
-      "population": "a",
-      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econtoplines_Z51qCJt.pdf",
-      "created_at": "2025-02-12",
-      "start_date": "2025-02-09",
-      "end_date": "2025-02-11",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 46
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 48
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Economist"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonyou24c8av1m",
-      "poll_type": "approval",
-      "sample_size": 1430,
-      "population": "rv",
-      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_nyOrDiw.pdf",
-      "created_at": "2025-02-12",
-      "start_date": "2025-02-09",
-      "end_date": "2025-02-11",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 47
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 49
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Economist"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonyouoj3ofulr",
-      "poll_type": "approval",
-      "sample_size": 1000,
-      "population": "a",
-      "url": "https://eloncdn.blob.core.windows.net/eu3/sites/819/2025/02/Elon-University-Poll-topline-2-25-25.pdf",
-      "created_at": "2025-02-25",
-      "start_date": "2025-02-06",
-      "end_date": "2025-02-11",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 45
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 41
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Elon University"
-      ],
-      "internal": false,
-      "partisan": null,
       "subject": "Donald Trump"
     }
   ],
