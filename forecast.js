@@ -111,10 +111,12 @@ const SENATE_CONTROL_RULE = { demAtLeast: 51, repAtLeast: 50 };
 /* ---------- Forecast / Nowcast Mode ---------- */
 const ELECTION_DAY     = new Date(2026, 10, 3);   // Nov 3 2026
 const FULL_ALLOC_DATE  = new Date(2026, 9, 1);    // Oct 1 2026
-const UNDECIDED_SPLIT_D = 0.60;
-const UNDECIDED_SPLIT_R = 0.40;
+const UNDECIDED_SPLIT_D = 0.65;
+const UNDECIDED_SPLIT_R = 0.35;
+const POLL_SHIFT_D = 3;           // shift polls 3pts toward D by election day
 let FORECAST_MODE = "forecast";                    // "forecast" (default) or "nowcast"
 let _savedNowcastGb = null;                        // original GB pair, saved when switching to forecast
+let _savedNowcastPolls = null;                     // original polls, saved when switching to forecast
 
 /* ---------- FIPS lookup for US-atlas ---------- */
 const FIPS_TO_USPS = {
@@ -724,6 +726,7 @@ function refreshAllAfterGbChange(){
   // clear caches tied to GB series
   try{ TIP_SPARK_CACHE.clear(); }catch(e){}
   _savedNowcastGb = null; // reset saved nowcast GB
+  _savedNowcastPolls = null; // reset saved polls
 
   buildGbSeriesFromRaw();
 
@@ -731,6 +734,10 @@ function refreshAllAfterGbChange(){
   if (FORECAST_MODE === "forecast"){
     applyForecastGbOverride();
   }
+
+  // Recompute indicators (polls may have shifted)
+  IND_CACHE.senate = computeIndicatorNationalFromPolls("senate");
+  IND_CACHE.governor = computeIndicatorNationalFromPolls("governor");
 
   // refresh maps + tables
   for (const mode of MODES){
@@ -3347,7 +3354,7 @@ function computeForecastGbPair(){
   return normalizePair(fcDem, fcRep);
 }
 
-/** Apply the Nov 3 forecast-adjusted GB to DATA so maps/tables update. */
+/** Apply the Nov 3 forecast-adjusted GB to DATA so maps/tables update. Also shift polls. */
 function applyForecastGbOverride(){
   if (FORECAST_MODE !== "forecast") return;
   if (!_savedNowcastGb){
@@ -3359,9 +3366,33 @@ function applyForecastGbOverride(){
   DATA.house.gb = pair;
   if (DATA.senate) DATA.senate.gb = pair;
   if (DATA.governor) DATA.governor.gb = pair;
+
+  // Save original polls and shift by POLL_SHIFT_D toward D
+  if (!_savedNowcastPolls){
+    _savedNowcastPolls = {};
+    for (const mode of ["senate","governor"]){
+      _savedNowcastPolls[mode] = {};
+      const polls = DATA[mode]?.polls;
+      if (!polls) continue;
+      for (const st of Object.keys(polls)){
+        _savedNowcastPolls[mode][st] = { ...polls[st] };
+      }
+    }
+  }
+  for (const mode of ["senate","governor"]){
+    const polls = DATA[mode]?.polls;
+    if (!polls) continue;
+    for (const st of Object.keys(polls)){
+      const p = polls[st];
+      if (isFinite(p.D) && isFinite(p.R)){
+        p.D = p.D + POLL_SHIFT_D;
+        p.R = p.R - POLL_SHIFT_D;
+      }
+    }
+  }
 }
 
-/** Restore the nowcast (current observed) GB. */
+/** Restore the nowcast (current observed) GB and polls. */
 function restoreNowcastGb(){
   if (_savedNowcastGb){
     DATA.house.gb = _savedNowcastGb;
@@ -3376,6 +3407,16 @@ function restoreNowcastGb(){
       if (DATA.governor) DATA.governor.gb = pair;
     }
   }
+  // Restore original polls
+  if (_savedNowcastPolls){
+    for (const mode of ["senate","governor"]){
+      const saved = _savedNowcastPolls[mode];
+      if (!saved || !DATA[mode]?.polls) continue;
+      for (const st of Object.keys(saved)){
+        DATA[mode].polls[st] = { ...saved[st] };
+      }
+    }
+  }
 }
 
 /** Toggle between forecast and nowcast, refresh all views. */
@@ -3387,6 +3428,10 @@ function toggleForecastMode(mode){
   } else {
     restoreNowcastGb();
   }
+
+  // Recompute indicators (polls may have shifted)
+  IND_CACHE.senate = computeIndicatorNationalFromPolls("senate");
+  IND_CACHE.governor = computeIndicatorNationalFromPolls("governor");
 
   try{ TIP_SPARK_CACHE.clear(); }catch(e){}
 
@@ -3402,21 +3447,7 @@ function toggleForecastMode(mode){
   updateForecastMeta();
 }
 
-function updateForecastMeta(){
-  const el = document.getElementById("fcMeta");
-  if (!el) return;
-  if (FORECAST_MODE === "forecast"){
-    const latestGb = GB_SRC.latest;
-    if (latestGb){
-      const und = Math.max(0, 100 - latestGb.dem - latestGb.rep);
-      el.innerHTML = `Projecting Nov 3 · undecided <span class="fcHighlight">${und.toFixed(1)}%</span> → <span class="fcHighlight">D+${(und*UNDECIDED_SPLIT_D).toFixed(1)}</span> <span class="fcHighlight">R+${(und*UNDECIDED_SPLIT_R).toFixed(1)}</span>`;
-    } else {
-      el.textContent = "Projecting Nov 3";
-    }
-  } else {
-    el.textContent = "Current polling snapshot";
-  }
-}
+function updateForecastMeta(){}
 
 function setupForecastToggle(){
   const wrap = document.getElementById("forecastToggle");
