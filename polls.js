@@ -494,19 +494,4 @@ window.addEventListener("resize",()=>{
 },{passive:true});
 
 window.initPollsPage=initPollsPage;
-
-window.refreshPollsForForecast=function(){
-  if(!pollsInited)return;
-  // Re-run seat tally for senate/governor (uses shifted DATA.polls + DATA.gb)
-  for(const mk of["senate","governor"]){
-    const ui=PUI[mk]; if(!ui)continue;
-    try{
-      const t=computeSeatTally(mk,IND_CACHE[mk]);
-      setNum(ui,t.totalD,t.totalR,"D","R");
-      colorTop(ui,t.totalD>t.totalR);
-    }catch(e){}
-  }
-  // Re-render left column (GB numbers)
-  try{renderLeft();}catch(e){}
-};
 })();

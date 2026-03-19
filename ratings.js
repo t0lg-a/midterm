@@ -665,4 +665,18 @@ window.addEventListener("resize", () => {
   }
 }, {passive:true});
 
+// Refresh ratings when forecast/nowcast toggles
+window.refreshRatingsForForecast = function(){
+  if (!ratingsInited) return;
+  for (const mode of MODES){
+    try{
+      const { counts, perRace } = computeAllRatings(mode);
+      RTG_PER_RACE[mode] = perRace;
+      renderRatingBar(mode, counts);
+      recolorRtgMap(mode, perRace);
+      renderRtgChart(mode);
+    }catch(e){}
+  }
+};
+
 })();

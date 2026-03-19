@@ -753,6 +753,11 @@ function refreshAllAfterGbChange(){
   }
 
   updateForecastMeta();
+
+  // Refresh ratings page if initialized
+  if (typeof window.refreshRatingsForForecast === "function"){
+    try{ window.refreshRatingsForForecast(); }catch(e){}
+  }
 }
 
 function setupGbControlsUI(){
@@ -3443,9 +3448,9 @@ function toggleForecastMode(mode){
 
   updateForecastMeta();
 
-  // Refresh polls page if initialized
-  if (typeof window.refreshPollsForForecast === "function"){
-    try{ window.refreshPollsForForecast(); }catch(e){}
+  // Refresh ratings page if initialized
+  if (typeof window.refreshRatingsForForecast === "function"){
+    try{ window.refreshRatingsForForecast(); }catch(e){}
   }
 }
 
