@@ -1,5 +1,5 @@
 /* ---------- Config ---------- */
-console.log("forecast.js v16e — bigger county map centered right");
+console.log("forecast.js v17 — forecast/nowcast toggle with undecided allocation");
 const PROB_ERROR_SD_PTS = 7; // hidden, used for win probabilities (state + senate majority)
 const TOOLTIP_COMPACT = true;
 const WEIGHTS = { gb:35, polls:50, ind:15 };
@@ -107,6 +107,14 @@ const SEAT_RULES = {
   house:    { total:435, majorityLine:218, baseR:0,  baseD:0  },
 };
 const SENATE_CONTROL_RULE = { demAtLeast: 51, repAtLeast: 50 };
+
+/* ---------- Forecast / Nowcast Mode ---------- */
+const ELECTION_DAY     = new Date(2026, 10, 3);   // Nov 3 2026
+const FULL_ALLOC_DATE  = new Date(2026, 9, 1);    // Oct 1 2026
+const UNDECIDED_SPLIT_D = 0.60;
+const UNDECIDED_SPLIT_R = 0.40;
+let FORECAST_MODE = "forecast";                    // "forecast" (default) or "nowcast"
+let _savedNowcastGb = null;                        // original GB pair, saved when switching to forecast
 
 /* ---------- FIPS lookup for US-atlas ---------- */
 const FIPS_TO_USPS = {
@@ -715,8 +723,14 @@ async function loadGenericBallotFromPollsJSON(){
 function refreshAllAfterGbChange(){
   // clear caches tied to GB series
   try{ TIP_SPARK_CACHE.clear(); }catch(e){}
+  _savedNowcastGb = null; // reset saved nowcast GB
 
   buildGbSeriesFromRaw();
+
+  // Re-apply forecast override if active
+  if (FORECAST_MODE === "forecast"){
+    applyForecastGbOverride();
+  }
 
   // refresh maps + tables
   for (const mode of MODES){
@@ -725,12 +739,13 @@ function refreshAllAfterGbChange(){
     try{ updateSeatMeterFor(mode); }catch(e){}
   }
 
-  // Re-render precomputed odds charts (data doesn't change, but GB-driven visuals do)
+  // Re-render odds charts
   for (const mode of MODES){
-    if (PRECOMPUTED_ODDS[mode]){
-      try{ renderComboChart(mode, PRECOMPUTED_ODDS[mode]); }catch(e){}
-    }
+    const data = getOddsDataForMode(mode);
+    if (data) try{ renderComboChart(mode, data); }catch(e){}
   }
+
+  updateForecastMeta();
 }
 
 function setupGbControlsUI(){
@@ -2898,7 +2913,8 @@ function renderComboChart(modeKey, data, chartMode){
     date: parseDate(d.date),
     pDem: +d.pDem,
     pRep: 1 - (+d.pDem),
-    expDem: +d.expDem
+    expDem: +d.expDem,
+    isForecast: !!d.isForecast
   })).filter(d=>d.date && isFinite(d.pDem) && isFinite(d.expDem));
 
   if (!parsed.length){
@@ -2944,12 +2960,34 @@ function renderComboChart(modeKey, data, chartMode){
         .attr("x",m.l+iw-2).attr("y",y(maj)-4).attr("text-anchor","end").text(`${maj}`);
     }
 
-    const lineD = d3.line().x(d=>x(d.date)).y(d=>y(d.expDem)).curve(d3.curveMonotoneX);
-    svg.append("path").datum(parsed).attr("class","seatsLine").attr("d",lineD);
+    const sLineDGen = d3.line().x(d=>x(d.date)).y(d=>y(d.expDem)).curve(d3.curveMonotoneX);
+    const sLineRGen = seatTotal > 0 ? d3.line().x(d=>x(d.date)).y(d=>y(seatTotal - d.expDem)).curve(d3.curveMonotoneX) : null;
 
-    if (seatTotal > 0){
-      const lineR = d3.line().x(d=>x(d.date)).y(d=>y(seatTotal - d.expDem)).curve(d3.curveMonotoneX);
-      svg.append("path").datum(parsed).attr("class","seatsLineR").attr("d",lineR);
+    const hasFcS = parsed.some(d=>d.isForecast);
+    const obsS = hasFcS ? parsed.filter(d=>!d.isForecast) : parsed;
+    const fcS  = hasFcS ? parsed.filter(d=>d.isForecast) : [];
+
+    svg.append("path").datum(obsS).attr("class","seatsLine").attr("d",sLineDGen);
+    if (sLineRGen) svg.append("path").datum(obsS).attr("class","seatsLineR").attr("d",sLineRGen);
+
+    if (fcS.length){
+      const bridgeS = obsS.length ? [obsS[obsS.length-1], ...fcS] : fcS;
+      svg.append("path").datum(bridgeS).attr("d",sLineDGen)
+        .attr("fill","none").attr("stroke","#93c5fd").attr("stroke-width",2)
+        .attr("stroke-dasharray","6 3").attr("opacity",0.85);
+      if (sLineRGen) svg.append("path").datum(bridgeS).attr("d",sLineRGen)
+        .attr("fill","none").attr("stroke","#fca5a5").attr("stroke-width",2)
+        .attr("stroke-dasharray","6 3").attr("opacity",0.85);
+
+      const divXs = x(obsS[obsS.length-1].date);
+      svg.append("line").attr("x1",divXs).attr("x2",divXs)
+        .attr("y1",m.t).attr("y2",m.t+ih)
+        .attr("stroke","var(--muted-light)").attr("stroke-width",1)
+        .attr("stroke-dasharray","4 2").attr("opacity",0.45);
+      svg.append("text").attr("x",divXs+4).attr("y",m.t+10)
+        .attr("font-size","8px").attr("font-weight","700").attr("fill","var(--muted)")
+        .attr("font-family","var(--sans)")
+        .text("Forecast →");
     }
 
     const dotD = svg.append("circle").attr("class","dotDem").attr("r",4).style("opacity",0);
@@ -2966,7 +3004,7 @@ function renderComboChart(modeKey, data, chartMode){
         dotD.attr("cx",x(d.date)).attr("cy",y(d.expDem)).style("opacity",1);
         if(seatTotal>0) dotR.attr("cx",x(d.date)).attr("cy",y(seatTotal-d.expDem)).style("opacity",1);
         showSimTip(ev,
-          `<div class="stDate">${ds(d.date)}</div>`+
+          `<div class="stDate">${ds(d.date)}${d.isForecast?' <span style="color:var(--muted);font-size:9px;font-weight:600">FORECAST</span>':''}</div>`+
           `<div class="stRow"><span class="stDot" style="background:var(--blue)"></span><span class="stLbl">D</span><span class="stVal">${d.expDem.toFixed(1)}</span></div>`+
           (seatTotal>0?`<div class="stRow"><span class="stDot" style="background:var(--red)"></span><span class="stLbl">R</span><span class="stVal">${(seatTotal-d.expDem).toFixed(1)}</span></div>`:"")
         );
@@ -2991,11 +3029,35 @@ function renderComboChart(modeKey, data, chartMode){
     svg.append("line").attr("class","seatMajLine")
       .attr("x1",m.l).attr("x2",m.l+iw).attr("y1",y(0.5)).attr("y2",y(0.5));
 
-    const lineD = d3.line().x(d=>x(d.date)).y(d=>y(d.pDem)).curve(d3.curveMonotoneX);
-    svg.append("path").datum(parsed).attr("class","lineDem").attr("d",lineD);
+    const pLineDGen = d3.line().x(d=>x(d.date)).y(d=>y(d.pDem)).curve(d3.curveMonotoneX);
+    const pLineRGen = d3.line().x(d=>x(d.date)).y(d=>y(d.pRep)).curve(d3.curveMonotoneX);
 
-    const lineR = d3.line().x(d=>x(d.date)).y(d=>y(d.pRep)).curve(d3.curveMonotoneX);
-    svg.append("path").datum(parsed).attr("class","lineRep").attr("d",lineR);
+    const hasFcP = parsed.some(d=>d.isForecast);
+    const obsP = hasFcP ? parsed.filter(d=>!d.isForecast) : parsed;
+    const fcP  = hasFcP ? parsed.filter(d=>d.isForecast) : [];
+
+    svg.append("path").datum(obsP).attr("class","lineDem").attr("d",pLineDGen);
+    svg.append("path").datum(obsP).attr("class","lineRep").attr("d",pLineRGen);
+
+    if (fcP.length){
+      const bridgeP = obsP.length ? [obsP[obsP.length-1], ...fcP] : fcP;
+      svg.append("path").datum(bridgeP).attr("d",pLineDGen)
+        .attr("fill","none").attr("stroke","#93c5fd").attr("stroke-width",2)
+        .attr("stroke-dasharray","6 3").attr("opacity",0.85);
+      svg.append("path").datum(bridgeP).attr("d",pLineRGen)
+        .attr("fill","none").attr("stroke","#fca5a5").attr("stroke-width",2)
+        .attr("stroke-dasharray","6 3").attr("opacity",0.85);
+
+      const divXp = x(obsP[obsP.length-1].date);
+      svg.append("line").attr("x1",divXp).attr("x2",divXp)
+        .attr("y1",m.t).attr("y2",m.t+ih)
+        .attr("stroke","var(--muted-light)").attr("stroke-width",1)
+        .attr("stroke-dasharray","4 2").attr("opacity",0.45);
+      svg.append("text").attr("x",divXp+4).attr("y",m.t+10)
+        .attr("font-size","8px").attr("font-weight","700").attr("fill","var(--muted)")
+        .attr("font-family","var(--sans)")
+        .text("Forecast →");
+    }
 
     const dotD = svg.append("circle").attr("class","dotDem").attr("r",4).style("opacity",0);
     const dotR = svg.append("circle").attr("class","dotRep").attr("r",4).style("opacity",0);
@@ -3011,7 +3073,7 @@ function renderComboChart(modeKey, data, chartMode){
         dotD.attr("cx",x(d.date)).attr("cy",y(d.pDem)).style("opacity",1);
         dotR.attr("cx",x(d.date)).attr("cy",y(d.pRep)).style("opacity",1);
         showSimTip(ev,
-          `<div class="stDate">${ds(d.date)}</div>`+
+          `<div class="stDate">${ds(d.date)}${d.isForecast?' <span style="color:var(--muted);font-size:9px;font-weight:600">FORECAST</span>':''}</div>`+
           `<div class="stRow"><span class="stDot" style="background:var(--blue)"></span><span class="stLbl">D</span><span class="stVal">${(d.pDem*100).toFixed(1)}%</span></div>`+
           `<div class="stRow"><span class="stDot" style="background:var(--red)"></span><span class="stLbl">R</span><span class="stVal">${(d.pRep*100).toFixed(1)}%</span></div>`
         );
@@ -3262,6 +3324,119 @@ function setupOddsUI(modeKey){
   }
 }
 
+/* ---------- Forecast / Nowcast (reads precomputed isForecast from odds JSON) ---------- */
+
+/**
+ * Return the odds data for a mode.
+ * Forecast mode: include all results (nowcast + forecast).
+ * Nowcast mode: only results without isForecast flag.
+ */
+function getOddsDataForMode(modeKey){
+  const all = PRECOMPUTED_ODDS[modeKey] || [];
+  if (FORECAST_MODE === "forecast") return all;
+  return all.filter(d => !d.isForecast);
+}
+
+/** Compute the fully-allocated forecast GB pair for maps/tables. */
+function computeForecastGbPair(){
+  const latestGb = GB_SRC.latest;
+  if (!latestGb) return null;
+  const undecided = Math.max(0, 100 - latestGb.dem - latestGb.rep);
+  const fcDem = latestGb.dem + undecided * UNDECIDED_SPLIT_D;
+  const fcRep = latestGb.rep + undecided * UNDECIDED_SPLIT_R;
+  return normalizePair(fcDem, fcRep);
+}
+
+/** Apply the Nov 3 forecast-adjusted GB to DATA so maps/tables update. */
+function applyForecastGbOverride(){
+  if (FORECAST_MODE !== "forecast") return;
+  if (!_savedNowcastGb){
+    const latestGb = GB_SRC.latest;
+    if (latestGb) _savedNowcastGb = normalizePair(latestGb.dem, latestGb.rep);
+  }
+  const pair = computeForecastGbPair();
+  if (!pair) return;
+  DATA.house.gb = pair;
+  if (DATA.senate) DATA.senate.gb = pair;
+  if (DATA.governor) DATA.governor.gb = pair;
+}
+
+/** Restore the nowcast (current observed) GB. */
+function restoreNowcastGb(){
+  if (_savedNowcastGb){
+    DATA.house.gb = _savedNowcastGb;
+    if (DATA.senate) DATA.senate.gb = _savedNowcastGb;
+    if (DATA.governor) DATA.governor.gb = _savedNowcastGb;
+  } else {
+    const latestGb = GB_SRC.latest;
+    if (latestGb){
+      const pair = normalizePair(latestGb.dem, latestGb.rep);
+      DATA.house.gb = pair;
+      if (DATA.senate) DATA.senate.gb = pair;
+      if (DATA.governor) DATA.governor.gb = pair;
+    }
+  }
+}
+
+/** Toggle between forecast and nowcast, refresh all views. */
+function toggleForecastMode(mode){
+  FORECAST_MODE = mode;
+
+  if (mode === "forecast"){
+    applyForecastGbOverride();
+  } else {
+    restoreNowcastGb();
+  }
+
+  try{ TIP_SPARK_CACHE.clear(); }catch(e){}
+
+  for (const mk of MODES){
+    try{ recolorMapForMode(mk); }catch(e){}
+    try{ renderBucketTableForMode(mk); }catch(e){}
+    try{ updateSeatMeterFor(mk); }catch(e){}
+
+    const data = getOddsDataForMode(mk);
+    if (data) try{ renderComboChart(mk, data); }catch(e){}
+  }
+
+  updateForecastMeta();
+}
+
+function updateForecastMeta(){
+  const el = document.getElementById("fcMeta");
+  if (!el) return;
+  if (FORECAST_MODE === "forecast"){
+    const latestGb = GB_SRC.latest;
+    if (latestGb){
+      const und = Math.max(0, 100 - latestGb.dem - latestGb.rep);
+      el.innerHTML = `Projecting Nov 3 · undecided <span class="fcHighlight">${und.toFixed(1)}%</span> → <span class="fcHighlight">D+${(und*UNDECIDED_SPLIT_D).toFixed(1)}</span> <span class="fcHighlight">R+${(und*UNDECIDED_SPLIT_R).toFixed(1)}</span>`;
+    } else {
+      el.textContent = "Projecting Nov 3";
+    }
+  } else {
+    el.textContent = "Current polling snapshot";
+  }
+}
+
+function setupForecastToggle(){
+  const wrap = document.getElementById("forecastToggle");
+  if (!wrap) return;
+
+  const btns = wrap.querySelectorAll("[data-fc]");
+  btns.forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      btns.forEach(b=>b.classList.remove("active"));
+      btn.classList.add("active");
+      toggleForecastMode(btn.dataset.fc);
+    });
+  });
+
+  if (FORECAST_MODE === "forecast"){
+    applyForecastGbOverride();
+  }
+  updateForecastMeta();
+}
+
 /* ---------- Boot ---------- */
 (async function boot(){
   const ok = await loadCSV();
@@ -3310,6 +3485,17 @@ function setupOddsUI(modeKey){
 
   setupMapControlBars();
 
+  // Forecast toggle
+  setupForecastToggle();
+
+  // If default mode is forecast, re-render charts with forecast extension
+  if (FORECAST_MODE === "forecast"){
+    for (const mode of MODES){
+      const data = getOddsDataForMode(mode);
+      if (data) try{ renderComboChart(mode, data); }catch(e){}
+    }
+  }
+
   // Redraw charts on resize
   window.addEventListener("resize", ()=>{
     for (const mode of MODES){
@@ -3317,9 +3503,8 @@ function setupOddsUI(modeKey){
       if (ui?.simCanvas && ui._lastHist){
         drawSeatSimMini(ui.simCanvas, ui._lastHist, ui._lastMaj);
       }
-      if (PRECOMPUTED_ODDS[mode]){
-        renderComboChart(mode, PRECOMPUTED_ODDS[mode]);
-      }
+      const data = getOddsDataForMode(mode);
+      if (data) renderComboChart(mode, data);
     }
   }, {passive:true});
 })();
