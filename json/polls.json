@@ -30282,6 +30282,32 @@
       "partisan": null,
       "subject": "2026"
     }
+        {
+      "id": "gen202emed204ed40",
+      "poll_type": "generic-ballot",
+      "sample_size": 1000,
+      "population": "lv",
+      "url": "https://docs.google.com/spreadsheets/d/1SS_Vfa-SArcPFS60SmvpIB-kd_sakjcX/edit?rtpof=true&sd=true",
+      "created_at": "2026-03-20",
+      "start_date": "2026-03-12",
+      "end_date": "2026-03-17",
+      "pollster": "Emerson College",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 49.2
+        },
+        {
+          "choice": "Rep",
+          "pct": 42.0
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
   ],
   "debug": {
     "approvalSubject": "Donald Trump",
