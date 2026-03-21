@@ -1,6 +1,140 @@
 {
-  "updatedAt": "2026-03-20T11:48:58.226Z",
+  "updatedAt": "2026-03-21T11:41:16.225Z",
   "approval": [
+    {
+      "id": "appdonips9c4f249b",
+      "poll_type": "approval",
+      "sample_size": 1545,
+      "population": "a",
+      "url": "https://www.ipsos.com/sites/default/files/ct/news/documents/2026-03/Reuters%20Ipsos%20Iran%20Poll%20March%202026%20Topline.pdf",
+      "created_at": "2026-03-20",
+      "start_date": "2026-03-17",
+      "end_date": "2026-03-19",
+      "pollster": "Ipsos",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 40
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 58
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Reuters"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdontav83f9b34e",
+      "poll_type": "approval",
+      "sample_size": 1531,
+      "population": "lv",
+      "url": "https://www.searchlightinstitute.org/wp-content/uploads/2026/03/Searchlight-Iran-Supplemental-Crosstabs.pdf",
+      "created_at": "2026-03-20",
+      "start_date": "2026-03-16",
+      "end_date": "2026-03-18",
+      "pollster": "Tavern Research",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 41
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 55
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Searchlight Institute"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonqua99afd452",
+      "poll_type": "approval",
+      "sample_size": 1053,
+      "population": "lv",
+      "url": "https://drive.google.com/file/d/1u6X2tjztzSMI-UNX00OA-CuWAhqPcxxj/view",
+      "created_at": "2026-03-20",
+      "start_date": "2026-03-17",
+      "end_date": "2026-03-18",
+      "pollster": "Quantus Insights",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 44
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 55
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonjoh701fda46",
+      "poll_type": "approval",
+      "sample_size": 1000,
+      "population": "lv",
+      "url": "https://johnzogbystrategies.com/decisive-poll-on-war-with-iran",
+      "created_at": "2026-03-20",
+      "start_date": "2026-03-17",
+      "end_date": "2026-03-18",
+      "pollster": "John Zogby Strategies",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 44
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 54
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdoneme2f90fc2c",
+      "poll_type": "approval",
+      "sample_size": 1000,
+      "population": "lv",
+      "url": "https://docs.google.com/spreadsheets/d/1EfOmL-oir8Qp12WCByOuqB2fRRqtrr11/edit?rtpof=true&sd=true&gid=586600673#gid=586600673",
+      "created_at": "2026-03-20",
+      "start_date": "2026-03-16",
+      "end_date": "2026-03-17",
+      "pollster": "Emerson College",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 41.9
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 51.4
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
     {
       "id": "appdonech9666274e",
       "poll_type": "approval",
@@ -7622,6 +7756,32 @@
       "sponsors": [
         "Reuters"
       ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonlegc9295521",
+      "poll_type": "approval",
+      "sample_size": 1010,
+      "population": "a",
+      "url": "https://leger360.com/wp-content/uploads/2026/03/Leger_Report_IranWar_CAN_US_EN_20260317.pdf?utm_source=reports&utm_medium=webpage&utm_content=march2026&utm_campaign=etudesmediatiques",
+      "created_at": "2026-03-20",
+      "start_date": "2025-10-24",
+      "end_date": "2025-10-26",
+      "pollster": "Leger",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 39
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 52
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
@@ -20763,61 +20923,9 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonechq9n5k3mg",
-      "poll_type": "approval",
-      "sample_size": 1010,
-      "population": "lv",
-      "url": "https://echeloninsights.com/in-the-news/feb-2025-verified-voter-omnibus-2-2/",
-      "created_at": "2025-02-13",
-      "start_date": "2025-02-10",
-      "end_date": "2025-02-13",
-      "pollster": "Echelon Insights",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 52
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 46
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
-    {
-      "id": "gen202ech0mh719m0",
-      "poll_type": "generic-ballot",
-      "sample_size": 1010,
-      "population": "lv",
-      "url": "https://echeloninsights.com/in-the-news/feb-2025-verified-voter-omnibus-2-2/",
-      "created_at": "2025-02-13",
-      "start_date": "2025-02-10",
-      "end_date": "2025-02-13",
-      "pollster": "Echelon Insights",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 46
-        },
-        {
-          "choice": "Rep",
-          "pct": 47
-        }
-      ],
-      "seat_name": "Generic",
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "2026"
-    },
     {
       "id": "gen202youkoep0g85",
       "poll_type": "generic-ballot",
@@ -30222,6 +30330,86 @@
       "sponsors": [
         "The Economist"
       ],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202ips67b7ec50",
+      "poll_type": "generic-ballot",
+      "sample_size": 1545,
+      "population": "a",
+      "url": "https://www.ipsos.com/sites/default/files/ct/news/documents/2026-03/Reuters%20Ipsos%20Iran%20Poll%20March%202026%20Topline.pdf",
+      "created_at": "2026-03-20",
+      "start_date": "2026-03-17",
+      "end_date": "2026-03-19",
+      "pollster": "Ipsos",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 35
+        },
+        {
+          "choice": "Rep",
+          "pct": 32
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Reuters"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202qua946fac3d",
+      "poll_type": "generic-ballot",
+      "sample_size": 1053,
+      "population": "lv",
+      "url": "https://drive.google.com/file/d/1u6X2tjztzSMI-UNX00OA-CuWAhqPcxxj/view",
+      "created_at": "2026-03-20",
+      "start_date": "2026-03-17",
+      "end_date": "2026-03-18",
+      "pollster": "Quantus Insights",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 47
+        },
+        {
+          "choice": "Rep",
+          "pct": 42
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202eme59d14015",
+      "poll_type": "generic-ballot",
+      "sample_size": 1000,
+      "population": "lv",
+      "url": "https://docs.google.com/spreadsheets/d/1EfOmL-oir8Qp12WCByOuqB2fRRqtrr11/edit?rtpof=true&sd=true&gid=586600673#gid=586600673",
+      "created_at": "2026-03-20",
+      "start_date": "2026-03-16",
+      "end_date": "2026-03-17",
+      "pollster": "Emerson College",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 49.2
+        },
+        {
+          "choice": "Rep",
+          "pct": 41.5
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
       "internal": false,
       "partisan": null,
       "subject": "2026"
