@@ -23,11 +23,11 @@ const TIER_A = new Set([
   "east carolina university","east carolina",
   "fabrizio-impact","fabrizio/impact"
 ]);
+// Downweighted pollsters → 0.4x
+const TIER_C = new Set(["yougov","ipsos"]);
 // Everything else on the AP list (not A+/A rated) → 0.75x
 const TIER_B = new Set([
-  "yougov",
   "verasight",
-  "ipsos",
   "arg","americanresearchgroup","american research group",
   "tipp","tipp insights",
   "emerson","emerson college",
@@ -48,6 +48,7 @@ function pollWeight(pollster){
   if(!pollster) return 0.1;
   const key = String(pollster).toLowerCase().trim();
   if(TIER_A.has(key)) return 1;
+  if(TIER_C.has(key)) return 0.4;
   if(TIER_B.has(key)) return 0.75;
   return 0.1;
 }

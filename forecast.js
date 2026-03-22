@@ -641,11 +641,13 @@ function isAllowedPollster(pollster, strict){
 const TIER_A_PAT = [/marquette/,/beaconresearch|shaw/,/echelon/,/hartresearch|publicopinionstrategies/,
   /insideradvantage/,/marist/,/researchco/,/siena|newyorktimes/,/susquehanna/,
   /eastcarolina/,/fabrizioimp/];
+const TIER_C_PAT = [/yougov/,/ipsos/];
 function pollWeight(pollster){
   if(!pollster) return 0.1;
   const n = normPollster(pollster);
   if(!n) return 0.1;
   if(TIER_A_PAT.some(p=>p.test(n))) return 1;
+  if(TIER_C_PAT.some(p=>p.test(n))) return 0.4;
   if(AP.some(x=>x.pattern.test(n))) return 0.75;
   return 0.1;
 }
