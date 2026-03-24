@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-23T11:57:53.232Z",
+  "updatedAt": "2026-03-24T12:00:11.027Z",
   "approval": [
     {
       "id": "appdonj.l8fb2a203",
@@ -233,6 +233,58 @@
         {
           "choice": "Disapprove",
           "pct": 51.4
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonthe42b5eb4c",
+      "poll_type": "approval",
+      "sample_size": 1519,
+      "population": "rv",
+      "url": "https://substack.com/inbox/post/191802614",
+      "created_at": "2026-03-23",
+      "start_date": "2026-03-12",
+      "end_date": "2026-03-17",
+      "pollster": "The Argument/Verasight",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 40
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 58
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonthe9eafc98b",
+      "poll_type": "approval",
+      "sample_size": null,
+      "population": "lv",
+      "url": "https://substack.com/inbox/post/191802614",
+      "created_at": "2026-03-23",
+      "start_date": "2026-03-12",
+      "end_date": "2026-03-17",
+      "pollster": "The Argument/Verasight",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 55
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 45
         }
       ],
       "seat_name": null,
@@ -20923,84 +20975,6 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonsurffystgt9",
-      "poll_type": "approval",
-      "sample_size": 2000,
-      "population": "a",
-      "url": "https://www.surveyusa.com/client/PollReport.aspx?g=326a263b-3dbc-4280-9c0c-95187bdbf20c",
-      "created_at": "2025-02-18",
-      "start_date": "2025-02-13",
-      "end_date": "2025-02-16",
-      "pollster": "SurveyUSA",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 51
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 45
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonmork2hb4x4p",
-      "poll_type": "approval",
-      "sample_size": 2217,
-      "population": "rv",
-      "url": "https://pro.morningconsult.com/trackers/donald-trump-congress-policy-republicans-polling",
-      "created_at": "2025-02-18",
-      "start_date": "2025-02-14",
-      "end_date": "2025-02-16",
-      "pollster": "Morning Consult",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 50
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 47
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdongaloasvulu2",
-      "poll_type": "approval",
-      "sample_size": 1004,
-      "population": "a",
-      "url": "https://news.gallup.com/poll/656891/trump-job-approval-rating-congress-jumps.aspx",
-      "created_at": "2025-02-19",
-      "start_date": "2025-02-03",
-      "end_date": "2025-02-16",
-      "pollster": "Gallup",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 45
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 51
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -30544,6 +30518,58 @@
       "sponsors": [
         "Reuters"
       ],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202joh3aca1eba",
+      "poll_type": "generic-ballot",
+      "sample_size": 1000,
+      "population": "lv",
+      "url": "https://x.com/zogbystrategies/status/2036096236139245673?s=20",
+      "created_at": "2026-03-23",
+      "start_date": "2026-03-17",
+      "end_date": "2026-03-18",
+      "pollster": "John Zogby Strategies",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 46
+        },
+        {
+          "choice": "Rep",
+          "pct": 46
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202theebe8cac7",
+      "poll_type": "generic-ballot",
+      "sample_size": 1519,
+      "population": "rv",
+      "url": "https://substack.com/inbox/post/191802614",
+      "created_at": "2026-03-23",
+      "start_date": "2026-03-12",
+      "end_date": "2026-03-17",
+      "pollster": "The Argument/Verasight",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 54
+        },
+        {
+          "choice": "Rep",
+          "pct": 46
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
       "internal": false,
       "partisan": null,
       "subject": "2026"
