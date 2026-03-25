@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-24T12:00:11.027Z",
+  "updatedAt": "2026-03-25T11:59:40.747Z",
   "approval": [
     {
       "id": "appdonj.l8fb2a203",
@@ -280,11 +280,11 @@
       "answers": [
         {
           "choice": "Approve",
-          "pct": 55
+          "pct": 40
         },
         {
           "choice": "Disapprove",
-          "pct": 45
+          "pct": 58
         }
       ],
       "seat_name": null,
@@ -20819,162 +20819,6 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdoneme08qdup5d",
-      "poll_type": "approval",
-      "sample_size": 1000,
-      "population": "rv",
-      "url": "https://emersoncollegepolling.com/february-2025-national-poll-trump-presidential-approval-at-48-musk-doge-job-approval-at-41/",
-      "created_at": "2025-02-19",
-      "start_date": "2025-02-15",
-      "end_date": "2025-02-17",
-      "pollster": "Emerson College",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 47.8
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 42.2
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdoncnniez4c8xg",
-      "poll_type": "approval",
-      "sample_size": 1206,
-      "population": "a",
-      "url": "https://s3.documentcloud.org/documents/25539589/cnn-poll-on-trumps-performance-so-far.pdf",
-      "created_at": "2025-02-20",
-      "start_date": "2025-02-13",
-      "end_date": "2025-02-17",
-      "pollster": "CNN/SSRS",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 47
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 52
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonco/7opyana8",
-      "poll_type": "approval",
-      "sample_size": 2063,
-      "population": "lv",
-      "url": "https://coefficient.org/doge-part-1/",
-      "created_at": "2025-02-24",
-      "start_date": "2025-02-15",
-      "end_date": "2025-02-17",
-      "pollster": "co/efficient",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 48
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 48
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": "REP",
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdoncnnihrodtnn",
-      "poll_type": "approval",
-      "sample_size": 989,
-      "population": "rv",
-      "url": "https://s3.documentcloud.org/documents/25539589/cnn-poll-on-trumps-performance-so-far.pdf",
-      "created_at": "2025-02-20",
-      "start_date": "2025-02-13",
-      "end_date": "2025-02-17",
-      "pollster": "CNN/SSRS",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 46
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 54
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonquilzkxciu3",
-      "poll_type": "approval",
-      "sample_size": 1039,
-      "population": "rv",
-      "url": "https://poll.qu.edu/poll-release?releaseid=3919",
-      "created_at": "2025-02-19",
-      "start_date": "2025-02-13",
-      "end_date": "2025-02-17",
-      "pollster": "Quinnipiac University",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 45
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 49
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonblux74poq69",
-      "poll_type": "approval",
-      "sample_size": 1383,
-      "population": "rv",
-      "url": "https://blueprint-research.com/polling/trump-dems-moment-3-6/",
-      "created_at": "2025-03-07",
-      "start_date": "2025-02-16",
-      "end_date": "2025-02-17",
-      "pollster": "Blueprint Polling",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 47
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 48
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -21058,32 +20902,6 @@
       "sponsors": [],
       "internal": false,
       "partisan": null,
-      "subject": "2026"
-    },
-    {
-      "id": "gen202co/gegk2uur",
-      "poll_type": "generic-ballot",
-      "sample_size": 2063,
-      "population": "lv",
-      "url": "https://coefficient.org/doge-part-2/",
-      "created_at": "2025-02-26",
-      "start_date": "2025-02-15",
-      "end_date": "2025-02-17",
-      "pollster": "co/efficient",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 44
-        },
-        {
-          "choice": "Rep",
-          "pct": 46
-        }
-      ],
-      "seat_name": "Generic",
-      "sponsors": [],
-      "internal": false,
-      "partisan": "REP",
       "subject": "2026"
     },
     {
