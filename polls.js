@@ -48,7 +48,7 @@ function pollWeight(pollster){
   if(!pollster) return 0.1;
   const key = String(pollster).toLowerCase().trim();
   if(TIER_A.has(key)) return 1;
-  if(TIER_C.has(key)) return 0.4;
+  if(TIER_C.has(key)) return 0.25;
   if(TIER_B.has(key)) return 0.75;
   return 0.1;
 }
