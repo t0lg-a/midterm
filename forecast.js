@@ -647,8 +647,8 @@ function pollWeight(pollster){
   const n = normPollster(pollster);
   if(!n) return 0.1;
   if(TIER_A_PAT.some(p=>p.test(n))) return 1;
-  if(TIER_C_PAT.some(p=>p.test(n))) return 0.4;
-  if(AP.some(x=>x.pattern.test(n))) return 0.75;
+  if(TIER_C_PAT.some(p=>p.test(n))) return 0.2;
+  if(AP.some(x=>x.pattern.test(n))) return 0.8;
   return 0.1;
 }
 
