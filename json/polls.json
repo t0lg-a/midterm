@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-28T11:46:54.249Z",
+  "updatedAt": "2026-03-29T07:50:16.034Z",
   "approval": [
     {
       "id": "appdonbigbc8e668f",
@@ -20545,65 +20545,9 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonrmgfigqjksf",
-      "poll_type": "approval",
-      "sample_size": 3000,
-      "population": "rv",
-      "url": "https://napolitannews.org/posts/president-trump-job-approval-53-percent-approve-44-disapprove",
-      "created_at": "2025-02-21",
-      "start_date": "2025-02-18",
-      "end_date": "2025-02-21",
-      "pollster": "RMG Research",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 53
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 44
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Napolitan Institute"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
-    {
-      "id": "gen202rmgio02rlo0",
-      "poll_type": "generic-ballot",
-      "sample_size": 1000,
-      "population": "rv",
-      "url": "https://x.com/ScottWRasmussen/status/1894720317291114920",
-      "created_at": "2025-02-26",
-      "start_date": "2025-02-20",
-      "end_date": "2025-02-21",
-      "pollster": "RMG Research",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 46
-        },
-        {
-          "choice": "Rep",
-          "pct": 48
-        }
-      ],
-      "seat_name": "Generic",
-      "sponsors": [
-        "Napolitan Institute"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "2026"
-    },
     {
       "id": "gen202eme3uzn57et",
       "poll_type": "generic-ballot",
