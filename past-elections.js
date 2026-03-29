@@ -238,19 +238,29 @@ const PAST_UI = {};
 
 function getPastUI(){
   for (const mode of PAST_MODES){
-    const col = document.querySelector(`.modeCol[data-past-mode="${mode}"]`);
+    let col = document.querySelector(`.modeCol[data-past-mode="${mode}"]`);
+    // Fallback: house column may lack the attribute — find the 4th modeCol in pastElectionsPage
+    if (!col && mode === "house"){
+      const page = document.getElementById("pastElectionsPage");
+      if (page){
+        const allCols = page.querySelectorAll(".modeCol");
+        for (const c of allCols){
+          if (!c.dataset.pastMode){ col = c; c.dataset.pastMode = "house"; break; }
+        }
+      }
+    }
     if (!col) continue;
     PAST_UI[mode] = {
       col,
-      pillD:     col.querySelector("[data-past-pill-d]"),
-      pillR:     col.querySelector("[data-past-pill-r]"),
-      seatsD:    col.querySelector("[data-past-seats-d]"),
-      seatsR:    col.querySelector("[data-past-seats-r]"),
-      simCanvas: col.querySelector("[data-past-sim]"),
+      pillD:     col.querySelector("[data-past-pill-d]") || col.querySelector(".metricPill.blue .val"),
+      pillR:     col.querySelector("[data-past-pill-r]") || col.querySelector(".metricPill.red .val"),
+      seatsD:    col.querySelector("[data-past-seats-d]") || col.querySelector(".seatsSide.d .num"),
+      seatsR:    col.querySelector("[data-past-seats-r]") || col.querySelector(".seatsSide.r .num"),
+      simCanvas: col.querySelector("[data-past-sim]") || col.querySelector(".simCanvas"),
       svgEl:     col.querySelector(".mapSvg"),
-      comboSvg:  col.querySelector("[data-past-combo]"),
-      ylabel:    col.querySelector("[data-past-ylabel]"),
-      status:    col.querySelector("[data-past-status]"),
+      comboSvg:  col.querySelector("[data-past-combo]") || col.querySelector(".comboSvg"),
+      ylabel:    col.querySelector("[data-past-ylabel]") || col.querySelector(".chartYLabel"),
+      status:    col.querySelector("[data-past-status]") || col.querySelector(".oddsStatus"),
       topCard:   col.querySelector(".topCard"),
       _chartMode: "prob"
     };
@@ -495,21 +505,28 @@ async function renderPastYear(year){
       if (titleEl && overrides[mode]) titleEl.textContent = overrides[mode].title;
       if (subEl && overrides[mode]) subEl.textContent = overrides[mode].sub;
       if (oddsTitle && overrides[mode]) oddsTitle.textContent = overrides[mode].title;
-      // For single-race years, hide seats row and map (no multi-state map needed)
+      // For single-race years, keep seatsCard visible but hide histogram
       const seatsCard = ui.col.querySelector(".seatsCard");
-      const mapCard = ui.col.querySelector(".mapCard");
-      if (seatsCard) seatsCard.style.display = "none";
-      if (mapCard) mapCard.style.display = "none";
+      const simMini = ui.col.querySelector(".simMini");
+      if (simMini) simMini.style.display = "none";
+      if (seatsCard) seatsCard.style.display = "";
     } else {
       // Restore defaults for multi-state years
       ui.col.style.display = "";
       const defaults = { president:"President", senate:"Senate", governor:"Governor", house:"House" };
+      const defaultSubs = { president:"59th Presidential Election", senate:"Class I & III - 2024", governor:"Gubernatorial - 2024", house:"119th Congress - 2024" };
       const titleEl = ui.col.querySelector(".panelTitle");
+      const subEl = ui.col.querySelector(".panelSub");
+      const oddsTitle = ui.col.querySelector(".oddsTitle");
       if (titleEl) titleEl.textContent = defaults[mode] || mode;
+      if (subEl) subEl.textContent = defaultSubs[mode] || "";
+      if (oddsTitle) oddsTitle.textContent = defaults[mode] || mode;
       const seatsCard = ui.col.querySelector(".seatsCard");
       const mapCard = ui.col.querySelector(".mapCard");
+      const simMini = ui.col.querySelector(".simMini");
       if (seatsCard) seatsCard.style.display = "";
       if (mapCard) mapCard.style.display = "";
+      if (simMini) simMini.style.display = "";
     }
 
     const d = PAST_DATA[year]?.[mode];
@@ -585,9 +602,21 @@ async function renderPastYear(year){
     if (ui.pillD) ui.pillD.textContent = (pillPDem * 100).toFixed(1);
     if (ui.pillR) ui.pillR.textContent = (pillPRep * 100).toFixed(1);
 
-    // Seats = binary tally
-    if (ui.seatsD) ui.seatsD.textContent = totalD;
-    if (ui.seatsR) ui.seatsR.textContent = totalR;
+    // Seats display
+    const isSingleRace = !!(LABEL_OVERRIDES[year]);
+    if (isSingleRace){
+      // Show projected two-party vote share
+      const st0 = contested[0];
+      const model0 = st0 ? getStateModelPast(year, mode, st0) : null;
+      if (model0){
+        if (ui.seatsD) ui.seatsD.textContent = model0.combinedPair.D.toFixed(1);
+        if (ui.seatsR) ui.seatsR.textContent = model0.combinedPair.R.toFixed(1);
+      }
+    } else {
+      // Binary seat tally
+      if (ui.seatsD) ui.seatsD.textContent = totalD;
+      if (ui.seatsR) ui.seatsR.textContent = totalR;
+    }
 
     // Lead color
     if (ui.topCard){
@@ -597,9 +626,11 @@ async function renderPastYear(year){
     }
 
 
-    // Skip sim/map for single-race years (cards are hidden)
-    const isSingleRace = !!(LABEL_OVERRIDES[year]);
-    if (!isSingleRace){
+    // Render maps
+    if (isSingleRace){
+      const st0 = contested[0];
+      if (st0) renderPastCountyMap(year, mode, st0, d);
+    } else {
       renderPastSim(mode, hist, rule);
       renderPastMap(year, mode, d, rule, raceFilter);
     }
@@ -852,6 +883,127 @@ async function renderPastMap(year, mode, d, rule, raceFilter){
     .on("mouseleave", (event) => {
       d3.select(event.currentTarget).classed("hovered", false);
       hidePastTip();
+    });
+}
+
+/* ---------- County map for single-race years ---------- */
+const _USPS_FIPS = {
+  AL:"01",AK:"02",AZ:"04",AR:"05",CA:"06",CO:"08",CT:"09",DE:"10",DC:"11",FL:"12",
+  GA:"13",HI:"15",ID:"16",IL:"17",IN:"18",IA:"19",KS:"20",KY:"21",LA:"22",ME:"23",
+  MD:"24",MA:"25",MI:"26",MN:"27",MS:"28",MO:"29",MT:"30",NE:"31",NV:"32",NH:"33",
+  NJ:"34",NM:"35",NY:"36",NC:"37",ND:"38",OH:"39",OK:"40",OR:"41",PA:"42",RI:"44",
+  SC:"45",SD:"46",TN:"47",TX:"48",UT:"49",VT:"50",VA:"51",WA:"53",WV:"54",WI:"55",WY:"56"
+};
+
+let PAST_COUNTY_GEO = null;
+let PAST_COUNTY_RATIOS = null;
+
+async function loadPastCountyGeo(){
+  if (PAST_COUNTY_GEO) return PAST_COUNTY_GEO;
+  if (typeof ALL_COUNTY_GEO !== "undefined" && ALL_COUNTY_GEO){ PAST_COUNTY_GEO = ALL_COUNTY_GEO; return PAST_COUNTY_GEO; }
+  const resp = await fetch("https://cdn.jsdelivr.net/gh/plotly/datasets/geojson-counties-fips.json");
+  if (!resp.ok) throw new Error(`County GeoJSON HTTP ${resp.status}`);
+  PAST_COUNTY_GEO = await resp.json();
+  return PAST_COUNTY_GEO;
+}
+
+async function loadPastCountyRatios(){
+  if (PAST_COUNTY_RATIOS) return PAST_COUNTY_RATIOS;
+  if (typeof COUNTY_RATIOS !== "undefined" && COUNTY_RATIOS){ PAST_COUNTY_RATIOS = COUNTY_RATIOS; return PAST_COUNTY_RATIOS; }
+  try {
+    const resp = await fetch("json/county_ratios.json", {cache:"no-store"});
+    if (!resp.ok) throw new Error(resp.status);
+    PAST_COUNTY_RATIOS = await resp.json();
+  } catch(e){
+    console.warn("county_ratios.json not available for past-elections:", e);
+    PAST_COUNTY_RATIOS = {};
+  }
+  return PAST_COUNTY_RATIOS;
+}
+
+function getCountiesForStatePast(allGeo, usps){
+  const prefix = _USPS_FIPS[usps];
+  if (!prefix) return [];
+  return allGeo.features.filter(f => {
+    if (f.id && String(f.id).padStart(5,"0").slice(0,2) === prefix) return true;
+    const p = f.properties || {};
+    if (p.STATE === prefix || p.STATEFP === prefix) return true;
+    const gid = String(p.GEO_ID || p.GEOID || "").replace(/^0500000US/, "");
+    if (gid && gid.padStart(5,"0").slice(0,2) === prefix) return true;
+    return false;
+  });
+}
+
+async function renderPastCountyMap(year, mode, st, d){
+  const ui = PAST_UI[mode];
+  if (!ui?.svgEl) return;
+
+  const [allGeo, countyRatios] = await Promise.all([loadPastCountyGeo(), loadPastCountyRatios()]);
+  const counties = getCountiesForStatePast(allGeo, st);
+  if (!counties.length){ console.warn(`No counties found for ${st}`); return; }
+
+  const model = getStateModelPast(year, mode, st);
+  const stateMargin = model ? model.mFinal : NaN;
+
+  const width = 960, height = 600;
+  const svg = d3.select(ui.svgEl);
+  svg.attr("viewBox", `0 0 ${width} ${height}`);
+  svg.selectAll("*").remove();
+
+  const countyCollection = { type:"FeatureCollection", features: counties };
+  const projection = d3.geoAlbersUsa();
+  const pad = 40;
+  projection.fitExtent([[pad, pad], [width - pad, height - pad]], countyCollection);
+  const pathGen = d3.geoPath(projection);
+
+  const gRoot = svg.append("g");
+
+  const getName = (feat) => {
+    const p = feat.properties || {};
+    return (p.NAME || p.name || p.COUNTY || "").toUpperCase();
+  };
+
+  gRoot.selectAll("path")
+    .data(counties)
+    .join("path")
+    .attr("d", pathGen)
+    .attr("fill", feat => {
+      // Try county-level coloring via county_ratios (presidential ratios as proxy)
+      const name = getName(feat);
+      const cd = countyRatios?.[st]?.counties?.[name];
+      if (cd && model){
+        const rawD = model.combinedPair.D * cd.dRatio;
+        const rawR = model.combinedPair.R * cd.rRatio;
+        const s = rawD + rawR;
+        if (s > 0) return marginColor(100 * rawR / s - 100 * rawD / s);
+      }
+      return isFinite(stateMargin) ? marginColor(stateMargin) : "#e5e7eb";
+    })
+    .attr("stroke", "rgba(255,255,255,0.7)")
+    .attr("stroke-width", 0.5)
+    .attr("vector-effect", "non-scaling-stroke")
+    .on("mouseenter", (event, feat) => {
+      d3.select(event.currentTarget).attr("stroke","var(--ink)").attr("stroke-width",1.5);
+      const name = getName(feat);
+      const cd = countyRatios?.[st]?.counties?.[name];
+      let html = `<div class="stDate">${name}</div>`;
+      if (cd && model){
+        const rawD = model.combinedPair.D * cd.dRatio;
+        const rawR = model.combinedPair.R * cd.rRatio;
+        const s = rawD + rawR;
+        if (s > 0){
+          const cm = 100*rawR/s - 100*rawD/s;
+          html += `<div class="stRow"><span class="stVal">${formatMarginDR(cm)}</span></div>`;
+        }
+      } else {
+        html += `<div class="stRow"><span class="stVal">${formatMarginDR(stateMargin)} (statewide)</span></div>`;
+      }
+      showPastSimTip(event, html);
+    })
+    .on("mousemove", (event) => showPastSimTip(event))
+    .on("mouseleave", (event) => {
+      d3.select(event.currentTarget).attr("stroke","rgba(255,255,255,0.7)").attr("stroke-width",0.5);
+      hidePastSimTip();
     });
 }
 
