@@ -7,15 +7,30 @@
 "use strict";
 console.log("past-elections.js v3 — model-pipeline hindcast");
 
-const YEARS = [2024,2022,2020,2018,2016,2014,2012,2010,2008,2006,2004,2002,2000];
+const YEARS = [2025,2024,2022,2020,2018,2016,2014,2012,2010,2008,2006,2004,2002,2000];
 const PAST_MODES = ["president","senate","governor","house"];
 
 let pastInited = false;
-let pastYear = 2024;
+let pastYear = 2025;
 let PAST_STATE_GEO = null;
+
+/* ---------- 2025 label overrides (off-year: 3 races only) ---------- */
+const LABEL_OVERRIDES = {
+  2025: {
+    senate:   { title: "Virginia Governor",  sub: "Spanberger (D) vs Earle-Sears (R)" },
+    governor: { title: "New Jersey Governor", sub: "Sherrill (D) vs Ciattarelli (R)" },
+    house:    { title: "CA Proposition 50",   sub: "Redistricting — Support vs Oppose" },
+    president: null  // hidden
+  }
+};
 
 /* ---------- Seat rules per year ---------- */
 const SEAT_RULES = {
+  2025: {
+    senate:   { total:1, majorityLine:1, baseD:0, baseR:0 },
+    governor: { total:1, majorityLine:1, baseD:0, baseR:0 },
+    house:    { total:1, majorityLine:1, baseD:0, baseR:0 },
+  },
   2024: {
     president: { total:538, majorityLine:270, baseR:0, baseD:0 },
     senate:    { total:100, majorityLine:50,  baseD:28, baseR:39 },
@@ -33,12 +48,36 @@ const EV = {
 };
 
 /* ---------- States that had races in 2024 (filter for senate/governor) ---------- */
-const RACES_2024 = {
+const RACES = {
+  2025: {
+    president: new Set(),  // none
+    senate:   new Set(["VA"]),
+    governor: new Set(["NJ"]),
+    house:    new Set(["CA"])
+  },
+  2024: {
   president: null, // all states
   senate: new Set(["AZ","CA","CT","DE","FL","HI","IN","ME","MD","MA","MI","MN","MS","MO","MT","NE","NV","NJ","NM","NY","ND","OH","PA","RI","TN","TX","UT","VT","VA","WA","WV","WI","WY"]),
   governor: new Set(["DE","IN","MO","MT","NC","NH","ND","UT","VT","WA","WV"]),
-  house: null // all districts
+  },
 };
+
+/* ---------- Pollster weight tiers for 2025 ---------- */
+const TIER_A_2025 = new Set(["echelon","echelon insights","beacon","beacon/shaw","beacon-shaw","shaw","marquette","marist","siena"]);
+const TIER_B_2025 = new Set(["emerson","emerson college","quinnipiac","quinnipiac university","atlasintel","atlas","cnn/ssrs","cbs","cbs/yougov","cbs news/yougov","fairleigh dickinson","fairleigh dickinson university","rutgers","rutgers-eagleton","zogby","john zogby","john zogby strategies","ppp","public policy polling","a2 insights","a2","beacon research","beacon research/shaw","shaw & company","washington post","washington post/schar","schar"]);
+const TIER_C_2025 = new Set(["ipsos"]);
+// YouGov at full weight for 2025
+const TIER_YOUGOV_2025 = new Set(["yougov","cbs/yougov","cbs news/yougov"]);
+
+function pollWeight2025(pollster){
+  if(!pollster) return 0.1;
+  const key = String(pollster).toLowerCase().trim();
+  if(TIER_YOUGOV_2025.has(key)) return 1;
+  if(TIER_A_2025.has(key)) return 1;
+  if(TIER_B_2025.has(key)) return 0.75;
+  if(TIER_C_2025.has(key)) return 0.25;
+  return 0.1;
+}
 
 /* ---------- Weights (same as forecast.js) ---------- */
 const WEIGHTS = { gb:35, polls:50, ind:15 };
@@ -249,7 +288,7 @@ async function loadPastEntries(year){
       const ratioD = toNum(row.ratioD), ratioR = toNum(row.ratioR);
       if (st && isFinite(ratioD) && isFinite(ratioR)){
         // Only load contested races for senate/governor
-        const filter = RACES_2024[mode];
+        const filter = (RACES[year]||{})[mode];
         if (filter && !filter.has(st)) continue;
         PAST_DATA[year][mode].ratios[st] = {D: ratioD, R: ratioR};
       }
@@ -326,12 +365,12 @@ async function loadPastStatePolls(year){
       const mode = String(row.mode || "").trim().toLowerCase();
       const st = String(row.state || "").trim().toUpperCase();
       if (!mode || !st) continue;
-      if (st === "ME" && mode === "senate") continue; // Maine senate has independent (King), disregard
+      if (st === "ME" && mode === "senate") continue;
       const dem = toNum(row.dem), rep = toNum(row.rep);
       if (!isFinite(dem) || !isFinite(rep)) continue;
       const key = `${mode}|${st}`;
       if (!byModeState[key]) byModeState[key] = [];
-      byModeState[key].push({ date: row.date, dem, rep, sigma: toNum(row.sigma) || 3 });
+      byModeState[key].push({ date: row.date, dem, rep, sigma: toNum(row.sigma) || 3, pollster: row.pollster || "" });
     }
 
     let count = 0;
@@ -339,11 +378,25 @@ async function loadPastStatePolls(year){
       const [mode, st] = key.split("|");
       if (!PAST_DATA[year][mode]) continue;
       polls.sort((a,b) => a.date.localeCompare(b.date));
-      const last = polls.slice(-6);
-      const avgD = last.reduce((s,p) => s + p.dem, 0) / last.length;
-      const avgR = last.reduce((s,p) => s + p.rep, 0) / last.length;
-      const avgS = last.reduce((s,p) => s + p.sigma, 0) / last.length;
-      PAST_DATA[year][mode].polls[st] = { D: avgD, R: avgR, S: avgS };
+      const last = polls.slice(-12);
+
+      if (year === 2025){
+        // Weighted average using pollster tiers
+        let wSum=0, wD=0, wR=0, wS=0;
+        for (const p of last){
+          const w = pollWeight2025(p.pollster);
+          wSum += w; wD += w*p.dem; wR += w*p.rep; wS += w*p.sigma;
+        }
+        if (wSum > 0){
+          PAST_DATA[year][mode].polls[st] = { D: wD/wSum, R: wR/wSum, S: wS/wSum };
+        }
+      } else {
+        const slice = last.slice(-6);
+        const avgD = slice.reduce((s,p) => s + p.dem, 0) / slice.length;
+        const avgR = slice.reduce((s,p) => s + p.rep, 0) / slice.length;
+        const avgS = slice.reduce((s,p) => s + p.sigma, 0) / slice.length;
+        PAST_DATA[year][mode].polls[st] = { D: avgD, R: avgR, S: avgS };
+      }
       count++;
     }
     console.log(`Loaded state polls for ${year}: ${rows.length} rows → ${count} state averages`);
@@ -380,9 +433,9 @@ function initYearSelector(){
     const btn = document.createElement("button");
     btn.className = "yearBtn" + (y === pastYear ? " active" : "");
     btn.textContent = y;
-    if (y !== 2024) btn.classList.add("disabled");
+    if (y !== 2024 && y !== 2025) btn.classList.add("disabled");
     btn.addEventListener("click", () => {
-      if (y !== 2024) return;
+      if (y !== 2024 && y !== 2025) return;
       pastYear = y;
       wrap.querySelectorAll(".yearBtn").forEach(b => b.classList.remove("active"));
       btn.classList.add("active");
@@ -413,11 +466,52 @@ async function renderPastYear(year){
   for (const mode of PAST_MODES) await loadPastOdds(year, mode);
 
   const rules = SEAT_RULES[year] || {};
-  const raceFilters = RACES_2024;
+  const raceFilters = RACES[year] || {};
+
+  // Adjust grid for years with fewer columns
+  const pageEl = document.getElementById("pastElectionsPage");
+  if (pageEl){
+    const nCols = LABEL_OVERRIDES[year] ? 3 : 4;
+    pageEl.style.gridTemplateColumns = `repeat(${nCols}, minmax(0, 1fr))`;
+  }
 
   for (const mode of PAST_MODES){
     const ui = PAST_UI[mode];
     if (!ui) continue;
+
+    // --- Label overrides & column visibility for off-years ---
+    const overrides = LABEL_OVERRIDES[year];
+    const presCol = document.querySelector('.modeCol[data-past-mode="president"]');
+    if (overrides){
+      if (overrides[mode] === null){
+        // Hide this column
+        ui.col.style.display = "none";
+        continue;
+      }
+      ui.col.style.display = "";
+      const titleEl = ui.col.querySelector(".panelTitle");
+      const subEl = ui.col.querySelector(".panelSub");
+      const oddsTitle = ui.col.querySelector(".oddsTitle");
+      if (titleEl && overrides[mode]) titleEl.textContent = overrides[mode].title;
+      if (subEl && overrides[mode]) subEl.textContent = overrides[mode].sub;
+      if (oddsTitle && overrides[mode]) oddsTitle.textContent = overrides[mode].title;
+      // For single-race years, hide seats row and map (no multi-state map needed)
+      const seatsCard = ui.col.querySelector(".seatsCard");
+      const mapCard = ui.col.querySelector(".mapCard");
+      if (seatsCard) seatsCard.style.display = "none";
+      if (mapCard) mapCard.style.display = "none";
+    } else {
+      // Restore defaults for multi-state years
+      ui.col.style.display = "";
+      const defaults = { president:"President", senate:"Senate", governor:"Governor", house:"House" };
+      const titleEl = ui.col.querySelector(".panelTitle");
+      if (titleEl) titleEl.textContent = defaults[mode] || mode;
+      const seatsCard = ui.col.querySelector(".seatsCard");
+      const mapCard = ui.col.querySelector(".mapCard");
+      if (seatsCard) seatsCard.style.display = "";
+      if (mapCard) mapCard.style.display = "";
+    }
+
     const d = PAST_DATA[year]?.[mode];
     const odds = PAST_ODDS[year]?.[mode];
     const hist = PAST_HIST[year]?.[mode];
@@ -503,8 +597,12 @@ async function renderPastYear(year){
     }
 
 
-    renderPastSim(mode, hist, rule);
-    renderPastMap(year, mode, d, rule, raceFilter);
+    // Skip sim/map for single-race years (cards are hidden)
+    const isSingleRace = !!(LABEL_OVERRIDES[year]);
+    if (!isSingleRace){
+      renderPastSim(mode, hist, rule);
+      renderPastMap(year, mode, d, rule, raceFilter);
+    }
 
 
 
@@ -514,6 +612,13 @@ async function renderPastYear(year){
       renderPastComboChart(mode, odds, rule);
       if (ui.status) ui.status.textContent = `${odds.length} days · ${year} hindcast`;
       if (ui.status) ui.status.style.display = "block";
+    } else if (isSingleRace){
+      const st0 = contested[0];
+      const model0 = st0 ? getStateModelPast(year, mode, st0) : null;
+      if (model0 && ui.status){
+        ui.status.textContent = `Model: ${formatMarginDR(model0.mFinal)}`;
+        ui.status.style.display = "block";
+      }
     } else {
       if (ui.status) ui.status.textContent = `Awaiting precomputed odds`;
       if (ui.status) ui.status.style.display = "block";
@@ -989,7 +1094,7 @@ window.initPastElectionsPage = function(){
   getPastUI();
   initYearSelector();
   initPastChartTabs();
-  renderPastYear(2024);
+  renderPastYear(2025);
 };
 
 /* ---------- Resize ---------- */

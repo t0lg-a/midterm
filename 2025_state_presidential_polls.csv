@@ -1,0 +1,122 @@
+mode,state,date,dem,rep,sigma,pollster
+senate,VA,2025-11-03,53,44,2.7,Quantus Insights
+senate,VA,2025-11-03,50,40,3.5,InsiderAdvantage
+senate,VA,2025-11-03,54,46,4.6,Research Co.
+senate,VA,2025-11-03,51,43,4.6,Research Co.
+senate,VA,2025-11-02,50,43,2.9,Trafalgar Group
+senate,VA,2025-10-31,55,44,3.2,Emerson College
+senate,VA,2025-10-31,55,43,4.7,Echelon Insights
+senate,VA,2025-10-30,54,45,3.0,AtlasIntel
+senate,VA,2025-10-29,53,43,3.5,SoCal Strategies
+senate,VA,2025-10-28,54,41,4.0,State Navigate
+senate,VA,2025-10-28,46,42,3.5,InsiderAdvantage/Trafalgar
+senate,VA,2025-10-27,51,41,4.1,Roanoke College
+senate,VA,2025-10-28,57,42,4.0,YouGov
+senate,VA,2025-10-28,55,41,4.0,YouGov
+senate,VA,2025-10-26,54,46,3.5,A2 Insights
+senate,VA,2025-10-23,50,43,4.1,Christopher Newport
+senate,VA,2025-10-21,52,43,4.4,Suffolk University
+senate,VA,2025-10-20,51,46,2.8,Quantus Insights
+senate,VA,2025-10-20,55,42,4.0,State Navigate
+senate,VA,2025-10-20,54,42,3.5,Washington Post/Schar
+senate,VA,2025-10-20,53,40,3.5,Washington Post/Schar
+senate,VA,2025-10-18,51,41,4.2,Kaplan Strategies
+senate,VA,2025-10-17,49,44,3.2,co/efficient
+senate,VA,2025-10-17,53,43,3.2,Clarity Campaign Labs
+senate,VA,2025-10-15,47,45,2.9,Trafalgar/InsiderAdvantage
+senate,VA,2025-10-14,49,42,4.0,VCU
+senate,VA,2025-10-10,48,45,2.9,Trafalgar Group
+senate,VA,2025-10-08,52,43,3.5,PPP
+senate,VA,2025-10-07,49,45,4.0,Cygnal
+senate,VA,2025-10-01,52,42,3.9,Christopher Newport
+senate,VA,2025-10-01,47,42,2.9,Trafalgar Group
+senate,VA,2025-09-29,52,42,3.6,Emerson College
+senate,VA,2025-09-29,55,43,3.4,Washington Post/Schar
+senate,VA,2025-09-29,53,40,3.4,Washington Post/Schar
+senate,VA,2025-09-28,48,45,3.5,A2 Insights
+senate,VA,2025-09-23,49,43,3.1,co/efficient
+senate,VA,2025-09-18,50,45,3.5,OnMessage Inc.
+senate,VA,2025-09-14,52,40,3.9,Christopher Newport
+senate,VA,2025-09-07,50,43,4.0,Cygnal
+senate,VA,2025-09-05,48,43,4.4,Pulse Decision Science
+senate,VA,2025-09-01,53,41,3.5,SoCal Strategies
+senate,VA,2025-08-28,49,40,4.1,VCU
+senate,VA,2025-08-26,48,43,3.1,co/efficient
+senate,VA,2025-08-15,46,39,4.3,Roanoke College
+senate,VA,2025-07-11,50,40,3.0,Wick Insights
+senate,VA,2025-07-08,49,34,3.1,ADRG/AARP
+senate,VA,2025-07-03,49,37,4.7,VCU
+senate,VA,2025-06-10,46,43,3.1,co/efficient
+senate,VA,2025-05-19,43,26,5.3,Roanoke College
+senate,VA,2025-05-13,52,48,3.1,Pantheon/HarrisX
+senate,VA,2025-05-13,48,45,3.1,Pantheon/HarrisX
+senate,VA,2025-02-28,46,40,4.0,Cygnal
+senate,VA,2025-02-20,39,24,4.7,Roanoke College
+senate,VA,2025-01-20,40,40,3.3,co/efficient
+senate,VA,2025-01-15,44,34,4.7,VCU
+senate,VA,2025-01-13,44,39,3.6,Christopher Newport
+senate,VA,2025-01-08,42,41,3.0,Emerson College
+senate,VA,2024-12-19,47,44,4.0,Mason-Dixon
+senate,VA,2024-09-09,39,39,3.1,Research America
+governor,NJ,2025-11-03,51,48,4.6,Research Co.
+governor,NJ,2025-11-03,48,46,4.6,Research Co.
+governor,NJ,2025-11-03,55,43,2.9,Zogby
+governor,NJ,2025-10-30,50,49,2.0,AtlasIntel
+governor,NJ,2025-10-29,52,45,3.5,SoCal Strategies
+governor,NJ,2025-10-29,46,42,4.4,Suffolk University
+governor,NJ,2025-10-28,50,48,3.0,Emerson College
+governor,NJ,2025-10-28,49,48,3.0,Emerson College
+governor,NJ,2025-10-28,52,45,3.0,Beacon/Shaw
+governor,NJ,2025-10-28,52,43,3.0,Beacon/Shaw
+governor,NJ,2025-10-28,51,43,3.8,Quinnipiac
+governor,NJ,2025-10-28,51,44,3.8,Quinnipiac
+governor,NJ,2025-10-28,54,44,4.0,YouGov
+governor,NJ,2025-10-28,51,42,4.0,YouGov
+governor,NJ,2025-10-27,49,46,2.6,Quantus Insights
+governor,NJ,2025-10-27,48,47,3.3,co/efficient
+governor,NJ,2025-10-26,51,47,3.5,A2 Insights
+governor,NJ,2025-10-20,52,40,4.0,GQR
+governor,NJ,2025-10-18,49,40,3.9,Concord
+governor,NJ,2025-10-17,50,45,4.7,Rutgers-Eagleton
+governor,NJ,2025-10-16,47,44,4.0,KAConsulting
+governor,NJ,2025-10-15,45,44,3.5,InsiderAdvantage/Trafalgar
+governor,NJ,2025-10-15,52,45,3.4,Fairleigh Dickinson
+governor,NJ,2025-10-14,50,45,3.0,Beacon/Shaw
+governor,NJ,2025-10-14,48,44,3.0,Beacon/Shaw
+governor,NJ,2025-10-13,50,44,3.6,Quinnipiac
+governor,NJ,2025-10-13,51,44,3.6,Quinnipiac
+governor,NJ,2025-10-09,46,40,3.0,Rasmussen
+governor,NJ,2025-10-09,44,44,5.6,Neighborhood Research
+governor,NJ,2025-10-03,49,43,3.7,PPP
+governor,NJ,2025-10-02,50,42,3.3,Zogby
+governor,NJ,2025-09-30,48,46,3.3,Quantus Insights
+governor,NJ,2025-09-28,50,42,3.0,Beacon/Shaw
+governor,NJ,2025-09-28,48,41,3.0,Beacon/Shaw
+governor,NJ,2025-09-25,50,43,3.5,GSG
+governor,NJ,2025-09-24,47,45,2.8,Valcour/Save Jersey
+governor,NJ,2025-09-23,43,43,3.1,Emerson College
+governor,NJ,2025-09-22,48,41,3.7,yes. every kid.
+governor,NJ,2025-09-18,45,46,4.0,National Research
+governor,NJ,2025-09-15,49,41,3.9,Quinnipiac
+governor,NJ,2025-09-15,51,42,3.9,Quinnipiac
+governor,NJ,2025-09-10,47,45,4.0,National Research
+governor,NJ,2025-09-04,47,37,4.3,Quantus Insights
+governor,NJ,2025-09-04,49,39,4.3,Quantus Insights
+governor,NJ,2025-08-28,46,39,3.0,TIPP Insights
+governor,NJ,2025-08-28,47,43,3.0,TIPP Insights
+governor,NJ,2025-08-11,44,35,3.7,Rutgers-Eagleton
+governor,NJ,2025-08-11,47,37,3.7,Rutgers-Eagleton
+governor,NJ,2025-08-02,51,45,3.5,A2 Insights
+governor,NJ,2025-07-24,48,42,3.3,StimSight
+governor,NJ,2025-07-23,45,37,3.4,Fairleigh Dickinson
+governor,NJ,2025-07-15,46,43,4.0,National Research
+governor,NJ,2025-06-27,47,42,3.5,KAConsulting
+governor,NJ,2025-06-20,50,43,4.4,Cygnal
+governor,NJ,2025-06-16,51,31,5.4,Rutgers-Eagleton
+governor,NJ,2025-06-16,56,35,5.4,Rutgers-Eagleton
+governor,NJ,2025-06-12,45,42,4.0,National Research
+house,CA,2025-10-27,60,38,2.0,Berkeley IGS
+house,CA,2025-10-27,54,33,2.0,Berkeley IGS
+house,CA,2025-10-21,57,37,3.2,Emerson College
+house,CA,2025-10-21,60,40,3.2,Emerson College
+house,CA,2025-10-21,62,38,3.6,CBS/YouGov
