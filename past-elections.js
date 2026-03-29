@@ -592,9 +592,17 @@ async function renderPastYear(year){
     const overallPRep = 1 - overallPDem;
 
     // Pills = win probability (prefer precomputed MC odds for all modes)
-    // Senate odds already include VP tiebreaker blending from compute step
     let pillPDem = overallPDem, pillPRep = overallPRep;
-    if (odds && odds.length){
+
+    // For single-race years, use direct model win probability (normal approx breaks for 1 seat)
+    if (LABEL_OVERRIDES[year] && contested.length === 1){
+      const st0 = contested[0];
+      const model0 = st0 ? getStateModelPast(year, mode, st0) : null;
+      if (model0){
+        pillPDem = model0.winProb.pD;
+        pillPRep = model0.winProb.pR;
+      }
+    } else if (odds && odds.length){
       const latest = odds[odds.length - 1];
       const mc = +latest.pDem;
       if (isFinite(mc)){ pillPDem = mc; pillPRep = 1 - mc; }
@@ -639,11 +647,13 @@ async function renderPastYear(year){
 
 
 
-    if (odds && odds.length){
+    if (!isSingleRace && odds && odds.length){
       renderPastComboChart(mode, odds, rule);
       if (ui.status) ui.status.textContent = `${odds.length} days · ${year} hindcast`;
       if (ui.status) ui.status.style.display = "block";
     } else if (isSingleRace){
+      // Clear any stale chart from previous year
+      if (ui.comboSvg) d3.select(ui.comboSvg).selectAll("*").remove();
       const st0 = contested[0];
       const model0 = st0 ? getStateModelPast(year, mode, st0) : null;
       if (model0 && ui.status){
@@ -986,24 +996,38 @@ async function renderPastCountyMap(year, mode, st, d){
       d3.select(event.currentTarget).attr("stroke","var(--ink)").attr("stroke-width",1.5);
       const name = getName(feat);
       const cd = countyRatios?.[st]?.counties?.[name];
-      let html = `<div class="stDate">${name}</div>`;
+      const tip = document.getElementById("pastTip");
+      if (!tip) return;
+
+      let marginStr = formatMarginDR(stateMargin) + " (statewide)";
+      let dPct = "", rPct = "";
       if (cd && model){
         const rawD = model.combinedPair.D * cd.dRatio;
         const rawR = model.combinedPair.R * cd.rRatio;
         const s = rawD + rawR;
         if (s > 0){
           const cm = 100*rawR/s - 100*rawD/s;
-          html += `<div class="stRow"><span class="stVal">${formatMarginDR(cm)}</span></div>`;
+          marginStr = formatMarginDR(cm);
+          dPct = (100*rawD/s).toFixed(1);
+          rPct = (100*rawR/s).toFixed(1);
         }
-      } else {
-        html += `<div class="stRow"><span class="stVal">${formatMarginDR(stateMargin)} (statewide)</span></div>`;
       }
-      showPastSimTip(event, html);
+      const side = marginStr.startsWith("D") ? "blue" : marginStr.startsWith("R") ? "red" : "";
+      tip.innerHTML =
+        `<div class="tipTop"><div class="tipHeader"><div>`+
+        `<p class="tipTitle" style="margin:0">${name}</p>`+
+        `<div class="tipSub" style="margin-top:6px">`+
+        `<span class="badge"><span class="dot ${side}"></span>${marginStr}</span>`+
+        `</div></div>`+
+        (dPct ? `<div class="tipMeta">D ${dPct} · R ${rPct}</div>` : "")+
+        `</div></div>`;
+      positionPastTip(event);
+      tip.style.opacity = "1";
     })
-    .on("mousemove", (event) => showPastSimTip(event))
+    .on("mousemove", (event) => positionPastTip(event))
     .on("mouseleave", (event) => {
       d3.select(event.currentTarget).attr("stroke","rgba(255,255,255,0.7)").attr("stroke-width",0.5);
-      hidePastSimTip();
+      hidePastTip();
     });
 }
 
