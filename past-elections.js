@@ -163,6 +163,8 @@ const PAST_DATA = {};  // PAST_DATA[year][mode] = { gb, ratios, polls }
 const PAST_ODDS = {};  // PAST_ODDS[year][mode] = [{date, pDem, expDem}]
 const PAST_HIST = {};  // PAST_HIST[year][mode] = latestHist array
 const PAST_IND  = {};  // PAST_IND[year][mode] = indicator national
+const PAST_RAW_POLLS = {}; // PAST_RAW_POLLS[year][mode][st] = [{date,dem,rep,sigma,pollster}]
+const PAST_RAW_GB = {};    // PAST_RAW_GB[year] = [{date,dem,rep}]
 
 /* ---------- Model computation (identical to forecast.js) ---------- */
 function computeGB(gb, ratio){ return normalizePair(gb.D * ratio.D, gb.R * ratio.R); }
@@ -231,6 +233,64 @@ function getStateModelPast(year, mode, st){
   const winProb = winProbFromMargin(mFinal);
 
   return { gbPair, pollPair, indPair, combinedPair: combined.pair, winProb, mFinal };
+}
+
+/* ---------- Time series for single-race years ---------- */
+function computePastTimeSeries(year, mode, st){
+  const rawPolls = PAST_RAW_POLLS[year]?.[mode]?.[st];
+  const rawGb = PAST_RAW_GB[year];
+  const ratio = PAST_DATA[year]?.[mode]?.ratios?.[st];
+  if (!rawPolls?.length || !ratio) return [];
+
+  // Get unique poll dates
+  const dates = [...new Set(rawPolls.map(p => p.date))].sort();
+  const results = [];
+
+  for (const dateStr of dates){
+    // Polls up to this date — weighted rolling last 8
+    const pollsToDate = rawPolls.filter(p => p.date <= dateStr);
+    const window = pollsToDate.slice(-8);
+    let wSum=0, wD=0, wR=0;
+    for (const p of window){
+      const w = (year === 2025) ? pollWeight2025(p.pollster) : 1;
+      wSum += w; wD += w*p.dem; wR += w*p.rep;
+    }
+    if (wSum <= 0) continue;
+    const pollPair = normalizePair(wD/wSum, wR/wSum);
+
+    // GB at this date — find latest GB on or before this date
+    let gb = null;
+    if (rawGb?.length){
+      for (let i = rawGb.length - 1; i >= 0; i--){
+        if (rawGb[i].date <= dateStr){ gb = normalizePair(rawGb[i].dem, rawGb[i].rep); break; }
+      }
+      if (!gb) gb = normalizePair(rawGb[0].dem, rawGb[0].rep);
+    }
+    if (!gb) gb = PAST_DATA[year]?.[mode]?.gb || {D:50,R:50};
+
+    const gbPair = computeGB(gb, ratio);
+
+    // Indicator
+    const indPair = computeIndicatorState(
+      normalizePair(pollPair.D / ratio.D, pollPair.R / ratio.R), ratio
+    );
+
+    // Combine
+    const combined = weightedCombine([
+      { pair: gbPair, w: WEIGHTS.gb },
+      { pair: pollPair, w: WEIGHTS.polls },
+      { pair: indPair, w: WEIGHTS.ind },
+    ]);
+    const mFinal = marginRD(combined.pair);
+    const wp = winProbFromMargin(mFinal);
+
+    results.push({
+      date: dateStr,
+      pDem: wp.pD,
+      expDem: combined.pair.D
+    });
+  }
+  return results;
 }
 
 /* ---------- UI refs ---------- */
@@ -341,6 +401,32 @@ async function loadPastPresidentialPolls(year){
 }
 
 async function loadPastGBPolls(year){
+  // For 2025 off-year: use the 2026 forecast's GB polls (already loaded by forecast.js)
+  if (year === 2025 && typeof GB_SRC !== "undefined" && GB_SRC?.raw?.length){
+    const electionDay = new Date(2025, 10, 4); // Nov 4, 2025
+    const polls = GB_SRC.raw
+      .filter(p => p.date && p.date <= electionDay)
+      .map(p => {
+        const d = p.date;
+        const ds = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
+        return { date: ds, dem: p.dem, rep: p.rep };
+      })
+      .sort((a,b) => a.date.localeCompare(b.date));
+
+    if (polls.length){
+      if (!PAST_DATA[year]) PAST_DATA[year] = {};
+      PAST_RAW_GB[year] = polls;
+      const gb = rollingAvg(polls, GB_WINDOW);
+      for (const mode of ["senate","governor","house"]){
+        if (!PAST_DATA[year][mode]) PAST_DATA[year][mode] = { gb:null, ratios:{}, polls:{} };
+        if (gb) PAST_DATA[year][mode].gb = gb;
+      }
+      console.log(`Loaded ${polls.length} GB polls for ${year} from forecast GB_SRC, GB: D=${gb?.D?.toFixed(1)} R=${gb?.R?.toFixed(1)}`);
+      return polls;
+    }
+  }
+
+  // Fallback: load from file
   const file = `${year}_gb_polls.json`;
   try {
     const j = await fetch(file, {cache:"no-store"}).then(r=>{ if(!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); });
@@ -350,6 +436,7 @@ async function loadPastGBPolls(year){
       .sort((a,b) => a.date.localeCompare(b.date));
 
     if (!PAST_DATA[year]) PAST_DATA[year] = {};
+    PAST_RAW_GB[year] = polls.slice();
     const gb = rollingAvg(polls, GB_WINDOW);
     for (const mode of ["senate","governor","house"]){
       if (!PAST_DATA[year][mode]) PAST_DATA[year][mode] = { gb:null, ratios:{}, polls:{} };
@@ -388,6 +475,12 @@ async function loadPastStatePolls(year){
       const [mode, st] = key.split("|");
       if (!PAST_DATA[year][mode]) continue;
       polls.sort((a,b) => a.date.localeCompare(b.date));
+
+      // Store raw polls for time series
+      if (!PAST_RAW_POLLS[year]) PAST_RAW_POLLS[year] = {};
+      if (!PAST_RAW_POLLS[year][mode]) PAST_RAW_POLLS[year][mode] = {};
+      PAST_RAW_POLLS[year][mode][st] = polls.slice();
+
       const last = polls.slice(-12);
 
       if (year === 2025){
@@ -652,13 +745,21 @@ async function renderPastYear(year){
       if (ui.status) ui.status.textContent = `${odds.length} days · ${year} hindcast`;
       if (ui.status) ui.status.style.display = "block";
     } else if (isSingleRace){
-      // Clear any stale chart from previous year
-      if (ui.comboSvg) d3.select(ui.comboSvg).selectAll("*").remove();
+      // Compute time series from raw polls and render chart
       const st0 = contested[0];
-      const model0 = st0 ? getStateModelPast(year, mode, st0) : null;
-      if (model0 && ui.status){
-        ui.status.textContent = `Model: ${formatMarginDR(model0.mFinal)}`;
-        ui.status.style.display = "block";
+      if (st0){
+        const ts = computePastTimeSeries(year, mode, st0);
+        if (ts.length){
+          // Store so chart tab switching works
+          if (!PAST_ODDS[year]) PAST_ODDS[year] = {};
+          PAST_ODDS[year][mode] = ts;
+          renderPastComboChart(mode, ts, rule);
+          if (ui.status) ui.status.textContent = `Model: ${formatMarginDR(getStateModelPast(year, mode, st0)?.mFinal)}`;
+        } else {
+          if (ui.comboSvg) d3.select(ui.comboSvg).selectAll("*").remove();
+          if (ui.status) ui.status.textContent = `Model: ${formatMarginDR(getStateModelPast(year, mode, st0)?.mFinal)}`;
+        }
+        if (ui.status) ui.status.style.display = "block";
       }
     } else {
       if (ui.status) ui.status.textContent = `Awaiting precomputed odds`;
