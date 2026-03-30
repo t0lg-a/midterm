@@ -1,6 +1,60 @@
 {
-  "updatedAt": "2026-03-29T21:53:56.268Z",
+  "updatedAt": "2026-03-30T12:07:44.709Z",
   "approval": [
+    {
+      "id": "appdonqua9d4a63f0",
+      "poll_type": "approval",
+      "sample_size": 1472,
+      "population": "lv",
+      "url": "https://docs.google.com/spreadsheets/d/1_Fz7pWK_RfSVQ__18QujNi-QPw5jJIqX/edit?gid=1786900467#gid=1786900467",
+      "created_at": "2026-03-29",
+      "start_date": "2026-03-25",
+      "end_date": "2026-03-26",
+      "pollster": "Quantus Insights",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 42.2
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 56.6
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonrmgdedc2486",
+      "poll_type": "approval",
+      "sample_size": 3000,
+      "population": "rv",
+      "url": "https://napolitannews.org/jobapproval#03-26-2026",
+      "created_at": "2026-03-29",
+      "start_date": "2026-03-18",
+      "end_date": "2026-03-26",
+      "pollster": "RMG Research",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 45
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 54
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Napolitan Institute"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
     {
       "id": "appdonbigbc8e668f",
       "poll_type": "approval",
@@ -30054,6 +30108,32 @@
         {
           "choice": "Rep",
           "pct": 40
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202quaf01fa8df",
+      "poll_type": "generic-ballot",
+      "sample_size": 1470,
+      "population": "lv",
+      "url": "https://docs.google.com/spreadsheets/d/1_Fz7pWK_RfSVQ__18QujNi-QPw5jJIqX/edit?gid=1786900467#gid=1786900467",
+      "created_at": "2026-03-29",
+      "start_date": "2026-03-25",
+      "end_date": "2026-03-26",
+      "pollster": "Quantus Insights",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 47
+        },
+        {
+          "choice": "Rep",
+          "pct": 41.3
         }
       ],
       "seat_name": null,
