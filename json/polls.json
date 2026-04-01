@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-31T12:04:04.917Z",
+  "updatedAt": "2026-04-01T12:05:52.874Z",
   "approval": [
     {
       "id": "appdonqua9d4a63f0",
@@ -20624,32 +20624,6 @@
       "sponsors": [
         "DailyMail.com"
       ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonmor25tcqf7d",
-      "poll_type": "approval",
-      "sample_size": 2225,
-      "population": "rv",
-      "url": "https://pro.morningconsult.com/trackers/donald-trump-congress-policy-republicans-polling",
-      "created_at": "2025-02-24",
-      "start_date": "2025-02-21",
-      "end_date": "2025-02-24",
-      "pollster": "Morning Consult",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 50
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 47
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
