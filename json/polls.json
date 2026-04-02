@@ -1,6 +1,116 @@
 {
-  "updatedAt": "2026-04-01T12:05:52.874Z",
+  "updatedAt": "2026-04-02T12:02:35.660Z",
   "approval": [
+    {
+      "id": "appdonyoudc541f1f",
+      "poll_type": "approval",
+      "sample_size": 1505,
+      "population": "rv",
+      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_3wplfYX.pdf#page=22",
+      "created_at": "2026-04-01",
+      "start_date": "2026-03-27",
+      "end_date": "2026-03-30",
+      "pollster": "YouGov",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 39
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 58
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "The Economist"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonyou07bd2839",
+      "poll_type": "approval",
+      "sample_size": 1679,
+      "population": "a",
+      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_3wplfYX.pdf#page=22",
+      "created_at": "2026-04-01",
+      "start_date": "2026-03-27",
+      "end_date": "2026-03-30",
+      "pollster": "YouGov",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 35
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 58
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "The Economist"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdoncnn8b714327",
+      "poll_type": "approval",
+      "sample_size": null,
+      "population": "rv",
+      "url": "https://www.documentcloud.org/documents/27964261-cnn-poll-conducted-by-ssrs-trump-approval-economy",
+      "created_at": "2026-04-01",
+      "start_date": "2026-03-26",
+      "end_date": "2026-03-30",
+      "pollster": "CNN/SSRS",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 38
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 62
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "The Economist"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdoncnn8a453a25",
+      "poll_type": "approval",
+      "sample_size": 1201,
+      "population": "a",
+      "url": "https://www.documentcloud.org/documents/27964261-cnn-poll-conducted-by-ssrs-trump-approval-economy",
+      "created_at": "2026-04-01",
+      "start_date": "2026-03-26",
+      "end_date": "2026-03-30",
+      "pollster": "CNN/SSRS",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 35
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 64
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
     {
       "id": "appdonqua9d4a63f0",
       "poll_type": "approval",
@@ -160,6 +270,34 @@
       "seat_name": null,
       "sponsors": [
         "Public Polling Project"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonj.l4cbff896",
+      "poll_type": "approval",
+      "sample_size": 1019,
+      "population": "rv",
+      "url": "https://www.dailymail.co.uk/news/article-15692097/amp/donald-trump-polling-iran-rebound.html",
+      "created_at": "2026-04-01",
+      "start_date": "2026-03-23",
+      "end_date": "2026-03-24",
+      "pollster": "J.L. Partners",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 41
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 49
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "DailyMail.com"
       ],
       "internal": false,
       "partisan": null,
@@ -20543,90 +20681,6 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonyouhi4oy3fu",
-      "poll_type": "approval",
-      "sample_size": 1604,
-      "population": "a",
-      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econtoplines_7jv80Av.pdf",
-      "created_at": "2025-02-26",
-      "start_date": "2025-02-23",
-      "end_date": "2025-02-25",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 48
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 45
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Economist"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonyouar4bz7zb",
-      "poll_type": "approval",
-      "sample_size": 1444,
-      "population": "rv",
-      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_1q7T4HA.pdf",
-      "created_at": "2025-02-26",
-      "start_date": "2025-02-23",
-      "end_date": "2025-02-25",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 48
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 47
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Economist"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonj.lb87kw4h1",
-      "poll_type": "approval",
-      "sample_size": 1001,
-      "population": "rv",
-      "url": "https://jlpartners.com/doge-poll",
-      "created_at": "2025-02-27",
-      "start_date": "2025-02-24",
-      "end_date": "2025-02-25",
-      "pollster": "J.L. Partners",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 45
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 39
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "DailyMail.com"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -30221,6 +30275,90 @@
       "seat_name": null,
       "sponsors": [
         "Harvard CAPS"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202you13c9e3ae",
+      "poll_type": "generic-ballot",
+      "sample_size": 1502,
+      "population": "rv",
+      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_3wplfYX.pdf#page=50",
+      "created_at": "2026-04-01",
+      "start_date": "2026-03-27",
+      "end_date": "2026-03-30",
+      "pollster": "YouGov",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 45
+        },
+        {
+          "choice": "Rep",
+          "pct": 39
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "The Economist"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202you5ba4707a",
+      "poll_type": "generic-ballot",
+      "sample_size": 1674,
+      "population": "a",
+      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_3wplfYX.pdf#page=50",
+      "created_at": "2026-04-01",
+      "start_date": "2026-03-27",
+      "end_date": "2026-03-30",
+      "pollster": "YouGov",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 39
+        },
+        {
+          "choice": "Rep",
+          "pct": 33
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "The Economist"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202mor21cd6c2a",
+      "poll_type": "generic-ballot",
+      "sample_size": 15029,
+      "population": "a",
+      "url": "https://www.gamblingisnotinvesting.com/morning-consult-poll-reveals-americans-concerns-with-prediction-markets",
+      "created_at": "2026-04-01",
+      "start_date": "2026-03-17",
+      "end_date": "2026-03-22",
+      "pollster": "Morning Consult",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 47
+        },
+        {
+          "choice": "Rep",
+          "pct": 42
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Gambling Is Not Investing"
       ],
       "internal": false,
       "partisan": null,
