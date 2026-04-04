@@ -1,6 +1,60 @@
 {
-  "updatedAt": "2026-04-03T11:56:28.782Z",
+  "updatedAt": "2026-04-04T11:48:28.848Z",
   "approval": [
+    {
+      "id": "appdonrmg33f4cd7a",
+      "poll_type": "approval",
+      "sample_size": 3000,
+      "population": "rv",
+      "url": "https://napolitannews.org/jobapproval#04-02-2026",
+      "created_at": "2026-04-03",
+      "start_date": "2026-03-25",
+      "end_date": "2026-04-02",
+      "pollster": "RMG Research",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 40
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 58
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Napolitan Institute"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonact41bbc8fa",
+      "poll_type": "approval",
+      "sample_size": 598,
+      "population": "a",
+      "url": "https://www.activote.net/trumps-approval-holding-steady-2",
+      "created_at": "2026-04-03",
+      "start_date": "2026-03-01",
+      "end_date": "2026-03-31",
+      "pollster": "ActiVote",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 42
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 55
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
     {
       "id": "appdonyoudc541f1f",
       "poll_type": "approval",
@@ -78,9 +132,7 @@
         }
       ],
       "seat_name": null,
-      "sponsors": [
-        "The Economist"
-      ],
+      "sponsors": [],
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
@@ -103,6 +155,32 @@
         {
           "choice": "Disapprove",
           "pct": 64
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonmorbb997d50",
+      "poll_type": "approval",
+      "sample_size": 2203,
+      "population": "rv",
+      "url": "https://pro.morningconsult.com/trackers/donald-trump-congress-policy-republicans-polling#03-29-2026",
+      "created_at": "2026-04-03",
+      "start_date": "2026-03-27",
+      "end_date": "2026-03-29",
+      "pollster": "Morning Consult",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 43
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 54
         }
       ],
       "seat_name": null,
@@ -2351,6 +2429,32 @@
         {
           "choice": "Disapprove",
           "pct": 58
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdoncha5a7531f8",
+      "poll_type": "approval",
+      "sample_size": 1741,
+      "population": "rv",
+      "url": "https://changeresearch.com/voters-voice-frustration-and-financial-strain",
+      "created_at": "2026-04-03",
+      "start_date": "2026-02-05",
+      "end_date": "2026-02-18",
+      "pollster": "Change Research",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 43
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 55
         }
       ],
       "seat_name": null,
@@ -20541,32 +20645,6 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonatljv7z0qo1",
-      "poll_type": "approval",
-      "sample_size": 2849,
-      "population": "a",
-      "url": "https://www.atlasintel.org/poll/usa-national-2025-02-28",
-      "created_at": "2025-02-28",
-      "start_date": "2025-02-24",
-      "end_date": "2025-02-27",
-      "pollster": "AtlasIntel",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 50.3
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 49.7
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -30246,6 +30324,58 @@
       "sponsors": [
         "Gambling Is Not Investing"
       ],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202cnn96858d5d",
+      "poll_type": "generic-ballot",
+      "sample_size": 951,
+      "population": "rv",
+      "url": "https://embed.documentcloud.org/documents/28014525-cnn-poll-conducted-by-ssrs-2026-midterms-parties/?embed=1&responsive=1&title=1&onlyshoworg=1",
+      "created_at": "2026-04-03",
+      "start_date": "2026-03-26",
+      "end_date": "2026-03-30",
+      "pollster": "CNN/SSRS",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 48
+        },
+        {
+          "choice": "Rep",
+          "pct": 42
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202mor1a15291a",
+      "poll_type": "generic-ballot",
+      "sample_size": 26725,
+      "population": "rv",
+      "url": "https://pro.morningconsult.com/trackers/2026-midterm-election-generic-ballot-polls#03-29-2026",
+      "created_at": "2026-04-03",
+      "start_date": "2026-03-23",
+      "end_date": "2026-03-29",
+      "pollster": "Morning Consult",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 45
+        },
+        {
+          "choice": "Rep",
+          "pct": 42
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
       "internal": false,
       "partisan": null,
       "subject": "2026"
