@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-04-05T11:48:51.856Z",
+  "updatedAt": "2026-04-06T12:02:22.470Z",
   "approval": [
     {
       "id": "appdonrmg33f4cd7a",
@@ -20480,32 +20480,6 @@
       "sponsors": [
         "Working Families Party"
       ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonjohb514tf2z",
-      "poll_type": "approval",
-      "sample_size": 1001,
-      "population": "v",
-      "url": "https://johnzogbystrategies.com/03-03-25-new-zogby-strategies-poll-on-trump-the-democrats-first-40-days/",
-      "created_at": "2025-03-03",
-      "start_date": "2025-02-28",
-      "end_date": "2025-03-01",
-      "pollster": "John Zogby Strategies",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 47.7
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 47.5
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
