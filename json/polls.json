@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-04-06T12:02:22.470Z",
+  "updatedAt": "2026-04-07T12:06:17.741Z",
   "approval": [
     {
       "id": "appdonrmg33f4cd7a",
@@ -20401,88 +20401,6 @@
       "internal": false,
       "partisan": "DEM",
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonmordzkj93zt",
-      "poll_type": "approval",
-      "sample_size": 2229,
-      "population": "rv",
-      "url": "https://pro.morningconsult.com/trackers/donald-trump-congress-policy-republicans-polling",
-      "created_at": "2025-03-03",
-      "start_date": "2025-02-28",
-      "end_date": "2025-03-02",
-      "pollster": "Morning Consult",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 49
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 48
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonpubpapdmyd9",
-      "poll_type": "approval",
-      "sample_size": 1000,
-      "population": "rv",
-      "url": "https://paragoninstitute.org/medicaid/paragon-health-policy-survey-2025/",
-      "created_at": "2025-03-26",
-      "start_date": "2025-02-25",
-      "end_date": "2025-03-02",
-      "pollster": "Public Opinion Strategies",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 51
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 49
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Paragon Health Institute"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonjusgx5p2m85",
-      "poll_type": "approval",
-      "sample_size": 2049,
-      "population": "rv",
-      "url": "https://drive.google.com/file/d/1psgeNBsAPSV3-diBTaAIE4_wiFjYwk5y/view",
-      "created_at": "2025-03-24",
-      "start_date": "2025-02-24",
-      "end_date": "2025-03-02",
-      "pollster": "Justice Research Fund",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 47
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 50
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Working Families Party"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -20614,34 +20532,6 @@
       ],
       "seat_name": null,
       "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "2026"
-    },
-    {
-      "id": "genconpubv3i0h704",
-      "poll_type": "generic-ballot",
-      "sample_size": 1000,
-      "population": "rv",
-      "url": "https://paragoninstitute.org/medicaid/paragon-health-policy-survey-2025/",
-      "created_at": "2025-03-26",
-      "start_date": "2025-02-25",
-      "end_date": "2025-03-02",
-      "pollster": "Public Opinion Strategies",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 44
-        },
-        {
-          "choice": "Rep",
-          "pct": 46
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Paragon Health Institute"
-      ],
       "internal": false,
       "partisan": null,
       "subject": "2026"
