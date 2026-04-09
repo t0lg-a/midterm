@@ -1,6 +1,116 @@
 {
-  "updatedAt": "2026-04-08T12:05:54.155Z",
+  "updatedAt": "2026-04-09T12:07:16.182Z",
   "approval": [
+    {
+      "id": "appdonmorcb8f95cf",
+      "poll_type": "approval",
+      "sample_size": 45000,
+      "population": "a",
+      "url": "https://pro.morningconsult.com/trackers/global-leader-approval#04-07-2026",
+      "created_at": "2026-04-08",
+      "start_date": "2026-04-01",
+      "end_date": "2026-04-07",
+      "pollster": "Morning Consult",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 39
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 55
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdongloa2aa5d15",
+      "poll_type": "approval",
+      "sample_size": 1000,
+      "population": "rv",
+      "url": "https://navigatorresearch.org/wp-content/uploads/2026/04/Navigator-Update-04.08.2026.pdf",
+      "created_at": "2026-04-08",
+      "start_date": "2026-04-02",
+      "end_date": "2026-04-06",
+      "pollster": "Global Strategy Group",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 40
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 58
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Navigator Research"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonyouf9a1a937",
+      "poll_type": "approval",
+      "sample_size": 1560,
+      "population": "rv",
+      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_SVRZJH8.pdf#page=16",
+      "created_at": "2026-04-08",
+      "start_date": "2026-04-03",
+      "end_date": "2026-04-06",
+      "pollster": "YouGov",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 41
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 56
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "The Economist"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonyou6db8871f",
+      "poll_type": "approval",
+      "sample_size": 1750,
+      "population": "a",
+      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_SVRZJH8.pdf#page=16",
+      "created_at": "2026-04-08",
+      "start_date": "2026-04-03",
+      "end_date": "2026-04-06",
+      "pollster": "YouGov",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 38
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 55
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "The Economist"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
     {
       "id": "appdonrmg33f4cd7a",
       "poll_type": "approval",
@@ -24,6 +134,34 @@
       "seat_name": null,
       "sponsors": [
         "Napolitan Institute"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdontip300a6427",
+      "poll_type": "approval",
+      "sample_size": 1464,
+      "population": "a",
+      "url": "https://issuesinsights.com/2026/04/07/trumps-popularity-took-a-hit-in-april-is-iran-war-reason-why-or-something-else-ii-tipp-poll",
+      "created_at": "2026-04-08",
+      "start_date": "2026-03-31",
+      "end_date": "2026-04-02",
+      "pollster": "TIPP Insights",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 39
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 53
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Issues & Insights"
       ],
       "internal": false,
       "partisan": null,
@@ -161,6 +299,34 @@
       "sponsors": [],
       "internal": false,
       "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonlakb11b4da9",
+      "poll_type": "approval",
+      "sample_size": 800,
+      "population": "lv",
+      "url": "https://freespeechforpeople.org/wp-content/uploads/2026/04/publictopline.freespeech.party_.2026.04.01.pdf",
+      "created_at": "2026-04-08",
+      "start_date": "2026-03-26",
+      "end_date": "2026-03-30",
+      "pollster": "Lake Research Partners",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 38
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 57
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Free Speech For People"
+      ],
+      "internal": false,
+      "partisan": "DEM",
       "subject": "Donald Trump"
     },
     {
@@ -20291,62 +20457,6 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonips4x59vt9j",
-      "poll_type": "approval",
-      "sample_size": 1174,
-      "population": "a",
-      "url": "https://www.ipsos.com/en-us/three-five-americans-say-cost-living-going-wrong-direction",
-      "created_at": "2025-03-04",
-      "start_date": "2025-03-03",
-      "end_date": "2025-03-04",
-      "pollster": "Ipsos",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 44
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 51
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Reuters"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonyouy4rpj2zp",
-      "poll_type": "approval",
-      "sample_size": 1638,
-      "population": "a",
-      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_uHE5Cxl.pdf",
-      "created_at": "2025-03-07",
-      "start_date": "2025-03-01",
-      "end_date": "2025-03-04",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 48
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 46
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Economist"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -30024,6 +30134,140 @@
       ],
       "seat_name": null,
       "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202cyg5dc20dbb",
+      "poll_type": "generic-ballot",
+      "sample_size": 1500,
+      "population": "lv",
+      "url": "https://www.cygn.al/wp-content/uploads/2026/04/23738-Cygnal-National-Apr26-NVT-Deck-Public.pdf",
+      "created_at": "2026-04-08",
+      "start_date": "2026-04-02",
+      "end_date": "2026-04-03",
+      "pollster": "Cygnal",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 49
+        },
+        {
+          "choice": "Rep",
+          "pct": 43
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202morb92de0d5",
+      "poll_type": "generic-ballot",
+      "sample_size": 2200,
+      "population": "rv",
+      "url": "https://pro.morningconsult.com/trackers/donald-trump-congress-policy-republicans-polling#04-06-2026",
+      "created_at": "2026-04-08",
+      "start_date": "2026-04-03",
+      "end_date": "2026-04-06",
+      "pollster": "Morning Consult",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 45
+        },
+        {
+          "choice": "Rep",
+          "pct": 42
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202mor2e2d0029",
+      "poll_type": "generic-ballot",
+      "sample_size": 26725,
+      "population": "rv",
+      "url": "https://pro.morningconsult.com/trackers/2026-midterm-election-generic-ballot-polls#03-29-2026",
+      "created_at": "2026-04-08",
+      "start_date": "2026-03-23",
+      "end_date": "2026-03-29",
+      "pollster": "Morning Consult",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 45
+        },
+        {
+          "choice": "Rep",
+          "pct": 42
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202you47b39b9a",
+      "poll_type": "generic-ballot",
+      "sample_size": 1558,
+      "population": "rv",
+      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_SVRZJH8.pdf#page=30",
+      "created_at": "2026-04-08",
+      "start_date": "2026-04-03",
+      "end_date": "2026-04-06",
+      "pollster": "YouGov",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 44
+        },
+        {
+          "choice": "Rep",
+          "pct": 42
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "The Economist"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202youd8d72505",
+      "poll_type": "generic-ballot",
+      "sample_size": 1745,
+      "population": "a",
+      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_SVRZJH8.pdf#page=30",
+      "created_at": "2026-04-08",
+      "start_date": "2026-04-03",
+      "end_date": "2026-04-06",
+      "pollster": "YouGov",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 38
+        },
+        {
+          "choice": "Rep",
+          "pct": 36
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "The Economist"
+      ],
       "internal": false,
       "partisan": null,
       "subject": "2026"
