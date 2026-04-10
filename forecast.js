@@ -82,8 +82,8 @@ function winArcSVG(pD, size){
     ${seg(rLen)>0?`<path d="${pathD}" fill="none" stroke="url(#gaR)" stroke-width="${strokeW}" stroke-linecap="round" stroke-dasharray="${seg(rLen)} ${sc}" stroke-dashoffset="0" filter="url(#sGl)" opacity="0.85"/>`:""}
     ${seg(dLen)>0?`<path d="${pathD}" fill="none" stroke="url(#gaB)" stroke-width="${strokeW}" stroke-linecap="round" stroke-dasharray="${seg(dLen)} ${sc}" stroke-dashoffset="${-(rLen+gap/2)}" filter="url(#sGl)" opacity="0.85"/>`:""}
     ${ticks}
-    <line x1="${cx}" y1="${cy}" x2="${nx.toFixed(1)}" y2="${ny.toFixed(1)}" stroke="#1f2937" stroke-width="1.8" stroke-linecap="round" filter="url(#nSh)"/>
-    <circle cx="${cx}" cy="${cy}" r="3.5" fill="#1f2937"/><circle cx="${cx}" cy="${cy}" r="1.8" fill="white"/>
+    <line x1="${cx}" y1="${cy}" x2="${nx.toFixed(1)}" y2="${ny.toFixed(1)}" stroke="var(--ink)" stroke-width="1.8" stroke-linecap="round" filter="url(#nSh)"/>
+    <circle cx="${cx}" cy="${cy}" r="3.5" fill="var(--ink)"/><circle cx="${cx}" cy="${cy}" r="1.8" fill="white"/>
     <text x="${cx}" y="${cy+16}" text-anchor="middle" style="font-size:16px;font-weight:900;letter-spacing:-0.04em;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;fill:${pctColor}">${pct}%</text>
   </svg>`;
 }
@@ -1995,7 +1995,7 @@ async function initStateMapForMode(modeKey, ui){
     })
     .attr("data-st", d => fipsToUsps(d.id))
     .attr("d", d => pathGen(d))
-    .attr("fill", "#e5e7eb")
+    .attr("fill", "var(--neutral-bg)")
     .on("mouseenter", (event, d)=>{
       const st = fipsToUsps(d.id);
       if (!st) return;
@@ -2341,9 +2341,9 @@ function showCountyTooltip(event, modeKey, usps, countyName){
     if (rows.length){
       histHTML = `
         <div style="margin-top:6px;border-top:1px solid rgba(0,0,0,0.05);padding-top:6px;">
-          <div style="font-size:7px;font-weight:700;color:#b0b5bc;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:3px;">Historical</div>
+          <div style="font-size:7px;font-weight:700;color:var(--muted-light);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:3px;">Historical</div>
           <div style="display:grid;grid-template-columns:auto 1fr 1fr;gap:2px 8px;font-size:10px;font-variant-numeric:tabular-nums;font-family:var(--mono);">
-            ${rows.map(([label,d,r])=>`<span style="color:#8b919a;font-weight:700;">${label}</span><span style="color:var(--blue);font-weight:700;">${Number(d).toFixed(1)}</span><span style="color:var(--red);font-weight:700;">${Number(r).toFixed(1)}</span>`).join("")}
+            ${rows.map(([label,d,r])=>`<span style="color:var(--muted);font-weight:700;">${label}</span><span style="color:var(--blue);font-weight:700;">${Number(d).toFixed(1)}</span><span style="color:var(--red);font-weight:700;">${Number(r).toFixed(1)}</span>`).join("")}
           </div>
         </div>
       `;
@@ -2356,7 +2356,7 @@ function showCountyTooltip(event, modeKey, usps, countyName){
       <div class="panelNameRow">
         <span class="panelName">${countyName} Co. <span class="panelUsps">${usps}</span></span>
       </div>
-      <div style="margin-top:4px;font-size:8px;font-weight:600;color:#8b919a;">${modeKey === "senate" ? "Senate" : "Gov"} '26 estimate</div>
+      <div style="margin-top:4px;font-size:8px;font-weight:600;color:var(--muted);">${modeKey === "senate" ? "Senate" : "Gov"} '26 estimate</div>
     </div>
     <div class="panelHero" style="padding:8px 12px 6px;">
       <div class="panelMarginBlock">
@@ -2366,7 +2366,7 @@ function showCountyTooltip(event, modeKey, usps, countyName){
       <div style="text-align:right;">
         <div style="font-size:9px;font-weight:800;font-family:var(--mono);font-variant-numeric:tabular-nums;">
           <span style="color:var(--blue)">D ${estD.toFixed(1)}</span>
-          <span style="color:#ced2d8;margin:0 2px;">·</span>
+          <span style="color:var(--line-strong);margin:0 2px;">·</span>
           <span style="color:var(--red)">R ${estR.toFixed(1)}</span>
         </div>
         <div style="margin-top:2px;display:flex;gap:3px;justify-content:flex-end;">
@@ -2643,7 +2643,7 @@ function recolorMapForMode(modeKey){
 
       if (!ratio){
         this.removeAttribute("display");
-        this.style.fill = "#e5e7eb";
+        this.style.fill = getComputedStyle(document.documentElement).getPropertyValue("--neutral-bg").trim()||"#e5e7eb";
         this.classList.remove("filtered");
         return;
       }
@@ -2651,7 +2651,7 @@ function recolorMapForMode(modeKey){
       const model = getHouseModel(did);
       if (!model){
         this.removeAttribute("display");
-        this.style.fill = "#e5e7eb";
+        this.style.fill = getComputedStyle(document.documentElement).getPropertyValue("--neutral-bg").trim()||"#e5e7eb";
         this.classList.add("filtered");
         return;
       }
@@ -2670,8 +2670,8 @@ function recolorMapForMode(modeKey){
 
     if (!ratio){
       this.removeAttribute("display");
-      this.style.fill = "#e5e7eb";
-      this.setAttribute("fill", "#e5e7eb");
+      this.style.fill = getComputedStyle(document.documentElement).getPropertyValue("--neutral-bg").trim()||"#e5e7eb";
+      this.setAttribute("fill", getComputedStyle(document.documentElement).getPropertyValue("--neutral-bg").trim()||"#e5e7eb");
       this.classList.remove("active","filtered");
       return;
     }
@@ -2681,8 +2681,8 @@ function recolorMapForMode(modeKey){
     const model = getStateModel(modeKey, st, IND_CACHE[modeKey]);
     if (!model){
       this.removeAttribute("display");
-      this.style.fill = "#e5e7eb";
-      this.setAttribute("fill", "#e5e7eb");
+      this.style.fill = getComputedStyle(document.documentElement).getPropertyValue("--neutral-bg").trim()||"#e5e7eb";
+      this.setAttribute("fill", getComputedStyle(document.documentElement).getPropertyValue("--neutral-bg").trim()||"#e5e7eb");
       this.classList.add("filtered");
       return;
     }

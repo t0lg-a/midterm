@@ -229,7 +229,7 @@ async function initSwingMap(mode){
     })
     .attr("data-st", d => fipsToUsps(d.id))
     .attr("d", d => pathGen(d))
-    .attr("fill", "#e5e7eb")
+    .attr("fill", "var(--neutral-bg)")
     .on("mouseenter", (event, d) => {
       const st = fipsToUsps(d.id);
       if (!st || !DATA[mode]?.ratios[st]) return;
@@ -395,7 +395,7 @@ function swingRecolorHouseMap(gb){
     const ratio = ratios[did];
 
     if (!ratio){
-      this.style.fill = "#e5e7eb";
+      this.style.fill = getComputedStyle(document.documentElement).getPropertyValue("--neutral-bg").trim()||"#e5e7eb";
       return;
     }
 

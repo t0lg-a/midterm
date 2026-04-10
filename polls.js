@@ -337,23 +337,23 @@ function dualScatter(el,polls,avg,lA,lB,cA,cB){
 /* ======== POLL TABLE ======== */
 function pollTable(el,rows,lA,lB,cA,cB){
   if(!el)return;
-  if(!rows.length){el.innerHTML=`<div style="padding:16px;color:#6b7280;font:12px ${FONT}">No polls</div>`;return;}
+  if(!rows.length){el.innerHTML=`<div style="padding:16px;color:var(--muted);font:12px ${FONT}">No polls</div>`;return;}
   const ca=cA||"#2563eb",cb=cB||"#dc2626";
   let h=`<table style="width:100%;border-collapse:collapse;font:600 11px/1.4 ${FONT};font-variant-numeric:tabular-nums">`;
-  h+=`<thead><tr style="background:#f9fafb;font:800 10px/1.4 ${FONT};text-transform:uppercase;letter-spacing:.04em;color:#6b7280">`;
-  h+=`<th style="padding:6px 8px;text-align:left;border-bottom:1px solid #e5e7eb;position:sticky;top:0;background:#f9fafb;z-index:2">Date</th>`;
-  h+=`<th style="padding:6px 8px;text-align:left;border-bottom:1px solid #e5e7eb;position:sticky;top:0;background:#f9fafb;z-index:2">Pollster</th>`;
-  h+=`<th style="padding:6px 8px;text-align:left;border-bottom:1px solid #e5e7eb;position:sticky;top:0;background:#f9fafb;z-index:2;color:${ca}">${lA}</th>`;
-  h+=`<th style="padding:6px 8px;text-align:left;border-bottom:1px solid #e5e7eb;position:sticky;top:0;background:#f9fafb;z-index:2;color:${cb}">${lB}</th>`;
-  h+=`<th style="padding:6px 8px;text-align:left;border-bottom:1px solid #e5e7eb;position:sticky;top:0;background:#f9fafb;z-index:2">Margin</th>`;
+  h+=`<thead><tr style="background:var(--neutral-bg);font:800 10px/1.4 ${FONT};text-transform:uppercase;letter-spacing:.04em;color:var(--muted)">`;
+  h+=`<th style="padding:6px 8px;text-align:left;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--neutral-bg);z-index:2">Date</th>`;
+  h+=`<th style="padding:6px 8px;text-align:left;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--neutral-bg);z-index:2">Pollster</th>`;
+  h+=`<th style="padding:6px 8px;text-align:left;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--neutral-bg);z-index:2;color:${ca}">${lA}</th>`;
+  h+=`<th style="padding:6px 8px;text-align:left;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--neutral-bg);z-index:2;color:${cb}">${lB}</th>`;
+  h+=`<th style="padding:6px 8px;text-align:left;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--neutral-bg);z-index:2">Margin</th>`;
   h+=`</tr></thead><tbody>`;
   for(const p of rows){
     const m=p.a-p.b;
     const ms=Math.abs(m)<.05?"Tied":(m>0?`${lA}+${m.toFixed(1)}`:`${lB}+${Math.abs(m).toFixed(1)}`);
-    const mc=m>0?ca:(m<0?cb:"#6b7280");
+    const mc=m>0?ca:(m<0?cb:"var(--muted)");
     h+=`<tr style="border-bottom:1px solid rgba(229,231,235,.5)">`;
     h+=`<td style="padding:5px 8px;font:600 11px ${FONT};white-space:nowrap">${ds(p.date)}</td>`;
-    h+=`<td style="padding:5px 8px;font:500 11px ${FONT};max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#374151">${String(p.ps||"").slice(0,28)}</td>`;
+    h+=`<td style="padding:5px 8px;font:500 11px ${FONT};max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--ink-dim)">${String(p.ps||"").slice(0,28)}</td>`;
     h+=`<td style="padding:5px 8px;font:600 11px ${FONT};color:${ca}">${(+p.a).toFixed(1)}</td>`;
     h+=`<td style="padding:5px 8px;font:600 11px ${FONT};color:${cb}">${(+p.b).toFixed(1)}</td>`;
     h+=`<td style="padding:5px 8px;font:700 11px ${FONT};color:${mc}">${ms}</td>`;
@@ -397,7 +397,7 @@ async function initMap(mk){
   const g=svg.append("g");
   g.selectAll("path").data(geo.features).join("path")
     .attr("class",d=>{const st=fipsToUsps(d.id);return(st&&DATA[mk]?.ratios[st])?"state active":"state";})
-    .attr("data-st",d=>fipsToUsps(d.id)).attr("d",d=>path(d)).attr("fill","#e5e7eb")
+    .attr("data-st",d=>fipsToUsps(d.id)).attr("d",d=>path(d)).attr("fill","var(--neutral-bg)")
     .style("cursor",d=>{const st=fipsToUsps(d.id);return(st&&DATA[mk]?.ratios[st])?"pointer":"default";})
     .on("mouseenter",(ev,d)=>{
       const st=fipsToUsps(d.id);if(!st||!DATA[mk]?.ratios[st])return;
@@ -405,7 +405,7 @@ async function initMap(mk){
       const pp=STATE_POLL_SRC.byModeState?.[mk]?.[st],pc=pp?pp.length:0;
       let ms="No polls";
       if(pp&&pp.length){const l=pp[pp.length-1];const m=l.D-l.R;ms=Math.abs(m)<.05?"Tied":(m>0?`D+${m.toFixed(1)}`:`R+${Math.abs(m).toFixed(1)}`);}
-      showSimTip(ev,`<b>${USPS_TO_NAME[st]||st}</b> <b>${ms}</b> <span style="color:#6b7280;font-size:10px;margin-left:4px">${pc} poll${pc!==1?"s":""}</span>`);
+      showSimTip(ev,`<b>${USPS_TO_NAME[st]||st}</b> <b>${ms}</b> <span style="color:var(--muted);font-size:10px;margin-left:4px">${pc} poll${pc!==1?"s":""}</span>`);
     })
     .on("mousemove",ev=>{const el=document.getElementById("simTip");if(el)showSimTip(ev,el.innerHTML);})
     .on("mouseleave",ev=>{d3.select(ev.currentTarget).classed("hovered",false);hideSimTip();})
@@ -417,9 +417,9 @@ function recolorMap(mk){
   const m=PMAP[mk]; if(!m?.g)return;
   m.g.selectAll("path.state").each(function(){
     const st=this.getAttribute("data-st");
-    if(!st||!DATA[mk]?.ratios[st]){this.style.fill="#e5e7eb";return;}
+    if(!st||!DATA[mk]?.ratios[st]){this.style.fill=getComputedStyle(document.documentElement).getPropertyValue("--neutral-bg").trim()||"#e5e7eb";return;}
     const pp=STATE_POLL_SRC.byModeState?.[mk]?.[st];
-    if(!pp||!pp.length){this.style.fill="#f3f4f6";return;}
+    if(!pp||!pp.length){this.style.fill=getComputedStyle(document.documentElement).getPropertyValue("--neutral-bg").trim()||"#f3f4f6";return;}
     const w=Math.min(STATE_POLL_SRC.window||6,pp.length);
     let sD=0,sR=0;for(let i=pp.length-w;i<pp.length;i++){sD+=pp[i].D;sR+=pp[i].R;}
     this.style.fill=interpColor((sR/w)-(sD/w));
@@ -458,7 +458,7 @@ function stateScatter(mk,usps){
   const W=Math.max(320,Math.floor(r.width||400)),H=Math.max(180,Math.floor(r.height||220));
   const svg=d3.select(el); svg.selectAll("*").remove(); svg.attr("viewBox",`0 0 ${W} ${H}`);
   const mg={l:38,r:10,t:10,b:26},iw=W-mg.l-mg.r,ih=H-mg.t-mg.b;
-  if(!polls.length){svg.append("text").attr("x",W/2).attr("y",H/2).attr("text-anchor","middle").attr("fill","#6b7280").attr("font-size","12px").attr("font-weight","600").text("No polls for this state");return;}
+  if(!polls.length){svg.append("text").attr("x",W/2).attr("y",H/2).attr("text-anchor","middle").attr("fill","var(--muted)").attr("font-size","12px").attr("font-weight","600").text("No polls for this state");return;}
   const av=polls.flatMap(d=>[d.a,d.b]);
   const yMn=Math.max(0,d3.min(av)-3),yMx=Math.min(100,d3.max(av)+3);
   const x=d3.scaleTime().domain(d3.extent(polls,d=>d.date)).range([mg.l,mg.l+iw]);

@@ -115,8 +115,8 @@ function renderRatingBar(mode, counts){
   const sep = `<span class="rtgSep">-</span>`;
 
   // Incumbents in near-black
-  const incD = baseD > 0 ? `<span class="rtgNum" style="color:#1e293b">${baseD}</span>${sep}` : "";
-  const incR = baseR > 0 ? `${sep}<span class="rtgNum" style="color:#1e293b">${baseR}</span>` : "";
+  const incD = baseD > 0 ? `<span class="rtgNum" style="color:var(--ink)">${baseD}</span>${sep}` : "";
+  const incR = baseR > 0 ? `${sep}<span class="rtgNum" style="color:var(--ink)">${baseR}</span>` : "";
 
   const dPart = incD + dTiers.map(numSpan).join(sep);
   const rPart = rTiers.map(numSpan).join(sep) + incR;
@@ -188,7 +188,7 @@ async function initRtgMap(modeKey){
     })
     .attr("data-st", d => fipsToUsps(d.id))
     .attr("d", d => pathGen(d))
-    .attr("fill","#e5e7eb")
+    .attr("fill","var(--neutral-bg)")
     .on("mouseenter", (event, d) => {
       const st = fipsToUsps(d.id);
       if (!st || !DATA[modeKey]?.ratios[st]) return;
@@ -444,13 +444,13 @@ function recolorRtgMap(modeKey, perRace){
     m.gRoot.selectAll(".district").each(function(){
       const did = this.getAttribute("data-did");
       const info = perRace[did];
-      this.style.fill = info ? RTG_COLORS[info.rating] : "#e5e7eb";
+      this.style.fill = info ? RTG_COLORS[info.rating] : getComputedStyle(document.documentElement).getPropertyValue("--neutral-bg").trim()||"#e5e7eb";
     });
   } else {
     m.gRoot.selectAll("path.state").each(function(){
       const st = this.getAttribute("data-st");
       const info = perRace[st];
-      this.style.fill = info ? RTG_COLORS[info.rating] : "#e5e7eb";
+      this.style.fill = info ? RTG_COLORS[info.rating] : getComputedStyle(document.documentElement).getPropertyValue("--neutral-bg").trim()||"#e5e7eb";
     });
   }
 }

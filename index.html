@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-look="riso" data-theme="light">
 <head>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-NTC8PG0L0M"></script>
@@ -1165,15 +1165,65 @@
     }
     .donateBtn:hover{ box-shadow: 0 4px 12px rgba(37,99,235,0.4); transform:translateY(-1px); }
     .donateBtn svg{ width:13px; height:13px; flex-shrink:0; }
+    @media (max-width: 979px){
+      .pageTabsWrap{
+        flex-wrap: wrap !important;
+        justify-content: flex-start !important;
+        gap: 8px !important;
+        row-gap: 10px !important;
+        padding: 0 !important;
+      }
+      /* First row: Theo + toggles on left, Donate on right */
+      .pageTabsWrap .authorBadge { order: 1; }
+      .pageTabsWrap .lookToggle { order: 2; }
+      .pageTabsWrap .themeToggle { order: 3; }
+      .pageTabsWrap .donateBtn { order: 4; margin-left: auto; }
+      /* Second row: pageTabs — wrap to 2 rows (3 tabs each) instead of scroll/truncate */
+      .pageTabsWrap .pageTabs {
+        order: 10;
+        flex: 0 0 100%;
+        width: 100% !important;
+        max-width: 100%;
+        min-width: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: stretch;
+        overflow: visible;
+        gap: 0;
+      }
+      .pageTabsWrap .pageTab {
+        flex: 1 1 33.333% !important;
+        max-width: 33.333%;
+        min-width: 0;
+        padding: 8px 6px !important;
+        font-size: 11px !important;
+        text-align: center;
+        white-space: nowrap;
+        box-sizing: border-box;
+      }
+      /* Riso tab borders — on 2-row mobile: right border only between tabs in same row, bottom border only on first row */
+      html[data-look="riso"] .pageTabsWrap .pageTab {
+        border-right: 1px solid var(--text-ink) !important;
+        border-bottom: 1px solid var(--text-ink) !important;
+      }
+      html[data-look="riso"] .pageTabsWrap .pageTab:nth-child(3n),
+      html[data-look="riso"] .pageTabsWrap .pageTab:last-child {
+        border-right: none !important;
+      }
+      html[data-look="riso"] .pageTabsWrap .pageTab:nth-child(n+4) {
+        border-bottom: none !important;
+      }
+      .pageTabsWrap > *:not(.pageTabs) { flex-shrink: 0; }
+    }
     @media (max-width: 600px){
       .pageTabsWrap{
         overflow-x:auto;
         -webkit-overflow-scrolling:touch;
-        margin-left:-16px;
-        margin-right:-16px;
-        padding:0 16px;
         scrollbar-width:none;
         gap:8px;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        padding-bottom: 4px;
       }
       .pageTabsWrap::-webkit-scrollbar{ display:none; }
       .pageTabs{ flex-shrink:0; }
@@ -1182,6 +1232,7 @@
       .authorBadge svg{ width:12px; height:12px; }
       .donateBtn{ padding:6px 11px; font-size:11px; flex-shrink:0; }
       .donateBtn svg{ width:11px; height:11px; }
+      .lookToggle, .themeToggle{ flex-shrink:0; }
     }
 
     /* ---------- Ratings Page ---------- */
@@ -1413,7 +1464,7 @@
       overflow-x:hidden;
     }
     @media (max-width: 979px){
-      html,body{ height:auto; overflow:auto; }
+      html,body{ height:auto; overflow-x:hidden; overflow-y:auto; }
       .wrap{ height:auto; overflow:visible; }
       .triGrid{ flex:none; }
       .quadGrid{ flex:none; }
@@ -2098,6 +2149,378 @@
       vertical-align:middle;
     }
 
+/* ═══════════════════════════════════════════════
+   THEO RISO + DARK MODE OVERRIDES
+   Toggles via [data-look="riso"] (default) / [data-look="legacy"]
+                [data-theme="light"] (default) / [data-theme="dark"]
+   ═══════════════════════════════════════════════ */
+
+:root {
+  /* Dark-aware text colors (default: light mode) */
+  --text-ink: #111827;
+  --text-dim: #374151;
+  --text-muted: #6b7280;
+  --text-faint: #9ca3af;
+  --pg-bg: #f3f4f6;
+  --grad-1: #eef2ff;
+  --grad-2: #fff1f2;
+}
+
+/* RISO DEFAULT — flat, sharp, hard shadows */
+html[data-look="riso"] {
+  --card-bg: #fff;
+  --card-border: var(--text-ink);
+  --card-shadow: 4px 4px 0 0 var(--text-ink);
+  --card-shadow-hover: 4px 4px 0 0 var(--text-ink);
+  --radius-lg: 0;
+  --radius-md: 0;
+  --radius-sm: 0;
+  --radius-pill: 0;
+  --line: var(--text-ink);
+  --line-strong: var(--text-ink);
+}
+
+html[data-look="riso"] .cardDash,
+html[data-look="riso"] .card,
+html[data-look="riso"] .titleRow,
+html[data-look="riso"] .tooltipBox,
+html[data-look="riso"] .pageTabs,
+html[data-look="riso"] .authorBadge,
+html[data-look="riso"] .forecastToggleWrap,
+html[data-look="riso"] .segmentedControl,
+html[data-look="riso"] .lookToggle,
+html[data-look="riso"] .themeToggle {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  background: var(--card-bg) !important;
+  border: 1px solid var(--card-border) !important;
+  box-shadow: var(--card-shadow) !important;
+  border-radius: 0 !important;
+}
+
+/* Donate button — stays colored, just sharpen the corners and swap shadow */
+html[data-look="riso"] .donateBtn {
+  background: var(--blue) !important;
+  color: #fff !important;
+  border: 1px solid var(--text-ink) !important;
+  border-radius: 0 !important;
+  box-shadow: 2px 2px 0 0 var(--text-ink) !important;
+}
+html[data-look="riso"] .donateBtn:hover {
+  background: var(--blue-dark) !important;
+  transform: none !important;
+}
+
+html[data-look="riso"] button,
+html[data-look="riso"] input[type="number"],
+html[data-look="riso"] input[type="text"] {
+  border-radius: 0 !important;
+}
+
+html[data-look="riso"] .pageTab.active {
+  background: var(--text-ink) !important;
+  color: var(--card-bg) !important;
+  border-radius: 0 !important;
+}
+
+/* Page tabs — ensure individual tabs stay visually separated in riso */
+html[data-look="riso"] .pageTabs {
+  gap: 0 !important;
+  padding: 0 !important;
+}
+html[data-look="riso"] .pageTab {
+  padding: 7px 14px !important;
+  border-right: 1px solid var(--text-ink) !important;
+  background: var(--card-bg);
+  color: var(--text-muted);
+}
+html[data-look="riso"] .pageTab:last-child {
+  border-right: none !important;
+}
+html[data-look="riso"] .pageTab:hover:not(.active) {
+  background: var(--neutral-bg);
+}
+
+/* DARK MODE — inverts ink, brightens partisan colors */
+html[data-theme="dark"] {
+  --pg-bg: #0a0a0a;
+  --grad-1: rgba(79, 70, 229, 0.12);
+  --grad-2: rgba(220, 38, 38, 0.08);
+  --text-ink: #f0f0f0;
+  --text-dim: #d0d0d0;
+  --text-muted: #a0a0a0;
+  --text-faint: #8a8a8a;
+  --ink: #f0f0f0;
+  --ink-dim: #d0d0d0;
+  --muted: #a0a0a0;
+  --muted-light: #8a8a8a;
+  --line: #333;
+  --line-strong: #444;
+  --neutral-bg: #141414;
+  --neutral-border: #333;
+  /* Brightened party colors for dark backgrounds */
+  --blue: #60a5fa;
+  --blue-dark: #93c5fd;
+  --blue-soft: #1e3a8a;
+  --blue-border: #3b82f6;
+  --red: #f87171;
+  --red-dark: #fca5a5;
+  --red-soft: #7f1d1d;
+  --red-border: #ef4444;
+}
+
+html[data-theme="dark"][data-look="riso"] {
+  --card-bg: #141414;
+  --card-border: #fff;
+  --card-shadow: 4px 4px 0 0 #fff;
+  --card-shadow-hover: 4px 4px 0 0 #fff;
+}
+
+html[data-theme="dark"][data-look="legacy"] {
+  --card-bg: rgba(31, 41, 55, 0.85);
+  --card-border: rgba(55, 65, 81, 0.6);
+  --card-shadow: 0 4px 6px -1px rgba(0,0,0,0.3), 0 2px 4px -1px rgba(0,0,0,0.2);
+  --card-shadow-hover: 0 10px 15px -3px rgba(0,0,0,0.4);
+}
+
+html[data-theme="dark"] body {
+  background-color: var(--pg-bg) !important;
+  color: var(--text-ink);
+}
+
+html[data-theme="dark"] body {
+  background-image:
+    radial-gradient(circle at 10% 10%, var(--grad-1), transparent 40%),
+    radial-gradient(circle at 90% 20%, var(--grad-2), transparent 40%) !important;
+}
+
+/* Toggle buttons — live in pageTabsWrap */
+.lookToggle, .themeToggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 800;
+  padding: 6px 12px;
+  margin-left: 6px;
+  cursor: pointer;
+  background: var(--card-bg);
+  color: var(--text-ink);
+  border: 1px solid var(--text-ink);
+  transition: all 0.15s ease;
+  letter-spacing: 0.02em;
+}
+.lookToggle:hover, .themeToggle:hover {
+  background: var(--text-ink);
+  color: var(--card-bg);
+}
+html[data-look="riso"] .lookToggle,
+html[data-look="riso"] .themeToggle {
+  box-shadow: 2px 2px 0 0 var(--text-ink);
+}
+html[data-look="legacy"] .lookToggle,
+html[data-look="legacy"] .themeToggle {
+  border-radius: 9999px;
+}
+
+/* MOBILE FIX — prevent toggle buttons from disappearing in scroll container */
+.pageTabsWrap .authorBadge,
+.pageTabsWrap .pageTabs,
+.pageTabsWrap .donateBtn,
+.pageTabsWrap .lookToggle,
+.pageTabsWrap .themeToggle {
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  .lookToggle, .themeToggle {
+    padding: 5px 10px;
+    font-size: 11px;
+    margin-left: 4px;
+  }
+}
+
+/* FORECAST TOGGLE — don't get force-flattened by the card override */
+html[data-look="riso"] .forecastToggleWrap {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+html[data-look="riso"] .forecastToggle {
+  background: var(--card-bg) !important;
+  border: 1px solid var(--text-ink) !important;
+  box-shadow: 2px 2px 0 0 var(--text-ink) !important;
+  border-radius: 0 !important;
+  padding: 3px !important;
+}
+html[data-look="riso"] .fcBtn {
+  border-radius: 0 !important;
+  color: var(--text-muted);
+}
+html[data-look="riso"] .fcBtn.active {
+  background: var(--text-ink) !important;
+  color: var(--card-bg) !important;
+  box-shadow: none !important;
+}
+html[data-theme="dark"] .fcBtn.active {
+  background: var(--text-ink);
+  color: var(--card-bg);
+}
+html[data-theme="dark"][data-look="legacy"] .fcBtn.active {
+  background: #1f2937;
+  color: #f0f0f0;
+}
+
+/* Map control bar — unified height across Senate/Gov/Congress so grid aligns */
+html[data-look="riso"] .mapControlBar {
+  background: var(--card-bg) !important;
+  border: 1px solid var(--text-ink) !important;
+  box-shadow: 2px 2px 0 0 var(--text-ink) !important;
+  border-radius: 0 !important;
+  padding: 6px 10px !important;
+  color: var(--text-muted);
+  min-height: 36px;
+  box-sizing: border-box;
+  align-items: center;
+  flex-wrap: nowrap !important;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  gap: 5px !important;
+}
+html[data-look="riso"] .mapControlBar::-webkit-scrollbar { display: none; }
+html[data-look="riso"] .mapCtrlBtn {
+  flex-shrink: 0;
+  border: 1px solid var(--text-ink) !important;
+  background: var(--card-bg) !important;
+  color: var(--text-ink);
+  border-radius: 0 !important;
+  box-shadow: 1px 1px 0 0 var(--text-ink) !important;
+}
+html[data-look="riso"] .mapCtrlBtn:hover {
+  background: var(--text-ink) !important;
+  color: var(--card-bg) !important;
+}
+html[data-look="riso"] .mapCtrlLabel {
+  flex-shrink: 0;
+  color: var(--text-muted);
+  font-size: 10px;
+  font-weight: 700;
+}
+html[data-look="riso"] .zoomBtn {
+  flex-shrink: 0;
+  border: 1px solid var(--text-ink) !important;
+  background: var(--card-bg) !important;
+  color: var(--text-muted);
+  border-radius: 0 !important;
+  padding: 3px 7px !important;
+  font-size: 10px;
+}
+html[data-look="riso"] .zoomBtn.active {
+  background: var(--text-ink) !important;
+  color: var(--card-bg) !important;
+  border-color: var(--text-ink) !important;
+}
+html[data-look="riso"] .zoomSelect {
+  flex-shrink: 0;
+  border: 1px solid var(--text-ink) !important;
+  background: var(--card-bg) !important;
+  color: var(--text-ink);
+  border-radius: 0 !important;
+  max-width: 100px;
+  padding: 3px 6px !important;
+  font-size: 10px;
+}
+html[data-look="riso"] .zoomSep {
+  color: var(--text-faint);
+  flex-shrink: 0;
+}
+
+/* Match Senate/Gov "Click a state to zoom in" row to Congress city picker height */
+html[data-look="riso"] .mapCtrlLabel {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-muted);
+  padding: 5px 10px;
+  border: 1px solid var(--text-ink);
+  background: var(--card-bg);
+  flex: 1;
+  text-align: center;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 22px;
+}
+html[data-look="riso"] .mapCtrlBtn {
+  flex-shrink: 0;
+  border: 1px solid var(--text-ink) !important;
+  background: var(--card-bg) !important;
+  color: var(--text-ink) !important;
+  border-radius: 0 !important;
+  padding: 3px 8px !important;
+  font-size: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+html[data-look="riso"] .mapControlBar {
+  min-height: 28px;
+  align-items: center;
+}
+
+/* Win Prob / Seats tabs inside Senate/Gov/Congress cards — riso segmented */
+html[data-look="riso"] .chartTabs {
+  border: 1px solid var(--text-ink) !important;
+  border-radius: 0 !important;
+  box-shadow: 2px 2px 0 0 var(--text-ink);
+  overflow: visible !important;
+  background: var(--card-bg);
+}
+html[data-look="riso"] .chartTab {
+  color: var(--text-muted);
+  border-radius: 0 !important;
+}
+html[data-look="riso"] .chartTab + .chartTab {
+  border-left: 1px solid var(--text-ink) !important;
+}
+html[data-look="riso"] .chartTab.active {
+  background: var(--text-ink) !important;
+  color: var(--card-bg) !important;
+}
+
+/* Odds card internal text colors — inherit from variables but force on dark */
+html[data-look="riso"] .oddsCard .oddsTitle { color: var(--text-ink); }
+html[data-look="riso"] .oddsCard .oddsSub { color: var(--text-muted); }
+html[data-theme="dark"] .oddsCard .oddsTitle { color: var(--text-ink); }
+html[data-theme="dark"] .oddsCard .oddsSub { color: var(--text-muted); }
+html[data-theme="dark"] .chartYLabel { color: var(--text-muted); }
+
+/* The 50 / 50 default odds pills at the top of each panel */
+html[data-look="riso"] .metricPill {
+  background: var(--card-bg) !important;
+  border: 1px solid var(--text-ink) !important;
+  box-shadow: 2px 2px 0 0 var(--text-ink) !important;
+  border-radius: 0 !important;
+  color: var(--text-ink) !important;
+}
+html[data-look="riso"] .metricPill .dot {
+  border-radius: 0 !important;
+  border: 1px solid var(--text-ink);
+}
+html[data-theme="dark"] .metricPill {
+  background: var(--card-bg);
+  border: 1px solid var(--text-ink);
+  color: var(--text-ink);
+}
+html[data-theme="dark"][data-look="legacy"] .metricPill {
+  background: rgba(31,41,55,0.9);
+  border: 1px solid rgba(75,85,99,0.9);
+}
+html[data-look="riso"] .panelTitle { color: var(--text-ink); }
+html[data-look="riso"] .panelSub { color: var(--text-muted); }
+html[data-theme="dark"] .panelTitle { color: var(--text-ink); }
+html[data-theme="dark"] .panelSub { color: var(--text-muted); }
+
 </style>
 </head>
 
@@ -2118,6 +2541,8 @@
   <button class="pageTab" data-page="past-elections">Past Elections</button>
   <button class="pageTab" data-page="methodology">Methodology</button>
 </nav>
+<button class="lookToggle" id="lookToggle" title="Toggle riso / legacy look">%</button>
+<button class="themeToggle" id="themeToggle" title="Toggle dark mode">☀</button>
 <a class="donateBtn" href="https://buymeacoffee.com/the0" target="_blank" rel="noopener">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h1a4 4 0 110 8h-1"/><path d="M3 8h14v9a4 4 0 01-4 4H7a4 4 0 01-4-4V8z"/><line x1="6" y1="2" x2="6" y2="4"/><line x1="10" y1="2" x2="10" y2="4"/><line x1="14" y1="2" x2="14" y2="4"/></svg>
   Donate
@@ -3027,5 +3452,32 @@
 <script src="swingometer.js?v=1"></script>
 <script src="past-elections.js?v=1"></script>
 
+
+<script>
+  (function(){
+    var root = document.documentElement;
+    // Default to riso + light
+    var savedLook = localStorage.getItem('theo-look') || 'riso';
+    var savedTheme = localStorage.getItem('theo-theme') || 'light';
+    root.setAttribute('data-look', savedLook);
+    root.setAttribute('data-theme', savedTheme);
+    var lookBtn = document.getElementById('lookToggle');
+    var themeBtn = document.getElementById('themeToggle');
+    if (themeBtn) themeBtn.textContent = savedTheme === 'dark' ? '☾' : '☀';
+    if (lookBtn) lookBtn.addEventListener('click', function(){
+      var curr = root.getAttribute('data-look');
+      var next = curr === 'riso' ? 'legacy' : 'riso';
+      root.setAttribute('data-look', next);
+      localStorage.setItem('theo-look', next);
+    });
+    if (themeBtn) themeBtn.addEventListener('click', function(){
+      var curr = root.getAttribute('data-theme');
+      var next = curr === 'light' ? 'dark' : 'light';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('theo-theme', next);
+      themeBtn.textContent = next === 'dark' ? '☾' : '☀';
+    });
+  })();
+</script>
 </body>
 </html>

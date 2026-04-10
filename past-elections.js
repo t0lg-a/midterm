@@ -114,7 +114,7 @@ function formatMarginDR(m){
   return (m < 0) ? `D+${a.toFixed(1)}` : `R+${a.toFixed(1)}`;
 }
 function marginColor(m){
-  if (!isFinite(m)) return "#e5e7eb";
+  if (!isFinite(m)) return getComputedStyle(document.documentElement).getPropertyValue("--neutral-bg").trim()||"#e5e7eb";
   const max = 25;
   const a = Math.abs(m);
   // Under 2 pts: tossup yellow
@@ -979,9 +979,9 @@ async function renderPastMap(year, mode, d, rule, raceFilter){
     .attr("d", dd => pathGen(dd))
     .attr("fill", dd => {
       const st = _fips(dd.id);
-      if (!st || !d?.ratios[st] || !isContested(st)) return "#e5e7eb";
+      if (!st || !d?.ratios[st] || !isContested(st)) return getComputedStyle(document.documentElement).getPropertyValue("--neutral-bg").trim()||"#e5e7eb";
       const model = getStateModelPast(year, mode, st);
-      if (!model) return "#e5e7eb";
+      if (!model) return getComputedStyle(document.documentElement).getPropertyValue("--neutral-bg").trim()||"#e5e7eb";
       return marginColor(model.mFinal);
     })
     .on("mouseenter", (event, dd) => {
