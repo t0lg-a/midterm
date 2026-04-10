@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-04-09T12:07:16.182Z",
+  "updatedAt": "2026-04-10T12:03:02.397Z",
   "approval": [
     {
       "id": "appdonmorcb8f95cf",
@@ -20405,58 +20405,6 @@
       "internal": false,
       "partisan": "REP",
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonmorba2fys5h",
-      "poll_type": "approval",
-      "sample_size": 45000,
-      "population": "a",
-      "url": "https://pro.morningconsult.com/trackers/global-leader-approval",
-      "created_at": "2025-03-08",
-      "start_date": "2025-02-27",
-      "end_date": "2025-03-05",
-      "pollster": "Morning Consult",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 48.7
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 44.7
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdoncyg43iake42",
-      "poll_type": "approval",
-      "sample_size": 1500,
-      "population": "lv",
-      "url": "https://www.cygn.al/wp-content/uploads/2025/03/22915-Cygnal-National-NVT-Mar25-Deck-Public.pdf",
-      "created_at": "2025-03-12",
-      "start_date": "2025-03-03",
-      "end_date": "2025-03-05",
-      "pollster": "Cygnal",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 47.4
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 50.7
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -20510,32 +20458,6 @@
       "sponsors": [
         "NBC News"
       ],
-      "internal": false,
-      "partisan": null,
-      "subject": "2026"
-    },
-    {
-      "id": "gen202cyg8hz85otp",
-      "poll_type": "generic-ballot",
-      "sample_size": 1500,
-      "population": "lv",
-      "url": "https://www.cygn.al/wp-content/uploads/2025/03/22915-Cygnal-National-NVT-Mar25-Deck-Public.pdf",
-      "created_at": "2025-03-12",
-      "start_date": "2025-03-03",
-      "end_date": "2025-03-05",
-      "pollster": "Cygnal",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 47.4
-        },
-        {
-          "choice": "Rep",
-          "pct": 45.9
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
       "internal": false,
       "partisan": null,
       "subject": "2026"
