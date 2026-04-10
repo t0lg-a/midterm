@@ -2243,7 +2243,8 @@ html[data-look="riso"] .pageTab:hover:not(.active) {
 
 /* Tooltip (#tip) + State info panel — riso overrides */
 html[data-look="riso"] #tip,
-html[data-look="riso"] .stateInfoPanel {
+html[data-look="riso"] .stateInfoPanel,
+html[data-look="riso"] body .stateInfoPanel {
   border-radius: 0 !important;
   background: var(--card-bg) !important;
   backdrop-filter: none !important;
@@ -2252,6 +2253,26 @@ html[data-look="riso"] .stateInfoPanel {
   box-shadow: 4px 4px 0 0 var(--text-ink) !important;
   overflow: visible !important;
 }
+/* All rounded children inside — kill every radius */
+html[data-look="riso"] #tip *,
+html[data-look="riso"] .stateInfoPanel * {
+  border-radius: 0 !important;
+}
+/* Share track pill → flat bar with ink border */
+html[data-look="riso"] #tip .panelShareTrack,
+html[data-look="riso"] .stateInfoPanel .panelShareTrack {
+  border-radius: 0 !important;
+  border: 1px solid var(--text-ink) !important;
+  box-shadow: none !important;
+  overflow: hidden !important;
+}
+/* Classification chip (Lean R, Safe D, etc) → sharp rectangle */
+html[data-look="riso"] #tip .panelClassify,
+html[data-look="riso"] .stateInfoPanel .panelClassify {
+  border-radius: 0 !important;
+  border: 1px solid var(--text-ink) !important;
+}
+/* Mini factor bars (Generic Ballot, Polls, etc) */
 html[data-look="riso"] #tip .miniBar,
 html[data-look="riso"] #tip .miniBarFinal,
 html[data-look="riso"] .stateInfoPanel .miniBar,
@@ -2259,35 +2280,36 @@ html[data-look="riso"] .stateInfoPanel .miniBarFinal {
   border-radius: 0 !important;
   border: 1px solid var(--text-ink) !important;
   background: var(--card-bg) !important;
+  box-shadow: none !important;
 }
-html[data-look="riso"] .panelClassify,
-html[data-look="riso"] .panelShareTrack {
-  border-radius: 0 !important;
+/* Panel final row divider */
+html[data-look="riso"] #tip .miniRowFinal,
+html[data-look="riso"] .stateInfoPanel .miniRowFinal {
+  border-top: 1px solid var(--text-ink) !important;
 }
-/* Muted text inside tip/panel — use CSS vars */
+/* Accent bar at top → thin ink line */
+html[data-look="riso"] #tip .panelAccent,
+html[data-look="riso"] .stateInfoPanel .panelAccent {
+  background: var(--text-ink) !important;
+  height: 2px !important;
+}
+/* Muted text inside panel */
+html[data-look="riso"] #tip .miniLbl,
+html[data-look="riso"] .stateInfoPanel .miniLbl,
 #tip .miniLbl,
 .stateInfoPanel .miniLbl {
   color: var(--muted) !important;
 }
+html[data-look="riso"] #tip .miniVal,
+html[data-look="riso"] .stateInfoPanel .miniVal,
 #tip .miniVal,
 .stateInfoPanel .miniVal {
   color: var(--ink-dim) !important;
 }
-#tip .miniBar,
-.stateInfoPanel .miniBar {
-  background: var(--neutral-bg) !important;
-}
-#tip .miniZero,
-.stateInfoPanel .miniZero {
-  background: var(--line-strong) !important;
-}
+/* Dark mode background overrides */
 html[data-theme="dark"] #tip,
 html[data-theme="dark"] .stateInfoPanel {
   background: var(--card-bg) !important;
-}
-html[data-theme="dark"] #tip .miniRowFinal,
-html[data-theme="dark"] .stateInfoPanel .miniRowFinal {
-  border-top-color: rgba(255,255,255,0.15) !important;
 }
 
 /* Map strokes — riso: thin ink hairlines; dark: white hairlines */
