@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-04-11T11:48:58.937Z",
+  "updatedAt": "2026-04-12T11:51:48.689Z",
   "approval": [
     {
       "id": "appdonrmgb8c34c27",
@@ -20379,60 +20379,6 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonj.l60j28niu",
-      "poll_type": "approval",
-      "sample_size": 1019,
-      "population": "rv",
-      "url": "https://www.dailymail.co.uk/news/article-14482029/Trumps-latest-approval-rating-50-days-revealed-issue-destroy-presidency.html",
-      "created_at": "2025-03-10",
-      "start_date": "2025-03-05",
-      "end_date": "2025-03-07",
-      "pollster": "J.L. Partners",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 49
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 51
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonmclsqef3h6k",
-      "poll_type": "approval",
-      "sample_size": 2000,
-      "population": "rv",
-      "url": "https://americasnewmajorityproject.com/wp-content/uploads/2025/03/20250307-NationalANMP-Topline.pdf",
-      "created_at": "2025-03-11",
-      "start_date": "2025-03-04",
-      "end_date": "2025-03-07",
-      "pollster": "McLaughlin & Associates",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 50.4
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 49.6
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "America's New Majority Project"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -20540,34 +20486,6 @@
       "sponsors": [],
       "internal": false,
       "partisan": null,
-      "subject": "2026"
-    },
-    {
-      "id": "gen202mclhngt13y7",
-      "poll_type": "generic-ballot",
-      "sample_size": 2000,
-      "population": "rv",
-      "url": "https://americasnewmajorityproject.com/wp-content/uploads/2025/03/20250307-NationalANMP-Topline.pdf",
-      "created_at": "2025-04-05",
-      "start_date": "2025-03-04",
-      "end_date": "2025-03-07",
-      "pollster": "McLaughlin & Associates",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 43.7
-        },
-        {
-          "choice": "Rep",
-          "pct": 45.7
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "America's New Majority Project"
-      ],
-      "internal": false,
-      "partisan": "REP",
       "subject": "2026"
     },
     {
