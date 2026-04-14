@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-04-13T12:13:13.933Z",
+  "updatedAt": "2026-04-14T12:11:06.975Z",
   "approval": [
     {
       "id": "appdonrmgb8c34c27",
@@ -20301,113 +20301,9 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonmorszzatsz4",
-      "poll_type": "approval",
-      "sample_size": 2219,
-      "population": "rv",
-      "url": "https://pro.morningconsult.com/trackers/donald-trump-congress-policy-republicans-polling",
-      "created_at": "2025-03-11",
-      "start_date": "2025-03-07",
-      "end_date": "2025-03-09",
-      "pollster": "Morning Consult",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 49
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 49
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonclawjbflxm7",
-      "poll_type": "approval",
-      "sample_size": 1036,
-      "population": "rv",
-      "url": "https://static1.squarespace.com/static/61ae8d5e55be5c7314b4c83a/t/67d0921f11ba8d57a17670a9/1741722147070/Clarity+Omnibus+Overview+-+March+2025+PUBLIC.pdf",
-      "created_at": "2025-03-12",
-      "start_date": "2025-03-03",
-      "end_date": "2025-03-09",
-      "pollster": "Clarity Campaign Labs",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 50
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 46
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdoncnnikinj878",
-      "poll_type": "approval",
-      "sample_size": 1206,
-      "population": "a",
-      "url": "https://www.cnn.com/2025/03/12/politics/cnn-poll-trump-economy/index.html",
-      "created_at": "2025-03-12",
-      "start_date": "2025-03-06",
-      "end_date": "2025-03-09",
-      "pollster": "CNN/SSRS",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 45
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 54
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
-    {
-      "id": "gen202cla976max11",
-      "poll_type": "generic-ballot",
-      "sample_size": 1036,
-      "population": "rv",
-      "url": "https://static1.squarespace.com/static/61ae8d5e55be5c7314b4c83a/t/67d0921f11ba8d57a17670a9/1741722147070/Clarity+Omnibus+Overview+-+March+2025+PUBLIC.pdf",
-      "created_at": "2025-03-12",
-      "start_date": "2025-03-03",
-      "end_date": "2025-03-09",
-      "pollster": "Clarity Campaign Labs",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 46
-        },
-        {
-          "choice": "Rep",
-          "pct": 44
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "2026"
-    },
     {
       "id": "gen202har342tk60o",
       "poll_type": "generic-ballot",
