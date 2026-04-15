@@ -1,6 +1,34 @@
 {
-  "updatedAt": "2026-04-14T12:11:06.975Z",
+  "updatedAt": "2026-04-15T12:08:53.723Z",
   "approval": [
+    {
+      "id": "appdonyou25b5239f",
+      "poll_type": "approval",
+      "sample_size": 2387,
+      "population": "a",
+      "url": "https://assets1.cbsnewsstatic.com/hub/cms/prod_cms_alt/file/2026/04/12/15682238-c87d-4758-b49f-e8148e6a1d38/cbs_news_poll___april_8-10__2026.pdf",
+      "created_at": "2026-04-14",
+      "start_date": "2026-04-08",
+      "end_date": "2026-04-10",
+      "pollster": "YouGov",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 39
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 61
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "CBS News"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
     {
       "id": "appdonrmgb8c34c27",
       "poll_type": "approval",
@@ -20246,58 +20274,6 @@
       "sponsors": [
         "NBC News"
       ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonemenwlkk9mr",
-      "poll_type": "approval",
-      "sample_size": 1000,
-      "population": "rv",
-      "url": "https://emersoncollegepolling.com/national-poll-at-50-days-trumps-honeymoon-fades-as-economy-becomes-key-vulnerability/",
-      "created_at": "2025-03-11",
-      "start_date": "2025-03-08",
-      "end_date": "2025-03-10",
-      "pollster": "Emerson College",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 47.2
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 45
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonquiuae30yzc",
-      "poll_type": "approval",
-      "sample_size": 1198,
-      "population": "rv",
-      "url": "https://poll.qu.edu/poll-release?releaseid=3921",
-      "created_at": "2025-03-13",
-      "start_date": "2025-03-06",
-      "end_date": "2025-03-10",
-      "pollster": "Quinnipiac University",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 42
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 53
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
