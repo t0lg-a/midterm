@@ -1,6 +1,88 @@
 {
-  "updatedAt": "2026-04-15T12:08:53.723Z",
+  "updatedAt": "2026-04-16T12:12:20.773Z",
   "approval": [
+    {
+      "id": "appdonqui6da3c2aa",
+      "poll_type": "approval",
+      "sample_size": 1028,
+      "population": "rv",
+      "url": "https://poll.qu.edu/images/polling/us/us04152026_uzxb22.pdf",
+      "created_at": "2026-04-15",
+      "start_date": "2026-04-09",
+      "end_date": "2026-04-13",
+      "pollster": "Quinnipiac University",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 38
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 55
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonyou5568d7be",
+      "poll_type": "approval",
+      "sample_size": 1573,
+      "population": "rv",
+      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_G1zNgZq.pdf#page=20",
+      "created_at": "2026-04-15",
+      "start_date": "2026-04-10",
+      "end_date": "2026-04-13",
+      "pollster": "YouGov",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 41
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 58
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "The Economist"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonyoud9aac4be",
+      "poll_type": "approval",
+      "sample_size": 1748,
+      "population": "a",
+      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_G1zNgZq.pdf#page=20",
+      "created_at": "2026-04-15",
+      "start_date": "2026-04-10",
+      "end_date": "2026-04-13",
+      "pollster": "YouGov",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 38
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 56
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "The Economist"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
     {
       "id": "appdonyou25b5239f",
       "poll_type": "approval",
@@ -53,6 +135,32 @@
       "sponsors": [
         "Napolitan Institute"
       ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonmoreeeb6313",
+      "poll_type": "approval",
+      "sample_size": 2200,
+      "population": "rv",
+      "url": "https://drive.google.com/file/d/1J-vPAS1XXmBtiDUw4rDA4p3G7jHbQ6b7/view",
+      "created_at": "2026-04-15",
+      "start_date": "2026-04-06",
+      "end_date": "2026-04-09",
+      "pollster": "Morning Consult",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 44
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 53
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
@@ -733,6 +841,32 @@
       "sponsors": [
         "Fox News"
       ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonyalbfe9ec30",
+      "poll_type": "approval",
+      "sample_size": 3429,
+      "population": "rv",
+      "url": "https://youthpoll.yale.edu/spring-2026-results",
+      "created_at": "2026-04-15",
+      "start_date": "2026-03-09",
+      "end_date": "2026-03-23",
+      "pollster": "Yale Youth Poll",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 42
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 56
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
@@ -20193,121 +20327,9 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonyou7ek9q88j",
-      "poll_type": "approval",
-      "sample_size": 1699,
-      "population": "a",
-      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econtoplines_QyOZh1i.pdf",
-      "created_at": "2025-03-12",
-      "start_date": "2025-03-09",
-      "end_date": "2025-03-11",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 47
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 47
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Economist"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonyouc5bkej8q",
-      "poll_type": "approval",
-      "sample_size": 1532,
-      "population": "rv",
-      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_MxYv7vu.pdf",
-      "created_at": "2025-03-12",
-      "start_date": "2025-03-09",
-      "end_date": "2025-03-11",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 48
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 49
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Economist"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonharp0fc08jg",
-      "poll_type": "approval",
-      "sample_size": 1000,
-      "population": "rv",
-      "url": "https://www.nbcnews.com/politics/politics-news/democratic-party-hits-new-polling-low-voters-want-fight-trump-harder-rcna196161",
-      "created_at": "2025-03-16",
-      "start_date": "2025-03-07",
-      "end_date": "2025-03-11",
-      "pollster": "Hart Research Associates/Public Opinion Strategies",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 47
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 51
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "NBC News"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
-    {
-      "id": "gen202har342tk60o",
-      "poll_type": "generic-ballot",
-      "sample_size": 1000,
-      "population": "rv",
-      "url": "https://www.nbcnews.com/politics/politics-news/democratic-party-hits-new-polling-low-voters-want-fight-trump-harder-rcna196161",
-      "created_at": "2025-03-16",
-      "start_date": "2025-03-07",
-      "end_date": "2025-03-11",
-      "pollster": "Hart Research Associates/Public Opinion Strategies",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 48
-        },
-        {
-          "choice": "Rep",
-          "pct": 47
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "NBC News"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "2026"
-    },
     {
       "id": "gen202ech2d6zin7q",
       "poll_type": "generic-ballot",
@@ -30086,6 +30108,114 @@
         {
           "choice": "Rep",
           "pct": 35
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202you200a062e",
+      "poll_type": "generic-ballot",
+      "sample_size": 1571,
+      "population": "rv",
+      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_G1zNgZq.pdf#page=49",
+      "created_at": "2026-04-15",
+      "start_date": "2026-04-10",
+      "end_date": "2026-04-13",
+      "pollster": "YouGov",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 45
+        },
+        {
+          "choice": "Rep",
+          "pct": 40
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "The Economist"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202youc2d75ff6",
+      "poll_type": "generic-ballot",
+      "sample_size": 1745,
+      "population": "a",
+      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_G1zNgZq.pdf#page=49",
+      "created_at": "2026-04-15",
+      "start_date": "2026-04-10",
+      "end_date": "2026-04-13",
+      "pollster": "YouGov",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 38
+        },
+        {
+          "choice": "Rep",
+          "pct": 35
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "The Economist"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202morbad84d57",
+      "poll_type": "generic-ballot",
+      "sample_size": 2200,
+      "population": "rv",
+      "url": "https://drive.google.com/file/d/1J-vPAS1XXmBtiDUw4rDA4p3G7jHbQ6b7/view",
+      "created_at": "2026-04-15",
+      "start_date": "2026-04-06",
+      "end_date": "2026-04-09",
+      "pollster": "Morning Consult",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 46
+        },
+        {
+          "choice": "Rep",
+          "pct": 42
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202yalf028b2ff",
+      "poll_type": "generic-ballot",
+      "sample_size": 3429,
+      "population": "rv",
+      "url": "https://youthpoll.yale.edu/spring-2026-results",
+      "created_at": "2026-04-15",
+      "start_date": "2026-03-09",
+      "end_date": "2026-03-23",
+      "pollster": "Yale Youth Poll",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 46
+        },
+        {
+          "choice": "Rep",
+          "pct": 44
         }
       ],
       "seat_name": null,
