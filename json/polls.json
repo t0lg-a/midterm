@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-04-16T12:12:20.773Z",
+  "updatedAt": "2026-04-17T12:07:45.699Z",
   "approval": [
     {
       "id": "appdonqui6da3c2aa",
@@ -1295,6 +1295,32 @@
       "sponsors": [
         "The Economist"
       ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonsur3dddaaa8",
+      "poll_type": "approval",
+      "sample_size": 1546,
+      "population": "rv",
+      "url": "https://www.survey160.com/methodological-research-blog/survey-160-tracking-poll-march-2026",
+      "created_at": "2026-04-16",
+      "start_date": "2026-03-09",
+      "end_date": "2026-03-15",
+      "pollster": "Survey 160",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 38
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 59
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
@@ -20247,86 +20273,6 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonips4e8n7hvx",
-      "poll_type": "approval",
-      "sample_size": 1422,
-      "population": "a",
-      "url": "https://www.reuters.com/data/trumps-approval-rating-2025-01-21/",
-      "created_at": "2025-03-13",
-      "start_date": "2025-03-11",
-      "end_date": "2025-03-12",
-      "pollster": "Ipsos",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 44
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 52
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Reuters"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonatlwovpvah8",
-      "poll_type": "approval",
-      "sample_size": 2550,
-      "population": "a",
-      "url": "https://cdn.atlasintel.org/d5fc8a18-e0eb-4a88-a65e-0fc091158682.pdf",
-      "created_at": "2025-03-17",
-      "start_date": "2025-03-07",
-      "end_date": "2025-03-12",
-      "pollster": "AtlasIntel",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 47.3
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 52.4
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonquayxcipasl",
-      "poll_type": "approval",
-      "sample_size": 1000,
-      "population": "rv",
-      "url": "https://quantusinsights.org/f/holding-the-line-trump%E2%80%99s-approval-amidst-a-divided-nation",
-      "created_at": "2025-03-13",
-      "start_date": "2025-03-10",
-      "end_date": "2025-03-12",
-      "pollster": "Quantus Insights",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 49.5
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 47.4
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -30216,6 +30162,61 @@
         {
           "choice": "Rep",
           "pct": 44
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202impb4bb4fec",
+      "poll_type": "generic-ballot",
+      "sample_size": 1000,
+      "population": "lv",
+      "url": "https://www.thirdway.org/memo/president-trumps-immigration-problem",
+      "created_at": "2026-04-16",
+      "start_date": "2026-03-10",
+      "end_date": "2026-03-20",
+      "pollster": "Impact Research/BSP Research",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 45
+        },
+        {
+          "choice": "Rep",
+          "pct": 41
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Third Way",
+        "UnidosUS"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202surc38b2f8a",
+      "poll_type": "generic-ballot",
+      "sample_size": 1546,
+      "population": "rv",
+      "url": "https://www.survey160.com/methodological-research-blog/survey-160-tracking-poll-march-2026",
+      "created_at": "2026-04-16",
+      "start_date": "2026-03-09",
+      "end_date": "2026-03-15",
+      "pollster": "Survey 160",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 48
+        },
+        {
+          "choice": "Rep",
+          "pct": 38
         }
       ],
       "seat_name": null,
