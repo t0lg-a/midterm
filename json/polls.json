@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-04-19T11:53:25.472Z",
+  "updatedAt": "2026-04-20T12:15:53.910Z",
   "approval": [
     {
       "id": "appdonrmgdc7fb713",
@@ -106,6 +106,34 @@
       "seat_name": null,
       "sponsors": [
         "The Economist"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonsur6bc6d396",
+      "poll_type": "approval",
+      "sample_size": 32433,
+      "population": "a",
+      "url": "https://www.documentcloud.org/documents/28059029-nbc-news-decision-desk-poll-march-2026-topline",
+      "created_at": "2026-04-19",
+      "start_date": "2026-03-30",
+      "end_date": "2026-04-13",
+      "pollster": "SurveyMonkey",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 37
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 63
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "NBC News Decision Desk"
       ],
       "internal": false,
       "partisan": null,
