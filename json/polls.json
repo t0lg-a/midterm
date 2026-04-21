@@ -1,6 +1,58 @@
 {
-  "updatedAt": "2026-04-20T12:15:53.910Z",
+  "updatedAt": "2026-04-21T12:11:12.094Z",
   "approval": [
+    {
+      "id": "appdonmor36fe2a7b",
+      "poll_type": "approval",
+      "sample_size": 2203,
+      "population": "rv",
+      "url": "https://pro.morningconsult.com/trackers/donald-trump-congress-policy-republicans-polling#04-20-2026",
+      "created_at": "2026-04-21",
+      "start_date": "2026-04-17",
+      "end_date": "2026-04-20",
+      "pollster": "Morning Consult",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 44
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 53
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonjohfb831a71",
+      "poll_type": "approval",
+      "sample_size": 1001,
+      "population": "lv",
+      "url": "https://johnzogbystrategies.com/brand-new-zogby-poll-amid-war-confusion-04-20-26",
+      "created_at": "2026-04-21",
+      "start_date": "2026-04-17",
+      "end_date": "2026-04-18",
+      "pollster": "John Zogby Strategies",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 43
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 55
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
     {
       "id": "appdonrmgdc7fb713",
       "poll_type": "approval",
@@ -20197,58 +20249,6 @@
       "internal": false,
       "partisan": "REP",
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdongalo8nckj6j",
-      "poll_type": "approval",
-      "sample_size": 1002,
-      "population": "a",
-      "url": "https://news.gallup.com/poll/658661/republicans-men-push-trump-approval-higher-second-term.aspx",
-      "created_at": "2025-03-27",
-      "start_date": "2025-03-03",
-      "end_date": "2025-03-16",
-      "pollster": "Gallup",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 43
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 53
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonmorbxdpcb5g",
-      "poll_type": "approval",
-      "sample_size": 2210,
-      "population": "rv",
-      "url": "https://pro.morningconsult.com/trackers/donald-trump-congress-policy-republicans-polling",
-      "created_at": "2025-03-18",
-      "start_date": "2025-03-14",
-      "end_date": "2025-03-16",
-      "pollster": "Morning Consult",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 48
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 50
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -30193,6 +30193,110 @@
         {
           "choice": "Rep",
           "pct": 43
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202mor572d6544",
+      "poll_type": "generic-ballot",
+      "sample_size": 2203,
+      "population": "rv",
+      "url": "https://pro.morningconsult.com/trackers/donald-trump-congress-policy-republicans-polling#04-20-2026",
+      "created_at": "2026-04-21",
+      "start_date": "2026-04-17",
+      "end_date": "2026-04-20",
+      "pollster": "Morning Consult",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 45
+        },
+        {
+          "choice": "Rep",
+          "pct": 42
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202mor77813195",
+      "poll_type": "generic-ballot",
+      "sample_size": 12505,
+      "population": "rv",
+      "url": "https://pro.morningconsult.com/trackers/2026-midterm-election-generic-ballot-polls#04-05-2026",
+      "created_at": "2026-04-21",
+      "start_date": "2026-03-30",
+      "end_date": "2026-04-05",
+      "pollster": "Morning Consult",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 45
+        },
+        {
+          "choice": "Rep",
+          "pct": 42
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202mor32544209",
+      "poll_type": "generic-ballot",
+      "sample_size": 12505,
+      "population": "rv",
+      "url": "https://pro.morningconsult.com/trackers/2026-midterm-election-generic-ballot-polls#04-12-2026",
+      "created_at": "2026-04-21",
+      "start_date": "2026-04-06",
+      "end_date": "2026-04-12",
+      "pollster": "Morning Consult",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 46
+        },
+        {
+          "choice": "Rep",
+          "pct": 42
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202mor74921d58",
+      "poll_type": "generic-ballot",
+      "sample_size": 27869,
+      "population": "rv",
+      "url": "https://pro.morningconsult.com/trackers/2026-midterm-election-generic-ballot-polls#04-19-2026",
+      "created_at": "2026-04-21",
+      "start_date": "2026-04-13",
+      "end_date": "2026-04-19",
+      "pollster": "Morning Consult",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 45
+        },
+        {
+          "choice": "Rep",
+          "pct": 42
         }
       ],
       "seat_name": null,
