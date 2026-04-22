@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-04-21T12:11:12.094Z",
+  "updatedAt": "2026-04-22T12:11:27.320Z",
   "approval": [
     {
       "id": "appdonmor36fe2a7b",
@@ -19,6 +19,220 @@
         {
           "choice": "Disapprove",
           "pct": 53
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonipsbdec36a8",
+      "poll_type": "approval",
+      "sample_size": 4557,
+      "population": "a",
+      "url": "https://www.reuters.com/world/us/many-americans-question-trumps-temperament-amid-iran-war-pope-spat-reutersipsos-2026-04-21",
+      "created_at": "2026-04-21",
+      "start_date": "2026-04-15",
+      "end_date": "2026-04-20",
+      "pollster": "Ipsos",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 36
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 62
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Reuters"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdoname5d3ba07a",
+      "poll_type": "approval",
+      "sample_size": 1010,
+      "population": "rv",
+      "url": "https://americanresearchgroup.com/economy#04-20-2026",
+      "created_at": "2026-04-21",
+      "start_date": "2026-04-16",
+      "end_date": "2026-04-20",
+      "pollster": "American Research Group",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 32
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 64
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdoname69f8be06",
+      "poll_type": "approval",
+      "sample_size": 1100,
+      "population": "a",
+      "url": "https://americanresearchgroup.com/economy#04-20-2026",
+      "created_at": "2026-04-21",
+      "start_date": "2026-04-16",
+      "end_date": "2026-04-20",
+      "pollster": "American Research Group",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 32
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 63
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonangcaca7200",
+      "poll_type": "approval",
+      "sample_size": 1490,
+      "population": "a",
+      "url": "https://angusreid.org/roiling-the-religious-right-two-thirds-of-christians-say-trumps-ai-generated-messiah-image-went-too-far",
+      "created_at": "2026-04-21",
+      "start_date": "2026-04-15",
+      "end_date": "2026-04-20",
+      "pollster": "Angus Reid Global",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 35
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 59
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonyoubcdc8fe6",
+      "poll_type": "approval",
+      "sample_size": 1553,
+      "population": "rv",
+      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_I24AWdp.pdf#page=11",
+      "created_at": "2026-04-21",
+      "start_date": "2026-04-17",
+      "end_date": "2026-04-20",
+      "pollster": "YouGov",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 41
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 56
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "The Economist"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonyou7b956851",
+      "poll_type": "approval",
+      "sample_size": 1707,
+      "population": "a",
+      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_I24AWdp.pdf#page=11",
+      "created_at": "2026-04-21",
+      "start_date": "2026-04-17",
+      "end_date": "2026-04-20",
+      "pollster": "YouGov",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 38
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 54
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "The Economist"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonech38e67207",
+      "poll_type": "approval",
+      "sample_size": 1012,
+      "population": "lv",
+      "url": "https://echeloninsights.com/hubfs/_Media%20for%20Insights%20Blog/April%202026%20Voter%20Omnibus%20Topline%20-%20External.pdf",
+      "created_at": "2026-04-21",
+      "start_date": "2026-04-17",
+      "end_date": "2026-04-20",
+      "pollster": "Echelon Insights",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 41
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 57
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonyou2d6b4954",
+      "poll_type": "approval",
+      "sample_size": 2232,
+      "population": "a",
+      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/Opinion_about_Donald_Trump_poll_results.pdf",
+      "created_at": "2026-04-21",
+      "start_date": "2026-04-14",
+      "end_date": "2026-04-19",
+      "pollster": "YouGov",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 38
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 57
         }
       ],
       "seat_name": null,
@@ -76,6 +290,60 @@
       "seat_name": null,
       "sponsors": [
         "Napolitan Institute"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonver3081c564",
+      "poll_type": "approval",
+      "sample_size": 1386,
+      "population": "rv",
+      "url": "https://www.gelliottmorris.com/p/2026-04-21-april-strength-in-numbers-verasight-poll",
+      "created_at": "2026-04-21",
+      "start_date": "2026-04-10",
+      "end_date": "2026-04-14",
+      "pollster": "Verasight",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 37
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 61
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonverfb589294",
+      "poll_type": "approval",
+      "sample_size": 1514,
+      "population": "a",
+      "url": "https://www.gelliottmorris.com/p/2026-04-21-april-strength-in-numbers-verasight-poll",
+      "created_at": "2026-04-21",
+      "start_date": "2026-04-10",
+      "end_date": "2026-04-14",
+      "pollster": "Verasight",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 35
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 61
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Strength In Numbers"
       ],
       "internal": false,
       "partisan": null,
@@ -265,6 +533,32 @@
         {
           "choice": "Disapprove",
           "pct": 53
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonech9315f851",
+      "poll_type": "approval",
+      "sample_size": 2880,
+      "population": "lv",
+      "url": "https://netchoice.org/wp-content/uploads/2026/04/NetChoice-Apr-2026-National-Antitrust-Survey-Topline.pdf",
+      "created_at": "2026-04-21",
+      "start_date": "2026-04-03",
+      "end_date": "2026-04-09",
+      "pollster": "Echelon Insights",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 43
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 56
         }
       ],
       "seat_name": null,
@@ -20167,88 +20461,6 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonfoxa9dxqzph",
-      "poll_type": "approval",
-      "sample_size": 994,
-      "population": "rv",
-      "url": "https://www.foxnews.com/politics/fox-news-poll-trump-republicans-record-high-ratings-democrats-falter",
-      "created_at": "2025-03-19",
-      "start_date": "2025-03-14",
-      "end_date": "2025-03-17",
-      "pollster": "Beacon Research/Shaw & Co. Research",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 49
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 51
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Fox News"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonglo3biss991",
-      "poll_type": "approval",
-      "sample_size": 1375,
-      "population": "rv",
-      "url": "https://navigatorresearch.org/wp-content/uploads/2025/03/Navigator-Topline-F03.17.25.pdf",
-      "created_at": "2025-03-25",
-      "start_date": "2025-03-13",
-      "end_date": "2025-03-17",
-      "pollster": "Global Strategy Group",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 47
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 49
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Navigator Research"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonnorzdg0c2qf",
-      "poll_type": "approval",
-      "sample_size": 1000,
-      "population": "rv",
-      "url": "https://www.defendingdemocracytogether.org/app/uploads/2025/03/Elon-Musk-Poll-Toplines-Defending-Democracy-Together.pdf",
-      "created_at": "2025-03-30",
-      "start_date": "2025-03-13",
-      "end_date": "2025-03-17",
-      "pollster": "North Star Opinion Research",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 46
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 51
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": "REP",
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -30301,6 +30513,256 @@
       ],
       "seat_name": null,
       "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202ver9645121a",
+      "poll_type": "generic-ballot",
+      "sample_size": 1386,
+      "population": "rv",
+      "url": "https://www.gelliottmorris.com/p/2026-04-21-april-strength-in-numbers-verasight-poll",
+      "created_at": "2026-04-21",
+      "start_date": "2026-04-10",
+      "end_date": "2026-04-14",
+      "pollster": "Verasight",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 50
+        },
+        {
+          "choice": "Rep",
+          "pct": 43
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Strength In Numbers"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202ver06de9dc4",
+      "poll_type": "generic-ballot",
+      "sample_size": 1514,
+      "population": "a",
+      "url": "https://www.gelliottmorris.com/p/2026-04-21-april-strength-in-numbers-verasight-poll",
+      "created_at": "2026-04-21",
+      "start_date": "2026-04-10",
+      "end_date": "2026-04-14",
+      "pollster": "Verasight",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 49
+        },
+        {
+          "choice": "Rep",
+          "pct": 41
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Strength In Numbers"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202ech657fa13f",
+      "poll_type": "generic-ballot",
+      "sample_size": 2880,
+      "population": "lv",
+      "url": "https://netchoice.org/wp-content/uploads/2026/04/NetChoice-Apr-2026-National-Antitrust-Survey-Topline.pdf",
+      "created_at": "2026-04-21",
+      "start_date": "2026-04-03",
+      "end_date": "2026-04-09",
+      "pollster": "Echelon Insights",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 50
+        },
+        {
+          "choice": "Rep",
+          "pct": 45
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "NetChoice"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202you2142fbd8",
+      "poll_type": "generic-ballot",
+      "sample_size": 1549,
+      "population": "rv",
+      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_I24AWdp.pdf#page=65",
+      "created_at": "2026-04-21",
+      "start_date": "2026-04-17",
+      "end_date": "2026-04-20",
+      "pollster": "YouGov",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 45
+        },
+        {
+          "choice": "Rep",
+          "pct": 40
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "The Economist"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202you1706e723",
+      "poll_type": "generic-ballot",
+      "sample_size": 1703,
+      "population": "a",
+      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_I24AWdp.pdf#page=65",
+      "created_at": "2026-04-21",
+      "start_date": "2026-04-17",
+      "end_date": "2026-04-20",
+      "pollster": "YouGov",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 39
+        },
+        {
+          "choice": "Rep",
+          "pct": 33
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "The Economist"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202ips723b2f06",
+      "poll_type": "generic-ballot",
+      "sample_size": 3577,
+      "population": "rv",
+      "url": "https://www.reuters.com/world/us/many-americans-question-trumps-temperament-amid-iran-war-pope-spat-reutersipsos-2026-04-21",
+      "created_at": "2026-04-21",
+      "start_date": "2026-04-15",
+      "end_date": "2026-04-20",
+      "pollster": "Ipsos",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 41
+        },
+        {
+          "choice": "Rep",
+          "pct": 38
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Reuters"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202ech75567eb0",
+      "poll_type": "generic-ballot",
+      "sample_size": 1012,
+      "population": "lv",
+      "url": "https://echeloninsights.com/hubfs/_Media%20for%20Insights%20Blog/April%202026%20Voter%20Omnibus%20Topline%20-%20External.pdf",
+      "created_at": "2026-04-21",
+      "start_date": "2026-04-17",
+      "end_date": "2026-04-20",
+      "pollster": "Echelon Insights",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 50
+        },
+        {
+          "choice": "Rep",
+          "pct": 44
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202ipsf49cf96d",
+      "poll_type": "generic-ballot",
+      "sample_size": 3577,
+      "population": "rv",
+      "url": "https://www.ipsos.com/sites/default/files/ct/news/documents/2026-04/Reuters%20Ipsos%20Large%20Issue%20April%202026%20Topline%204.21%20Release_1.pdf",
+      "created_at": "2026-04-21",
+      "start_date": "2026-04-15",
+      "end_date": "2026-04-20",
+      "pollster": "Ipsos",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 41
+        },
+        {
+          "choice": "Rep",
+          "pct": 38
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Reuters"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202ipse8884e79",
+      "poll_type": "generic-ballot",
+      "sample_size": 4557,
+      "population": "a",
+      "url": "https://www.ipsos.com/sites/default/files/ct/news/documents/2026-04/Reuters%20Ipsos%20Large%20Issue%20April%202026%20Topline%204.21%20Release_1.pdf",
+      "created_at": "2026-04-21",
+      "start_date": "2026-04-15",
+      "end_date": "2026-04-20",
+      "pollster": "Ipsos",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 35
+        },
+        {
+          "choice": "Rep",
+          "pct": 31
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Reuters"
+      ],
       "internal": false,
       "partisan": null,
       "subject": "2026"
