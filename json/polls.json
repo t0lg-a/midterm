@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-04-23T12:12:03.632Z",
+  "updatedAt": "2026-04-24T12:10:33.748Z",
   "approval": [
     {
       "id": "appdonmor36fe2a7b",
@@ -242,6 +242,34 @@
       "subject": "Donald Trump"
     },
     {
+      "id": "appdonbead3b49338",
+      "poll_type": "approval",
+      "sample_size": 1001,
+      "population": "rv",
+      "url": "https://static.foxnews.com/foxnews.com/content/uploads/2026/04/fox_april-17-20-2026_national_topline_april-22-release.pdf",
+      "created_at": "2026-04-23",
+      "start_date": "2026-04-17",
+      "end_date": "2026-04-20",
+      "pollster": "Beacon Research/Shaw & Co. Research",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 42
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 58
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Fox News"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
       "id": "appdonyou2d6b4954",
       "poll_type": "approval",
       "sample_size": 2232,
@@ -263,6 +291,34 @@
       ],
       "seat_name": null,
       "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonhar68dc855c",
+      "poll_type": "approval",
+      "sample_size": 1000,
+      "population": "rv",
+      "url": "https://fm.cnbc.com/applications/cnbc.com/resources/editorialfiles/2026/04/23/Toplines_260142_CNBC_AAES_Q1_2026_Topline.pdf",
+      "created_at": "2026-04-23",
+      "start_date": "2026-04-15",
+      "end_date": "2026-04-19",
+      "pollster": "Hart Research Associates/Public Opinion Strategies",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 40
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 58
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "CNBC"
+      ],
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
@@ -533,6 +589,32 @@
       "sponsors": [
         "NBC News Decision Desk"
       ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonsur599bc5cf",
+      "poll_type": "approval",
+      "sample_size": 1539,
+      "population": "rv",
+      "url": "https://www.survey160.com/methodological-research-blog/survey-160-tracking-poll-april-2026",
+      "created_at": "2026-04-23",
+      "start_date": "2026-04-08",
+      "end_date": "2026-04-13",
+      "pollster": "Survey 160",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 37
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 60
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
@@ -20427,34 +20509,6 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonrmgks7d4k58",
-      "poll_type": "approval",
-      "sample_size": 3000,
-      "population": "rv",
-      "url": "https://napolitannews.org/posts/president-trump-job-approval-rating-53-percent-approve-45-disapprove",
-      "created_at": "2025-03-21",
-      "start_date": "2025-03-12",
-      "end_date": "2025-03-19",
-      "pollster": "RMG Research",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 53
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 45
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Napolitan Institute"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -30835,6 +30889,114 @@
       ],
       "seat_name": null,
       "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202sur62e6d9ea",
+      "poll_type": "generic-ballot",
+      "sample_size": 1539,
+      "population": "rv",
+      "url": "https://www.survey160.com/methodological-research-blog/survey-160-tracking-poll-april-2026",
+      "created_at": "2026-04-23",
+      "start_date": "2026-04-08",
+      "end_date": "2026-04-13",
+      "pollster": "Survey 160",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 47
+        },
+        {
+          "choice": "Rep",
+          "pct": 37
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202hare0f9b514",
+      "poll_type": "generic-ballot",
+      "sample_size": 1000,
+      "population": "rv",
+      "url": "https://fm.cnbc.com/applications/cnbc.com/resources/editorialfiles/2026/04/23/Toplines_260142_CNBC_AAES_Q1_2026_Topline.pdf",
+      "created_at": "2026-04-23",
+      "start_date": "2026-04-15",
+      "end_date": "2026-04-19",
+      "pollster": "Hart Research Associates/Public Opinion Strategies",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 49
+        },
+        {
+          "choice": "Rep",
+          "pct": 45
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "CNBC"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202joh0a1e6aef",
+      "poll_type": "generic-ballot",
+      "sample_size": 1001,
+      "population": "lv",
+      "url": "https://x.com/zogbystrategies/status/2047123700990767164?s=20",
+      "created_at": "2026-04-23",
+      "start_date": "2026-04-17",
+      "end_date": "2026-04-18",
+      "pollster": "John Zogby Strategies",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 48
+        },
+        {
+          "choice": "Rep",
+          "pct": 44
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202beab54fecf9",
+      "poll_type": "generic-ballot",
+      "sample_size": 1001,
+      "population": "rv",
+      "url": "https://static.foxnews.com/foxnews.com/content/uploads/2026/04/fox_april-17-20-2026_national_topline_april-22-release.pdf",
+      "created_at": "2026-04-23",
+      "start_date": "2026-04-17",
+      "end_date": "2026-04-20",
+      "pollster": "Beacon Research/Shaw & Co. Research",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 52
+        },
+        {
+          "choice": "Rep",
+          "pct": 47
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Fox News"
+      ],
       "internal": false,
       "partisan": null,
       "subject": "2026"
