@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-04-25T11:57:12.962Z",
+  "updatedAt": "2026-04-26T11:59:28.564Z",
   "approval": [
     {
       "id": "appdonrmge14da9e3",
@@ -25,6 +25,32 @@
       "sponsors": [
         "Napolitan Institute"
       ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonquac620608e",
+      "poll_type": "approval",
+      "sample_size": 1452,
+      "population": "lv",
+      "url": "https://drive.google.com/file/d/1xc5TCNWqDfyPWJbTg5Esp61oyLKRqPms/view",
+      "created_at": "2026-04-25",
+      "start_date": "2026-04-21",
+      "end_date": "2026-04-23",
+      "pollster": "Quantus Insights",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 43
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 56
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
@@ -30947,6 +30973,32 @@
       "sponsors": [
         "Fox News"
       ],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202qua30319a4e",
+      "poll_type": "generic-ballot",
+      "sample_size": 1452,
+      "population": "lv",
+      "url": "https://drive.google.com/file/d/1xc5TCNWqDfyPWJbTg5Esp61oyLKRqPms/view",
+      "created_at": "2026-04-25",
+      "start_date": "2026-04-21",
+      "end_date": "2026-04-23",
+      "pollster": "Quantus Insights",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 47
+        },
+        {
+          "choice": "Rep",
+          "pct": 42
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
       "internal": false,
       "partisan": null,
       "subject": "2026"
