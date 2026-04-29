@@ -1,6 +1,200 @@
 {
-  "updatedAt": "2026-04-28T13:01:43.230Z",
+  "updatedAt": "2026-04-29T12:59:32.758Z",
   "approval": [
+    {
+      "id": "appdonmore767d50a",
+      "poll_type": "approval",
+      "sample_size": 2201,
+      "population": "rv",
+      "url": "https://pro.morningconsult.com/trackers/donald-trump-congress-policy-republicans-polling#04-27-2026",
+      "created_at": "2026-04-29",
+      "start_date": "2026-04-24",
+      "end_date": "2026-04-27",
+      "pollster": "Morning Consult",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 45
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 53
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonyou99135acd",
+      "poll_type": "approval",
+      "sample_size": 1647,
+      "population": "rv",
+      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_Ty7ikPd.pdf#page=25",
+      "created_at": "2026-04-29",
+      "start_date": "2026-04-24",
+      "end_date": "2026-04-27",
+      "pollster": "YouGov",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 40
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 57
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "The Economist"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonyoua73d4037",
+      "poll_type": "approval",
+      "sample_size": 1836,
+      "population": "a",
+      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_Ty7ikPd.pdf#page=25",
+      "created_at": "2026-04-29",
+      "start_date": "2026-04-24",
+      "end_date": "2026-04-27",
+      "pollster": "YouGov",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 37
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 59
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "The Economist"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonipsa88dd226",
+      "poll_type": "approval",
+      "sample_size": 1014,
+      "population": "rv",
+      "url": "https://www.ipsos.com/sites/default/files/ct/news/documents/2026-04/Reuters%20Ipsos%20Core%20Political%20April%202026%20Topline.pdf",
+      "created_at": "2026-04-29",
+      "start_date": "2026-04-24",
+      "end_date": "2026-04-27",
+      "pollster": "Ipsos",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 37
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 62
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Reuters"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonips150630a0",
+      "poll_type": "approval",
+      "sample_size": 1269,
+      "population": "a",
+      "url": "https://www.ipsos.com/sites/default/files/ct/news/documents/2026-04/Reuters%20Ipsos%20Core%20Political%20April%202026%20Topline.pdf",
+      "created_at": "2026-04-29",
+      "start_date": "2026-04-24",
+      "end_date": "2026-04-27",
+      "pollster": "Ipsos",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 34
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 64
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Reuters"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonharf90b0e9c",
+      "poll_type": "approval",
+      "sample_size": null,
+      "population": "lv",
+      "url": "https://harvardharrispoll.com/wp-content/uploads/2026/04/HHP_Apr2026_KeyResults.pdf",
+      "created_at": "2026-04-29",
+      "start_date": "2026-04-23",
+      "end_date": "2026-04-26",
+      "pollster": "HarrisX/Harris",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 46
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 51
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Harvard CAPS"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonhar91762ffc",
+      "poll_type": "approval",
+      "sample_size": 2745,
+      "population": "rv",
+      "url": "https://harvardharrispoll.com/wp-content/uploads/2026/04/HHP_Apr2026_KeyResults.pdf",
+      "created_at": "2026-04-29",
+      "start_date": "2026-04-23",
+      "end_date": "2026-04-26",
+      "pollster": "HarrisX/Harris",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 42
+        },
+        {
+          "choice": "Rep",
+          "pct": 53
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Harvard CAPS"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
     {
       "id": "appdonrmge14da9e3",
       "poll_type": "approval",
@@ -372,6 +566,35 @@
       "seat_name": null,
       "sponsors": [
         "CNBC"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonmor7f30eadb",
+      "poll_type": "approval",
+      "sample_size": 2057,
+      "population": "rv",
+      "url": "https://www.deseret.com/politics/2026/04/22/trump-polling-underwater-in-utah-among-religious",
+      "created_at": "2026-04-29",
+      "start_date": "2026-04-15",
+      "end_date": "2026-04-19",
+      "pollster": "Morning Consult",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 42
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 54
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Deseret News",
+        "University of Utah Hinckley Institute of Politics"
       ],
       "internal": false,
       "partisan": null,
@@ -20349,60 +20572,6 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonyousyrlq3ft",
-      "poll_type": "approval",
-      "sample_size": 1677,
-      "population": "a",
-      "url": "https://www.yahoo.com/news/more-americans-say-trumps-second-term-has-been-worse-than-expected-according-to-a-new-poll-120010590.html",
-      "created_at": "2025-03-27",
-      "start_date": "2025-03-20",
-      "end_date": "2025-03-24",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 44
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 50
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Yahoo News"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonap-vz3p2zkm",
-      "poll_type": "approval",
-      "sample_size": 1229,
-      "population": "a",
-      "url": "https://apnorc.org/projects/trump-scores-better-marks-with-the-public-on-immigration-than-the-economy/",
-      "created_at": "2025-03-31",
-      "start_date": "2025-03-20",
-      "end_date": "2025-03-24",
-      "pollster": "AP-NORC",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 42
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 56
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -30917,6 +31086,226 @@
       ],
       "seat_name": null,
       "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202mor441d3c0c",
+      "poll_type": "generic-ballot",
+      "sample_size": 28235,
+      "population": "rv",
+      "url": "https://pro.morningconsult.com/trackers/2026-midterm-election-generic-ballot-polls#04-26-2026",
+      "created_at": "2026-04-29",
+      "start_date": "2026-04-20",
+      "end_date": "2026-04-26",
+      "pollster": "Morning Consult",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 45
+        },
+        {
+          "choice": "Rep",
+          "pct": 42
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202moraf812e1e",
+      "poll_type": "generic-ballot",
+      "sample_size": 2201,
+      "population": "rv",
+      "url": "https://pro.morningconsult.com/trackers/donald-trump-congress-policy-republicans-polling#04-27-2026",
+      "created_at": "2026-04-29",
+      "start_date": "2026-04-24",
+      "end_date": "2026-04-27",
+      "pollster": "Morning Consult",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 45
+        },
+        {
+          "choice": "Rep",
+          "pct": 42
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202you2ae6f378",
+      "poll_type": "generic-ballot",
+      "sample_size": 1645,
+      "population": "rv",
+      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_Ty7ikPd.pdf#page=52",
+      "created_at": "2026-04-29",
+      "start_date": "2026-04-24",
+      "end_date": "2026-04-27",
+      "pollster": "YouGov",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 46
+        },
+        {
+          "choice": "Rep",
+          "pct": 41
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "The Economist"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202you3de5efa3",
+      "poll_type": "generic-ballot",
+      "sample_size": 1834,
+      "population": "a",
+      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_Ty7ikPd.pdf#page=52",
+      "created_at": "2026-04-29",
+      "start_date": "2026-04-24",
+      "end_date": "2026-04-27",
+      "pollster": "YouGov",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 39
+        },
+        {
+          "choice": "Rep",
+          "pct": 34
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "The Economist"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202ips0bc2dcd0",
+      "poll_type": "generic-ballot",
+      "sample_size": 1014,
+      "population": "rv",
+      "url": "https://www.ipsos.com/sites/default/files/ct/news/documents/2026-04/Reuters%20Ipsos%20Core%20Political%20April%202026%20Topline.pdf",
+      "created_at": "2026-04-29",
+      "start_date": "2026-04-24",
+      "end_date": "2026-04-27",
+      "pollster": "Ipsos",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 41
+        },
+        {
+          "choice": "Rep",
+          "pct": 37
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Reuters"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202ipsefd2e293",
+      "poll_type": "generic-ballot",
+      "sample_size": 1269,
+      "population": "a",
+      "url": "https://www.ipsos.com/sites/default/files/ct/news/documents/2026-04/Reuters%20Ipsos%20Core%20Political%20April%202026%20Topline.pdf",
+      "created_at": "2026-04-29",
+      "start_date": "2026-04-24",
+      "end_date": "2026-04-27",
+      "pollster": "Ipsos",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 36
+        },
+        {
+          "choice": "Rep",
+          "pct": 31
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Reuters"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202har524f07a0",
+      "poll_type": "generic-ballot",
+      "sample_size": null,
+      "population": "lv",
+      "url": "https://harvardharrispoll.com/wp-content/uploads/2026/04/HHP_Apr2026_KeyResults.pdf",
+      "created_at": "2026-04-29",
+      "start_date": "2026-04-23",
+      "end_date": "2026-04-26",
+      "pollster": "HarrisX/Harris",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 50
+        },
+        {
+          "choice": "Rep",
+          "pct": 50
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Harvard CAPS"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202harc4ffc78c",
+      "poll_type": "generic-ballot",
+      "sample_size": 2745,
+      "population": "rv",
+      "url": "https://harvardharrispoll.com/wp-content/uploads/2026/04/HHP_Apr2026_KeyResults.pdf",
+      "created_at": "2026-04-29",
+      "start_date": "2026-04-23",
+      "end_date": "2026-04-26",
+      "pollster": "HarrisX/Harris",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 50
+        },
+        {
+          "choice": "Rep",
+          "pct": 50
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Harvard CAPS"
+      ],
       "internal": false,
       "partisan": null,
       "subject": "2026"
