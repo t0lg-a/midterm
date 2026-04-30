@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-04-29T12:59:32.758Z",
+  "updatedAt": "2026-04-30T12:58:26.210Z",
   "approval": [
     {
       "id": "appdonmore767d50a",
@@ -140,6 +140,60 @@
       "subject": "Donald Trump"
     },
     {
+      "id": "appdonins30b0c19a",
+      "poll_type": "approval",
+      "sample_size": 800,
+      "population": "lv",
+      "url": "https://insideradvantage.com/insideradvantage-national-survey-trump-job-approval-bouncing-back-approve-44-disapprove-49/",
+      "created_at": "2026-04-30",
+      "start_date": "2026-04-26",
+      "end_date": "2026-04-27",
+      "pollster": "InsiderAdvantage",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 44
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 49
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonglo1ff2f069",
+      "poll_type": "approval",
+      "sample_size": 1000,
+      "population": "rv",
+      "url": "https://navigatorresearch.org/wp-content/uploads/2026/04/Navigator-Update-04.29.26.pdf",
+      "created_at": "2026-04-30",
+      "start_date": "2026-04-23",
+      "end_date": "2026-04-27",
+      "pollster": "Global Strategy Group",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 40
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 58
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Navigator Research"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
       "id": "appdonharf90b0e9c",
       "poll_type": "approval",
       "sample_size": null,
@@ -196,6 +250,32 @@
       "subject": "Donald Trump"
     },
     {
+      "id": "appdoneme8f61c99a",
+      "poll_type": "approval",
+      "sample_size": 1000,
+      "population": "lv",
+      "url": "https://docs.google.com/spreadsheets/d/1FsVoQjT-tHeejavmtPp3dWF2UpdwGBOe/edit?gid=148203681#gid=148203681",
+      "created_at": "2026-04-30",
+      "start_date": "2026-04-24",
+      "end_date": "2026-04-26",
+      "pollster": "Emerson College",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 39.6
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 55.9
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
       "id": "appdonrmge14da9e3",
       "poll_type": "approval",
       "sample_size": 3000,
@@ -241,6 +321,32 @@
         {
           "choice": "Disapprove",
           "pct": 56
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonthe111895cf",
+      "poll_type": "approval",
+      "sample_size": 1516,
+      "population": "rv",
+      "url": "https://www.theargumentmag.com/p/why-democrats-cant-win-more-trump",
+      "created_at": "2026-04-30",
+      "start_date": "2026-04-20",
+      "end_date": "2026-04-23",
+      "pollster": "The Argument/Verasight",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 39
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 60
         }
       ],
       "seat_name": null,
@@ -512,6 +618,35 @@
       "seat_name": null,
       "sponsors": [
         "Fox News"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonlegb95852c7",
+      "poll_type": "approval",
+      "sample_size": 1004,
+      "population": "a",
+      "url": "https://documents.leger360.com/hubfs/%C3%89tudes%20M%C3%A9diatiques/%C3%89tudes%20M%C3%A9diatiques%20-%202026/4.%20%C3%89M%20-%20Avril%202026/20260428%20-%20US%20Poll%20April%202026/US_POL_April_2026_338Canada_VF.pdf",
+      "created_at": "2026-04-30",
+      "start_date": "2026-04-17",
+      "end_date": "2026-04-20",
+      "pollster": "Leger",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 36
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 53
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "338Canada",
+        "Maintenant Media"
       ],
       "internal": false,
       "partisan": null,
@@ -20516,62 +20651,6 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonyougkrdhy3c",
-      "poll_type": "approval",
-      "sample_size": 1600,
-      "population": "a",
-      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_o8LZals.pdf",
-      "created_at": "2025-03-26",
-      "start_date": "2025-03-22",
-      "end_date": "2025-03-25",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 48
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 46
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Economist"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonyouyklhj5ni",
-      "poll_type": "approval",
-      "sample_size": 1440,
-      "population": "rv",
-      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_o8LZals.pdf",
-      "created_at": "2025-03-26",
-      "start_date": "2025-03-22",
-      "end_date": "2025-03-25",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 48
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 50
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Economist"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -31306,6 +31385,113 @@
       "sponsors": [
         "Harvard CAPS"
       ],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202eme52b01f0e",
+      "poll_type": "generic-ballot",
+      "sample_size": 1000,
+      "population": "lv",
+      "url": "https://docs.google.com/spreadsheets/d/1FsVoQjT-tHeejavmtPp3dWF2UpdwGBOe/edit?gid=148203681#gid=148203681",
+      "created_at": "2026-04-30",
+      "start_date": "2026-04-24",
+      "end_date": "2026-04-26",
+      "pollster": "Emerson College",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 50.3
+        },
+        {
+          "choice": "Rep",
+          "pct": 40.2
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202leg6734532b",
+      "poll_type": "generic-ballot",
+      "sample_size": 1004,
+      "population": "a",
+      "url": "https://documents.leger360.com/hubfs/%C3%89tudes%20M%C3%A9diatiques/%C3%89tudes%20M%C3%A9diatiques%20-%202026/4.%20%C3%89M%20-%20Avril%202026/20260428%20-%20US%20Poll%20April%202026/US_POL_April_2026_338Canada_VF.pdf",
+      "created_at": "2026-04-30",
+      "start_date": "2026-04-17",
+      "end_date": "2026-04-20",
+      "pollster": "Leger",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 52
+        },
+        {
+          "choice": "Rep",
+          "pct": 42
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "338Canada",
+        "Maintenant Media"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202the055f2404",
+      "poll_type": "generic-ballot",
+      "sample_size": 1000,
+      "population": "lv",
+      "url": "https://www.theargumentmag.com/p/why-democrats-cant-win-more-trump",
+      "created_at": "2026-04-30",
+      "start_date": "2026-04-20",
+      "end_date": "2026-04-23",
+      "pollster": "The Argument/Verasight",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 53
+        },
+        {
+          "choice": "Rep",
+          "pct": 47
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202kff582c6691",
+      "poll_type": "generic-ballot",
+      "sample_size": 1107,
+      "population": "rv",
+      "url": "https://www.kff.org/public-opinion/kff-health-tracking-poll-health-care-costs-and-the-midterms",
+      "created_at": "2026-04-30",
+      "start_date": "2026-04-14",
+      "end_date": "2026-04-19",
+      "pollster": "KFF",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 43
+        },
+        {
+          "choice": "Rep",
+          "pct": 34
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
       "internal": false,
       "partisan": null,
       "subject": "2026"
