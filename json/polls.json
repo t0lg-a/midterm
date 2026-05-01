@@ -1,6 +1,58 @@
 {
-  "updatedAt": "2026-04-30T12:58:26.210Z",
+  "updatedAt": "2026-05-01T12:09:55.268Z",
   "approval": [
+    {
+      "id": "appdonbig17082368",
+      "poll_type": "approval",
+      "sample_size": 2874,
+      "population": "lv",
+      "url": "https://www.bigdatapoll.com/blog/national-mood-worsens-for-republicans-in-april-2026-national-poll",
+      "created_at": "2026-04-30",
+      "start_date": "2026-04-25",
+      "end_date": "2026-04-28",
+      "pollster": "Big Data Poll",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 41
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 57
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonbig4b3d675d",
+      "poll_type": "approval",
+      "sample_size": 3176,
+      "population": "rv",
+      "url": "https://www.bigdatapoll.com/blog/national-mood-worsens-for-republicans-in-april-2026-national-poll",
+      "created_at": "2026-04-30",
+      "start_date": "2026-04-25",
+      "end_date": "2026-04-28",
+      "pollster": "Big Data Poll",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 39.6
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 56.9
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
     {
       "id": "appdonmore767d50a",
       "poll_type": "approval",
@@ -1185,6 +1237,32 @@
         {
           "choice": "Disapprove",
           "pct": 55
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonchadc0820ff",
+      "poll_type": "approval",
+      "sample_size": 2702,
+      "population": "rv",
+      "url": "https://changeresearch.com/who-do-voters-want-in-2028",
+      "created_at": "2026-04-30",
+      "start_date": "2026-04-03",
+      "end_date": "2026-04-07",
+      "pollster": "Change Research",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 42
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 56
         }
       ],
       "seat_name": null,
@@ -20623,34 +20701,6 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonyousn8l6n2c",
-      "poll_type": "approval",
-      "sample_size": 2351,
-      "population": "a",
-      "url": "https://www.cbsnews.com/news/opinion-poll-trump-economy-tariffs-deportation-immigration/",
-      "created_at": "2025-03-30",
-      "start_date": "2025-03-24",
-      "end_date": "2025-03-26",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 50
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 50
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "CBS News"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -31488,6 +31538,58 @@
         {
           "choice": "Rep",
           "pct": 34
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202bigf4330694",
+      "poll_type": "generic-ballot",
+      "sample_size": 2874,
+      "population": "lv",
+      "url": "https://www.bigdatapoll.com/blog/national-mood-worsens-for-republicans-in-april-2026-national-poll",
+      "created_at": "2026-04-30",
+      "start_date": "2026-04-25",
+      "end_date": "2026-04-28",
+      "pollster": "Big Data Poll",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 50.4
+        },
+        {
+          "choice": "Rep",
+          "pct": 39.4
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202big0c0c7e6f",
+      "poll_type": "generic-ballot",
+      "sample_size": 3176,
+      "population": "rv",
+      "url": "https://www.bigdatapoll.com/blog/national-mood-worsens-for-republicans-in-april-2026-national-poll",
+      "created_at": "2026-04-30",
+      "start_date": "2026-04-25",
+      "end_date": "2026-04-28",
+      "pollster": "Big Data Poll",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 47.7
+        },
+        {
+          "choice": "Rep",
+          "pct": 37.1
         }
       ],
       "seat_name": null,
