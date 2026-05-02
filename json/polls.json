@@ -1,6 +1,58 @@
 {
-  "updatedAt": "2026-05-01T12:09:55.268Z",
+  "updatedAt": "2026-05-02T12:03:11.626Z",
   "approval": [
+    {
+      "id": "appdonactf4c067a5",
+      "poll_type": "approval",
+      "sample_size": 636,
+      "population": "a",
+      "url": "https://www.activote.net/trumps-approval-below-40",
+      "created_at": "2026-05-01",
+      "start_date": "2026-04-01",
+      "end_date": "2026-04-30",
+      "pollster": "ActiVote",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 40
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 56
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonrmg61bd85f4",
+      "poll_type": "approval",
+      "sample_size": 3000,
+      "population": "rv",
+      "url": "https://napolitannews.org/jobapproval#04-30-2026",
+      "created_at": "2026-05-01",
+      "start_date": "2026-04-22",
+      "end_date": "2026-04-30",
+      "pollster": "RMG Research",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 42
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 57
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
     {
       "id": "appdonbig17082368",
       "poll_type": "approval",
@@ -319,6 +371,32 @@
         {
           "choice": "Disapprove",
           "pct": 55.9
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonpew649d7ccd",
+      "poll_type": "approval",
+      "sample_size": 5103,
+      "population": "a",
+      "url": "https://www.pewresearch.org/wp-content/uploads/sites/20/2026/05/PP_2026.5.1_Trump-approval_topline.pdf",
+      "created_at": "2026-05-01",
+      "start_date": "2026-04-20",
+      "end_date": "2026-04-26",
+      "pollster": "Pew Research Center",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 34
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 64
         }
       ],
       "seat_name": null,
@@ -20539,197 +20617,9 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonj.l5m6l7j7c",
-      "poll_type": "approval",
-      "sample_size": 1001,
-      "population": "rv",
-      "url": "https://jlpartners.com/trump-tracker-march-2025",
-      "created_at": "2025-03-31",
-      "start_date": "2025-03-25",
-      "end_date": "2025-03-27",
-      "pollster": "J.L. Partners",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 45
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 46
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "DailyMail.com"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonrmga97wzuii",
-      "poll_type": "approval",
-      "sample_size": 3000,
-      "population": "rv",
-      "url": "https://napolitannews.org/posts/president-trump-job-approval-rating-52-percent-approve-45-disapprove",
-      "created_at": "2025-03-28",
-      "start_date": "2025-03-18",
-      "end_date": "2025-03-27",
-      "pollster": "RMG Research",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 52
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 45
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Napolitan Institute"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonquap9ocvbck",
-      "poll_type": "approval",
-      "sample_size": 1000,
-      "population": "rv",
-      "url": "https://quantusinsights.org/f/trump%E2%80%99s-standing-steadies-but-crosscurrents-remain-ahead-of-2026",
-      "created_at": "2025-03-28",
-      "start_date": "2025-03-25",
-      "end_date": "2025-03-27",
-      "pollster": "Quantus Insights",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 49.4
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 46.4
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonharb3inqda4",
-      "poll_type": "approval",
-      "sample_size": 2746,
-      "population": "rv",
-      "url": "https://harvardharrispoll.com/key-results-march-5/",
-      "created_at": "2025-03-31",
-      "start_date": "2025-03-26",
-      "end_date": "2025-03-27",
-      "pollster": "HarrisX/Harris Poll",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 49
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 46
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Harvard CAPS"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonmarxbjfhixc",
-      "poll_type": "approval",
-      "sample_size": 1021,
-      "population": "a",
-      "url": "https://www.marquette.edu/news-center/2025/marquette-law-school-national-survey-finds-public-skeptical-of-tariffs-inflation-trends-positive-on-nation-s-direction.php",
-      "created_at": "2025-04-02",
-      "start_date": "2025-03-17",
-      "end_date": "2025-03-27",
-      "pollster": "Marquette University Law School",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 46.2
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 53.8
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonmarbtrmggla",
-      "poll_type": "approval",
-      "sample_size": 712,
-      "population": "rv",
-      "url": "https://law.marquette.edu/poll/wp-content/uploads/2025/04/MLSPSC25Toplines.html",
-      "created_at": "2025-04-05",
-      "start_date": "2025-03-17",
-      "end_date": "2025-03-27",
-      "pollster": "Marquette University Law School",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 48
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 52
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
-    {
-      "id": "gen202quaiwtcm3aw",
-      "poll_type": "generic-ballot",
-      "sample_size": 1000,
-      "population": "rv",
-      "url": "https://quantusinsights.org/f/trump%E2%80%99s-standing-steadies-but-crosscurrents-remain-ahead-of-2026",
-      "created_at": "2025-03-28",
-      "start_date": "2025-03-25",
-      "end_date": "2025-03-27",
-      "pollster": "Quantus Insights",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 45.4
-        },
-        {
-          "choice": "Rep",
-          "pct": 46.3
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "2026"
-    },
     {
       "id": "gen202fabfbik5htr",
       "poll_type": "generic-ballot",
