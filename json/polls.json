@@ -1,6 +1,88 @@
 {
-  "updatedAt": "2026-05-05T12:16:13.322Z",
+  "updatedAt": "2026-05-06T13:05:17.172Z",
   "approval": [
+    {
+      "id": "appdonyou8f1ff472",
+      "poll_type": "approval",
+      "sample_size": 1409,
+      "population": "rv",
+      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_Zi1MEwp.pdf#page=6",
+      "created_at": "2026-05-05",
+      "start_date": "2026-05-01",
+      "end_date": "2026-05-04",
+      "pollster": "YouGov",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 40
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 58
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "The Economist"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonyou5d4e684e",
+      "poll_type": "approval",
+      "sample_size": 1573,
+      "population": "a",
+      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_Zi1MEwp.pdf#page=6",
+      "created_at": "2026-05-05",
+      "start_date": "2026-05-01",
+      "end_date": "2026-05-04",
+      "pollster": "YouGov",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 36
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 58
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "The Economist"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonmor25792117",
+      "poll_type": "approval",
+      "sample_size": 2200,
+      "population": "rv",
+      "url": "https://pro.morningconsult.com/trackers/donald-trump-congress-policy-republicans-polling#05-03-2026",
+      "created_at": "2026-05-05",
+      "start_date": "2026-04-30",
+      "end_date": "2026-05-03",
+      "pollster": "Morning Consult",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 44
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 53
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
     {
       "id": "appdonactf4c067a5",
       "poll_type": "approval",
@@ -455,6 +537,32 @@
         {
           "choice": "Disapprove",
           "pct": 64
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdoncla46bd5383",
+      "poll_type": "approval",
+      "sample_size": 1000,
+      "population": "lv",
+      "url": "https://www.claritycampaigns.com/clarity-omnibus-2026-april",
+      "created_at": "2026-05-06",
+      "start_date": "2026-04-15",
+      "end_date": "2026-04-24",
+      "pollster": "Clarity Campaign Labs",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 43
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 55
         }
       ],
       "seat_name": null,
@@ -20569,32 +20677,6 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonactp9eywhhn",
-      "poll_type": "approval",
-      "sample_size": 799,
-      "population": "a",
-      "url": "https://www.activote.net/trumps-approval-underwater/",
-      "created_at": "2025-04-03",
-      "start_date": "2025-03-01",
-      "end_date": "2025-03-31",
-      "pollster": "ActiVote",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 47.6
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 49.4
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -31567,6 +31649,114 @@
         {
           "choice": "Rep",
           "pct": 40
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202you3b7f3c42",
+      "poll_type": "generic-ballot",
+      "sample_size": 1406,
+      "population": "rv",
+      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_Zi1MEwp.pdf#page=32",
+      "created_at": "2026-05-05",
+      "start_date": "2026-05-01",
+      "end_date": "2026-05-04",
+      "pollster": "YouGov",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 44
+        },
+        {
+          "choice": "Rep",
+          "pct": 41
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "The Economist"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202youb0c541de",
+      "poll_type": "generic-ballot",
+      "sample_size": 1570,
+      "population": "a",
+      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_Zi1MEwp.pdf#page=32",
+      "created_at": "2026-05-05",
+      "start_date": "2026-05-01",
+      "end_date": "2026-05-04",
+      "pollster": "YouGov",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 38
+        },
+        {
+          "choice": "Rep",
+          "pct": 34
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "The Economist"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202morfece680f",
+      "poll_type": "generic-ballot",
+      "sample_size": 2200,
+      "population": "rv",
+      "url": "https://pro.morningconsult.com/trackers/donald-trump-congress-policy-republicans-polling#05-03-2026",
+      "created_at": "2026-05-05",
+      "start_date": "2026-04-30",
+      "end_date": "2026-05-03",
+      "pollster": "Morning Consult",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 46
+        },
+        {
+          "choice": "Rep",
+          "pct": 43
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202claf159f7a2",
+      "poll_type": "generic-ballot",
+      "sample_size": 1000,
+      "population": "lv",
+      "url": "https://www.claritycampaigns.com/clarity-omnibus-2026-april",
+      "created_at": "2026-05-06",
+      "start_date": "2026-04-15",
+      "end_date": "2026-04-24",
+      "pollster": "Clarity Campaign Labs",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 50
+        },
+        {
+          "choice": "Rep",
+          "pct": 45
         }
       ],
       "seat_name": null,
