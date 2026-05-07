@@ -1,6 +1,62 @@
 {
-  "updatedAt": "2026-05-06T13:05:17.172Z",
+  "updatedAt": "2026-05-07T13:10:48.946Z",
   "approval": [
+    {
+      "id": "appdonhar810060db",
+      "poll_type": "approval",
+      "sample_size": 2512,
+      "population": "a",
+      "url": "https://www.forbes.com/sites/antoniopequenoiv/2026/05/06/new-forbesharrisx-poll-trumps-handling-of-economy-overwhelmingly-unpopular",
+      "created_at": "2026-05-06",
+      "start_date": "2026-04-29",
+      "end_date": "2026-05-05",
+      "pollster": "HarrisX",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 41
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 55
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Forbes"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonharafe4371b",
+      "poll_type": "approval",
+      "sample_size": 1891,
+      "population": "lv",
+      "url": "https://www.harrisx.com/posts/forbes-and-harrisx-partner-on-new-american-confidence-survey-as-gallup-ends-approval-polling",
+      "created_at": "2026-05-07",
+      "start_date": "2026-04-29",
+      "end_date": "2026-05-05",
+      "pollster": "HarrisX",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 44
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 55
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Forbes"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
     {
       "id": "appdonyou8f1ff472",
       "poll_type": "approval",
@@ -84,6 +140,34 @@
       "subject": "Donald Trump"
     },
     {
+      "id": "appdontip898fd8f9",
+      "poll_type": "approval",
+      "sample_size": 1464,
+      "population": "a",
+      "url": "https://tippinsights.com/for-trump-approval-is-all-about-the-base-as-dems-independent-voters-cool-i-i-tipp-poll",
+      "created_at": "2026-05-06",
+      "start_date": "2026-04-28",
+      "end_date": "2026-05-01",
+      "pollster": "TIPP Insights",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 38
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 54
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Issues & Insights"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
       "id": "appdonactf4c067a5",
       "poll_type": "approval",
       "sample_size": 636,
@@ -131,6 +215,61 @@
       ],
       "seat_name": null,
       "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonmare64b25a2",
+      "poll_type": "approval",
+      "sample_size": 1155,
+      "population": "rv",
+      "url": "https://maristpoll.marist.edu/wp-content/uploads/2026/05/NPR_PBS-News_Marist-Poll_USA-NOS-and-Tables_202605011058.pdf",
+      "created_at": "2026-05-06",
+      "start_date": "2026-04-27",
+      "end_date": "2026-04-30",
+      "pollster": "Marist University",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 39
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 59
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonmar6c005649",
+      "poll_type": "approval",
+      "sample_size": 1322,
+      "population": "a",
+      "url": "https://maristpoll.marist.edu/wp-content/uploads/2026/05/NPR_PBS-News_Marist-Poll_USA-NOS-and-Tables_202605011058.pdf",
+      "created_at": "2026-05-06",
+      "start_date": "2026-04-27",
+      "end_date": "2026-04-30",
+      "pollster": "Marist University",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 37
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 59
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "NPR",
+        "PBS News"
+      ],
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
@@ -20565,149 +20704,9 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonyouy3wach8g",
-      "poll_type": "approval",
-      "sample_size": 1626,
-      "population": "a",
-      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econtoplines_S1a74K0.pdf",
-      "created_at": "2025-04-03",
-      "start_date": "2025-03-30",
-      "end_date": "2025-04-01",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 46
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 49
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Economist"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonyouchzxq6se",
-      "poll_type": "approval",
-      "sample_size": 1465,
-      "population": "rv",
-      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econtoplines_S1a74K0.pdf",
-      "created_at": "2025-04-03",
-      "start_date": "2025-03-30",
-      "end_date": "2025-04-01",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 46
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 51
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Economist"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonfab4jz3hwec",
-      "poll_type": "approval",
-      "sample_size": 1500,
-      "population": "rv",
-      "url": "https://www.wsj.com/politics/policy/americans-were-souring-on-trumps-economic-plans-even-before-tariff-bloodbath-0571527e",
-      "created_at": "2025-04-05",
-      "start_date": "2025-03-27",
-      "end_date": "2025-04-01",
-      "pollster": "Fabrizio, Lee & Associates/Impact Research",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 46
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 51
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Wall Street Journal"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonrmgrgg64vwd",
-      "poll_type": "approval",
-      "sample_size": 2000,
-      "population": "rv",
-      "url": "https://napolitannews.org/jobapproval",
-      "created_at": "2025-04-05",
-      "start_date": "2025-03-31",
-      "end_date": "2025-04-01",
-      "pollster": "RMG Research",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 51
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 47
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Napolitan Institute"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
-    {
-      "id": "gen202fabfbik5htr",
-      "poll_type": "generic-ballot",
-      "sample_size": 1500,
-      "population": "rv",
-      "url": "https://prod-i.a.dj.com/public/resources/documents/March_2025_WSJPoll.pdf",
-      "created_at": "2025-04-08",
-      "start_date": "2025-03-27",
-      "end_date": "2025-04-01",
-      "pollster": "Fabrizio, Lee & Associates/Impact Research",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 44
-        },
-        {
-          "choice": "Rep",
-          "pct": 43
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Wall Street Journal"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "2026"
-    },
     {
       "id": "gen202cyg94pl7ubt",
       "poll_type": "generic-ballot",
@@ -31757,6 +31756,58 @@
         {
           "choice": "Rep",
           "pct": 45
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202mar4b14738d",
+      "poll_type": "generic-ballot",
+      "sample_size": 1155,
+      "population": "rv",
+      "url": "https://maristpoll.marist.edu/wp-content/uploads/2026/05/NPR_PBS-News_Marist-Poll_USA-NOS-and-Tables_202605011058.pdf",
+      "created_at": "2026-05-06",
+      "start_date": "2026-04-27",
+      "end_date": "2026-04-30",
+      "pollster": "Marist University",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 52
+        },
+        {
+          "choice": "Rep",
+          "pct": 42
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202harfa03dff7",
+      "poll_type": "generic-ballot",
+      "sample_size": 1891,
+      "population": "lv",
+      "url": "https://www.harrisx.com/posts/forbes-and-harrisx-partner-on-new-american-confidence-survey-as-gallup-ends-approval-polling",
+      "created_at": "2026-05-07",
+      "start_date": "2026-04-29",
+      "end_date": "2026-05-05",
+      "pollster": "HarrisX",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 48
+        },
+        {
+          "choice": "Rep",
+          "pct": 42
         }
       ],
       "seat_name": null,
