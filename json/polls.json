@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-10T12:07:27.875Z",
+  "updatedAt": "2026-05-11T14:00:28.091Z",
   "approval": [
     {
       "id": "appdonrmg55bd40fc",
@@ -108,6 +108,62 @@
       "seat_name": null,
       "sponsors": [
         "Forbes"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonfoc1857d8c9",
+      "poll_type": "approval",
+      "sample_size": 3167,
+      "population": "rv",
+      "url": "https://www.focaldata.com/blog/democrats-lead-economy-focaldata-financial-times-poll",
+      "created_at": "2026-05-10",
+      "start_date": "2026-05-01",
+      "end_date": "2026-05-05",
+      "pollster": "Focaldata",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 39.2179
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 54.1248
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Financial Times"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonfoc9ad469db",
+      "poll_type": "approval",
+      "sample_size": 3612,
+      "population": "a",
+      "url": "https://www.focaldata.com/blog/democrats-lead-economy-focaldata-financial-times-poll",
+      "created_at": "2026-05-10",
+      "start_date": "2026-05-01",
+      "end_date": "2026-05-05",
+      "pollster": "Focaldata",
+      "answers": [
+        {
+          "choice": "Disapprove",
+          "pct": 54.9107
+        },
+        {
+          "choice": "Approve",
+          "pct": 36.9412
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Financial Times"
       ],
       "internal": false,
       "partisan": null,
@@ -31819,6 +31875,62 @@
       "seat_name": null,
       "sponsors": [
         "Napolitan Institute"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202foc15ef8992",
+      "poll_type": "generic-ballot",
+      "sample_size": 3017,
+      "population": "rv",
+      "url": "https://www.focaldata.com/blog/democrats-lead-economy-focaldata-financial-times-poll",
+      "created_at": "2026-05-10",
+      "start_date": "2026-05-01",
+      "end_date": "2026-05-05",
+      "pollster": "Focaldata",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 51.862
+        },
+        {
+          "choice": "Rep",
+          "pct": 44.4652
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Financial Times"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202foc290a9926",
+      "poll_type": "generic-ballot",
+      "sample_size": 3612,
+      "population": "a",
+      "url": "https://www.focaldata.com/blog/democrats-lead-economy-focaldata-financial-times-poll",
+      "created_at": "2026-05-10",
+      "start_date": "2026-05-01",
+      "end_date": "2026-05-05",
+      "pollster": "Focaldata",
+      "answers": [
+        {
+          "choice": "Rep",
+          "pct": 38.7615
+        },
+        {
+          "choice": "Dem",
+          "pct": 46.436
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Financial Times"
       ],
       "internal": false,
       "partisan": null,
