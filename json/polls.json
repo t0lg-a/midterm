@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-12T13:17:47.657Z",
+  "updatedAt": "2026-05-13T13:33:02.385Z",
   "approval": [
     {
       "id": "appdonipsafb8544e",
@@ -25,6 +25,88 @@
       "sponsors": [
         "Reuters"
       ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonyoufd5b9610",
+      "poll_type": "approval",
+      "sample_size": 1410,
+      "population": "rv",
+      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_ONiR6Nb.pdf#page=10",
+      "created_at": "2026-05-12",
+      "start_date": "2026-05-09",
+      "end_date": "2026-05-11",
+      "pollster": "YouGov",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 41
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 57
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "The Economist"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonyou93ad8f41",
+      "poll_type": "approval",
+      "sample_size": 1549,
+      "population": "a",
+      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_ONiR6Nb.pdf#page=10",
+      "created_at": "2026-05-12",
+      "start_date": "2026-05-09",
+      "end_date": "2026-05-11",
+      "pollster": "YouGov",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 36
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 58
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "The Economist"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonatl4f028960",
+      "poll_type": "approval",
+      "sample_size": 2069,
+      "population": "a",
+      "url": "https://www.atlasintel.org/poll/usa-national-2026-05-11",
+      "created_at": "2026-05-12",
+      "start_date": "2026-05-04",
+      "end_date": "2026-05-07",
+      "pollster": "AtlasIntel",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 39.5
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 59.8
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
@@ -249,6 +331,58 @@
       "sponsors": [
         "The Economist"
       ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdoncnn98b39a97",
+      "poll_type": "approval",
+      "sample_size": null,
+      "population": "rv",
+      "url": "https://www.documentcloud.org/documents/28114951-cnn-poll-conducted-by-ssrs-affordability",
+      "created_at": "2026-05-12",
+      "start_date": "2026-04-30",
+      "end_date": "2026-05-04",
+      "pollster": "CNN/SSRS",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 36
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 63
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdoncnn2de38b3b",
+      "poll_type": "approval",
+      "sample_size": 1499,
+      "population": "a",
+      "url": "https://www.documentcloud.org/documents/28114951-cnn-poll-conducted-by-ssrs-affordability",
+      "created_at": "2026-05-12",
+      "start_date": "2026-04-30",
+      "end_date": "2026-05-04",
+      "pollster": "CNN/SSRS",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 35
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 65
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
@@ -1437,6 +1571,34 @@
       "seat_name": null,
       "sponsors": [
         "Napolitan Institute"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdongbadc7a401f",
+      "poll_type": "approval",
+      "sample_size": 2000,
+      "population": "rv",
+      "url": "https://www.thirdway.org/memo/the-cost-of-misplaced-priorities-trumps-coalition-frays",
+      "created_at": "2026-05-12",
+      "start_date": "2026-04-08",
+      "end_date": "2026-04-15",
+      "pollster": "GBAO Strategies",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 39
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 60
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Third Way"
       ],
       "internal": false,
       "partisan": null,
@@ -20710,112 +20872,6 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonglo2cs7zziv",
-      "poll_type": "approval",
-      "sample_size": 1000,
-      "population": "rv",
-      "url": "https://navigatorresearch.org/wp-content/uploads/2025/04/Navigator-Update-04.08.2025.pdf?emci=7876fdc2-1314-f011-8b3d-0022482a9fb7&emdi=41fa485e-7914-f011-8b3d-0022482a9fb7&ceid=1396968",
-      "created_at": "2025-04-08",
-      "start_date": "2025-04-03",
-      "end_date": "2025-04-07",
-      "pollster": "Global Strategy Group",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 44
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 53
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Navigator Research"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonquico91ioze",
-      "poll_type": "approval",
-      "sample_size": 1407,
-      "population": "rv",
-      "url": "https://poll.qu.edu/images/polling/us/us04092025_uodc32.pdf",
-      "created_at": "2025-04-09",
-      "start_date": "2025-04-03",
-      "end_date": "2025-04-07",
-      "pollster": "Quinnipiac University",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 41
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 53
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonhar0xdytigs",
-      "poll_type": "approval",
-      "sample_size": 1883,
-      "population": "rv",
-      "url": "https://www.harrisx.com/content/full-harrisx-overnight-poll-tariff-findings",
-      "created_at": "2025-04-09",
-      "start_date": "2025-04-04",
-      "end_date": "2025-04-07",
-      "pollster": "HarrisX",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 47
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 49
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonmorexqnxjaq",
-      "poll_type": "approval",
-      "sample_size": 45000,
-      "population": "a",
-      "url": "https://pro.morningconsult.com/trackers/global-leader-approval",
-      "created_at": "2025-04-10",
-      "start_date": "2025-04-01",
-      "end_date": "2025-04-07",
-      "pollster": "Morning Consult",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 47.8
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 46
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -32094,6 +32150,142 @@
       ],
       "seat_name": null,
       "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202atlfaff628e",
+      "poll_type": "generic-ballot",
+      "sample_size": 2069,
+      "population": "a",
+      "url": "https://www.atlasintel.org/poll/usa-national-2026-05-11",
+      "created_at": "2026-05-12",
+      "start_date": "2026-05-04",
+      "end_date": "2026-05-07",
+      "pollster": "AtlasIntel",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 54.6
+        },
+        {
+          "choice": "Rep",
+          "pct": 40.1
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202cnn284290e8",
+      "poll_type": "generic-ballot",
+      "sample_size": null,
+      "population": "rv",
+      "url": "https://www.documentcloud.org/documents/28114951-cnn-poll-conducted-by-ssrs-affordability",
+      "created_at": "2026-05-12",
+      "start_date": "2026-04-30",
+      "end_date": "2026-05-04",
+      "pollster": "CNN/SSRS",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 45
+        },
+        {
+          "choice": "Rep",
+          "pct": 42
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202youb7220175",
+      "poll_type": "generic-ballot",
+      "sample_size": 1408,
+      "population": "rv",
+      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_ONiR6Nb.pdf#page=60",
+      "created_at": "2026-05-12",
+      "start_date": "2026-05-09",
+      "end_date": "2026-05-11",
+      "pollster": "YouGov",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 45
+        },
+        {
+          "choice": "Rep",
+          "pct": 40
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "The Economist"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202you91f64a9d",
+      "poll_type": "generic-ballot",
+      "sample_size": 1547,
+      "population": "a",
+      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_ONiR6Nb.pdf#page=60",
+      "created_at": "2026-05-12",
+      "start_date": "2026-05-09",
+      "end_date": "2026-05-11",
+      "pollster": "YouGov",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 37
+        },
+        {
+          "choice": "Rep",
+          "pct": 34
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "The Economist"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202gbaefbb746a",
+      "poll_type": "generic-ballot",
+      "sample_size": 2000,
+      "population": "rv",
+      "url": "https://www.thirdway.org/memo/the-cost-of-misplaced-priorities-trumps-coalition-frays",
+      "created_at": "2026-05-12",
+      "start_date": "2026-04-08",
+      "end_date": "2026-04-15",
+      "pollster": "GBAO Strategies",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 48
+        },
+        {
+          "choice": "Rep",
+          "pct": 40
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Third Way"
+      ],
       "internal": false,
       "partisan": null,
       "subject": "2026"
