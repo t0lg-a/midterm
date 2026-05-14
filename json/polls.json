@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-13T13:33:02.385Z",
+  "updatedAt": "2026-05-14T13:10:58.739Z",
   "approval": [
     {
       "id": "appdonipsafb8544e",
@@ -20816,121 +20816,9 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonyouaj3lmfkl",
-      "poll_type": "approval",
-      "sample_size": 1563,
-      "population": "rv",
-      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_pXJ0PxA.pdf#page31",
-      "created_at": "2025-04-09",
-      "start_date": "2025-04-05",
-      "end_date": "2025-04-08",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 45
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 52
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Economist"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonyou52b8fj1w",
-      "poll_type": "approval",
-      "sample_size": 1741,
-      "population": "a",
-      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_pXJ0PxA.pdf#page31",
-      "created_at": "2025-04-09",
-      "start_date": "2025-04-05",
-      "end_date": "2025-04-08",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 43
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 51
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Economist"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
-    {
-      "id": "gen202youc23q9p7i",
-      "poll_type": "generic-ballot",
-      "sample_size": 1735,
-      "population": "a",
-      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_pXJ0PxA.pdf#page31",
-      "created_at": "2025-04-09",
-      "start_date": "2025-04-05",
-      "end_date": "2025-04-08",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 39
-        },
-        {
-          "choice": "Rep",
-          "pct": 36
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Economist"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "2026"
-    },
-    {
-      "id": "gen202youop519jwx",
-      "poll_type": "generic-ballot",
-      "sample_size": 1558,
-      "population": "rv",
-      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_pXJ0PxA.pdf#page31",
-      "created_at": "2025-04-09",
-      "start_date": "2025-04-05",
-      "end_date": "2025-04-08",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 43
-        },
-        {
-          "choice": "Rep",
-          "pct": 42
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Economist"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "2026"
-    },
     {
       "id": "gen202ech9fpc5ln8",
       "poll_type": "generic-ballot",
@@ -32286,6 +32174,32 @@
       "sponsors": [
         "Third Way"
       ],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202cygf628d98b",
+      "poll_type": "generic-ballot",
+      "sample_size": 1500,
+      "population": "lv",
+      "url": "https://www.cygn.al/wp-content/uploads/2026/05/23838-Cygnal-National-May26-NVT-Deck-Public.pdf#page=42",
+      "created_at": "2026-05-13",
+      "start_date": "2026-05-05",
+      "end_date": "2026-05-06",
+      "pollster": "Cygnal",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 48.5
+        },
+        {
+          "choice": "Rep",
+          "pct": 42.4
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
       "internal": false,
       "partisan": null,
       "subject": "2026"
