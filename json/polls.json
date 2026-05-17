@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-16T12:10:48.224Z",
+  "updatedAt": "2026-05-17T12:08:02.345Z",
   "approval": [
     {
       "id": "appdonrmg07074d8f",
@@ -20675,34 +20675,6 @@
       ],
       "seat_name": null,
       "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonyou3w6mgynh",
-      "poll_type": "approval",
-      "sample_size": 2410,
-      "population": "a",
-      "url": "https://www.scribd.com/document/849415888/cbsnews-20250413-SUN#from_embed",
-      "created_at": "2025-04-13",
-      "start_date": "2025-04-08",
-      "end_date": "2025-04-11",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 47
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 53
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "CBS News"
-      ],
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
