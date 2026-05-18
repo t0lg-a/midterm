@@ -1,6 +1,60 @@
 {
-  "updatedAt": "2026-05-17T12:08:02.345Z",
+  "updatedAt": "2026-05-18T14:39:12.166Z",
   "approval": [
+    {
+      "id": "appdonyouba622174",
+      "poll_type": "approval",
+      "sample_size": 2064,
+      "population": "a",
+      "url": "https://assets1.cbsnewsstatic.com/hub/cms/prod_cms_alt/file/2026/05/17/371228ad-3893-4403-b766-ed2687a1e0e0/cbs_20260517_sun.pdf",
+      "created_at": "2026-05-17",
+      "start_date": "2026-05-13",
+      "end_date": "2026-05-15",
+      "pollster": "YouGov",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 37
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 63
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "CBS News"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonthea0f2fa71",
+      "poll_type": "approval",
+      "sample_size": 1507,
+      "population": "rv",
+      "url": "https://www.nytimes.com/interactive/2026/05/18/polls/times-siena-national-poll-crosstabs.html",
+      "created_at": "2026-05-18",
+      "start_date": "2026-05-11",
+      "end_date": "2026-05-15",
+      "pollster": "The New York Times/Siena College",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 37
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 59
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
     {
       "id": "appdonrmg07074d8f",
       "poll_type": "approval",
@@ -20652,32 +20706,6 @@
       "internal": false,
       "partisan": "REP",
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonreaggcfqrc2",
-      "poll_type": "approval",
-      "sample_size": 1000,
-      "population": "rv",
-      "url": "https://www.realclearpolitics.com/articles/2025/04/18/rcp_poll_voters_see_campus_bias_reject_trumps_tariff_pitch_152678.html",
-      "created_at": "2025-04-21",
-      "start_date": "2025-04-10",
-      "end_date": "2025-04-12",
-      "pollster": "RealClear Opinion Research",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 44
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 44
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -20833,32 +20861,6 @@
         {
           "choice": "Rep",
           "pct": 44
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "2026"
-    },
-    {
-      "id": "gen202reaoc9iug5s",
-      "poll_type": "generic-ballot",
-      "sample_size": 1000,
-      "population": "rv",
-      "url": "https://www.realclearpolitics.com/articles/2025/04/18/rcp_poll_voters_see_campus_bias_reject_trumps_tariff_pitch_152678.html",
-      "created_at": "2025-04-21",
-      "start_date": "2025-04-10",
-      "end_date": "2025-04-12",
-      "pollster": "RealClear Opinion Research",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 40
-        },
-        {
-          "choice": "Rep",
-          "pct": 39
         }
       ],
       "seat_name": null,
@@ -32084,6 +32086,32 @@
         {
           "choice": "Rep",
           "pct": 42
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202thee6468149",
+      "poll_type": "generic-ballot",
+      "sample_size": 1507,
+      "population": "rv",
+      "url": "https://www.nytimes.com/interactive/2026/05/18/polls/times-siena-national-poll-crosstabs.html",
+      "created_at": "2026-05-18",
+      "start_date": "2026-05-11",
+      "end_date": "2026-05-15",
+      "pollster": "The New York Times/Siena College",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 49.5
+        },
+        {
+          "choice": "Rep",
+          "pct": 39.1
         }
       ],
       "seat_name": null,
