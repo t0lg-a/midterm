@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-20T14:00:37.270Z",
+  "updatedAt": "2026-05-21T14:18:30.645Z",
   "approval": [
     {
       "id": "appdonipsd8a11805",
@@ -134,6 +134,142 @@
       "seat_name": null,
       "sponsors": [
         "The Economist"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonj.l40949526",
+      "poll_type": "approval",
+      "sample_size": 1003,
+      "population": "rv",
+      "url": "https://www.dailymail.com/news/article-15828945/Voters-hand-Trump-brutal-reality-check-economy-latest-approval-rating-revealed.html",
+      "created_at": "2026-05-20",
+      "start_date": "2026-05-15",
+      "end_date": "2026-05-18",
+      "pollster": "J.L. Partners",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 39
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 52
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "DailyMail.com"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonglode8ee7b5",
+      "poll_type": "approval",
+      "sample_size": 1000,
+      "population": "rv",
+      "url": "https://navigatorresearch.org/wp-content/uploads/2026/05/Navigator-Update-05.20.2026.pdf",
+      "created_at": "2026-05-20",
+      "start_date": "2026-05-13",
+      "end_date": "2026-05-18",
+      "pollster": "Global Strategy Group",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 39
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 59
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Navigator Research"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonap-05381b50",
+      "poll_type": "approval",
+      "sample_size": 1117,
+      "population": "a",
+      "url": "https://apnorc.org/wp-content/uploads/2026/05/May-2026-Topline-.pdf",
+      "created_at": "2026-05-20",
+      "start_date": "2026-05-14",
+      "end_date": "2026-05-18",
+      "pollster": "AP-NORC",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 37
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 62
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonqui5bfc4697",
+      "poll_type": "approval",
+      "sample_size": 1106,
+      "population": "rv",
+      "url": "https://poll.qu.edu/images/polling/us/us05202026_ugus99.pdf",
+      "created_at": "2026-05-20",
+      "start_date": "2026-05-14",
+      "end_date": "2026-05-18",
+      "pollster": "Quinnipiac University",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 34
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 58
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonbea19b13f63",
+      "poll_type": "approval",
+      "sample_size": 1002,
+      "population": "rv",
+      "url": "https://static.foxnews.com/foxnews.com/content/uploads/2026/05/fox_may-15-18-2026_national_topline_may-20-release.pdf",
+      "created_at": "2026-05-20",
+      "start_date": "2026-05-15",
+      "end_date": "2026-05-18",
+      "pollster": "Beacon Research/Shaw & Co. Research",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 39
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 61
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Fox News"
       ],
       "internal": false,
       "partisan": null,
@@ -20550,62 +20686,6 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonyouzvo8zt3y",
-      "poll_type": "approval",
-      "sample_size": 1512,
-      "population": "a",
-      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econtoplines_vK1VgIr.pdf",
-      "created_at": "2025-04-16",
-      "start_date": "2025-04-13",
-      "end_date": "2025-04-15",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 42
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 52
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Economist"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonyoujwat1ezq",
-      "poll_type": "approval",
-      "sample_size": 1329,
-      "population": "rv",
-      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econtoplines_vK1VgIr.pdf",
-      "created_at": "2025-04-16",
-      "start_date": "2025-04-13",
-      "end_date": "2025-04-15",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 45
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 53
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Economist"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -32074,6 +32154,60 @@
       "sponsors": [
         "The Economist"
       ],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202you5072b560",
+      "poll_type": "generic-ballot",
+      "sample_size": 1397,
+      "population": "rv",
+      "url": "https://assets1.cbsnewsstatic.com/hub/cms/prod_cms_alt/file/2026/05/19/9b11ffab-4f11-440c-aec4-cb02ac525257/cbs_20260517_rv.pdf",
+      "created_at": "2026-05-20",
+      "start_date": "2026-05-13",
+      "end_date": "2026-05-15",
+      "pollster": "YouGov",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 45
+        },
+        {
+          "choice": "Rep",
+          "pct": 40
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "CBS News"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202qui189d3bff",
+      "poll_type": "generic-ballot",
+      "sample_size": 1106,
+      "population": "rv",
+      "url": "https://poll.qu.edu/images/polling/us/us05202026_ugus99.pdf",
+      "created_at": "2026-05-20",
+      "start_date": "2026-05-14",
+      "end_date": "2026-05-18",
+      "pollster": "Quinnipiac University",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 50
+        },
+        {
+          "choice": "Rep",
+          "pct": 39
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
       "internal": false,
       "partisan": null,
       "subject": "2026"
