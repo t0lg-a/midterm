@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-23T12:10:01.149Z",
+  "updatedAt": "2026-05-24T12:13:40.765Z",
   "approval": [
     {
       "id": "appdonjoh846d94c9",
@@ -399,6 +399,60 @@
         {
           "choice": "Disapprove",
           "pct": 56
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonimp65f86801",
+      "poll_type": "approval",
+      "sample_size": 1500,
+      "population": "rv",
+      "url": "https://www.wsj.com/politics/policy/trump-republican-congress-control-98a13bd9",
+      "created_at": "2026-05-23",
+      "start_date": "2026-05-07",
+      "end_date": "2026-05-18",
+      "pollster": "Impact Research/National Research",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 41
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 57
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "The Wall Street Journal"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonmcla0c91062",
+      "poll_type": "approval",
+      "sample_size": 1000,
+      "population": "lv",
+      "url": "https://mclaughlinonline.com/pols/wp-content/uploads/2026/05/National-May-Presentation-RELEASE-05-19-26.pdf",
+      "created_at": "2026-05-23",
+      "start_date": "2026-05-12",
+      "end_date": "2026-05-18",
+      "pollster": "McLaughlin & Associates",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 44
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 53
         }
       ],
       "seat_name": null,
@@ -2576,6 +2630,32 @@
       "sponsors": [
         "The Economist"
       ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonhig55909060",
+      "poll_type": "approval",
+      "sample_size": 1001,
+      "population": "a",
+      "url": "https://www.highpoint.edu/blog/2026/04/hpu-poll-americans-and-north-carolinians-appreciate-benefits-of-trees-as-arbor-day-approaches",
+      "created_at": "2026-05-23",
+      "start_date": "2026-03-29",
+      "end_date": "2026-04-03",
+      "pollster": "High Point University Survey Research Center",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 39
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 53
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
@@ -20734,62 +20814,6 @@
       "internal": false,
       "partisan": "REP",
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonciv04z777po",
-      "poll_type": "approval",
-      "sample_size": 1124,
-      "population": "rv",
-      "url": "https://civiqs.com/reports/2025/04/17/report-americans-say-trumps-tariffs-will-raise-prices",
-      "created_at": "2025-04-18",
-      "start_date": "2025-04-18",
-      "end_date": "2025-04-18",
-      "pollster": "Civiqs",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 46
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 53
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Daily Kos"
-      ],
-      "internal": false,
-      "partisan": "DEM",
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonnobpl3u71ox",
-      "poll_type": "approval",
-      "sample_size": 2527,
-      "population": "rv",
-      "url": "https://www.editorandpublisher.com/stories/the-center-square-voters-voice-poll-weighs-voter-sentiment,255438",
-      "created_at": "2025-04-24",
-      "start_date": "2025-04-15",
-      "end_date": "2025-04-18",
-      "pollster": "Noble Predictive Insights",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 44
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 53
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Center Square"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -20869,34 +20893,6 @@
       ],
       "seat_name": null,
       "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "2026"
-    },
-    {
-      "id": "gen202nobrpl52457",
-      "poll_type": "generic-ballot",
-      "sample_size": 2527,
-      "population": "rv",
-      "url": "https://www.editorandpublisher.com/stories/the-center-square-voters-voice-poll-weighs-voter-sentiment,255438",
-      "created_at": "2025-04-24",
-      "start_date": "2025-04-15",
-      "end_date": "2025-04-18",
-      "pollster": "Noble Predictive Insights",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 45
-        },
-        {
-          "choice": "Rep",
-          "pct": 42
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Center Square"
-      ],
       "internal": false,
       "partisan": null,
       "subject": "2026"
@@ -32416,6 +32412,60 @@
       "sponsors": [
         "Unite Here"
       ],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202impde2e7fda",
+      "poll_type": "generic-ballot",
+      "sample_size": 1500,
+      "population": "rv",
+      "url": "https://www.wsj.com/politics/policy/trump-republican-congress-control-98a13bd9",
+      "created_at": "2026-05-23",
+      "start_date": "2026-05-07",
+      "end_date": "2026-05-18",
+      "pollster": "Impact Research/National Research",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 48
+        },
+        {
+          "choice": "Rep",
+          "pct": 40
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "The Wall Street Journal"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202mclac6f0649",
+      "poll_type": "generic-ballot",
+      "sample_size": 1000,
+      "population": "lv",
+      "url": "https://mclaughlinonline.com/pols/wp-content/uploads/2026/05/National-May-Presentation-RELEASE-05-19-26.pdf",
+      "created_at": "2026-05-23",
+      "start_date": "2026-05-12",
+      "end_date": "2026-05-18",
+      "pollster": "McLaughlin & Associates",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 46
+        },
+        {
+          "choice": "Rep",
+          "pct": 42
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
       "internal": false,
       "partisan": null,
       "subject": "2026"
