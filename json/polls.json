@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-24T12:13:40.765Z",
+  "updatedAt": "2026-05-25T14:18:08.182Z",
   "approval": [
     {
       "id": "appdonjoh846d94c9",
@@ -20758,62 +20758,6 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonmclr0cd8zyg",
-      "poll_type": "approval",
-      "sample_size": 1638,
-      "population": "lv",
-      "url": "https://americasnewmajorityproject.com/wp-content/uploads/2025/04/20250419-NationalANMP-Tabs.pdf",
-      "created_at": "2025-04-25",
-      "start_date": "2025-04-16",
-      "end_date": "2025-04-19",
-      "pollster": "McLaughlin & Associates",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 49.1
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 50.8
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "America's New Majority Project"
-      ],
-      "internal": false,
-      "partisan": "REP",
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonmclefj8e5ha",
-      "poll_type": "approval",
-      "sample_size": 2000,
-      "population": "rv",
-      "url": "https://americasnewmajorityproject.com/wp-content/uploads/2025/04/20250419-NationalANMP-Tabs.pdf",
-      "created_at": "2025-04-25",
-      "start_date": "2025-04-16",
-      "end_date": "2025-04-19",
-      "pollster": "McLaughlin & Associates",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 47.6
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 52.4
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "America's New Majority Project"
-      ],
-      "internal": false,
-      "partisan": "REP",
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -20921,62 +20865,6 @@
       "sponsors": [],
       "internal": false,
       "partisan": null,
-      "subject": "2026"
-    },
-    {
-      "id": "gen202mclvyxcp9xo",
-      "poll_type": "generic-ballot",
-      "sample_size": 2000,
-      "population": "rv",
-      "url": "https://americasnewmajorityproject.com/wp-content/uploads/2025/04/20250419-NationalANMP-Tabs.pdf",
-      "created_at": "2025-04-25",
-      "start_date": "2025-04-16",
-      "end_date": "2025-04-19",
-      "pollster": "McLaughlin & Associates",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 44.5
-        },
-        {
-          "choice": "Rep",
-          "pct": 44.3
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "America's New Majority Project"
-      ],
-      "internal": false,
-      "partisan": "REP",
-      "subject": "2026"
-    },
-    {
-      "id": "gen202mcl3ti3buj1",
-      "poll_type": "generic-ballot",
-      "sample_size": 1638,
-      "population": "lv",
-      "url": "https://americasnewmajorityproject.com/wp-content/uploads/2025/04/20250419-NationalANMP-Tabs.pdf",
-      "created_at": "2025-04-25",
-      "start_date": "2025-04-16",
-      "end_date": "2025-04-19",
-      "pollster": "McLaughlin & Associates",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 45.7
-        },
-        {
-          "choice": "Rep",
-          "pct": 47.1
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "America's New Majority Project"
-      ],
-      "internal": false,
-      "partisan": "REP",
       "subject": "2026"
     },
     {
