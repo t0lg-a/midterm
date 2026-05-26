@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-25T14:18:08.182Z",
+  "updatedAt": "2026-05-26T14:11:12.134Z",
   "approval": [
     {
       "id": "appdonjoh846d94c9",
@@ -20652,112 +20652,6 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonamee3miv3rz",
-      "poll_type": "approval",
-      "sample_size": 1100,
-      "population": "a",
-      "url": "https://americanresearchgroup.com/economy/",
-      "created_at": "2025-04-22",
-      "start_date": "2025-04-17",
-      "end_date": "2025-04-20",
-      "pollster": "American Research Group",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 43
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 53
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonamewihqiysp",
-      "poll_type": "approval",
-      "sample_size": 1010,
-      "population": "rv",
-      "url": "https://americanresearchgroup.com/economy/",
-      "created_at": "2025-04-22",
-      "start_date": "2025-04-17",
-      "end_date": "2025-04-20",
-      "pollster": "American Research Group",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 43
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 53
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonmori6wk0ntp",
-      "poll_type": "approval",
-      "sample_size": 2207,
-      "population": "rv",
-      "url": "https://pro.morningconsult.com/trackers/donald-trump-congress-policy-republicans-polling",
-      "created_at": "2025-04-23",
-      "start_date": "2025-04-18",
-      "end_date": "2025-04-20",
-      "pollster": "Morning Consult",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 46
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 52
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonsurhawqippa",
-      "poll_type": "approval",
-      "sample_size": 19682,
-      "population": "a",
-      "url": "https://www.documentcloud.org/documents/25919931-nbc-news-stay-tuned-poll-april-27/",
-      "created_at": "2025-04-27",
-      "start_date": "2025-04-11",
-      "end_date": "2025-04-20",
-      "pollster": "SurveyMonkey",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 45
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 55
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "NBC News"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -32350,6 +32244,32 @@
         {
           "choice": "Rep",
           "pct": 42
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202ras58d26adb",
+      "poll_type": "generic-ballot",
+      "sample_size": 2161,
+      "population": "lv",
+      "url": "https://www.rasmussenreports.com/public_content/politics/mood_of_america/generic_congressional_ballot_may25",
+      "created_at": "2026-05-26",
+      "start_date": "2026-05-13",
+      "end_date": "2026-05-20",
+      "pollster": "Rasmussen Reports",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 47
+        },
+        {
+          "choice": "Rep",
+          "pct": 41
         }
       ],
       "seat_name": null,
