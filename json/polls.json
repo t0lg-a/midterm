@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-26T14:11:12.134Z",
+  "updatedAt": "2026-05-27T14:35:14.956Z",
   "approval": [
     {
       "id": "appdonjoh846d94c9",
@@ -103,6 +103,62 @@
       ],
       "seat_name": null,
       "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonverd6939b85",
+      "poll_type": "approval",
+      "sample_size": 1413,
+      "population": "rv",
+      "url": "https://www.gelliottmorris.com/p/2026-05-26-may-strength-in-numbers-verasight-poll",
+      "created_at": "2026-05-26",
+      "start_date": "2026-05-18",
+      "end_date": "2026-05-19",
+      "pollster": "Verasight",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 38
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 59
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Strength In Numbers"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonver3a04476b",
+      "poll_type": "approval",
+      "sample_size": 1520,
+      "population": "a",
+      "url": "https://www.gelliottmorris.com/p/2026-05-26-may-strength-in-numbers-verasight-poll",
+      "created_at": "2026-05-26",
+      "start_date": "2026-05-18",
+      "end_date": "2026-05-19",
+      "pollster": "Verasight",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 37
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 60
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Strength In Numbers"
+      ],
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
@@ -20570,88 +20626,6 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appipsf134z6vn",
-      "poll_type": "approval",
-      "sample_size": 4306,
-      "population": "a",
-      "url": "https://www.reuters.com/world/us/trump-approval-rating-dips-many-wary-his-wielding-power-reutersipsos-poll-finds-2025-04-21/",
-      "created_at": "2025-04-23",
-      "start_date": "2025-04-16",
-      "end_date": "2025-04-21",
-      "pollster": "Ipsos",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 42
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 53
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Reuters"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonbeachlvs6me",
-      "poll_type": "approval",
-      "sample_size": 1104,
-      "population": "rv",
-      "url": "https://static.foxnews.com/foxnews.com/content/uploads/2025/04/fox_april-18-21-2025_national_topline_april-23-release.pdf",
-      "created_at": "2025-04-23",
-      "start_date": "2025-04-18",
-      "end_date": "2025-04-21",
-      "pollster": "Beacon Research/Shaw & Co. Research",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 44
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 55
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Fox News"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonap-s3915mpe",
-      "poll_type": "approval",
-      "sample_size": 1260,
-      "population": "a",
-      "url": "https://apnorc.org/wp-content/uploads/2025/04/April-2025-100-days-topline.pdf",
-      "created_at": "2025-04-26",
-      "start_date": "2025-04-17",
-      "end_date": "2025-04-21",
-      "pollster": "AP-NORC",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 39
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 59
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -20757,34 +20731,6 @@
       ],
       "seat_name": null,
       "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "2026"
-    },
-    {
-      "id": "gen202beaf9167992",
-      "poll_type": "generic-ballot",
-      "sample_size": 1104,
-      "population": "rv",
-      "url": "https://static.foxnews.com/foxnews.com/content/uploads/2025/04/fox_april-18-21-2025_complete_national_cross-tabs_april-25-release.pdf",
-      "created_at": "2025-04-26",
-      "start_date": "2025-04-18",
-      "end_date": "2025-04-21",
-      "pollster": "Beacon Research/Shaw & Co. Research",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 49
-        },
-        {
-          "choice": "Rep",
-          "pct": 42
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Fox News"
-      ],
       "internal": false,
       "partisan": null,
       "subject": "2026"
@@ -32274,6 +32220,62 @@
       ],
       "seat_name": null,
       "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202vera78dda95",
+      "poll_type": "generic-ballot",
+      "sample_size": 1413,
+      "population": "rv",
+      "url": "https://www.gelliottmorris.com/p/2026-05-26-may-strength-in-numbers-verasight-poll",
+      "created_at": "2026-05-26",
+      "start_date": "2026-05-18",
+      "end_date": "2026-05-19",
+      "pollster": "Verasight",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 51
+        },
+        {
+          "choice": "Rep",
+          "pct": 43
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Strength In Numbers"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202vera1bb9c79",
+      "poll_type": "generic-ballot",
+      "sample_size": 1520,
+      "population": "a",
+      "url": "https://www.gelliottmorris.com/p/2026-05-26-may-strength-in-numbers-verasight-poll",
+      "created_at": "2026-05-26",
+      "start_date": "2026-05-18",
+      "end_date": "2026-05-19",
+      "pollster": "Verasight",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 51
+        },
+        {
+          "choice": "Rep",
+          "pct": 41
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Strength In Numbers"
+      ],
       "internal": false,
       "partisan": null,
       "subject": "2026"
