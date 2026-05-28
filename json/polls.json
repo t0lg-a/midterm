@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-27T14:35:14.956Z",
+  "updatedAt": "2026-05-28T14:49:26.720Z",
   "approval": [
     {
       "id": "appdonjoh846d94c9",
@@ -20570,62 +20570,6 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonyouynqf1jzu",
-      "poll_type": "approval",
-      "sample_size": 1446,
-      "population": "rv",
-      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_iR37dyy.pdf#page=33",
-      "created_at": "2025-04-23",
-      "start_date": "2025-04-19",
-      "end_date": "2025-04-22",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 44
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 53
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Economist"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonyouc1zp6d15",
-      "poll_type": "approval",
-      "sample_size": 1625,
-      "population": "a",
-      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_iR37dyy.pdf#page=33",
-      "created_at": "2025-04-23",
-      "start_date": "2025-04-19",
-      "end_date": "2025-04-22",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 41
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 54
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Economist"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -32278,6 +32222,34 @@
       ],
       "internal": false,
       "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202cyg62d7b594",
+      "poll_type": "generic-ballot",
+      "sample_size": 1500,
+      "population": "lv",
+      "url": "https://conservativeenergynetwork.org/new-national-poll-americans-demand-action-on-rising-energy-costs-support-modernizing-the-grid-and-expanding-domestic-energy-production",
+      "created_at": "2026-05-28",
+      "start_date": "2026-05-04",
+      "end_date": "2026-05-07",
+      "pollster": "Cygnal",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 48
+        },
+        {
+          "choice": "Rep",
+          "pct": 41
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Conservative Energy Network"
+      ],
+      "internal": false,
+      "partisan": "REP",
       "subject": "2026"
     }
   ],
