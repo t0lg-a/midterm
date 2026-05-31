@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-30T12:42:35.588Z",
+  "updatedAt": "2026-05-31T12:52:10.569Z",
   "approval": [
     {
       "id": "appdonbig3c9ec638",
@@ -114,6 +114,62 @@
       "subject": "Donald Trump"
     },
     {
+      "id": "appdonrmg083642d2",
+      "poll_type": "approval",
+      "sample_size": 3000,
+      "population": "rv",
+      "url": "https://napolitannews.org/jobapproval#05-26-2026",
+      "created_at": "2026-05-31",
+      "start_date": "2026-05-18",
+      "end_date": "2026-05-26",
+      "pollster": "RMG Research",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 43
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 55
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Napolitan Institute"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonrmg88d84be1",
+      "poll_type": "approval",
+      "sample_size": 3000,
+      "population": "rv",
+      "url": "https://napolitannews.org/jobapproval#05-26-2026",
+      "created_at": "2026-05-31",
+      "start_date": "2026-05-18",
+      "end_date": "2026-05-26",
+      "pollster": "RMG Research",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 43
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 55
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Napolitan Institute"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
       "id": "appdoneme217191a6",
       "poll_type": "approval",
       "sample_size": 1000,
@@ -131,6 +187,32 @@
         {
           "choice": "Disapprove",
           "pct": 55.2
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonmorf8c77cad",
+      "poll_type": "approval",
+      "sample_size": 2204,
+      "population": "rv",
+      "url": "https://intel.morningconsult.com/mc-content/trackers/2026-midterm-election-generic-ballot-polls#05-24-2026",
+      "created_at": "2026-05-31",
+      "start_date": "2026-05-22",
+      "end_date": "2026-05-24",
+      "pollster": "Morning Consult",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 43
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 54
         }
       ],
       "seat_name": null,
@@ -20353,92 +20435,6 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonyouayuep9x2",
-      "poll_type": "approval",
-      "sample_size": 2356,
-      "population": "a",
-      "url": "https://www.cbsnews.com/news/cbs-news-poll-trump-100-days-tariffs/",
-      "created_at": "2025-04-27",
-      "start_date": "2025-04-23",
-      "end_date": "2025-04-25",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 45
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 55
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "CBS News"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonipsdrwvwdie",
-      "poll_type": "approval",
-      "sample_size": 1992,
-      "population": "rv",
-      "url": "https://docs.google.com/spreadsheets/d/1behUPOujHZSkw37RTdnt_2pCJESMDrglY_uYUeoWdvg/edit?gid=0#gid=0",
-      "created_at": "2025-04-27",
-      "start_date": "2025-04-18",
-      "end_date": "2025-04-25",
-      "pollster": "Ipsos",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 42
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 55
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Washington Post",
-        "ABC News"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonipsq0cluoyi",
-      "poll_type": "approval",
-      "sample_size": 2464,
-      "population": "a",
-      "url": "https://docs.google.com/spreadsheets/d/1behUPOujHZSkw37RTdnt_2pCJESMDrglY_uYUeoWdvg/edit?gid=0#gid=0",
-      "created_at": "2025-04-27",
-      "start_date": "2025-04-18",
-      "end_date": "2025-04-25",
-      "pollster": "Ipsos",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 39
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 55
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Washington Post",
-        "ABC News"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -32229,6 +32225,58 @@
       "sponsors": [
         "Public Polling Project"
       ],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202mor1bc36679",
+      "poll_type": "generic-ballot",
+      "sample_size": 24849,
+      "population": "rv",
+      "url": "https://intel.morningconsult.com/mc-content/trackers/2026-midterm-election-generic-ballot-polls#05-24-2026",
+      "created_at": "2026-05-31",
+      "start_date": "2026-05-18",
+      "end_date": "2026-05-24",
+      "pollster": "Morning Consult",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 46
+        },
+        {
+          "choice": "Rep",
+          "pct": 42
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202morc2d053f1",
+      "poll_type": "generic-ballot",
+      "sample_size": 29255,
+      "population": "rv",
+      "url": "https://intel.morningconsult.com/mc-content/trackers/2026-midterm-election-generic-ballot-polls#05-24-2026",
+      "created_at": "2026-05-31",
+      "start_date": "2026-05-18",
+      "end_date": "2026-05-24",
+      "pollster": "Morning Consult",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 46
+        },
+        {
+          "choice": "Rep",
+          "pct": 42
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
       "internal": false,
       "partisan": null,
       "subject": "2026"
