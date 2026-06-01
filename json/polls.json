@@ -1,6 +1,60 @@
 {
-  "updatedAt": "2026-05-31T12:52:10.569Z",
+  "updatedAt": "2026-06-01T16:58:50.552Z",
   "approval": [
+    {
+      "id": "appdonact687f88ae",
+      "poll_type": "approval",
+      "sample_size": 672,
+      "population": "a",
+      "url": "https://www.activote.net/trumps-approval-holds-below-40",
+      "created_at": "2026-06-01",
+      "start_date": "2026-05-01",
+      "end_date": "2026-05-31",
+      "pollster": "ActiVote",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 40
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 55
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdontip7f1a457b",
+      "poll_type": "approval",
+      "sample_size": 1589,
+      "population": "a",
+      "url": "https://issuesinsights.com/2026/06/01/trumps-approval-ratings-remain-low-as-voters-fret-over-economy-inflation-ii-tipp-poll",
+      "created_at": "2026-06-01",
+      "start_date": "2026-05-26",
+      "end_date": "2026-05-28",
+      "pollster": "TIPP Insights",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 37
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 54
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Issues & Insights"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
     {
       "id": "appdonbig3c9ec638",
       "poll_type": "approval",
