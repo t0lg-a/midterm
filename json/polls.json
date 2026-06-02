@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-01T16:58:50.552Z",
+  "updatedAt": "2026-06-02T15:14:39.353Z",
   "approval": [
     {
       "id": "appdonact687f88ae",
@@ -20406,89 +20406,6 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonmorllkr3694",
-      "poll_type": "approval",
-      "sample_size": 2224,
-      "population": "rv",
-      "url": "https://pro.morningconsult.com/trackers/donald-trump-congress-policy-republicans-polling",
-      "created_at": "2025-04-29",
-      "start_date": "2025-04-25",
-      "end_date": "2025-04-27",
-      "pollster": "Morning Consult",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 45
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 53
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonipsm5a21twp",
-      "poll_type": "approval",
-      "sample_size": 1029,
-      "population": "a",
-      "url": "https://www.reuters.com/data/trumps-approval-rating-2025-01-21/",
-      "created_at": "2025-04-30",
-      "start_date": "2025-04-25",
-      "end_date": "2025-04-27",
-      "pollster": "Ipsos",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 42
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 53
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Reuters"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdontru62fqusoo",
-      "poll_type": "approval",
-      "sample_size": 1448,
-      "population": "rv",
-      "url": "https://data.ddhq.io/polls/2025/04/30/Decision%20Desk%20HQ/NewsNation-National-2025-04-23-2025-04-27",
-      "created_at": "2025-05-01",
-      "start_date": "2025-04-23",
-      "end_date": "2025-04-27",
-      "pollster": "TrueDot.ai",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 44
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 56
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "NewsNation",
-        "Decision Desk HQ"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -20595,35 +20512,6 @@
       "seat_name": null,
       "sponsors": [
         "Public Polling Project"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "2026"
-    },
-    {
-      "id": "gen202truwu1eg21g",
-      "poll_type": "generic-ballot",
-      "sample_size": 1448,
-      "population": "rv",
-      "url": "https://nexstartv-my.sharepoint.com/:x:/g/personal/mhobe_nexstar_tv/Ed_IQP-AattKq1IhfspZkKUB_j3G-vcd-JiJJksGOx_TLQ?rtime=E1yhGTiJ3Ug",
-      "created_at": "2025-05-02",
-      "start_date": "2025-04-23",
-      "end_date": "2025-04-27",
-      "pollster": "TrueDot.ai",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 45
-        },
-        {
-          "choice": "Rep",
-          "pct": 40
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "NewsNation",
-        "Decision Desk HQ"
       ],
       "internal": false,
       "partisan": null,
