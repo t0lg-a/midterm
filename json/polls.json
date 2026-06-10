@@ -1,6 +1,118 @@
 {
-  "updatedAt": "2026-06-09T13:57:13.784Z",
+  "updatedAt": "2026-06-10T14:31:10.294Z",
   "approval": [
+    {
+      "id": "appdonyoudd7ff04e",
+      "poll_type": "approval",
+      "sample_size": 1438,
+      "population": "rv",
+      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_nvajahp.pdf#page=16",
+      "created_at": "2026-06-09",
+      "start_date": "2026-06-05",
+      "end_date": "2026-06-08",
+      "pollster": "YouGov",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 39
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 59
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "The Economist"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonyou07e04868",
+      "poll_type": "approval",
+      "sample_size": 1568,
+      "population": "a",
+      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_nvajahp.pdf#page=16",
+      "created_at": "2026-06-09",
+      "start_date": "2026-06-05",
+      "end_date": "2026-06-08",
+      "pollster": "YouGov",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 35
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 60
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "The Economist"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonipsafe1f92e",
+      "poll_type": "approval",
+      "sample_size": 3578,
+      "population": "rv",
+      "url": "https://www.ipsos.com/sites/default/files/ct/news/documents/2026-06/Reuters%20Ipsos%20Large%20Issue%20Topline%20June%202026%206.8%20release.pdf",
+      "created_at": "2026-06-09",
+      "start_date": "2026-06-03",
+      "end_date": "2026-06-08",
+      "pollster": "Ipsos",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 38
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 61
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Reuters"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonips9b16ac80",
+      "poll_type": "approval",
+      "sample_size": 4531,
+      "population": "a",
+      "url": "https://www.ipsos.com/sites/default/files/ct/news/documents/2026-06/Reuters%20Ipsos%20Large%20Issue%20Topline%20June%202026%206.8%20release.pdf",
+      "created_at": "2026-06-09",
+      "start_date": "2026-06-03",
+      "end_date": "2026-06-08",
+      "pollster": "Ipsos",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 35
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 63
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Reuters"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
     {
       "id": "appdonrmga1d490a7",
       "poll_type": "approval",
@@ -158,6 +270,62 @@
       "seat_name": null,
       "sponsors": [
         "The Economist"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonfoc475b96c0",
+      "poll_type": "approval",
+      "sample_size": 1537,
+      "population": "rv",
+      "url": "http://focaldata.com/blog/trump-inflation-approval-crashes-to-record-low",
+      "created_at": "2026-06-09",
+      "start_date": "2026-05-29",
+      "end_date": "2026-06-01",
+      "pollster": "Focaldata",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 38
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 56
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Financial Times"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonfoc74901d3c",
+      "poll_type": "approval",
+      "sample_size": 1719,
+      "population": "a",
+      "url": "http://focaldata.com/blog/trump-inflation-approval-crashes-to-record-low",
+      "created_at": "2026-06-09",
+      "start_date": "2026-05-29",
+      "end_date": "2026-06-01",
+      "pollster": "Focaldata",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 37
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 56
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Financial Times"
       ],
       "internal": false,
       "partisan": null,
@@ -20236,116 +20404,6 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonyouunq1jvuk",
-      "poll_type": "approval",
-      "sample_size": 1693,
-      "population": "rv",
-      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_wZDAeTq.pdf",
-      "created_at": "2025-05-06",
-      "start_date": "2025-05-02",
-      "end_date": "2025-05-05",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 44
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 52
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Economist"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonyoumno8rhwl",
-      "poll_type": "approval",
-      "sample_size": 1850,
-      "population": "a",
-      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_wZDAeTq.pdf",
-      "created_at": "2025-05-06",
-      "start_date": "2025-05-02",
-      "end_date": "2025-05-05",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 42
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 52
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Economist"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonbigtju9aypc",
-      "poll_type": "approval",
-      "sample_size": 3128,
-      "population": "rv",
-      "url": "https://application.marketsight.com/app/ItemView.aspx?SharedFor=public%40bigdatapoll.com&SharedBy=34090&id=ed392432-25f1-4ed1-b675-b2d40178ef48",
-      "created_at": "2025-05-06",
-      "start_date": "2025-05-03",
-      "end_date": "2025-05-05",
-      "pollster": "Big Data Poll",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 48
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 47.4
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Public Polling Project"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonap-2tv9a90g",
-      "poll_type": "approval",
-      "sample_size": 1175,
-      "population": "a",
-      "url": "https://apnorc.org/wp-content/uploads/2025/05/may-2025-Higher-Ed-topline.pdf",
-      "created_at": "2025-05-10",
-      "start_date": "2025-05-01",
-      "end_date": "2025-05-05",
-      "pollster": "AP-NORC",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 41
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 57
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -20425,34 +20483,6 @@
       ],
       "seat_name": null,
       "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "2026"
-    },
-    {
-      "id": "gen202big9kvk7nz9",
-      "poll_type": "generic-ballot",
-      "sample_size": 3128,
-      "population": "rv",
-      "url": "https://www.bigdatapoll.com/blog/poll-trump-approval-tempered-by-economic-concerns/",
-      "created_at": "2025-05-06",
-      "start_date": "2025-05-03",
-      "end_date": "2025-05-05",
-      "pollster": "Big Data Poll",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 40.2
-        },
-        {
-          "choice": "Rep",
-          "pct": 42.3
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Public Polling Project"
-      ],
       "internal": false,
       "partisan": null,
       "subject": "2026"
@@ -32453,6 +32483,174 @@
       ],
       "seat_name": null,
       "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202you7e155176",
+      "poll_type": "generic-ballot",
+      "sample_size": 1437,
+      "population": "rv",
+      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_nvajahp.pdf#page=31",
+      "created_at": "2026-06-09",
+      "start_date": "2026-06-05",
+      "end_date": "2026-06-08",
+      "pollster": "YouGov",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 45
+        },
+        {
+          "choice": "Rep",
+          "pct": 41
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "The Economist"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202you2ea3a450",
+      "poll_type": "generic-ballot",
+      "sample_size": 1567,
+      "population": "a",
+      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_nvajahp.pdf#page=31",
+      "created_at": "2026-06-09",
+      "start_date": "2026-06-05",
+      "end_date": "2026-06-08",
+      "pollster": "YouGov",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 37
+        },
+        {
+          "choice": "Rep",
+          "pct": 33
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "The Economist"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202ips094ac646",
+      "poll_type": "generic-ballot",
+      "sample_size": 3578,
+      "population": "rv",
+      "url": "https://www.ipsos.com/sites/default/files/ct/news/documents/2026-06/Reuters%20Ipsos%20Large%20Issue%20Topline%20June%202026%206.8%20release.pdf",
+      "created_at": "2026-06-09",
+      "start_date": "2026-06-03",
+      "end_date": "2026-06-08",
+      "pollster": "Ipsos",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 41
+        },
+        {
+          "choice": "Rep",
+          "pct": 37
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Reuters"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202ipsc03e0960",
+      "poll_type": "generic-ballot",
+      "sample_size": 4531,
+      "population": "a",
+      "url": "https://www.ipsos.com/sites/default/files/ct/news/documents/2026-06/Reuters%20Ipsos%20Large%20Issue%20Topline%20June%202026%206.8%20release.pdf",
+      "created_at": "2026-06-09",
+      "start_date": "2026-06-03",
+      "end_date": "2026-06-08",
+      "pollster": "Ipsos",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 35
+        },
+        {
+          "choice": "Rep",
+          "pct": 31
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Reuters"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202focde986d92",
+      "poll_type": "generic-ballot",
+      "sample_size": 1537,
+      "population": "rv",
+      "url": "http://focaldata.com/blog/trump-inflation-approval-crashes-to-record-low",
+      "created_at": "2026-06-09",
+      "start_date": "2026-05-29",
+      "end_date": "2026-06-01",
+      "pollster": "Focaldata",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 48
+        },
+        {
+          "choice": "Rep",
+          "pct": 43
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Financial Times"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202foc42312cd7",
+      "poll_type": "generic-ballot",
+      "sample_size": 1719,
+      "population": "a",
+      "url": "http://focaldata.com/blog/trump-inflation-approval-crashes-to-record-low",
+      "created_at": "2026-06-09",
+      "start_date": "2026-05-29",
+      "end_date": "2026-06-01",
+      "pollster": "Focaldata",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 45
+        },
+        {
+          "choice": "Rep",
+          "pct": 42
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Financial Times"
+      ],
       "internal": false,
       "partisan": null,
       "subject": "2026"
