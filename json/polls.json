@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-10T14:31:10.294Z",
+  "updatedAt": "2026-06-11T14:59:54.155Z",
   "approval": [
     {
       "id": "appdonyoudd7ff04e",
@@ -20376,34 +20376,6 @@
       "internal": false,
       "partisan": "REP",
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonverhtmq0pd4",
-      "poll_type": "approval",
-      "sample_size": 1000,
-      "population": "a",
-      "url": "https://www.gelliottmorris.com/p/new-poll-americans-oppose-trumps",
-      "created_at": "2025-05-15",
-      "start_date": "2025-05-01",
-      "end_date": "2025-05-06",
-      "pollster": "Verasight",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 40
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 56
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Strength in Numbers"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -20537,34 +20509,6 @@
       ],
       "seat_name": null,
       "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "2026"
-    },
-    {
-      "id": "gen202verd5ikieo6",
-      "poll_type": "generic-ballot",
-      "sample_size": 1000,
-      "population": "a",
-      "url": "https://www.gelliottmorris.com/p/new-poll-americans-oppose-trumps",
-      "created_at": "2025-05-15",
-      "start_date": "2025-05-01",
-      "end_date": "2025-05-06",
-      "pollster": "Verasight",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 47
-        },
-        {
-          "choice": "Rep",
-          "pct": 41
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Strength in Numbers"
-      ],
       "internal": false,
       "partisan": null,
       "subject": "2026"
@@ -32651,6 +32595,58 @@
       "sponsors": [
         "Financial Times"
       ],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202morf4eb5111",
+      "poll_type": "generic-ballot",
+      "sample_size": null,
+      "population": "rv",
+      "url": "https://intel.morningconsult.com/mc-content/trackers/2026-midterm-election-generic-ballot-polls#05-31-2026",
+      "created_at": "2026-06-11",
+      "start_date": "2026-05-25",
+      "end_date": "2026-05-31",
+      "pollster": "Morning Consult",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 45
+        },
+        {
+          "choice": "Rep",
+          "pct": 42
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202mor2b525ceb",
+      "poll_type": "generic-ballot",
+      "sample_size": 24849,
+      "population": "rv",
+      "url": "https://intel.morningconsult.com/mc-content/trackers/2026-midterm-election-generic-ballot-polls#06-07-2026",
+      "created_at": "2026-06-11",
+      "start_date": "2026-06-01",
+      "end_date": "2026-06-07",
+      "pollster": "Morning Consult",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 46
+        },
+        {
+          "choice": "Rep",
+          "pct": 42
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
       "internal": false,
       "partisan": null,
       "subject": "2026"
