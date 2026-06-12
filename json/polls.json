@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-11T14:59:54.155Z",
+  "updatedAt": "2026-06-12T14:16:56.760Z",
   "approval": [
     {
       "id": "appdonyoudd7ff04e",
@@ -114,6 +114,58 @@
       "subject": "Donald Trump"
     },
     {
+      "id": "appdonmor94b82fbd",
+      "poll_type": "approval",
+      "sample_size": 2200,
+      "population": "rv",
+      "url": "https://pro-assets.morningconsult.com/wp-uploads/2026/06/MCPI-PI-Weekly_260609.html#06-08-2026",
+      "created_at": "2026-06-11",
+      "start_date": "2026-06-06",
+      "end_date": "2026-06-08",
+      "pollster": "Morning Consult",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 44
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 54
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonemeab263756",
+      "poll_type": "approval",
+      "sample_size": 1200,
+      "population": "lv",
+      "url": "https://docs.google.com/spreadsheets/d/1OdhDSPbsk575neEvXB2v103QdfEAE8l-/edit?gid=1710999602#gid=1710999602",
+      "created_at": "2026-06-11",
+      "start_date": "2026-06-07",
+      "end_date": "2026-06-08",
+      "pollster": "Emerson College",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 39.4
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 54.6
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
       "id": "appdonrmga1d490a7",
       "poll_type": "approval",
       "sample_size": 3000,
@@ -137,6 +189,32 @@
       "sponsors": [
         "Napolitan Institute"
       ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonthe0b6c3d57",
+      "poll_type": "approval",
+      "sample_size": 3008,
+      "population": "rv",
+      "url": "https://www.theargumentmag.com/p/the-biggest-issue-in-american-politics",
+      "created_at": "2026-06-11",
+      "start_date": "2026-05-29",
+      "end_date": "2026-06-03",
+      "pollster": "The Argument/Verasight",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 38
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 61
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
@@ -381,6 +459,32 @@
       "sponsors": [
         "Harvard CAPS"
       ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonmorec07aa9a",
+      "poll_type": "approval",
+      "sample_size": 2200,
+      "population": "rv",
+      "url": "https://pro-assets.morningconsult.com/wp-uploads/2026/06/MCPI-PI-Weekly_260609.html",
+      "created_at": "2026-06-11",
+      "start_date": "2026-05-29",
+      "end_date": "2026-05-31",
+      "pollster": "Morning Consult",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 43
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 55
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
@@ -20348,34 +20452,6 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonquau68skcgz",
-      "poll_type": "approval",
-      "sample_size": 1000,
-      "population": "rv",
-      "url": "https://drive.google.com/file/d/1LYTAPAsIBBz_BShqyN4ZeZsQkDlLzbZM/view",
-      "created_at": "2025-05-10",
-      "start_date": "2025-05-05",
-      "end_date": "2025-05-07",
-      "pollster": "Quantus Insights",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 48.2
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 48.3
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "TrendingPolitics"
-      ],
-      "internal": false,
-      "partisan": "REP",
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -20457,34 +20533,6 @@
       "sponsors": [],
       "internal": false,
       "partisan": null,
-      "subject": "2026"
-    },
-    {
-      "id": "gen202quajinwv0yy",
-      "poll_type": "generic-ballot",
-      "sample_size": 1000,
-      "population": "rv",
-      "url": "https://drive.google.com/file/d/1LYTAPAsIBBz_BShqyN4ZeZsQkDlLzbZM/view",
-      "created_at": "2025-05-10",
-      "start_date": "2025-05-05",
-      "end_date": "2025-05-07",
-      "pollster": "Quantus Insights",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 45.2
-        },
-        {
-          "choice": "Rep",
-          "pct": 44.8
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "TrendingPolitics"
-      ],
-      "internal": false,
-      "partisan": "REP",
       "subject": "2026"
     },
     {
@@ -32643,6 +32691,84 @@
         {
           "choice": "Rep",
           "pct": 42
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202the4b712378",
+      "poll_type": "generic-ballot",
+      "sample_size": 3008,
+      "population": "rv",
+      "url": "https://www.theargumentmag.com/p/the-biggest-issue-in-american-politics",
+      "created_at": "2026-06-11",
+      "start_date": "2026-05-29",
+      "end_date": "2026-06-03",
+      "pollster": "The Argument/Verasight",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 53
+        },
+        {
+          "choice": "Rep",
+          "pct": 47
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202cygbfde610f",
+      "poll_type": "generic-ballot",
+      "sample_size": 1500,
+      "population": "lv",
+      "url": "https://www.cygn.al/news/poll-independents-arent-who-you-think-they-are-the-left-americas-250-and-who-trump-has-lost-since-the-inauguration",
+      "created_at": "2026-06-11",
+      "start_date": "2026-06-02",
+      "end_date": "2026-06-03",
+      "pollster": "Cygnal",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 49
+        },
+        {
+          "choice": "Rep",
+          "pct": 44
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202eme29000092",
+      "poll_type": "generic-ballot",
+      "sample_size": 1200,
+      "population": "lv",
+      "url": "https://docs.google.com/spreadsheets/d/1OdhDSPbsk575neEvXB2v103QdfEAE8l-/edit?gid=1710999602#gid=1710999602",
+      "created_at": "2026-06-11",
+      "start_date": "2026-06-07",
+      "end_date": "2026-06-08",
+      "pollster": "Emerson College",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 50.3
+        },
+        {
+          "choice": "Rep",
+          "pct": 39.5
         }
       ],
       "seat_name": null,
