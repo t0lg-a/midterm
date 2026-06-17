@@ -1,6 +1,118 @@
 {
-  "updatedAt": "2026-06-16T16:04:39.831Z",
+  "updatedAt": "2026-06-17T14:30:03.849Z",
   "approval": [
+    {
+      "id": "appdonipsb35d6ff5",
+      "poll_type": "approval",
+      "sample_size": 1195,
+      "population": "rv",
+      "url": "https://www.ipsos.com/sites/default/files/ct/news/documents/2026-06/Reuters%20Ipsos%20America%20250%20Poll%20Topline%20June%202026_0.pdf",
+      "created_at": "2026-06-17",
+      "start_date": "2026-06-12",
+      "end_date": "2026-06-15",
+      "pollster": "Ipsos",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 40
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 60
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Reuters"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonipsb04fe7cb",
+      "poll_type": "approval",
+      "sample_size": 1537,
+      "population": "a",
+      "url": "https://www.ipsos.com/sites/default/files/ct/news/documents/2026-06/Reuters%20Ipsos%20America%20250%20Poll%20Topline%20June%202026_0.pdf",
+      "created_at": "2026-06-17",
+      "start_date": "2026-06-12",
+      "end_date": "2026-06-15",
+      "pollster": "Ipsos",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 36
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 62
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Reuters"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonyouf5029f98",
+      "poll_type": "approval",
+      "sample_size": 1403,
+      "population": "rv",
+      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_GpnDRNm.pdf#page=47",
+      "created_at": "2026-06-17",
+      "start_date": "2026-06-13",
+      "end_date": "2026-06-15",
+      "pollster": "YouGov",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 41
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 56
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "The Economist"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonyou591d5af4",
+      "poll_type": "approval",
+      "sample_size": 1549,
+      "population": "a",
+      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_GpnDRNm.pdf#page=47",
+      "created_at": "2026-06-17",
+      "start_date": "2026-06-13",
+      "end_date": "2026-06-15",
+      "pollster": "YouGov",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 39
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 56
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "The Economist"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
     {
       "id": "appdonrmg65905496",
       "poll_type": "approval",
@@ -359,6 +471,32 @@
         "NBC News",
         "More Perfect"
       ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonres6259e65c",
+      "poll_type": "approval",
+      "sample_size": 1001,
+      "population": "a",
+      "url": "https://researchco.ca/wp-content/uploads/2026/06/Tables_Politics_USA_15Jun2026.pdf",
+      "created_at": "2026-06-17",
+      "start_date": "2026-06-04",
+      "end_date": "2026-06-06",
+      "pollster": "Research Co.",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 38
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 57
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
@@ -1797,6 +1935,32 @@
       "sponsors": [
         "The Economist"
       ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdoncha4f1311c6",
+      "poll_type": "approval",
+      "sample_size": 2244,
+      "population": "rv",
+      "url": "https://portal.changeresearch.com/portal/projects/07dc6ff6-bb96-4bc5-a138-90b0ab3b22db",
+      "created_at": "2026-06-17",
+      "start_date": "2026-05-05",
+      "end_date": "2026-05-10",
+      "pollster": "Change Research",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 43
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 56
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
@@ -20490,88 +20654,6 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonechivwmyz17",
-      "poll_type": "approval",
-      "sample_size": 1000,
-      "population": "lv",
-      "url": "https://echeloninsights.com/in-the-news/may-2025-verified-voter-omnibus-2-2-2-2-2/",
-      "created_at": "2025-05-12",
-      "start_date": "2025-05-08",
-      "end_date": "2025-05-12",
-      "pollster": "Echelon Insights",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 46
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 52
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonyouif3pfa1v",
-      "poll_type": "approval",
-      "sample_size": 1786,
-      "population": "a",
-      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_tDmEBHo.pdf",
-      "created_at": "2025-05-14",
-      "start_date": "2025-05-09",
-      "end_date": "2025-05-12",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 43
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 52
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Economist"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonyouj2lgj4d8",
-      "poll_type": "approval",
-      "sample_size": 1610,
-      "population": "rv",
-      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_tDmEBHo.pdf",
-      "created_at": "2025-05-14",
-      "start_date": "2025-05-09",
-      "end_date": "2025-05-12",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 45
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 52
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Economist"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -20647,32 +20729,6 @@
         {
           "choice": "Rep",
           "pct": 44
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "2026"
-    },
-    {
-      "id": "gen202echpyu49cpi",
-      "poll_type": "generic-ballot",
-      "sample_size": 1000,
-      "population": "lv",
-      "url": "https://echeloninsights.com/in-the-news/may-2025-verified-voter-omnibus-2-2-2-2-2/",
-      "created_at": "2025-05-12",
-      "start_date": "2025-05-08",
-      "end_date": "2025-05-12",
-      "pollster": "Echelon Insights",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 47
-        },
-        {
-          "choice": "Rep",
-          "pct": 48
         }
       ],
       "seat_name": null,
@@ -33088,6 +33144,168 @@
       ],
       "seat_name": null,
       "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202chaa87e051f",
+      "poll_type": "generic-ballot",
+      "sample_size": 2244,
+      "population": "rv",
+      "url": "https://portal.changeresearch.com/portal/projects/07dc6ff6-bb96-4bc5-a138-90b0ab3b22db",
+      "created_at": "2026-06-17",
+      "start_date": "2026-05-05",
+      "end_date": "2026-05-10",
+      "pollster": "Change Research",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 45
+        },
+        {
+          "choice": "Rep",
+          "pct": 42
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202res9438765a",
+      "poll_type": "generic-ballot",
+      "sample_size": 1001,
+      "population": "a",
+      "url": "https://researchco.ca/wp-content/uploads/2026/06/Tables_Politics_USA_15Jun2026.pdf",
+      "created_at": "2026-06-17",
+      "start_date": "2026-06-04",
+      "end_date": "2026-06-06",
+      "pollster": "Research Co.",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 38
+        },
+        {
+          "choice": "Rep",
+          "pct": 33
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202ips6e1b4a09",
+      "poll_type": "generic-ballot",
+      "sample_size": 1195,
+      "population": "rv",
+      "url": "https://www.ipsos.com/sites/default/files/ct/news/documents/2026-06/Reuters%20Ipsos%20America%20250%20Poll%20Topline%20June%202026_0.pdf",
+      "created_at": "2026-06-17",
+      "start_date": "2026-06-12",
+      "end_date": "2026-06-15",
+      "pollster": "Ipsos",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 41
+        },
+        {
+          "choice": "Rep",
+          "pct": 38
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Reuters"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202ipsc3892df0",
+      "poll_type": "generic-ballot",
+      "sample_size": 1537,
+      "population": "a",
+      "url": "https://www.ipsos.com/sites/default/files/ct/news/documents/2026-06/Reuters%20Ipsos%20America%20250%20Poll%20Topline%20June%202026_0.pdf",
+      "created_at": "2026-06-17",
+      "start_date": "2026-06-12",
+      "end_date": "2026-06-15",
+      "pollster": "Ipsos",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 35
+        },
+        {
+          "choice": "Rep",
+          "pct": 31
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202youda6c5c1c",
+      "poll_type": "generic-ballot",
+      "sample_size": 1402,
+      "population": "rv",
+      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_GpnDRNm.pdf#page=74",
+      "created_at": "2026-06-17",
+      "start_date": "2026-06-13",
+      "end_date": "2026-06-15",
+      "pollster": "YouGov",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 46
+        },
+        {
+          "choice": "Rep",
+          "pct": 44
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "The Economist"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202you92365a96",
+      "poll_type": "generic-ballot",
+      "sample_size": 1547,
+      "population": "a",
+      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_GpnDRNm.pdf#page=74",
+      "created_at": "2026-06-17",
+      "start_date": "2026-06-13",
+      "end_date": "2026-06-15",
+      "pollster": "YouGov",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 39
+        },
+        {
+          "choice": "Rep",
+          "pct": 36
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "The Economist"
+      ],
       "internal": false,
       "partisan": null,
       "subject": "2026"
