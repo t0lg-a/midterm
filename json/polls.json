@@ -1,6 +1,86 @@
 {
-  "updatedAt": "2026-06-19T14:23:37.037Z",
+  "updatedAt": "2026-06-20T13:00:33.425Z",
   "approval": [
+    {
+      "id": "appdonrmg0715e331",
+      "poll_type": "approval",
+      "sample_size": 3000,
+      "population": "rv",
+      "url": "https://napolitannews.org/jobapproval#06-18-2026",
+      "created_at": "2026-06-19",
+      "start_date": "2026-06-10",
+      "end_date": "2026-06-18",
+      "pollster": "RMG Research",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 43
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 55
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Napolitan Institute"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonqua1fbaf73b",
+      "poll_type": "approval",
+      "sample_size": 1000,
+      "population": "lv",
+      "url": "https://polls.quantusinsights.org/polls/national-approval-june-17?tab=toplines",
+      "created_at": "2026-06-19",
+      "start_date": "2026-06-16",
+      "end_date": "2026-06-17",
+      "pollster": "Quantus Insights",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 43
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 56
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonap-6dc2cc83",
+      "poll_type": "approval",
+      "sample_size": 3040,
+      "population": "a",
+      "url": "https://apnorc.org/wp-content/uploads/2026/06/June-2026-Topline.pdf",
+      "created_at": "2026-06-19",
+      "start_date": "2026-06-11",
+      "end_date": "2026-06-17",
+      "pollster": "AP-NORC",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 37
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 62
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
     {
       "id": "appdonipsb35d6ff5",
       "poll_type": "approval",
@@ -20552,114 +20632,6 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonrmg79okexee",
-      "poll_type": "approval",
-      "sample_size": 3000,
-      "population": "rv",
-      "url": "https://napolitannews.org/jobapproval",
-      "created_at": "2025-05-19",
-      "start_date": "2025-05-07",
-      "end_date": "2025-05-15",
-      "pollster": "RMG Research",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 52
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 48
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Napolitan Institute"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonharimr3td67",
-      "poll_type": "approval",
-      "sample_size": 1903,
-      "population": "rv",
-      "url": "https://harvardharrispoll.com/wp-content/uploads/2025/05/HHP_May2025_Crosstabs.pdf",
-      "created_at": "2025-05-19",
-      "start_date": "2025-05-14",
-      "end_date": "2025-05-15",
-      "pollster": "HarrisX/Harris Poll",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 47
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 48
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Harvard CAPS"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonmarlxifhs54",
-      "poll_type": "approval",
-      "sample_size": 707,
-      "population": "rv",
-      "url": "https://law.marquette.edu/poll/wp-content/uploads/2025/05/MLSPSC26Crosstabs_NationalIssues.html",
-      "created_at": "2025-05-22",
-      "start_date": "2025-05-05",
-      "end_date": "2025-05-15",
-      "pollster": "Marquette University Law School",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 46
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 54
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonmarwsblbstj",
-      "poll_type": "approval",
-      "sample_size": 1004,
-      "population": "a",
-      "url": "https://law.marquette.edu/poll/wp-content/uploads/2025/05/MLSPSC26Crosstabs_NationalIssues.html",
-      "created_at": "2025-05-22",
-      "start_date": "2025-05-05",
-      "end_date": "2025-05-15",
-      "pollster": "Marquette University Law School",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 46
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 50
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -33368,6 +33340,58 @@
       ],
       "internal": false,
       "partisan": "REP",
+      "subject": "2026"
+    },
+    {
+      "id": "gen202qua445d984b",
+      "poll_type": "generic-ballot",
+      "sample_size": 1000,
+      "population": "lv",
+      "url": "https://polls.quantusinsights.org/polls/national-approval-june-17?tab=toplines",
+      "created_at": "2026-06-19",
+      "start_date": "2026-06-16",
+      "end_date": "2026-06-17",
+      "pollster": "Quantus Insights",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 47
+        },
+        {
+          "choice": "Rep",
+          "pct": 43
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202thed828b959",
+      "poll_type": "generic-ballot",
+      "sample_size": 1010,
+      "population": "rv",
+      "url": "https://cdn.prod.website-files.com/663a60b91deeae06e8ae1d1c/6a317d6b6a131bd58ddfc7b9_Rainey_Center_May_Omnibus_Toplines.pdf",
+      "created_at": "2026-06-19",
+      "start_date": "2026-05-17",
+      "end_date": "2026-05-18",
+      "pollster": "The Rainey Center",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 45
+        },
+        {
+          "choice": "Rep",
+          "pct": 43
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
       "subject": "2026"
     }
   ],
