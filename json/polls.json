@@ -1,6 +1,58 @@
 {
-  "updatedAt": "2026-06-22T16:05:00.090Z",
+  "updatedAt": "2026-06-23T13:56:41.345Z",
   "approval": [
+    {
+      "id": "appdonameea0e73fc",
+      "poll_type": "approval",
+      "sample_size": 1006,
+      "population": "rv",
+      "url": "https://americanresearchgroup.com/economy/",
+      "created_at": "2026-06-22",
+      "start_date": "2026-06-16",
+      "end_date": "2026-06-20",
+      "pollster": "American Research Group",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 30
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 67
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdoname2ec606c6",
+      "poll_type": "approval",
+      "sample_size": 1100,
+      "population": "a",
+      "url": "https://americanresearchgroup.com/economy/",
+      "created_at": "2026-06-22",
+      "start_date": "2026-06-16",
+      "end_date": "2026-06-20",
+      "pollster": "American Research Group",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 30
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 66
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
     {
       "id": "appdonyoub00f2735",
       "poll_type": "approval",
@@ -20604,114 +20656,6 @@
       "seat_name": null,
       "sponsors": [
         "Pinpoint Policy Institute"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonins8fj18bgq",
-      "poll_type": "approval",
-      "sample_size": 1000,
-      "population": "lv",
-      "url": "https://insideradvantage.com/insideradvantage-national-survey-trump-approval-surges-to-fifty-five-percent-following-middle-east-trip/",
-      "created_at": "2025-05-20",
-      "start_date": "2025-05-17",
-      "end_date": "2025-05-18",
-      "pollster": "InsiderAdvantage",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 55
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 44
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonips2jwkieut",
-      "poll_type": "approval",
-      "sample_size": 1024,
-      "population": "a",
-      "url": "https://www.reuters.com/world/us/trumps-approval-rating-ticks-lower-economic-concerns-weigh-reutersipsos-poll-2025-05-20/",
-      "created_at": "2025-05-22",
-      "start_date": "2025-05-16",
-      "end_date": "2025-05-18",
-      "pollster": "Ipsos",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 42
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 52
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Reuters"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdongalxt81yt7w",
-      "poll_type": "approval",
-      "sample_size": 1003,
-      "population": "a",
-      "url": "https://news.gallup.com/poll/690986/political-economic-indicators-steady-may.aspx",
-      "created_at": "2025-05-24",
-      "start_date": "2025-05-01",
-      "end_date": "2025-05-18",
-      "pollster": "Gallup",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 43
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 53
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonglo5i58exv4",
-      "poll_type": "approval",
-      "sample_size": 1000,
-      "population": "rv",
-      "url": "https://navigatorresearch.org/wp-content/uploads/2025/05/Navigator-Update-Topline-F05.19.25-1.pdf",
-      "created_at": "2025-05-27",
-      "start_date": "2025-05-15",
-      "end_date": "2025-05-18",
-      "pollster": "Global Strategy Group",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 44
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 54
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Navigator Research"
       ],
       "internal": false,
       "partisan": null,
