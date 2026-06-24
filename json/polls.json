@@ -1,6 +1,62 @@
 {
-  "updatedAt": "2026-06-23T13:56:41.345Z",
+  "updatedAt": "2026-06-24T13:31:31.689Z",
   "approval": [
+    {
+      "id": "appdonyoub2fe3e15",
+      "poll_type": "approval",
+      "sample_size": 1517,
+      "population": "rv",
+      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_v8p0Pe8.pdf#page=4",
+      "created_at": "2026-06-23",
+      "start_date": "2026-06-19",
+      "end_date": "2026-06-22",
+      "pollster": "YouGov",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 39
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 58
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "The Economist"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonyoub30354d7",
+      "poll_type": "approval",
+      "sample_size": 1679,
+      "population": "a",
+      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_v8p0Pe8.pdf#page=4",
+      "created_at": "2026-06-23",
+      "start_date": "2026-06-19",
+      "end_date": "2026-06-22",
+      "pollster": "You/Gov",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 36
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 58
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "The Economist"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
     {
       "id": "appdonameea0e73fc",
       "poll_type": "approval",
@@ -20550,116 +20606,6 @@
       "internal": false,
       "partisan": "REP",
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonyou4p3z2q89",
-      "poll_type": "approval",
-      "sample_size": 1558,
-      "population": "rv",
-      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_wObz24u.pdf",
-      "created_at": "2025-05-20",
-      "start_date": "2025-05-16",
-      "end_date": "2025-05-19",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 45
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 52
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Economist"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonyouxkwoz6jd",
-      "poll_type": "approval",
-      "sample_size": 1710,
-      "population": "a",
-      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_wObz24u.pdf",
-      "created_at": "2025-05-20",
-      "start_date": "2025-05-16",
-      "end_date": "2025-05-19",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 43
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 51
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Economist"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonmorijmdc9e0",
-      "poll_type": "approval",
-      "sample_size": 2208,
-      "population": "rv",
-      "url": "https://pro.morningconsult.com/trackers/donald-trump-congress-policy-republicans-polling",
-      "created_at": "2025-05-20",
-      "start_date": "2025-05-16",
-      "end_date": "2025-05-19",
-      "pollster": "Morning Consult",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 48
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 50
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonfabqdbn3b0e",
-      "poll_type": "approval",
-      "sample_size": 800,
-      "population": "rv",
-      "url": "https://pinpointpolicyinstitute.org/wp-content/uploads/2025/06/National-Spring-Quarterly-Tracking-Memo-6-2-25-1.pdf",
-      "created_at": "2025-06-03",
-      "start_date": "2025-05-15",
-      "end_date": "2025-05-19",
-      "pollster": "Fabrizio Ward",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 46
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 49
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Pinpoint Policy Institute"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -20819,34 +20765,6 @@
       ],
       "seat_name": null,
       "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "2026"
-    },
-    {
-      "id": "gen202fabu4lhyn5f",
-      "poll_type": "generic-ballot",
-      "sample_size": 800,
-      "population": "rv",
-      "url": "https://pinpointpolicyinstitute.org/wp-content/uploads/2025/06/National-Spring-Quarterly-Tracking-Memo-6-2-25-1.pdf",
-      "created_at": "2025-06-03",
-      "start_date": "2025-05-15",
-      "end_date": "2025-05-19",
-      "pollster": "Fabrizio Ward",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 42
-        },
-        {
-          "choice": "Rep",
-          "pct": 42
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Pinpoint Policy Institute"
-      ],
       "internal": false,
       "partisan": null,
       "subject": "2026"
@@ -33477,6 +33395,62 @@
       "internal": false,
       "partisan": null,
       "subject": "2026"
+    },
+    {
+      "id": "genconyouc499c5b3",
+      "poll_type": "generic-ballot",
+      "sample_size": 1517,
+      "population": "rv",
+      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_v8p0Pe8.pdf#page=58",
+      "created_at": "2026-06-23",
+      "start_date": "2026-06-19",
+      "end_date": "2026-06-22",
+      "pollster": "YouGov",
+      "answers": [
+        {
+          "choice": "Democrat",
+          "pct": 45
+        },
+        {
+          "choice": "Republican",
+          "pct": 43
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "The Economist"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Congress"
+    },
+    {
+      "id": "genconyou0df1e8df",
+      "poll_type": "generic-ballot",
+      "sample_size": 1679,
+      "population": "a",
+      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_v8p0Pe8.pdf#page=58",
+      "created_at": "2026-06-23",
+      "start_date": "2026-06-19",
+      "end_date": "2026-06-22",
+      "pollster": "YouGov",
+      "answers": [
+        {
+          "choice": "Democrat",
+          "pct": 38
+        },
+        {
+          "choice": "Republican",
+          "pct": 35
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "The Economist"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Congress"
     }
   ],
   "debug": {
