@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-24T13:31:31.689Z",
+  "updatedAt": "2026-06-25T13:30:28.544Z",
   "approval": [
     {
       "id": "appdonyoub2fe3e15",
@@ -52,6 +52,116 @@
       "seat_name": null,
       "sponsors": [
         "The Economist"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonips8b682645",
+      "poll_type": "approval",
+      "sample_size": 978,
+      "population": "rv",
+      "url": "https://www.reuters.com/data/trumps-approval-rating-2025-01-21/",
+      "created_at": "2026-06-24",
+      "start_date": "2026-06-18",
+      "end_date": "2026-06-22",
+      "pollster": "Ipsos",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 34
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 64
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Reuters"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonech4ae9eee2",
+      "poll_type": "approval",
+      "sample_size": 1003,
+      "population": "lv",
+      "url": "https://echeloninsights.com/insights/june-2026-america-250-verified-voter-omnibus",
+      "created_at": "2026-06-24",
+      "start_date": "2026-06-18",
+      "end_date": "2026-06-22",
+      "pollster": "Echelon Insights",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 41
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 58
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonvera0a8d3f8",
+      "poll_type": "approval",
+      "sample_size": 2087,
+      "population": "a",
+      "url": "https://www.gelliottmorris.com/p/poll",
+      "created_at": "2026-06-24",
+      "start_date": "2026-06-17",
+      "end_date": "2026-06-22",
+      "pollster": "Verasight",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 37
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 60
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Strength in Numbers"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonj.l5a345c41",
+      "poll_type": "approval",
+      "sample_size": 1042,
+      "population": "rv",
+      "url": "https://www.dailymail.com/news/article-15921233/trump-approval-bounces-iran-deal.html",
+      "created_at": "2026-06-24",
+      "start_date": "2026-06-19",
+      "end_date": "2026-06-21",
+      "pollster": "J.L. Partners",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 47
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 53
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Daily Mail"
       ],
       "internal": false,
       "partisan": null,
@@ -409,6 +519,32 @@
       "sponsors": [
         "Fox News"
       ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonmar846f107b",
+      "poll_type": "approval",
+      "sample_size": 1514,
+      "population": "a",
+      "url": "https://law.marquette.edu/poll/",
+      "created_at": "2026-06-24",
+      "start_date": "2026-06-09",
+      "end_date": "2026-06-15",
+      "pollster": "Marquette University Law School",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 38
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 62
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
@@ -20498,114 +20634,6 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonamebgztpqd4",
-      "poll_type": "approval",
-      "sample_size": 1008,
-      "population": "rv",
-      "url": "https://americanresearchgroup.com/economy/",
-      "created_at": "2025-05-22",
-      "start_date": "2025-05-17",
-      "end_date": "2025-05-20",
-      "pollster": "American Research Group",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 42
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 55
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonamez6hee8fy",
-      "poll_type": "approval",
-      "sample_size": 1100,
-      "population": "a",
-      "url": "https://americanresearchgroup.com/economy/",
-      "created_at": "2025-05-22",
-      "start_date": "2025-05-17",
-      "end_date": "2025-05-20",
-      "pollster": "American Research Group",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 41
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 55
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdoncivpbw3qx5w",
-      "poll_type": "approval",
-      "sample_size": 1018,
-      "population": "rv",
-      "url": "https://civiqs.com/documents/Civiqs_DailyKos_banner_book_2025_05_x3b1sp.pdf",
-      "created_at": "2025-05-24",
-      "start_date": "2025-05-17",
-      "end_date": "2025-05-20",
-      "pollster": "Civiqs",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 47
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 52
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Daily Kos"
-      ],
-      "internal": false,
-      "partisan": "DEM",
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonquagumh6so6",
-      "poll_type": "approval",
-      "sample_size": 1000,
-      "population": "rv",
-      "url": "https://quantusinsights.org/f/latest-quantus-insights-pollno-mandate-but-momentum",
-      "created_at": "2025-05-27",
-      "start_date": "2025-05-18",
-      "end_date": "2025-05-20",
-      "pollster": "Quantus Insights",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 48.3
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 47.8
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "TrendingPolitics"
-      ],
-      "internal": false,
-      "partisan": "REP",
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -33447,6 +33475,86 @@
       "seat_name": null,
       "sponsors": [
         "The Economist"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Congress"
+    },
+    {
+      "id": "genconips46ba18f1",
+      "poll_type": "generic-ballot",
+      "sample_size": 978,
+      "population": "rv",
+      "url": "https://www.reuters.com/data/trumps-approval-rating-2025-01-21/",
+      "created_at": "2026-06-24",
+      "start_date": "2026-06-18",
+      "end_date": "2026-06-22",
+      "pollster": "Ipsos",
+      "answers": [
+        {
+          "choice": "Democrat",
+          "pct": 41
+        },
+        {
+          "choice": "Republican",
+          "pct": 36
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Congress"
+    },
+    {
+      "id": "genconechc98db130",
+      "poll_type": "generic-ballot",
+      "sample_size": 1003,
+      "population": "lv",
+      "url": "https://echeloninsights.com/insights/june-2026-america-250-verified-voter-omnibus",
+      "created_at": "2026-06-24",
+      "start_date": "2026-06-18",
+      "end_date": "2026-06-22",
+      "pollster": "Echelon Insights",
+      "answers": [
+        {
+          "choice": "Democrat",
+          "pct": 51
+        },
+        {
+          "choice": "Republican",
+          "pct": 45
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Congress"
+    },
+    {
+      "id": "genconver13f348b3",
+      "poll_type": "generic-ballot",
+      "sample_size": 1896,
+      "population": "rv",
+      "url": "https://www.gelliottmorris.com/p/poll",
+      "created_at": "2026-06-24",
+      "start_date": "2026-06-17",
+      "end_date": "2026-06-22",
+      "pollster": "Verasight",
+      "answers": [
+        {
+          "choice": "Democrat",
+          "pct": 50
+        },
+        {
+          "choice": "Republican",
+          "pct": 43
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Strength in Numbers"
       ],
       "internal": false,
       "partisan": null,
