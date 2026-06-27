@@ -1,6 +1,60 @@
 {
-  "updatedAt": "2026-06-26T13:25:23.099Z",
+  "updatedAt": "2026-06-27T12:47:27.350Z",
   "approval": [
+    {
+      "id": "appdonrmgbdce1d04",
+      "poll_type": "approval",
+      "sample_size": 3000,
+      "population": "rv",
+      "url": "https://napolitannews.org/jobapproval",
+      "created_at": "2026-06-26",
+      "start_date": "2026-06-16",
+      "end_date": "2026-06-23",
+      "pollster": "RMG Research",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 43
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 55
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Napolitan News Service"
+      ],
+      "internal": false,
+      "partisan": "REP",
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonmcl82c5b1de",
+      "poll_type": "approval",
+      "sample_size": 1000,
+      "population": "lv",
+      "url": "https://mclaughlinonline.com/pols/wp-content/uploads/2026/06/National-June-Presentation-RELEASE-June-2026.pdf",
+      "created_at": "2026-06-26",
+      "start_date": "2026-06-17",
+      "end_date": "2026-06-23",
+      "pollster": "McLaughlin & Associates",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 46
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 50
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
     {
       "id": "appdonyoub2fe3e15",
       "poll_type": "approval",
