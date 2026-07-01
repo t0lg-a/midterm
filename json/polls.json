@@ -1,6 +1,62 @@
 {
-  "updatedAt": "2026-06-30T13:19:06.555Z",
+  "updatedAt": "2026-07-01T13:42:24.328Z",
   "approval": [
+    {
+      "id": "appdonyou319bfe49",
+      "poll_type": "approval",
+      "sample_size": 1428,
+      "population": "rv",
+      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_1tbbxVr.pdf#page=4",
+      "created_at": "2026-06-30",
+      "start_date": "2026-06-26",
+      "end_date": "2026-06-29",
+      "pollster": "YouGov",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 40
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 58
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "The Economist"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonbig21afe736",
+      "poll_type": "approval",
+      "sample_size": 2604,
+      "population": "lv",
+      "url": "https://www.bigdatapoll.com/blog/trump-bump-voters-overwhelmingly-support-iran-peace-deal/",
+      "created_at": "2026-06-30",
+      "start_date": "2026-06-26",
+      "end_date": "2026-06-28",
+      "pollster": "Big Data Poll",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 44.4
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 53.3
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Public Polling Project"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
     {
       "id": "appdonrmgbdce1d04",
       "poll_type": "approval",
@@ -20602,62 +20658,6 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonyouhvzvb4d6",
-      "poll_type": "approval",
-      "sample_size": 1660,
-      "population": "a",
-      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_WokQXF7.pdf",
-      "created_at": "2025-05-28",
-      "start_date": "2025-05-23",
-      "end_date": "2025-05-26",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 44
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 52
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Economist"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonyoucb8fktkz",
-      "poll_type": "approval",
-      "sample_size": 1486,
-      "population": "rv",
-      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_WokQXF7.pdf",
-      "created_at": "2025-05-28",
-      "start_date": "2025-05-23",
-      "end_date": "2025-05-26",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 46
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 52
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Economist"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -20759,32 +20759,6 @@
         {
           "choice": "Rep",
           "pct": 41.7
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "2026"
-    },
-    {
-      "id": "gen202mcljanjojb4",
-      "poll_type": "generic-ballot",
-      "sample_size": 1000,
-      "population": "rv",
-      "url": "https://mclaughlinonline.com/pols/wp-content/uploads/2025/05/National-May-Presentation-RELEASE-05-27-25.pdf",
-      "created_at": "2025-06-02",
-      "start_date": "2025-05-21",
-      "end_date": "2025-05-26",
-      "pollster": "McLaughlin & Associates",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 43
-        },
-        {
-          "choice": "Rep",
-          "pct": 47
         }
       ],
       "seat_name": null,
@@ -33630,6 +33604,62 @@
       ],
       "seat_name": null,
       "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202youa37aee72",
+      "poll_type": "generic-ballot",
+      "sample_size": 1426,
+      "population": "rv",
+      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_1tbbxVr.pdf#page=58",
+      "created_at": "2026-06-30",
+      "start_date": "2026-06-26",
+      "end_date": "2026-06-29",
+      "pollster": "YouGov",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 45
+        },
+        {
+          "choice": "Rep",
+          "pct": 42
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "The Economist"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202big285b1b90",
+      "poll_type": "generic-ballot",
+      "sample_size": 2604,
+      "population": "lv",
+      "url": "https://www.bigdatapoll.com/blog/trump-bump-voters-overwhelmingly-support-iran-peace-deal/",
+      "created_at": "2026-06-30",
+      "start_date": "2026-06-26",
+      "end_date": "2026-06-28",
+      "pollster": "Big Data Poll",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 50.2
+        },
+        {
+          "choice": "Rep",
+          "pct": 41
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Public Polling Project"
+      ],
       "internal": false,
       "partisan": null,
       "subject": "2026"
