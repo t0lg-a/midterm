@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-01T13:42:24.328Z",
+  "updatedAt": "2026-07-02T13:12:10.871Z",
   "approval": [
     {
       "id": "appdonyou319bfe49",
@@ -1393,6 +1393,34 @@
       "sponsors": [],
       "internal": false,
       "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdontheb893ec9c",
+      "poll_type": "approval",
+      "sample_size": 1000,
+      "population": "rv",
+      "url": "https://www.winningtheissues.org/wp-content/uploads/2026/06/May-2026-Winning-the-Issues-Survey.pdf",
+      "created_at": "2026-07-01",
+      "start_date": "2026-05-30",
+      "end_date": "2026-06-02",
+      "pollster": "The Winston Group",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 37
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 58
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Winning the Issues"
+      ],
+      "internal": false,
+      "partisan": "REP",
       "subject": "Donald Trump"
     },
     {
@@ -20576,88 +20604,6 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonatly8q0ns5i",
-      "poll_type": "approval",
-      "sample_size": 3469,
-      "population": "rv",
-      "url": "https://atlasintel.org/poll/usa-national-2025-05-30",
-      "created_at": "2025-05-31",
-      "start_date": "2025-05-21",
-      "end_date": "2025-05-27",
-      "pollster": "AtlasIntel",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 44.5
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 54.5
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonyouj9w0f3pv",
-      "poll_type": "approval",
-      "sample_size": 1052,
-      "population": "rv",
-      "url": "https://www.scribd.com/document/869058774/Yahoo-News-YouGov-Corruption-Poll-May-2025",
-      "created_at": "2025-06-02",
-      "start_date": "2025-05-22",
-      "end_date": "2025-05-27",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 45
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 53
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Yahoo News"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonyoue62m7g5s",
-      "poll_type": "approval",
-      "sample_size": 1560,
-      "population": "a",
-      "url": "https://www.scribd.com/document/869058774/Yahoo-News-YouGov-Corruption-Poll-May-2025",
-      "created_at": "2025-06-02",
-      "start_date": "2025-05-22",
-      "end_date": "2025-05-27",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 41
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 54
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Yahoo News"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -20733,32 +20679,6 @@
         {
           "choice": "Rep",
           "pct": 44
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "2026"
-    },
-    {
-      "id": "gen202atld6aqnb7h",
-      "poll_type": "generic-ballot",
-      "sample_size": 3469,
-      "population": "rv",
-      "url": "https://atlasintel.org/poll/usa-national-2025-05-30",
-      "created_at": "2025-05-31",
-      "start_date": "2025-05-21",
-      "end_date": "2025-05-27",
-      "pollster": "AtlasIntel",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 50.9
-        },
-        {
-          "choice": "Rep",
-          "pct": 41.7
         }
       ],
       "seat_name": null,
@@ -33662,6 +33582,62 @@
       ],
       "internal": false,
       "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202bed25e3a0e3",
+      "poll_type": "generic-ballot",
+      "sample_size": 1010,
+      "population": "rv",
+      "url": "https://cdn.prod.website-files.com/663a60b91deeae06e8ae1d1c/6a317d6b6a131bd58ddfc7b9_Rainey_Center_May_Omnibus_Toplines.pdf",
+      "created_at": "2026-07-01",
+      "start_date": "2026-05-17",
+      "end_date": "2026-05-18",
+      "pollster": "Bedrock Polling",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 45
+        },
+        {
+          "choice": "Rep",
+          "pct": 43
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Rainey Center"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202thef222ecc9",
+      "poll_type": "generic-ballot",
+      "sample_size": 1000,
+      "population": "rv",
+      "url": "https://www.winningtheissues.org/wp-content/uploads/2026/06/May-2026-Winning-the-Issues-Survey.pdf",
+      "created_at": "2026-07-01",
+      "start_date": "2026-05-30",
+      "end_date": "2026-06-02",
+      "pollster": "The Winston Group",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 48
+        },
+        {
+          "choice": "Rep",
+          "pct": 41
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Winning the Issues"
+      ],
+      "internal": false,
+      "partisan": "REP",
       "subject": "2026"
     }
   ],
