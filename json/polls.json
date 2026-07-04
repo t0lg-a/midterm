@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-03T13:16:20.424Z",
+  "updatedAt": "2026-07-04T12:37:58.779Z",
   "approval": [
     {
       "id": "appdonyou319bfe49",
@@ -20547,60 +20547,6 @@
       "sponsors": [
         "Issues & Insights"
       ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonrmgcxjpltyh",
-      "poll_type": "approval",
-      "sample_size": 3000,
-      "population": "rv",
-      "url": "https://napolitannews.org/jobapproval",
-      "created_at": "2025-06-02",
-      "start_date": "2025-05-20",
-      "end_date": "2025-05-29",
-      "pollster": "RMG Research",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 49
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 50
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Napolitan Institute"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonjohl23stxlx",
-      "poll_type": "approval",
-      "sample_size": 1000,
-      "population": "lv",
-      "url": "http://johnzogbystrategies.com/wp-content/uploads/2025/06/Job-Approval-052825.pdf",
-      "created_at": "2025-06-03",
-      "start_date": "2025-05-28",
-      "end_date": "2025-05-29",
-      "pollster": "John Zogby Strategies",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 48.2
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 49
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
