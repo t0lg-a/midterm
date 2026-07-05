@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-04T12:37:58.779Z",
+  "updatedAt": "2026-07-05T12:44:39.044Z",
   "approval": [
     {
       "id": "appdonyou319bfe49",
@@ -20519,34 +20519,6 @@
       ],
       "seat_name": null,
       "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdontipon9zvq2t",
-      "poll_type": "approval",
-      "sample_size": 1395,
-      "population": "a",
-      "url": "https://issuesinsights.com/2025/06/02/trumps-ratings-edge-higher-as-good-news-eclipses-negative-media-coverage-ibd-tipp-poll/",
-      "created_at": "2025-06-02",
-      "start_date": "2025-05-28",
-      "end_date": "2025-05-30",
-      "pollster": "TIPP Insights",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 43
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 45
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Issues & Insights"
-      ],
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
