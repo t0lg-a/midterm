@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-05T12:44:39.044Z",
+  "updatedAt": "2026-07-06T14:38:49.799Z",
   "approval": [
     {
       "id": "appdonyou319bfe49",
@@ -20495,32 +20495,6 @@
       "sponsors": [],
       "internal": false,
       "partisan": "REP",
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonact1lfqx352",
-      "poll_type": "approval",
-      "sample_size": 488,
-      "population": "a",
-      "url": "https://www.activote.net/trumps-approval-on-the-rise/",
-      "created_at": "2025-06-02",
-      "start_date": "2025-05-01",
-      "end_date": "2025-05-31",
-      "pollster": "ActiVote",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 46.3
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 50.2
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
       "subject": "Donald Trump"
     }
   ],
