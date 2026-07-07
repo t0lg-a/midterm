@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-06T14:38:49.799Z",
+  "updatedAt": "2026-07-07T13:29:17.580Z",
   "approval": [
     {
       "id": "appdonyou319bfe49",
@@ -20470,32 +20470,6 @@
       "internal": false,
       "partisan": "REP",
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdontra1jjx39j7",
-      "poll_type": "approval",
-      "sample_size": 1098,
-      "population": "lv",
-      "url": "https://www.thetrafalgargroup.org/wp-content/uploads/2025/06/Trump-Approval-Report-060225.pdf",
-      "created_at": "2025-06-03",
-      "start_date": "2025-05-30",
-      "end_date": "2025-06-01",
-      "pollster": "Trafalgar Group/InsiderAdvantage",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 53.7
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 45.6
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": "REP",
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -33530,6 +33504,34 @@
       ],
       "internal": false,
       "partisan": "REP",
+      "subject": "2026"
+    },
+    {
+      "id": "gen202foc8381e6bc",
+      "poll_type": "generic-ballot",
+      "sample_size": 1795,
+      "population": "rv",
+      "url": "https://www.focaldata.com/blog/ossoffism-and-the-gops-elite-problem",
+      "created_at": "2026-07-06",
+      "start_date": "2026-06-26",
+      "end_date": "2026-06-30",
+      "pollster": "Focaldata",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 50
+        },
+        {
+          "choice": "Rep",
+          "pct": 43
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Financial Times"
+      ],
+      "internal": false,
+      "partisan": null,
       "subject": "2026"
     }
   ],
