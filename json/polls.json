@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-09T14:00:32.277Z",
+  "updatedAt": "2026-07-10T13:21:38.778Z",
   "approval": [
     {
       "id": "appdonyou319bfe49",
@@ -20304,34 +20304,6 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonqual57ubb1k",
-      "poll_type": "approval",
-      "sample_size": 1000,
-      "population": "rv",
-      "url": "https://drive.google.com/file/d/1SFF1dEYQckjhF-RcJscsORgjYaM1hkOT/view",
-      "created_at": "2025-06-06",
-      "start_date": "2025-06-01",
-      "end_date": "2025-06-04",
-      "pollster": "Quantus Insights",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 48.8
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 48.2
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "TrendingPolitics"
-      ],
-      "internal": false,
-      "partisan": "REP",
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -20407,60 +20379,6 @@
         {
           "choice": "Rep",
           "pct": 44
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "2026"
-    },
-    {
-      "id": "gen202qua2ni0aq5i",
-      "poll_type": "generic-ballot",
-      "sample_size": 1000,
-      "population": "rv",
-      "url": "https://drive.google.com/file/d/1SFF1dEYQckjhF-RcJscsORgjYaM1hkOT/view",
-      "created_at": "2025-06-06",
-      "start_date": "2025-06-01",
-      "end_date": "2025-06-04",
-      "pollster": "Quantus Insights",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 46
-        },
-        {
-          "choice": "Rep",
-          "pct": 45
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "TrendingPolitics"
-      ],
-      "internal": false,
-      "partisan": "REP",
-      "subject": "2026"
-    },
-    {
-      "id": "gen202cyg8kwfijqm",
-      "poll_type": "generic-ballot",
-      "sample_size": 1500,
-      "population": "lv",
-      "url": "https://www.cygn.al/wp-content/uploads/2025/06/Cygnal-National-NVT-June25-Deck.pdf",
-      "created_at": "2025-06-11",
-      "start_date": "2025-06-03",
-      "end_date": "2025-06-04",
-      "pollster": "Cygnal",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 47.2
-        },
-        {
-          "choice": "Rep",
-          "pct": 46.9
         }
       ],
       "seat_name": null,
