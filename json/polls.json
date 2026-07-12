@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-11T12:09:09.578Z",
+  "updatedAt": "2026-07-12T12:09:41.315Z",
   "approval": [
     {
       "id": "appdonyou319bfe49",
@@ -20248,62 +20248,6 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonyoufmr7uy2s",
-      "poll_type": "approval",
-      "sample_size": 2428,
-      "population": "a",
-      "url": "https://www.scribd.com/document/873291424/cbsnews-20250608-SUN",
-      "created_at": "2025-06-08",
-      "start_date": "2025-06-04",
-      "end_date": "2025-06-06",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 45
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 55
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "CBS News"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonj.l29ex8yfk",
-      "poll_type": "approval",
-      "sample_size": 1006,
-      "population": "rv",
-      "url": "https://www.dailymail.co.uk/news/article-14794205/donald-trump-elon-musk-approval-poll.html#",
-      "created_at": "2025-06-09",
-      "start_date": "2025-06-06",
-      "end_date": "2025-06-06",
-      "pollster": "J.L. Partners",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 47
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 53
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "DailyMail.com"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -20383,34 +20327,6 @@
       ],
       "seat_name": null,
       "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "2026"
-    },
-    {
-      "id": "gen202j.l2bfn82ku",
-      "poll_type": "generic-ballot",
-      "sample_size": 1006,
-      "population": "rv",
-      "url": "https://www.dailymail.co.uk/news/article-14796175/polling-donald-trump-2024-election-elon-musk.html",
-      "created_at": "2025-06-15",
-      "start_date": "2025-06-06",
-      "end_date": "2025-06-06",
-      "pollster": "J.L. Partners",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 42
-        },
-        {
-          "choice": "Rep",
-          "pct": 35
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "DailyMail.com"
-      ],
       "internal": false,
       "partisan": null,
       "subject": "2026"
