@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-13T13:32:02.429Z",
+  "updatedAt": "2026-07-14T12:42:26.585Z",
   "approval": [
     {
       "id": "appdonyou319bfe49",
@@ -20189,58 +20189,6 @@
         {
           "choice": "Disapprove",
           "pct": 60
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonmor158350wy",
-      "poll_type": "approval",
-      "sample_size": 1867,
-      "population": "rv",
-      "url": "https://pro.morningconsult.com/trackers/donald-trump-congress-policy-republicans-polling",
-      "created_at": "2025-06-10",
-      "start_date": "2025-06-06",
-      "end_date": "2025-06-08",
-      "pollster": "Morning Consult",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 47
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 51
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonpewhiop980j",
-      "poll_type": "approval",
-      "sample_size": 5044,
-      "population": "a",
-      "url": "https://www.pewresearch.org/wp-content/uploads/sites/20/2025/06/PP_2025-6-17_trump-immigration_topline.pdf",
-      "created_at": "2025-06-18",
-      "start_date": "2025-06-02",
-      "end_date": "2025-06-08",
-      "pollster": "Pew Research Center",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 41
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 58
         }
       ],
       "seat_name": null,
