@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-15T12:46:18.017Z",
+  "updatedAt": "2026-07-16T12:55:04.072Z",
   "approval": [
     {
       "id": "appdonyou319bfe49",
@@ -20005,34 +20005,6 @@
       ],
       "internal": false,
       "partisan": "REP",
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonsurdltxnskt",
-      "poll_type": "approval",
-      "sample_size": 19410,
-      "population": "a",
-      "url": "https://www.nbcnews.com/politics/trump-administration/poll-americans-disapprove-spending-public-funds-put-military-parade-wa-rcna212779",
-      "created_at": "2025-06-15",
-      "start_date": "2025-05-30",
-      "end_date": "2025-06-10",
-      "pollster": "SurveyMonkey",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 45
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 55
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "NBC News"
-      ],
-      "internal": false,
-      "partisan": null,
       "subject": "Donald Trump"
     }
   ],
