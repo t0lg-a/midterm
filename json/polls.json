@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-16T12:55:04.072Z",
+  "updatedAt": "2026-07-17T12:38:23.300Z",
   "approval": [
     {
       "id": "appdonyou319bfe49",
@@ -19950,62 +19950,6 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonqualoalbhd4",
-      "poll_type": "approval",
-      "sample_size": 1000,
-      "population": "rv",
-      "url": "https://drive.google.com/file/d/1AQ_6yT9lTlj7wLGm38j8x0vtSMtPNMcK/view",
-      "created_at": "2025-06-15",
-      "start_date": "2025-06-09",
-      "end_date": "2025-06-11",
-      "pollster": "Quantus Insights",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 47.5
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 49.1
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "TrendingPolitics"
-      ],
-      "internal": false,
-      "partisan": "REP",
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdontipsfbmd7xr",
-      "poll_type": "approval",
-      "sample_size": 1584,
-      "population": "rv",
-      "url": "https://tippinsights.com/league-of-american-workers-poll-june-2025/",
-      "created_at": "2025-06-16",
-      "start_date": "2025-06-09",
-      "end_date": "2025-06-11",
-      "pollster": "TIPP Insights",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 43
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 50
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "League of American Workers"
-      ],
-      "internal": false,
-      "partisan": "REP",
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -20090,34 +20034,6 @@
       "subject": "2026"
     },
     {
-      "id": "gen202quai8e49h8e",
-      "poll_type": "generic-ballot",
-      "sample_size": 1000,
-      "population": "rv",
-      "url": "https://drive.google.com/file/d/1AQ_6yT9lTlj7wLGm38j8x0vtSMtPNMcK/view",
-      "created_at": "2025-06-15",
-      "start_date": "2025-06-09",
-      "end_date": "2025-06-11",
-      "pollster": "Quantus Insights",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 43
-        },
-        {
-          "choice": "Rep",
-          "pct": 43
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "TrendingPolitics"
-      ],
-      "internal": false,
-      "partisan": "REP",
-      "subject": "2026"
-    },
-    {
       "id": "gen202verpqhwodpk",
       "poll_type": "generic-ballot",
       "sample_size": 1500,
@@ -20169,34 +20085,6 @@
       "sponsors": [],
       "internal": false,
       "partisan": null,
-      "subject": "2026"
-    },
-    {
-      "id": "gen202mclihh8jya5",
-      "poll_type": "generic-ballot",
-      "sample_size": 1000,
-      "population": "lv",
-      "url": "https://www.clubforgrowth.org/wp-content/uploads/securepdfs/2025/06/National-CFG-Memo-06-12-25.pdf",
-      "created_at": "2025-06-18",
-      "start_date": "2025-06-09",
-      "end_date": "2025-06-11",
-      "pollster": "McLaughlin & Associates",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 44
-        },
-        {
-          "choice": "Rep",
-          "pct": 46
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Club for Growth (PAC)"
-      ],
-      "internal": false,
-      "partisan": "REP",
       "subject": "2026"
     },
     {
