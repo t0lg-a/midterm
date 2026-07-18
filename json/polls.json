@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-17T12:38:23.300Z",
+  "updatedAt": "2026-07-18T12:08:36.915Z",
   "approval": [
     {
       "id": "appdonyou319bfe49",
@@ -19866,90 +19866,6 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonrmg1gkc0w2u",
-      "poll_type": "approval",
-      "sample_size": 3000,
-      "population": "rv",
-      "url": "https://napolitannews.org/jobapproval",
-      "created_at": "2025-06-15",
-      "start_date": "2025-06-02",
-      "end_date": "2025-06-12",
-      "pollster": "RMG Research",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 52
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 46
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Napolitan Institute"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonverumlqw331",
-      "poll_type": "approval",
-      "sample_size": 1500,
-      "population": "a",
-      "url": "https://www.gelliottmorris.com/p/trump-approval-at-42-democrats-up",
-      "created_at": "2025-06-16",
-      "start_date": "2025-06-06",
-      "end_date": "2025-06-12",
-      "pollster": "Verasight",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 42
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 56
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Strength in Numbers"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonharvpg3wwj0",
-      "poll_type": "approval",
-      "sample_size": 2097,
-      "population": "rv",
-      "url": "https://harvardharrispoll.com/wp-content/uploads/2025/06/HHP_June2025_KeyResults.pdf",
-      "created_at": "2025-06-16",
-      "start_date": "2025-06-11",
-      "end_date": "2025-06-12",
-      "pollster": "HarrisX/Harris Poll",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 46
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 50
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Harvard CAPS"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -20029,34 +19945,6 @@
       ],
       "seat_name": null,
       "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "2026"
-    },
-    {
-      "id": "gen202verpqhwodpk",
-      "poll_type": "generic-ballot",
-      "sample_size": 1500,
-      "population": "a",
-      "url": "https://www.gelliottmorris.com/p/trump-approval-at-42-democrats-up",
-      "created_at": "2025-06-16",
-      "start_date": "2025-06-06",
-      "end_date": "2025-06-12",
-      "pollster": "Verasight",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 45
-        },
-        {
-          "choice": "Rep",
-          "pct": 37
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Strength in Numbers"
-      ],
       "internal": false,
       "partisan": null,
       "subject": "2026"
