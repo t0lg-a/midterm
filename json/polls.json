@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-19T12:09:10.875Z",
+  "updatedAt": "2026-07-20T13:20:54.038Z",
   "approval": [
     {
       "id": "appdonyou319bfe49",
@@ -19840,32 +19840,6 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonclai9q6qd6u",
-      "poll_type": "approval",
-      "sample_size": 1000,
-      "population": "rv",
-      "url": "https://static1.squarespace.com/static/61ae8d5e55be5c7314b4c83a/t/6852fc5a3ac4c05449fc450e/1750269023826/Clarity+Omnibus+Overview+-+June+2025+%5BPUBLIC%5D.pdf",
-      "created_at": "2025-06-20",
-      "start_date": "2025-06-05",
-      "end_date": "2025-06-14",
-      "pollster": "Clarity Campaign Labs",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 47
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 50
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -19967,32 +19941,6 @@
         {
           "choice": "Rep",
           "pct": 48
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "2026"
-    },
-    {
-      "id": "gen202clazygbqy34",
-      "poll_type": "generic-ballot",
-      "sample_size": 1000,
-      "population": "rv",
-      "url": "https://static1.squarespace.com/static/61ae8d5e55be5c7314b4c83a/t/6852fc5a3ac4c05449fc450e/1750269023826/Clarity+Omnibus+Overview+-+June+2025+%5BPUBLIC%5D.pdf",
-      "created_at": "2025-06-20",
-      "start_date": "2025-06-05",
-      "end_date": "2025-06-14",
-      "pollster": "Clarity Campaign Labs",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 50
-        },
-        {
-          "choice": "Rep",
-          "pct": 45
         }
       ],
       "seat_name": null,
