@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-22T12:51:16.819Z",
+  "updatedAt": "2026-07-23T12:52:12.153Z",
   "approval": [
     {
       "id": "appdonyou319bfe49",
@@ -19650,32 +19650,6 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonechh6801evv",
-      "poll_type": "approval",
-      "sample_size": 982,
-      "population": "lv",
-      "url": "https://echelonin.wpenginepowered.com/wp-content/uploads/June-2025-Voter-Omnibus-Topline-EXTERNAL.pdf",
-      "created_at": "2025-06-18",
-      "start_date": "2025-06-12",
-      "end_date": "2025-06-17",
-      "pollster": "Echelon Insights",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 45
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 53
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -19751,32 +19725,6 @@
         {
           "choice": "Rep",
           "pct": 44
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "2026"
-    },
-    {
-      "id": "gen202ech6ounr4d8",
-      "poll_type": "generic-ballot",
-      "sample_size": 982,
-      "population": "lv",
-      "url": "https://echelonin.wpenginepowered.com/wp-content/uploads/June-2025-Voter-Omnibus-Topline-EXTERNAL.pdf",
-      "created_at": "2025-06-18",
-      "start_date": "2025-06-12",
-      "end_date": "2025-06-17",
-      "pollster": "Echelon Insights",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 47
-        },
-        {
-          "choice": "Rep",
-          "pct": 48
         }
       ],
       "seat_name": null,
