@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-28T13:05:20.419Z",
+  "updatedAt": "2026-07-29T13:10:58.469Z",
   "approval": [
     {
       "id": "appdonyou319bfe49",
@@ -19295,90 +19295,6 @@
       ],
       "seat_name": null,
       "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonipswk3mloq6",
-      "poll_type": "approval",
-      "sample_size": 1139,
-      "population": "a",
-      "url": "https://www.reuters.com/world/us/americans-worry-conflict-with-iran-could-escalate-reutersipsos-poll-finds-2025-06-23/",
-      "created_at": "2025-06-23",
-      "start_date": "2025-06-21",
-      "end_date": "2025-06-23",
-      "pollster": "Ipsos",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 41
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 57
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Reuters"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonyoubq15x0r9",
-      "poll_type": "approval",
-      "sample_size": 1455,
-      "population": "rv",
-      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econtoplines_fY58GXm.pdf",
-      "created_at": "2025-06-24",
-      "start_date": "2025-06-20",
-      "end_date": "2025-06-23",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 43
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 54
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Economist"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonyouk222u79n",
-      "poll_type": "approval",
-      "sample_size": 1590,
-      "population": "a",
-      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econtoplines_fY58GXm.pdf",
-      "created_at": "2025-06-24",
-      "start_date": "2025-06-20",
-      "end_date": "2025-06-23",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 40
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 54
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Economist"
-      ],
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
