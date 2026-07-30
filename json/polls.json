@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-29T13:10:58.469Z",
+  "updatedAt": "2026-07-30T12:57:16.044Z",
   "approval": [
     {
       "id": "appdonyou319bfe49",
@@ -19269,32 +19269,6 @@
         "NPR",
         "PBS News"
       ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonquiopnkpr5p",
-      "poll_type": "approval",
-      "sample_size": 979,
-      "population": "rv",
-      "url": "https://poll.qu.edu/images/polling/us/us06262025_uzro63.pdf",
-      "created_at": "2025-06-27",
-      "start_date": "2025-06-22",
-      "end_date": "2025-06-24",
-      "pollster": "Quinnipiac University",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 41
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 54
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
