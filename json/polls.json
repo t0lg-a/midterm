@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-12T12:03:26.740Z",
+  "updatedAt": "2026-08-13T12:04:14.850Z",
   "approval": [
     {
       "id": "appdonyou319bfe49",
@@ -18666,34 +18666,6 @@
       "seat_name": null,
       "sponsors": [
         "DailyMail.com"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonhart0gi7ci9",
-      "poll_type": "approval",
-      "sample_size": 1903,
-      "population": "rv",
-      "url": "https://harvardharrispoll.com/wp-content/uploads/2025/07/HHP_July2025_Crosstabs.pdf",
-      "created_at": "2025-07-14",
-      "start_date": "2025-07-06",
-      "end_date": "2025-07-08",
-      "pollster": "HarrisX/Harris Poll",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 47
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 49
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Harvard CAPS"
       ],
       "internal": false,
       "partisan": null,
