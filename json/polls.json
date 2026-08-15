@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-14T12:01:22.904Z",
+  "updatedAt": "2026-08-15T11:39:09.922Z",
   "approval": [
     {
       "id": "appdonyou319bfe49",
@@ -18562,114 +18562,6 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdona212mjdx36",
-      "poll_type": "approval",
-      "sample_size": 862,
-      "population": "rv",
-      "url": "https://drive.google.com/file/d/1rWAD3mtcrfDv02JzCYf9LLJmRebMkq85/view?pli=1",
-      "created_at": "2025-07-12",
-      "start_date": "2025-07-07",
-      "end_date": "2025-07-10",
-      "pollster": "A2 Insights",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 47.5
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 51.9
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonmor6aysu5m7",
-      "poll_type": "approval",
-      "sample_size": 45000,
-      "population": "a",
-      "url": "https://pro.morningconsult.com/trackers/global-leader-approval#07-10-2025",
-      "created_at": "2025-07-12",
-      "start_date": "2025-07-04",
-      "end_date": "2025-07-10",
-      "pollster": "Morning Consult",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 44
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 50.1
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonrmgsylt3lhs",
-      "poll_type": "approval",
-      "sample_size": 3000,
-      "population": "rv",
-      "url": "https://napolitannews.org/jobapproval#07-10-2025",
-      "created_at": "2025-07-12",
-      "start_date": "2025-06-30",
-      "end_date": "2025-07-10",
-      "pollster": "RMG Research",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 44
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 50.1
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Napolitan Institute"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonj.lmry2pmia",
-      "poll_type": "approval",
-      "sample_size": 1000,
-      "population": "rv",
-      "url": "https://www.dailymail.co.uk/news/article-14916739/Epstein-Trump-poll-impact-shock-birthday-letter.html",
-      "created_at": "2025-07-22",
-      "start_date": "2025-07-09",
-      "end_date": "2025-07-10",
-      "pollster": "J.L. Partners",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 48
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 52
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "DailyMail.com"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -18745,32 +18637,6 @@
         {
           "choice": "Rep",
           "pct": 44
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "2026"
-    },
-    {
-      "id": "gen202a226qothu7",
-      "poll_type": "generic-ballot",
-      "sample_size": 862,
-      "population": "rv",
-      "url": "https://drive.google.com/file/d/1rWAD3mtcrfDv02JzCYf9LLJmRebMkq85/view?pli=1",
-      "created_at": "2025-07-12",
-      "start_date": "2025-07-07",
-      "end_date": "2025-07-10",
-      "pollster": "A2 Insights",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 47.7
-        },
-        {
-          "choice": "Rep",
-          "pct": 44.4
         }
       ],
       "seat_name": null,
