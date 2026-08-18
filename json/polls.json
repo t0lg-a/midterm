@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-17T11:45:07.636Z",
+  "updatedAt": "2026-08-18T11:45:45.817Z",
   "approval": [
     {
       "id": "appdonyou319bfe49",
@@ -18507,58 +18507,6 @@
       "sponsors": [
         "Public Polling Project"
       ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonyou510fwfi1",
-      "poll_type": "approval",
-      "sample_size": 2104,
-      "population": "a",
-      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/Trump_Issue_Handling_poll_results.pdf",
-      "created_at": "2025-07-14",
-      "start_date": "2025-07-09",
-      "end_date": "2025-07-13",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 39
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 56
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdoncnn4yq2a5qp",
-      "poll_type": "approval",
-      "sample_size": 1057,
-      "population": "a",
-      "url": "https://s3.documentcloud.org/documents/25999223/cnn-poll-conducted-by-ssrs-trump-approval-policy-and-budget-bill.pdf",
-      "created_at": "2025-07-16",
-      "start_date": "2025-07-10",
-      "end_date": "2025-07-13",
-      "pollster": "CNN/SSRS",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 42
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 58
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
