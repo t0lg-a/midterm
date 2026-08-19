@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-18T11:45:45.817Z",
+  "updatedAt": "2026-08-19T11:45:03.921Z",
   "approval": [
     {
       "id": "appdonyou319bfe49",
@@ -18348,168 +18348,6 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonechqnaqalqo",
-      "poll_type": "approval",
-      "sample_size": 1084,
-      "population": "rv",
-      "url": "https://echelonin.wpenginepowered.com/wp-content/uploads/July-2025-Voter-Omnibus-Topline-External.pdf",
-      "created_at": "2025-07-15",
-      "start_date": "2025-07-10",
-      "end_date": "2025-07-14",
-      "pollster": "Echelon Insights",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 45
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 53
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonyou6v4sb2rd",
-      "poll_type": "approval",
-      "sample_size": 1680,
-      "population": "a",
-      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_fFL8Pon.pdf",
-      "created_at": "2025-07-16",
-      "start_date": "2025-07-11",
-      "end_date": "2025-07-14",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 41
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 55
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Economist"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonyoukqd80nb9",
-      "poll_type": "approval",
-      "sample_size": 1506,
-      "population": "rv",
-      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_fFL8Pon.pdf",
-      "created_at": "2025-07-16",
-      "start_date": "2025-07-11",
-      "end_date": "2025-07-14",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 43
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 54
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Economist"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonquiry9rm6o9",
-      "poll_type": "approval",
-      "sample_size": 1290,
-      "population": "rv",
-      "url": "https://poll.qu.edu/images/polling/us/us07162025_ugxj29.pdf",
-      "created_at": "2025-07-16",
-      "start_date": "2025-07-10",
-      "end_date": "2025-07-14",
-      "pollster": "Quinnipiac University",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 40
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 54
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonap-5vuuroeb",
-      "poll_type": "approval",
-      "sample_size": 1437,
-      "population": "a",
-      "url": "https://apnorc.org/wp-content/uploads/2025/07/July-W1-Topline-Trump.pdf",
-      "created_at": "2025-07-17",
-      "start_date": "2025-07-10",
-      "end_date": "2025-07-14",
-      "pollster": "AP-NORC",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 40
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 58
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonbignzjxywfu",
-      "poll_type": "approval",
-      "sample_size": 3022,
-      "population": "rv",
-      "url": "https://application.marketsight.com/app/ItemView.aspx?SharedFor=public%40bigdatapoll.com&SharedBy=34090&id=3365ed0e-4357-4944-a962-b31b01623800",
-      "created_at": "2025-07-19",
-      "start_date": "2025-07-12",
-      "end_date": "2025-07-14",
-      "pollster": "Big Data Poll",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 48.3
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 48.7
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Public Polling Project"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -18611,58 +18449,6 @@
         {
           "choice": "Rep",
           "pct": 42.7
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "2026"
-    },
-    {
-      "id": "gen202mclgsxu2e9s",
-      "poll_type": "generic-ballot",
-      "sample_size": 1000,
-      "population": "lv",
-      "url": "https://mclaughlinonline.com/pols/wp-content/uploads/2025/07/National-July-Presentation-RELEASE-07-15-25.pdf",
-      "created_at": "2025-07-19",
-      "start_date": "2025-07-09",
-      "end_date": "2025-07-14",
-      "pollster": "McLaughlin & Associates",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 42
-        },
-        {
-          "choice": "Rep",
-          "pct": 47
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "2026"
-    },
-    {
-      "id": "gen202bigrh81qj7f",
-      "poll_type": "generic-ballot",
-      "sample_size": 3022,
-      "population": "rv",
-      "url": "https://application.marketsight.com/app/ItemView.aspx?SharedFor=public%40bigdatapoll.com&SharedBy=34090&id=3365ed0e-4357-4944-a962-b31b01623800",
-      "created_at": "2025-07-19",
-      "start_date": "2025-07-12",
-      "end_date": "2025-07-14",
-      "pollster": "Big Data Poll",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 42.3
-        },
-        {
-          "choice": "Rep",
-          "pct": 41.1
         }
       ],
       "seat_name": null,
@@ -18863,32 +18649,6 @@
       ],
       "internal": false,
       "partisan": "REP",
-      "subject": "2026"
-    },
-    {
-      "id": "gen202echtswvtnjv",
-      "poll_type": "generic-ballot",
-      "sample_size": 1084,
-      "population": "lv",
-      "url": "https://echelonin.wpenginepowered.com/wp-content/uploads/July-2025-Voter-Omnibus-Topline-External.pdf",
-      "created_at": "2025-07-17",
-      "start_date": "2025-07-10",
-      "end_date": "2025-07-14",
-      "pollster": "Echelon Insights",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 48
-        },
-        {
-          "choice": "Rep",
-          "pct": 47
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
       "subject": "2026"
     },
     {
