@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-22T11:40:07.726Z",
+  "updatedAt": "2026-08-23T11:40:26.769Z",
   "approval": [
     {
       "id": "appdonyou319bfe49",
@@ -18132,60 +18132,6 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonatlbv7o0329",
-      "poll_type": "approval",
-      "sample_size": 1935,
-      "population": "a",
-      "url": "https://cdn.atlasintel.org/20e36f18-42bd-4a28-85f4-9f623905ba71.pdf?_gl=1*3tf2cu*_ga*Nzg1NTgxMTM2LjE3NTI4ODY1ODc.*_ga_W78QD5CNP1*czE3NTI4ODY1ODckbzEkZzAkdDE3NTI4ODY1OTQkajUzJGwwJGgw",
-      "created_at": "2025-07-19",
-      "start_date": "2025-07-13",
-      "end_date": "2025-07-18",
-      "pollster": "AtlasIntel",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 44.3
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 54.9
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonyou5yo23iir",
-      "poll_type": "approval",
-      "sample_size": 2343,
-      "population": "a",
-      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/cbsnews_20250720_1.pdf",
-      "created_at": "2025-07-22",
-      "start_date": "2025-07-16",
-      "end_date": "2025-07-18",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 42
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 58
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "CBS News"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -18261,32 +18207,6 @@
         {
           "choice": "Rep",
           "pct": 44
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "2026"
-    },
-    {
-      "id": "gen202atlo0aotwuu",
-      "poll_type": "generic-ballot",
-      "sample_size": 1435,
-      "population": "a",
-      "url": "https://cdn.atlasintel.org/20e36f18-42bd-4a28-85f4-9f623905ba71.pdf?_gl=1*3tf2cu*_ga*Nzg1NTgxMTM2LjE3NTI4ODY1ODc.*_ga_W78QD5CNP1*czE3NTI4ODY1ODckbzEkZzAkdDE3NTI4ODY1OTQkajUzJGwwJGgw",
-      "created_at": "2025-07-19",
-      "start_date": "2025-07-13",
-      "end_date": "2025-07-18",
-      "pollster": "AtlasIntel",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 51.3
-        },
-        {
-          "choice": "Rep",
-          "pct": 42.7
         }
       ],
       "seat_name": null,
