@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-24T11:48:12.606Z",
+  "updatedAt": "2026-08-25T11:49:03.822Z",
   "approval": [
     {
       "id": "appdonyou319bfe49",
@@ -17998,112 +17998,6 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonmor9atjrrnv",
-      "poll_type": "approval",
-      "sample_size": 2202,
-      "population": "rv",
-      "url": "https://pro.morningconsult.com/trackers/donald-trump-congress-policy-republicans-polling#07-20-2025",
-      "created_at": "2025-07-22",
-      "start_date": "2025-07-18",
-      "end_date": "2025-07-20",
-      "pollster": "Morning Consult",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 45
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 52
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonamek0askdtl",
-      "poll_type": "approval",
-      "sample_size": 1006,
-      "population": "rv",
-      "url": "https://americanresearchgroup.com/economy/#07-20-2025",
-      "created_at": "2025-07-22",
-      "start_date": "2025-07-17",
-      "end_date": "2025-07-20",
-      "pollster": "American Research Group",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 38
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 59
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdoname2aci3ti5",
-      "poll_type": "approval",
-      "sample_size": 1100,
-      "population": "a",
-      "url": "https://americanresearchgroup.com/economy/#07-20-2025",
-      "created_at": "2025-07-22",
-      "start_date": "2025-07-17",
-      "end_date": "2025-07-20",
-      "pollster": "American Research Group",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 38
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 59
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonfabxh9j56w1",
-      "poll_type": "approval",
-      "sample_size": 1500,
-      "population": "rv",
-      "url": "https://prod-i.a.dj.com/public/resources/documents/Redacted1WSJPollJuly2025.pdf?mod=ANLink",
-      "created_at": "2025-07-25",
-      "start_date": "2025-07-16",
-      "end_date": "2025-07-20",
-      "pollster": "Fabrizio, Lee & Associates/Impact Research",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 46
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 52
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Wall Street Journal"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -18210,34 +18104,6 @@
       "seat_name": null,
       "sponsors": [
         "Nexstar"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "2026"
-    },
-    {
-      "id": "gen202fab0x8kfit6",
-      "poll_type": "generic-ballot",
-      "sample_size": 1500,
-      "population": "rv",
-      "url": "https://prod-i.a.dj.com/public/resources/documents/Redacted1WSJPollJuly2025.pdf",
-      "created_at": "2025-07-29",
-      "start_date": "2025-07-16",
-      "end_date": "2025-07-20",
-      "pollster": "Fabrizio, Lee & Associates/Impact Research",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 46
-        },
-        {
-          "choice": "Rep",
-          "pct": 43
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Wall Street Journal"
       ],
       "internal": false,
       "partisan": null,
