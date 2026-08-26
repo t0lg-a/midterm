@@ -1,6 +1,174 @@
 {
-  "updatedAt": "2026-08-25T11:49:03.822Z",
+  "updatedAt": "2026-08-26T11:50:55.996Z",
   "approval": [
+    {
+      "id": "appdonips081c616d",
+      "poll_type": "approval",
+      "sample_size": 951,
+      "population": "rv",
+      "url": "https://www.ipsos.com/en-us/americans-continue-expect-extended-us-military-involvement-iran",
+      "created_at": "2026-08-26",
+      "start_date": "2026-08-21",
+      "end_date": "2026-08-24",
+      "pollster": "Ipsos",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 37
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 63
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Reuters"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonipseea3e8cc",
+      "poll_type": "approval",
+      "sample_size": 1215,
+      "population": "a",
+      "url": "https://www.ipsos.com/en-us/americans-continue-expect-extended-us-military-involvement-iran",
+      "created_at": "2026-08-26",
+      "start_date": "2026-08-21",
+      "end_date": "2026-08-24",
+      "pollster": "Ipsos",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 33
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 65
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Reuters"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonyou5d559444",
+      "poll_type": "approval",
+      "sample_size": 1379,
+      "population": "rv",
+      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_v7iliA1.pdf#page=31",
+      "created_at": "2026-08-26",
+      "start_date": "2026-08-21",
+      "end_date": "2026-08-24",
+      "pollster": "YouGov",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 40
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 57
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "The Economist"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonyou4ecf53a0",
+      "poll_type": "approval",
+      "sample_size": 1536,
+      "population": "a",
+      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_v7iliA1.pdf#page=31",
+      "created_at": "2026-08-26",
+      "start_date": "2026-08-21",
+      "end_date": "2026-08-24",
+      "pollster": "YouGov",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 36
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 57
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "The Economist"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonrmga41ef363",
+      "poll_type": "approval",
+      "sample_size": 2000,
+      "population": "rv",
+      "url": "https://napolitannews.org/jobapproval#08-17-2026",
+      "created_at": "2026-08-26",
+      "start_date": "2026-08-10",
+      "end_date": "2026-08-17",
+      "pollster": "RMG Research",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 42
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 55
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Napolitan Institute"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonnob90e4a532",
+      "poll_type": "approval",
+      "sample_size": 2533,
+      "population": "rv",
+      "url": "https://www.thecentersquare.com/polls#08-16-2026",
+      "created_at": "2026-08-26",
+      "start_date": "2026-08-12",
+      "end_date": "2026-08-16",
+      "pollster": "Noble Predictive Insights",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 42
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 56
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "The Center Square"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
     {
       "id": "appdonyou319bfe49",
       "poll_type": "approval",
@@ -2702,6 +2870,32 @@
       "subject": "Donald Trump"
     },
     {
+      "id": "appdonmorf182e68b",
+      "poll_type": "approval",
+      "sample_size": 2200,
+      "population": "rv",
+      "url": "https://pro-assets.morningconsult.com/wp-uploads/2026/08/MCPI-PI-Weekly.html#05-10-2026",
+      "created_at": "2026-08-26",
+      "start_date": "2026-05-08",
+      "end_date": "2026-05-10",
+      "pollster": "Morning Consult",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 43
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 55
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
       "id": "appdonatl4f028960",
       "poll_type": "approval",
       "sample_size": 2069,
@@ -4402,6 +4596,32 @@
         {
           "choice": "Disapprove",
           "pct": 60
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonmora0affc19",
+      "poll_type": "approval",
+      "sample_size": 2200,
+      "population": "rv",
+      "url": "https://pro-assets.morningconsult.com/wp-uploads/2026/08/MCPI-PI-Weekly.html#04-12-2026",
+      "created_at": "2026-08-26",
+      "start_date": "2026-04-10",
+      "end_date": "2026-04-12",
+      "pollster": "Morning Consult",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 44
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 53
         }
       ],
       "seat_name": null,
@@ -6406,6 +6626,32 @@
       "sponsors": [
         "Napolitan Institute"
       ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonmor07d17559",
+      "poll_type": "approval",
+      "sample_size": 2200,
+      "population": "rv",
+      "url": "https://pro-assets.morningconsult.com/wp-uploads/2026/08/MCPI-PI-Weekly.html#03-01-2026",
+      "created_at": "2026-08-26",
+      "start_date": "2026-02-27",
+      "end_date": "2026-03-01",
+      "pollster": "Morning Consult",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 44
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 54
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
@@ -9993,6 +10239,32 @@
       "sponsors": [],
       "internal": false,
       "partisan": "REP",
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonmord345602f",
+      "poll_type": "approval",
+      "sample_size": 2200,
+      "population": "rv",
+      "url": "https://pro-assets.morningconsult.com/wp-uploads/2026/08/MCPI-PI-Weekly.html#12-26-2025",
+      "created_at": "2026-08-26",
+      "start_date": "2025-12-24",
+      "end_date": "2025-12-26",
+      "pollster": "Morning Consult",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 48
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 50
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
       "subject": "Donald Trump"
     },
     {
@@ -17828,172 +18100,6 @@
       "seat_name": null,
       "sponsors": [
         "Nexstar"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonyou46ps9hg2",
-      "poll_type": "approval",
-      "sample_size": 1729,
-      "population": "a",
-      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_QYo5riR.pdf",
-      "created_at": "2025-07-22",
-      "start_date": "2025-07-18",
-      "end_date": "2025-07-21",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 41
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 55
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Economist"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonyouuos3ve73",
-      "poll_type": "approval",
-      "sample_size": 1551,
-      "population": "rv",
-      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_QYo5riR.pdf",
-      "created_at": "2025-07-22",
-      "start_date": "2025-07-18",
-      "end_date": "2025-07-21",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 43
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 56
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Economist"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonbea1brjpdue",
-      "poll_type": "approval",
-      "sample_size": 1000,
-      "population": "rv",
-      "url": "https://static.foxnews.com/foxnews.com/content/uploads/2025/07/fox_july-18-21-2025_national_topline_july-23-release.pdf",
-      "created_at": "2025-07-24",
-      "start_date": "2025-07-18",
-      "end_date": "2025-07-21",
-      "pollster": "Beacon Research/Shaw & Co. Research",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 46
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 54
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Fox News"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdongal3o1n38nf",
-      "poll_type": "approval",
-      "sample_size": 1002,
-      "population": "a",
-      "url": "https://news.gallup.com/file/poll/692885/2025_07_24%20Trump%20Approval%20Topline%20and%20Tabs.pdf",
-      "created_at": "2025-07-24",
-      "start_date": "2025-07-07",
-      "end_date": "2025-07-21",
-      "pollster": "Gallup",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 37
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 58
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonyousbq498fk",
-      "poll_type": "approval",
-      "sample_size": 1470,
-      "population": "a",
-      "url": "https://www.thetimes.com/us/american-politics/article/trump-polls-approval-rating-200-days-nxdl2szkr",
-      "created_at": "2025-07-31",
-      "start_date": "2025-07-18",
-      "end_date": "2025-07-21",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 39
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 56
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Times of London"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdongbahqxwlemn",
-      "poll_type": "approval",
-      "sample_size": 2000,
-      "population": "rv",
-      "url": "https://www.thirdway.org/memo/big-beautiful-bellyaches-americans-pain-and-frustration-worsens-after-six-months-of-misplaced-priorities",
-      "created_at": "2025-08-06",
-      "start_date": "2025-07-14",
-      "end_date": "2025-07-21",
-      "pollster": "GBAO Strategies",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 45
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 55
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Third Way"
       ],
       "internal": false,
       "partisan": null,
@@ -30279,6 +30385,250 @@
       "seat_name": null,
       "sponsors": [
         "Financial Times"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202mor486fec38",
+      "poll_type": "generic-ballot",
+      "sample_size": 24000,
+      "population": "rv",
+      "url": "https://pro-assets.morningconsult.com/wp-uploads/2026/08/MCPI-PI-Weekly.html#12-28-2026",
+      "created_at": "2026-08-26",
+      "start_date": "2025-12-22",
+      "end_date": "2025-12-28",
+      "pollster": "Morning Consult",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 44
+        },
+        {
+          "choice": "Rep",
+          "pct": 44
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202mor950d8ecd",
+      "poll_type": "generic-ballot",
+      "sample_size": 24000,
+      "population": "rv",
+      "url": "https://pro-assets.morningconsult.com/wp-uploads/2026/08/MCPI-PI-Weekly.html#05-03-2026",
+      "created_at": "2026-08-26",
+      "start_date": "2026-04-27",
+      "end_date": "2026-05-03",
+      "pollster": "Morning Consult",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 46
+        },
+        {
+          "choice": "Rep",
+          "pct": 43
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202morb2eb12dc",
+      "poll_type": "generic-ballot",
+      "sample_size": 24000,
+      "population": "rv",
+      "url": "https://pro-assets.morningconsult.com/wp-uploads/2026/08/MCPI-PI-Weekly.html#05-10-2026",
+      "created_at": "2026-08-26",
+      "start_date": "2026-05-04",
+      "end_date": "2026-05-10",
+      "pollster": "Morning Consult",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 45
+        },
+        {
+          "choice": "Rep",
+          "pct": 42
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202mora1cc2932",
+      "poll_type": "generic-ballot",
+      "sample_size": 24000,
+      "population": "rv",
+      "url": "https://pro-assets.morningconsult.com/wp-uploads/2026/08/MCPI-PI-Weekly.html#07-12-2026",
+      "created_at": "2026-08-26",
+      "start_date": "2026-07-06",
+      "end_date": "2026-07-12",
+      "pollster": "Morning Consult",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 46
+        },
+        {
+          "choice": "Rep",
+          "pct": 43
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202nob71129946",
+      "poll_type": "generic-ballot",
+      "sample_size": 2533,
+      "population": "rv",
+      "url": "https://www.thecentersquare.com/polls#08-16-2026",
+      "created_at": "2026-08-26",
+      "start_date": "2026-08-12",
+      "end_date": "2026-08-16",
+      "pollster": "Noble Predictive Insights",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 47
+        },
+        {
+          "choice": "Rep",
+          "pct": 42
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "The Center Square"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202ipsc06cf7d6",
+      "poll_type": "generic-ballot",
+      "sample_size": 951,
+      "population": "rv",
+      "url": "https://www.ipsos.com/en-us/americans-continue-expect-extended-us-military-involvement-iran",
+      "created_at": "2026-08-26",
+      "start_date": "2026-08-21",
+      "end_date": "2026-08-24",
+      "pollster": "Ipsos",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 41
+        },
+        {
+          "choice": "Rep",
+          "pct": 35
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Reuters"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202ips32a4331e",
+      "poll_type": "generic-ballot",
+      "sample_size": 1215,
+      "population": "a",
+      "url": "https://www.ipsos.com/en-us/americans-continue-expect-extended-us-military-involvement-iran",
+      "created_at": "2026-08-26",
+      "start_date": "2026-08-21",
+      "end_date": "2026-08-24",
+      "pollster": "Ipsos",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 35
+        },
+        {
+          "choice": "Rep",
+          "pct": 29
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Reuters"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202you3f6356b0",
+      "poll_type": "generic-ballot",
+      "sample_size": 1377,
+      "population": "rv",
+      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_v7iliA1.pdf#page=17",
+      "created_at": "2026-08-26",
+      "start_date": "2026-08-21",
+      "end_date": "2026-08-24",
+      "pollster": "YouGov",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 46
+        },
+        {
+          "choice": "Rep",
+          "pct": 40
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "The Economist"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202youc1d6d31f",
+      "poll_type": "generic-ballot",
+      "sample_size": 1534,
+      "population": "a",
+      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_v7iliA1.pdf#page=17",
+      "created_at": "2026-08-26",
+      "start_date": "2026-08-21",
+      "end_date": "2026-08-24",
+      "pollster": "YouGov",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 37
+        },
+        {
+          "choice": "Rep",
+          "pct": 31
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "The Economist"
       ],
       "internal": false,
       "partisan": null,
