@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-26T11:50:55.996Z",
+  "updatedAt": "2026-08-27T21:03:46.948Z",
   "approval": [
     {
       "id": "appdonips081c616d",
@@ -17996,114 +17996,6 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonthembx9hncz",
-      "poll_type": "approval",
-      "sample_size": 1200,
-      "population": "a",
-      "url": "https://www.thebullfinchgroup.com/post/public-release-of-bullfinch-q3-nationwide-survey-3",
-      "created_at": "2025-07-23",
-      "start_date": "2025-07-18",
-      "end_date": "2025-07-22",
-      "pollster": "The Bullfinch Group",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 41
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 55
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonthelo5rg3tt",
-      "poll_type": "approval",
-      "sample_size": 1000,
-      "population": "rv",
-      "url": "https://www.thebullfinchgroup.com/post/public-release-of-bullfinch-q3-nationwide-survey-3",
-      "created_at": "2025-07-23",
-      "start_date": "2025-07-18",
-      "end_date": "2025-07-22",
-      "pollster": "The Bullfinch Group",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 42
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 56
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonj.ll4s9afzr",
-      "poll_type": "approval",
-      "sample_size": 1007,
-      "population": "rv",
-      "url": "https://www.dailymail.co.uk/news/article-14932725/Americans-Trump-highest-approval-rating-months-despite-fallout-Epstein-witch-hunt.html",
-      "created_at": "2025-07-25",
-      "start_date": "2025-07-21",
-      "end_date": "2025-07-22",
-      "pollster": "J.L. Partners",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 45
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 46
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "DailyMail.com"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdoneme6h3qx4er",
-      "poll_type": "approval",
-      "sample_size": 1400,
-      "population": "rv",
-      "url": "https://docs.google.com/spreadsheets/d/1iZsOtBWxln95TjYfOOGE6cfqX6WC86M8/edit?usp=drivesdk&ouid=114621343622731351074&rtpof=true&sd=true",
-      "created_at": "2025-07-25",
-      "start_date": "2025-07-21",
-      "end_date": "2025-07-22",
-      "pollster": "Emerson College",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 45.7
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 46.8
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Nexstar"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -18183,34 +18075,6 @@
       ],
       "seat_name": null,
       "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "2026"
-    },
-    {
-      "id": "gen202emebeodreqf",
-      "poll_type": "generic-ballot",
-      "sample_size": 1400,
-      "population": "rv",
-      "url": "https://docs.google.com/spreadsheets/d/1iZsOtBWxln95TjYfOOGE6cfqX6WC86M8/edit?usp=drivesdk&ouid=114621343622731351074&rtpof=true&sd=true",
-      "created_at": "2025-07-25",
-      "start_date": "2025-07-21",
-      "end_date": "2025-07-22",
-      "pollster": "Emerson College",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 44
-        },
-        {
-          "choice": "Rep",
-          "pct": 41.5
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Nexstar"
-      ],
       "internal": false,
       "partisan": null,
       "subject": "2026"
