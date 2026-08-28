@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-27T21:03:46.948Z",
+  "updatedAt": "2026-08-28T21:27:09.072Z",
   "approval": [
     {
       "id": "appdonips081c616d",
@@ -17943,58 +17943,6 @@
       ],
       "internal": false,
       "partisan": "REP",
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdontra5iz7xa4s",
-      "poll_type": "approval",
-      "sample_size": 1200,
-      "population": "lv",
-      "url": "https://insideradvantage.com/joint-insideradvantage-trafalgar-group-national-survey-majority-of-voters-approve-of-trumps-job-performance-at-six-month-mark-awareness-of-criminal-referral-starting-to-increase/",
-      "created_at": "2025-07-24",
-      "start_date": "2025-07-22",
-      "end_date": "2025-07-23",
-      "pollster": "Trafalgar Group/InsiderAdvantage",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 50
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 48
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonquaojun7bwa",
-      "poll_type": "approval",
-      "sample_size": 1123,
-      "population": "rv",
-      "url": "https://drive.google.com/file/d/1qvREGB4urO-DDzRqrRY8fKfG49ECNEDI/view?usp=drivesdk",
-      "created_at": "2025-07-25",
-      "start_date": "2025-07-21",
-      "end_date": "2025-07-23",
-      "pollster": "Quantus Insights",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 47.4
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 49.9
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
       "subject": "Donald Trump"
     }
   ],
