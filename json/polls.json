@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-31T18:02:07.404Z",
+  "updatedAt": "2026-09-01T15:28:58.429Z",
   "approval": [
     {
       "id": "appdonips081c616d",
@@ -17773,89 +17773,6 @@
       "seat_name": null,
       "sponsors": [
         "Yahoo News"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonmorwje7588u",
-      "poll_type": "approval",
-      "sample_size": 2202,
-      "population": "rv",
-      "url": "https://pro.morningconsult.com/trackers/donald-trump-congress-policy-republicans-polling#07-27-2025",
-      "created_at": "2025-07-29",
-      "start_date": "2025-07-25",
-      "end_date": "2025-07-27",
-      "pollster": "Morning Consult",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 47
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 50
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonipsdqpmpi2z",
-      "poll_type": "approval",
-      "sample_size": 1023,
-      "population": "a",
-      "url": "https://www.reuters.com/world/us/trump-approval-rating-sinks-40-lowest-his-term-reutersipsos-poll-finds-2025-07-29/",
-      "created_at": "2025-07-30",
-      "start_date": "2025-07-25",
-      "end_date": "2025-07-27",
-      "pollster": "Ipsos",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 40
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 56
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Reuters"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonleg2p1qeh9n",
-      "poll_type": "approval",
-      "sample_size": 1007,
-      "population": "a",
-      "url": "https://leger360.com/wp-content/uploads/2025/08/U.S-Politics-Leger-338Canada-Maintenantmedia-FINAL.pdf",
-      "created_at": "2025-08-06",
-      "start_date": "2025-07-25",
-      "end_date": "2025-07-27",
-      "pollster": "Leger",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 37
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 51
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "338Canada",
-        "Maintenant Media"
       ],
       "internal": false,
       "partisan": null,
