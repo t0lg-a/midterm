@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-01T15:28:58.429Z",
+  "updatedAt": "2026-09-02T15:08:48.066Z",
   "approval": [
     {
       "id": "appdonips081c616d",
@@ -17665,118 +17665,6 @@
       "internal": false,
       "partisan": "REP",
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonyou9ehfw6lm",
-      "poll_type": "approval",
-      "sample_size": 1777,
-      "population": "a",
-      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_7Bn59Tx.pdf",
-      "created_at": "2025-07-29",
-      "start_date": "2025-07-25",
-      "end_date": "2025-07-28",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 40
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 55
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Economist"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonyounqmkt5cj",
-      "poll_type": "approval",
-      "sample_size": 1610,
-      "population": "rv",
-      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_7Bn59Tx.pdf",
-      "created_at": "2025-07-29",
-      "start_date": "2025-07-25",
-      "end_date": "2025-07-28",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 44
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 53
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Economist"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonyouvd0328gb",
-      "poll_type": "approval",
-      "sample_size": 1168,
-      "population": "rv",
-      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/20250728_yahoo.pdf",
-      "created_at": "2025-08-11",
-      "start_date": "2025-07-24",
-      "end_date": "2025-07-28",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 44
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 54
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Yahoo News"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonyousg94utw6",
-      "poll_type": "approval",
-      "sample_size": 1729,
-      "population": "a",
-      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/20250728_yahoo.pdf",
-      "created_at": "2025-08-11",
-      "start_date": "2025-07-24",
-      "end_date": "2025-07-28",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 39
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 56
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Yahoo News"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -17889,34 +17777,6 @@
       "subject": "2026"
     },
     {
-      "id": "gen202you17ay13jf",
-      "poll_type": "generic-ballot",
-      "sample_size": 1610,
-      "population": "rv",
-      "url": "https://today.yougov.com/topics/politics/trackers/congressional-ballot-voting-intention#07-28-2025",
-      "created_at": "2025-08-06",
-      "start_date": "2025-07-25",
-      "end_date": "2025-07-28",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 43
-        },
-        {
-          "choice": "Rep",
-          "pct": 41
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Economist"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "2026"
-    },
-    {
       "id": "gen202clalnle0qvn",
       "poll_type": "generic-ballot",
       "sample_size": 1018,
@@ -17965,34 +17825,6 @@
       "seat_name": null,
       "sponsors": [
         "CNBC"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "2026"
-    },
-    {
-      "id": "gen202youpi8ec2w9",
-      "poll_type": "generic-ballot",
-      "sample_size": 1167,
-      "population": "rv",
-      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/20250728_yahoo.pdf",
-      "created_at": "2025-08-11",
-      "start_date": "2025-07-24",
-      "end_date": "2025-07-28",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 46
-        },
-        {
-          "choice": "Rep",
-          "pct": 39
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Yahoo News"
       ],
       "internal": false,
       "partisan": null,
