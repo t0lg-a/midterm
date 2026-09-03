@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-02T15:08:48.066Z",
+  "updatedAt": "2026-09-03T15:03:27.041Z",
   "approval": [
     {
       "id": "appdonips081c616d",
@@ -17611,60 +17611,6 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonjoh6ulh1xqm",
-      "poll_type": "approval",
-      "sample_size": 1010,
-      "population": "lv",
-      "url": "https://johnzogbystrategies.com/new-zogby-strategies-poll-reveals-intense-collapse-among-trump-supporters/",
-      "created_at": "2025-07-31",
-      "start_date": "2025-07-28",
-      "end_date": "2025-07-29",
-      "pollster": "John Zogby Strategies",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 43
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 54
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdongra8aacc784",
-      "poll_type": "approval",
-      "sample_size": 2000,
-      "population": "rv",
-      "url": "https://cdn.prod.website-files.com/5d02aaade6188137a65c8441/6894e3bfba25e36f2fad12de_OBBB%20Message%20Testing%20Full.pdf",
-      "created_at": "2026-03-05",
-      "start_date": "2025-07-27",
-      "end_date": "2025-07-29",
-      "pollster": "Grayhouse",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 46
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 51
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "America One Policies"
-      ],
-      "internal": false,
-      "partisan": "REP",
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -24528,34 +24474,6 @@
       ],
       "internal": false,
       "partisan": null,
-      "subject": "2026"
-    },
-    {
-      "id": "gen202gra10f7957a",
-      "poll_type": "generic-ballot",
-      "sample_size": 2000,
-      "population": "rv",
-      "url": "https://cdn.prod.website-files.com/5d02aaade6188137a65c8441/6894e3bfba25e36f2fad12de_OBBB%20Message%20Testing%20Full.pdf",
-      "created_at": "2026-03-05",
-      "start_date": "2025-07-27",
-      "end_date": "2025-07-29",
-      "pollster": "Grayhouse",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 47
-        },
-        {
-          "choice": "Rep",
-          "pct": 44
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "America One Policies"
-      ],
-      "internal": false,
-      "partisan": "REP",
       "subject": "2026"
     },
     {
