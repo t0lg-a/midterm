@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-03T15:03:27.041Z",
+  "updatedAt": "2026-09-04T15:00:19.923Z",
   "approval": [
     {
       "id": "appdonips081c616d",
@@ -17578,32 +17578,6 @@
         {
           "choice": "Disapprove",
           "pct": 51
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonuniknchte64",
-      "poll_type": "approval",
-      "sample_size": 1000,
-      "population": "a",
-      "url": "https://htv-prod-media.s3.amazonaws.com/files/july2025nationalumasspolltrumpcrosstabs-6890b17cc046d.pdf",
-      "created_at": "2025-08-06",
-      "start_date": "2025-07-25",
-      "end_date": "2025-07-30",
-      "pollster": "University of Massachusetts Department of Political Science/YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 38
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 58
         }
       ],
       "seat_name": null,
