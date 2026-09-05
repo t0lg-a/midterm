@@ -1,6 +1,36 @@
 {
-  "updatedAt": "2026-09-04T15:00:19.923Z",
+  "updatedAt": "2026-09-05T13:54:32.937Z",
   "approval": [
+    {
+      "id": "us-dontip0ec7e1c5",
+      "poll_type": "approval",
+      "sample_size": 1461,
+      "population": "a",
+      "url": "https://issuesinsights.com/2026/08/31/trumps-voter-approval-stays-strong-with-gop-but-weakens-with-indie-voters-ii-tipp-poll/",
+      "created_at": "2026-08-31",
+      "start_date": "2026-08-25",
+      "end_date": "2026-08-28",
+      "pollster": "TIPP Insights",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 38
+        },
+        {
+          "choice": "Not Sure",
+          "pct": 10
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 52
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
     {
       "id": "appdonips081c616d",
       "poll_type": "approval",
@@ -17505,86 +17535,6 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonrmgmo6jjre2",
-      "poll_type": "approval",
-      "sample_size": 3000,
-      "population": "rv",
-      "url": "https://napolitannews.org/jobapproval#07-31-2025",
-      "created_at": "2025-08-01",
-      "start_date": "2025-07-23",
-      "end_date": "2025-07-31",
-      "pollster": "RMG Research",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 50
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 48
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Napolitan Institute"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonactiqb2h39b",
-      "poll_type": "approval",
-      "sample_size": 454,
-      "population": "a",
-      "url": "https://www.activote.net/trumps-approval-holding-steady/",
-      "created_at": "2025-08-06",
-      "start_date": "2025-07-01",
-      "end_date": "2025-07-31",
-      "pollster": "ActiVote",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 44.5
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 52.1
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonclaurffekjo",
-      "poll_type": "approval",
-      "sample_size": 1018,
-      "population": "rv",
-      "url": "https://static1.squarespace.com/static/61ae8d5e55be5c7314b4c83a/t/68936b40c111f97bb04773dd/1754491714447/Clarity+Omnibus+Overview+-+July+2025+%5BPUBLIC%5D.pdf",
-      "created_at": "2025-08-06",
-      "start_date": "2025-07-24",
-      "end_date": "2025-07-31",
-      "pollster": "Clarity Campaign Labs",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 46
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 51
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -17692,32 +17642,6 @@
       "sponsors": [
         "The Economist"
       ],
-      "internal": false,
-      "partisan": null,
-      "subject": "2026"
-    },
-    {
-      "id": "gen202clalnle0qvn",
-      "poll_type": "generic-ballot",
-      "sample_size": 1018,
-      "population": "rv",
-      "url": "https://static1.squarespace.com/static/61ae8d5e55be5c7314b4c83a/t/68936b40c111f97bb04773dd/1754491714447/Clarity+Omnibus+Overview+-+July+2025+%5BPUBLIC%5D.pdf",
-      "created_at": "2025-08-06",
-      "start_date": "2025-07-24",
-      "end_date": "2025-07-31",
-      "pollster": "Clarity Campaign Labs",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 51
-        },
-        {
-          "choice": "Rep",
-          "pct": 43
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
       "internal": false,
       "partisan": null,
       "subject": "2026"
