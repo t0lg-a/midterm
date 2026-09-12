@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-11T15:05:31.676Z",
+  "updatedAt": "2026-09-12T14:14:59.349Z",
   "approval": [
     {
       "id": "us-dontip0ec7e1c5",
@@ -17366,34 +17366,6 @@
       ],
       "seat_name": null,
       "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonrmgxobcxklc",
-      "poll_type": "approval",
-      "sample_size": 3000,
-      "population": "rv",
-      "url": "https://napolitannews.org/jobapproval#08-07-2025",
-      "created_at": "2025-08-10",
-      "start_date": "2025-07-30",
-      "end_date": "2025-08-07",
-      "pollster": "RMG Research",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 50
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 49
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Napolitan Institute"
-      ],
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
