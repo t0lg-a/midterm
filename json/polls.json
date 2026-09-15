@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-14T16:59:02.524Z",
+  "updatedAt": "2026-09-15T15:36:25.633Z",
   "approval": [
     {
       "id": "us-dontip0ec7e1c5",
@@ -17288,58 +17288,6 @@
       "sponsors": [
         "Navigator Research"
       ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonmori1qz5yx0",
-      "poll_type": "approval",
-      "sample_size": 2200,
-      "population": "rv",
-      "url": "https://pro.morningconsult.com/trackers/donald-trump-congress-policy-republicans-polling#08-10-2025",
-      "created_at": "2025-08-12",
-      "start_date": "2025-08-08",
-      "end_date": "2025-08-10",
-      "pollster": "Morning Consult",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 45
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 51
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonpewu3p9k4v2",
-      "poll_type": "approval",
-      "sample_size": 3554,
-      "population": "a",
-      "url": "https://www.pewresearch.org/wp-content/uploads/sites/20/2025/08/PP_2025.8.14_Trump-approval_topline.pdf",
-      "created_at": "2025-08-14",
-      "start_date": "2025-08-04",
-      "end_date": "2025-08-10",
-      "pollster": "Pew Research Center",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 38
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 60
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
