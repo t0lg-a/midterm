@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-17T15:34:19.969Z",
+  "updatedAt": "2026-09-18T15:02:19.548Z",
   "approval": [
     {
       "id": "us-dontip0ec7e1c5",
@@ -17181,32 +17181,6 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonquaxrcgzrmc",
-      "poll_type": "approval",
-      "sample_size": 1000,
-      "population": "rv",
-      "url": "https://drive.google.com/file/d/1p5seXSsPUMcdYt5QC_x_ViSrSEWF261z/view?usp=sharing",
-      "created_at": "2025-08-14",
-      "start_date": "2025-08-11",
-      "end_date": "2025-08-13",
-      "pollster": "Quantus Insights",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 47.4
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 51
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -17282,32 +17256,6 @@
         {
           "choice": "Rep",
           "pct": 44
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "2026"
-    },
-    {
-      "id": "gen202quajdyo7pkq",
-      "poll_type": "generic-ballot",
-      "sample_size": 1000,
-      "population": "rv",
-      "url": "https://drive.google.com/file/d/1p5seXSsPUMcdYt5QC_x_ViSrSEWF261z/view?usp=sharing",
-      "created_at": "2025-08-14",
-      "start_date": "2025-08-11",
-      "end_date": "2025-08-13",
-      "pollster": "Quantus Insights",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 45
-        },
-        {
-          "choice": "Rep",
-          "pct": 42
         }
       ],
       "seat_name": null,
