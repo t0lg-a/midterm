@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-23T15:28:29.625Z",
+  "updatedAt": "2026-09-24T15:50:54.123Z",
   "approval": [
     {
       "id": "us-dontip0ec7e1c5",
@@ -16936,91 +16936,6 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonyoum27sd6dh",
-      "poll_type": "approval",
-      "sample_size": 1408,
-      "population": "rv",
-      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_sBoaiA0.pdf",
-      "created_at": "2025-08-20",
-      "start_date": "2025-08-15",
-      "end_date": "2025-08-19",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 43
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 54
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Economist"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonsochqv0wwac",
-      "poll_type": "approval",
-      "sample_size": 700,
-      "population": "a",
-      "url": "https://substack.com/inbox/post/171344467?utm_campaign=post&triedRedirect=true",
-      "created_at": "2025-08-20",
-      "start_date": "2025-08-19",
-      "end_date": "2025-08-19",
-      "pollster": "SoCal Strategies",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 45
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 48
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Red Eagle Politics",
-        "On Point Politics"
-      ],
-      "internal": false,
-      "partisan": "REP",
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonyourxi19mo4",
-      "poll_type": "approval",
-      "sample_size": 1568,
-      "population": "a",
-      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_sBoaiA0.pdf",
-      "created_at": "2025-08-20",
-      "start_date": "2025-08-15",
-      "end_date": "2025-08-19",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 40
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 56
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Economist"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -17240,35 +17155,6 @@
       ],
       "internal": false,
       "partisan": null,
-      "subject": "2026"
-    },
-    {
-      "id": "gen202socpg04kbqs",
-      "poll_type": "generic-ballot",
-      "sample_size": 700,
-      "population": "a",
-      "url": "https://docs.google.com/spreadsheets/d/1Bj9_tUbMG1yCnME1rc7ggQF7qt8mmxetIfD7bQL167w/edit?gid=0#gid=0",
-      "created_at": "2025-08-20",
-      "start_date": "2025-08-19",
-      "end_date": "2025-08-19",
-      "pollster": "SoCal Strategies",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 42
-        },
-        {
-          "choice": "Rep",
-          "pct": 37
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Red Eagle Politics",
-        "On Point Politics"
-      ],
-      "internal": false,
-      "partisan": "REP",
       "subject": "2026"
     },
     {
