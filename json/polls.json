@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-25T15:50:57.453Z",
+  "updatedAt": "2026-09-26T15:00:40.274Z",
   "approval": [
     {
       "id": "us-dontip0ec7e1c5",
@@ -16774,90 +16774,6 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonhar5kalf8yt",
-      "poll_type": "approval",
-      "sample_size": 2025,
-      "population": "rv",
-      "url": "https://harvardharrispoll.com/wp-content/uploads/2025/08/HHP_Aug2025_KeyResults.pdf",
-      "created_at": "2025-08-25",
-      "start_date": "2025-08-20",
-      "end_date": "2025-08-21",
-      "pollster": "HarrisX/Harris Poll",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 47
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 49
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Harvard CAPS"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonrmgnrpg9qkz",
-      "poll_type": "approval",
-      "sample_size": 3000,
-      "population": "rv",
-      "url": "https://napolitannews.org/jobapproval#08-21-2025",
-      "created_at": "2025-08-25",
-      "start_date": "2025-08-13",
-      "end_date": "2025-08-21",
-      "pollster": "RMG Research",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 49
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 48
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Napolitan Institute"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonverzlxrg5zt",
-      "poll_type": "approval",
-      "sample_size": 1500,
-      "population": "a",
-      "url": "https://www.gelliottmorris.com/p/democrats-lead-the-us-house-generic",
-      "created_at": "2025-08-26",
-      "start_date": "2025-08-18",
-      "end_date": "2025-08-21",
-      "pollster": "Verasight",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 41
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 56
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Strength In Numbers"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -16942,34 +16858,6 @@
       "subject": "2026"
     },
     {
-      "id": "gen202rmg0qu6vxjv",
-      "poll_type": "generic-ballot",
-      "sample_size": 2000,
-      "population": "rv",
-      "url": "https://napolitannews.org/jobapproval#08-21-2025",
-      "created_at": "2025-08-25",
-      "start_date": "2025-08-13",
-      "end_date": "2025-08-21",
-      "pollster": "RMG Research",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 47
-        },
-        {
-          "choice": "Rep",
-          "pct": 47
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Napolitan Institute"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "2026"
-    },
-    {
       "id": "gen202youo8x4q0vn",
       "poll_type": "generic-ballot",
       "sample_size": 1523,
@@ -17047,34 +16935,6 @@
       ],
       "seat_name": null,
       "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "2026"
-    },
-    {
-      "id": "gen202verlm7t42sj",
-      "poll_type": "generic-ballot",
-      "sample_size": 1500,
-      "population": "a",
-      "url": "https://www.gelliottmorris.com/p/democrats-lead-the-us-house-generic",
-      "created_at": "2025-08-29",
-      "start_date": "2025-08-18",
-      "end_date": "2025-08-21",
-      "pollster": "Verasight",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 49
-        },
-        {
-          "choice": "Rep",
-          "pct": 41
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Strength In Numbers"
-      ],
       "internal": false,
       "partisan": null,
       "subject": "2026"
