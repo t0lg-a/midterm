@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-28T18:38:15.545Z",
+  "updatedAt": "2026-09-29T16:55:13.498Z",
   "approval": [
     {
       "id": "us-dontip0ec7e1c5",
@@ -16713,60 +16713,6 @@
         {
           "choice": "Disapprove",
           "pct": 55
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonipsofiyuedz",
-      "poll_type": "approval",
-      "sample_size": 1022,
-      "population": "a",
-      "url": "https://www.reuters.com/world/us/just-38-americans-support-trumps-use-troops-police-dc-reutersipsos-poll-finds-2025-08-26/",
-      "created_at": "2025-08-27",
-      "start_date": "2025-08-22",
-      "end_date": "2025-08-24",
-      "pollster": "Ipsos",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 40
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 54
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Reuters"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonmortwsf6i6t",
-      "poll_type": "approval",
-      "sample_size": 2200,
-      "population": "rv",
-      "url": "https://pro.morningconsult.com/trackers/donald-trump-congress-policy-republicans-polling#08-24-2025",
-      "created_at": "2025-08-26",
-      "start_date": "2025-08-22",
-      "end_date": "2025-08-24",
-      "pollster": "Morning Consult",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 47
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 51
         }
       ],
       "seat_name": null,
