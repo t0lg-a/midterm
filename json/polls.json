@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-29T16:55:13.498Z",
+  "updatedAt": "2026-09-30T16:51:25.367Z",
   "approval": [
     {
       "id": "us-dontip0ec7e1c5",
@@ -16612,114 +16612,6 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonyouj6vpq977",
-      "poll_type": "approval",
-      "sample_size": 1523,
-      "population": "a",
-      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_otzzSNZ.pdf",
-      "created_at": "2025-08-26",
-      "start_date": "2025-08-22",
-      "end_date": "2025-08-25",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 41
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 56
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Economist"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonyou1ae4n09e",
-      "poll_type": "approval",
-      "sample_size": 1377,
-      "population": "rv",
-      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_otzzSNZ.pdf",
-      "created_at": "2025-08-26",
-      "start_date": "2025-08-22",
-      "end_date": "2025-08-25",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 43
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 55
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Economist"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonap-pcxr74x6",
-      "poll_type": "approval",
-      "sample_size": 1182,
-      "population": "a",
-      "url": "https://apnorc.org/wp-content/uploads/2025/08/AP-NORC-August-2025-Topline-Crime.pdf",
-      "created_at": "2025-08-27",
-      "start_date": "2025-08-21",
-      "end_date": "2025-08-25",
-      "pollster": "AP-NORC",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 45
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 53
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonquifvbjieyy",
-      "poll_type": "approval",
-      "sample_size": 1220,
-      "population": "rv",
-      "url": "https://poll.qu.edu/images/polling/us/us08272025_ubru23.pdf",
-      "created_at": "2025-08-27",
-      "start_date": "2025-08-21",
-      "end_date": "2025-08-25",
-      "pollster": "Quinnipiac University",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 37
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 55
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -16799,62 +16691,6 @@
       ],
       "seat_name": null,
       "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "2026"
-    },
-    {
-      "id": "gen202youo8x4q0vn",
-      "poll_type": "generic-ballot",
-      "sample_size": 1523,
-      "population": "a",
-      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_otzzSNZ.pdf",
-      "created_at": "2025-08-26",
-      "start_date": "2025-08-22",
-      "end_date": "2025-08-25",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 41
-        },
-        {
-          "choice": "Rep",
-          "pct": 36
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Economist"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "2026"
-    },
-    {
-      "id": "gen202youn5v2en4c",
-      "poll_type": "generic-ballot",
-      "sample_size": 1377,
-      "population": "rv",
-      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_otzzSNZ.pdf",
-      "created_at": "2025-08-26",
-      "start_date": "2025-08-22",
-      "end_date": "2025-08-25",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 43
-        },
-        {
-          "choice": "Rep",
-          "pct": 41
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Economist"
-      ],
       "internal": false,
       "partisan": null,
       "subject": "2026"
