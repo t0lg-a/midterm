@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-30T16:51:25.367Z",
+  "updatedAt": "2026-10-01T17:24:56.017Z",
   "approval": [
     {
       "id": "us-dontip0ec7e1c5",
@@ -16532,86 +16532,6 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonemeqoklzsvd",
-      "poll_type": "approval",
-      "sample_size": 1000,
-      "population": "rv",
-      "url": "https://docs.google.com/spreadsheets/d/11Pmwdv5G5pCF8yTyrQo6e2oIdwHB97rD/edit?usp=sharing&ouid=107857247170786005927&rtpof=true&sd=true",
-      "created_at": "2025-08-29",
-      "start_date": "2025-08-25",
-      "end_date": "2025-08-26",
-      "pollster": "Emerson College",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 44.7
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 47.3
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonquaynl5uwsk",
-      "poll_type": "approval",
-      "sample_size": 1000,
-      "population": "rv",
-      "url": "https://drive.google.com/file/d/1NAva4gltMuAcmo7_6MzR_TCWRrc1NCCL/view",
-      "created_at": "2025-08-31",
-      "start_date": "2025-08-25",
-      "end_date": "2025-08-26",
-      "pollster": "Quantus Insights",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 47.6
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 50.6
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdontalqu7x2pkw",
-      "poll_type": "approval",
-      "sample_size": 1000,
-      "population": "a",
-      "url": "https://www.scrippsnews.com/politics/poll-vast-majority-of-americans-say-life-is-getting-pricier-under-trump",
-      "created_at": "2025-08-31",
-      "start_date": "2025-08-21",
-      "end_date": "2025-08-26",
-      "pollster": "Talker Research",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 43
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 46
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Scripps News"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -16687,58 +16607,6 @@
         {
           "choice": "Rep",
           "pct": 44
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "2026"
-    },
-    {
-      "id": "gen202emecljgqucw",
-      "poll_type": "generic-ballot",
-      "sample_size": 1000,
-      "population": "rv",
-      "url": "https://docs.google.com/spreadsheets/d/11Pmwdv5G5pCF8yTyrQo6e2oIdwHB97rD/edit?usp=sharing&ouid=107857247170786005927&rtpof=true&sd=true",
-      "created_at": "2025-08-29",
-      "start_date": "2025-08-25",
-      "end_date": "2025-08-26",
-      "pollster": "Emerson College",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 43.3
-        },
-        {
-          "choice": "Rep",
-          "pct": 43
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "2026"
-    },
-    {
-      "id": "gen202mclotv6jiyc",
-      "poll_type": "generic-ballot",
-      "sample_size": 1000,
-      "population": "lv",
-      "url": "https://mclaughlinonline.com/pols/wp-content/uploads/2025/09/National-August-Presentation-RELEASE-8-27-25.pdf",
-      "created_at": "2025-09-04",
-      "start_date": "2025-08-21",
-      "end_date": "2025-08-26",
-      "pollster": "McLaughlin & Associates",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 45
-        },
-        {
-          "choice": "Rep",
-          "pct": 47
         }
       ],
       "seat_name": null,
@@ -28640,6 +28508,60 @@
       "seat_name": null,
       "sponsors": [
         "The Economist"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202theeb8b068f",
+      "poll_type": "generic-ballot",
+      "sample_size": null,
+      "population": "lv",
+      "url": "https://www.theargumentmag.com/p/the-least-popular-war-since-vietnam",
+      "created_at": "2026-09-30",
+      "start_date": "2026-09-16",
+      "end_date": "2026-09-22",
+      "pollster": "The Argument/Verasight",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 55
+        },
+        {
+          "choice": "Rep",
+          "pct": 45
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202har55021d5f",
+      "poll_type": "generic-ballot",
+      "sample_size": null,
+      "population": "lv",
+      "url": "https://harvardharrispoll.com/assets/uploads/2026/09/HHP_Sep2026_KeyResults.pdf",
+      "created_at": "2026-09-30",
+      "start_date": "2026-09-26",
+      "end_date": "2026-09-28",
+      "pollster": "HarrisX/Harris",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 51
+        },
+        {
+          "choice": "Rep",
+          "pct": 49
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Harvard University Center for American Political Studies"
       ],
       "internal": false,
       "partisan": null,
