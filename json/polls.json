@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-03T15:10:51.346Z",
+  "updatedAt": "2026-10-04T15:51:40.543Z",
   "approval": [
     {
       "id": "us-dontip0ec7e1c5",
@@ -16473,34 +16473,6 @@
       ],
       "seat_name": null,
       "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdontipjk3ptrfd",
-      "poll_type": "approval",
-      "sample_size": 1362,
-      "population": "a",
-      "url": "https://tippinsights.com/despite-nasty-media-coverage-voters-still-give-trump-solid-grades-for-his-leadership-i-i-tipp-poll/",
-      "created_at": "2025-09-02",
-      "start_date": "2025-08-27",
-      "end_date": "2025-08-29",
-      "pollster": "TIPP Insights",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 43
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 47
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Issues & Insights"
-      ],
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
