@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-06T17:17:31.330Z",
+  "updatedAt": "2026-10-07T17:51:19.803Z",
   "approval": [
     {
       "id": "us-dontip0ec7e1c5",
@@ -16288,90 +16288,6 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonj.lve6iwnhz",
-      "poll_type": "approval",
-      "sample_size": 867,
-      "population": "rv",
-      "url": "https://www.dailymail.co.uk/news/article-15062999/donald-trump-poll-approval-rating.html?ns_mchannel=rss&ns_campaign=1490&ito=1490",
-      "created_at": "2025-09-04",
-      "start_date": "2025-08-21",
-      "end_date": "2025-09-01",
-      "pollster": "J.L. Partners",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 55
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 45
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "DailyMail.com"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonsurbedazvqw",
-      "poll_type": "approval",
-      "sample_size": 30196,
-      "population": "a",
-      "url": "https://www.documentcloud.org/documents/26085240-final-nbc-news-decision-desk-poll-august-2025-topline/",
-      "created_at": "2025-09-07",
-      "start_date": "2025-08-13",
-      "end_date": "2025-09-01",
-      "pollster": "SurveyMonkey",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 43
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 57
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "NBC News"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonthe95c989e0",
-      "poll_type": "approval",
-      "sample_size": 1000,
-      "population": "rv",
-      "url": "https://www.winningtheissues.org/wp-content/uploads/2026/01/August-2025-WTI-Survey.pdf",
-      "created_at": "2026-02-28",
-      "start_date": "2025-08-30",
-      "end_date": "2025-09-01",
-      "pollster": "The Winston Group",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 41
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 52
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Winning the Issues"
-      ],
-      "internal": false,
-      "partisan": "REP",
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -16727,58 +16643,6 @@
       "sponsors": [
         "The Economist"
       ],
-      "internal": false,
-      "partisan": null,
-      "subject": "2026"
-    },
-    {
-      "id": "gen202cnnf4eemdg0",
-      "poll_type": "generic-ballot",
-      "sample_size": 1768,
-      "population": "rv",
-      "url": "https://s3.documentcloud.org/documents/26157888/cnn-poll-of-political-independents.pdf",
-      "created_at": "2025-09-26",
-      "start_date": "2025-08-21",
-      "end_date": "2025-09-01",
-      "pollster": "CNN/SSRS",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 52
-        },
-        {
-          "choice": "Rep",
-          "pct": 48
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "2026"
-    },
-    {
-      "id": "gen202cnnz5gr05wh",
-      "poll_type": "generic-ballot",
-      "sample_size": 2077,
-      "population": "a",
-      "url": "https://s3.documentcloud.org/documents/26157888/cnn-poll-of-political-independents.pdf",
-      "created_at": "2025-09-26",
-      "start_date": "2025-08-21",
-      "end_date": "2025-09-01",
-      "pollster": "CNN/SSRS",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 52
-        },
-        {
-          "choice": "Rep",
-          "pct": 47
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
       "internal": false,
       "partisan": null,
       "subject": "2026"
@@ -22416,34 +22280,6 @@
       "sponsors": [],
       "internal": false,
       "partisan": null,
-      "subject": "2026"
-    },
-    {
-      "id": "gen202the06ea19a9",
-      "poll_type": "generic-ballot",
-      "sample_size": 1000,
-      "population": "rv",
-      "url": "https://www.winningtheissues.org/wp-content/uploads/2026/01/August-2025-WTI-Survey.pdf",
-      "created_at": "2026-02-28",
-      "start_date": "2025-08-30",
-      "end_date": "2025-09-01",
-      "pollster": "The Winston Group",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 47
-        },
-        {
-          "choice": "Rep",
-          "pct": 43
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Winning the Issues"
-      ],
-      "internal": false,
-      "partisan": "REP",
       "subject": "2026"
     },
     {
