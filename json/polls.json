@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-07T17:51:19.803Z",
+  "updatedAt": "2026-10-08T17:54:35.634Z",
   "approval": [
     {
       "id": "us-dontip0ec7e1c5",
@@ -16204,90 +16204,6 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonyoufwp0s4b0",
-      "poll_type": "approval",
-      "sample_size": 1691,
-      "population": "a",
-      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_S3c69M7.pdf",
-      "created_at": "2025-09-04",
-      "start_date": "2025-08-29",
-      "end_date": "2025-09-02",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 41
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 55
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Economist"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonyourd0ubi70",
-      "poll_type": "approval",
-      "sample_size": 1549,
-      "population": "rv",
-      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_S3c69M7.pdf",
-      "created_at": "2025-09-04",
-      "start_date": "2025-08-29",
-      "end_date": "2025-09-02",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 44
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 55
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Economist"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonyoupt2oyr1x",
-      "poll_type": "approval",
-      "sample_size": 1690,
-      "population": "a",
-      "url": "https://ca.news.yahoo.com/poll-shows-a-majority-of-americans-dont-want-trump-to-send-national-guard-to-major-cities--as-he-says-chicago-and-baltimore-are-next-175845210.html",
-      "created_at": "2025-09-04",
-      "start_date": "2025-08-29",
-      "end_date": "2025-09-02",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 40
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 55
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Yahoo News"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -16367,62 +16283,6 @@
       ],
       "seat_name": null,
       "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "2026"
-    },
-    {
-      "id": "gen202you6gd1ztte",
-      "poll_type": "generic-ballot",
-      "sample_size": 1691,
-      "population": "a",
-      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_S3c69M7.pdf",
-      "created_at": "2025-09-04",
-      "start_date": "2025-08-29",
-      "end_date": "2025-09-02",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 38
-        },
-        {
-          "choice": "Rep",
-          "pct": 34
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Economist"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "2026"
-    },
-    {
-      "id": "gen202your87uzbzs",
-      "poll_type": "generic-ballot",
-      "sample_size": 1549,
-      "population": "rv",
-      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_S3c69M7.pdf",
-      "created_at": "2025-09-04",
-      "start_date": "2025-08-29",
-      "end_date": "2025-09-02",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 43
-        },
-        {
-          "choice": "Rep",
-          "pct": 39
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Economist"
-      ],
       "internal": false,
       "partisan": null,
       "subject": "2026"
