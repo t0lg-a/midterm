@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-08T17:54:35.634Z",
+  "updatedAt": "2026-10-09T17:28:23.481Z",
   "approval": [
     {
       "id": "us-dontip0ec7e1c5",
@@ -16176,63 +16176,9 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonrmg7kf5vl9f",
-      "poll_type": "approval",
-      "sample_size": 3000,
-      "population": "rv",
-      "url": "https://napolitannews.org/jobapproval#09-03-2025",
-      "created_at": "2025-09-05",
-      "start_date": "2025-08-27",
-      "end_date": "2025-09-03",
-      "pollster": "RMG Research",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 50
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 48
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Napolitan Institute"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
-    {
-      "id": "gen202cygm024mspc",
-      "poll_type": "generic-ballot",
-      "sample_size": 1500,
-      "population": "lv",
-      "url": "https://www.cygn.al/wp-content/uploads/2025/09/23260-Cygnal-National-Sep25-NVT-Deck-Public.pdf",
-      "created_at": "2025-09-09",
-      "start_date": "2025-09-02",
-      "end_date": "2025-09-03",
-      "pollster": "Cygnal",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 47.6
-        },
-        {
-          "choice": "Rep",
-          "pct": 45.2
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "2026"
-    },
     {
       "id": "gen202you2p4uzn5h",
       "poll_type": "generic-ballot",
