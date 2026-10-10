@@ -1,6 +1,60 @@
 {
-  "updatedAt": "2026-10-09T17:28:23.481Z",
+  "updatedAt": "2026-10-10T16:16:40.237Z",
   "approval": [
+    {
+      "id": "appdonrmgb3a47853",
+      "poll_type": "approval",
+      "sample_size": 2000,
+      "population": "rv",
+      "url": "https://napolitannews.org/jobapproval#10-06-2026",
+      "created_at": "2026-10-09",
+      "start_date": "2026-09-28",
+      "end_date": "2026-10-06",
+      "pollster": "RMG Research",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 43
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 56
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Napolitan Institute"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonpewda7eda24",
+      "poll_type": "approval",
+      "sample_size": 5062,
+      "population": "a",
+      "url": "https://www.pewresearch.org/politics/2026/10/08/with-americans-in-a-sour-mood-democratic-voters-are-more-engaged-in-midterms",
+      "created_at": "2026-10-09",
+      "start_date": "2026-09-30",
+      "end_date": "2026-10-04",
+      "pollster": "Pew Research Center",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 30
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 68
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
     {
       "id": "us-dontip0ec7e1c5",
       "poll_type": "approval",
@@ -28041,6 +28095,32 @@
         {
           "choice": "Rep",
           "pct": 45
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "2026"
+    },
+    {
+      "id": "gen202pew7314f461",
+      "poll_type": "generic-ballot",
+      "sample_size": 3917,
+      "population": "rv",
+      "url": "https://www.pewresearch.org/politics/2026/10/08/with-americans-in-a-sour-mood-democratic-voters-are-more-engaged-in-midterms",
+      "created_at": "2026-10-09",
+      "start_date": "2026-09-30",
+      "end_date": "2026-10-04",
+      "pollster": "Pew Research Center",
+      "answers": [
+        {
+          "choice": "Dem",
+          "pct": 44
+        },
+        {
+          "choice": "Rep",
+          "pct": 36
         }
       ],
       "seat_name": null,
