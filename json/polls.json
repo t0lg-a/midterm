@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-14T15:51:16.686Z",
+  "updatedAt": "2026-10-15T15:38:25.490Z",
   "approval": [
     {
       "id": "appdonrmgb3a47853",
@@ -15978,62 +15978,6 @@
       "seat_name": null,
       "sponsors": [
         "The Independent Center"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonips0ygxxxwl",
-      "poll_type": "approval",
-      "sample_size": 1084,
-      "population": "a",
-      "url": "https://www.reuters.com/world/us/trump-approval-rating-42-weak-economy-reutersipsos-poll-shows-2025-09-09/",
-      "created_at": "2025-09-11",
-      "start_date": "2025-09-05",
-      "end_date": "2025-09-09",
-      "pollster": "Ipsos",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 42
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 56
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Reuters"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonbea3smxsrgs",
-      "poll_type": "approval",
-      "sample_size": 1004,
-      "population": "rv",
-      "url": "https://static.foxnews.com/foxnews.com/content/uploads/2025/09/fox_september-6-9-2025_national_cross-tabs_september-11-release.pdf",
-      "created_at": "2025-09-12",
-      "start_date": "2025-09-06",
-      "end_date": "2025-09-09",
-      "pollster": "Beacon Research/Shaw & Co. Research",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 46
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 54
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Fox News"
       ],
       "internal": false,
       "partisan": null,
