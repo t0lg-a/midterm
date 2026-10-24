@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-23T15:47:05.488Z",
+  "updatedAt": "2026-10-24T14:39:23.649Z",
   "approval": [
     {
       "id": "appdonrmgb3a47853",
@@ -15494,32 +15494,6 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonthe2ke1eabk",
-      "poll_type": "approval",
-      "sample_size": 1541,
-      "population": "rv",
-      "url": "https://www.theargumentmag.com/p/chatgpt-and-the-end-of-learning",
-      "created_at": "2025-09-30",
-      "start_date": "2025-09-15",
-      "end_date": "2025-09-18",
-      "pollster": "The Argument/Verasight",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 42
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 56
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -15629,32 +15603,6 @@
       "sponsors": [
         "The Economist"
       ],
-      "internal": false,
-      "partisan": null,
-      "subject": "2026"
-    },
-    {
-      "id": "gen202thesffydwfg",
-      "poll_type": "generic-ballot",
-      "sample_size": 1541,
-      "population": "rv",
-      "url": "https://www.theargumentmag.com/p/chatgpt-and-the-end-of-learning",
-      "created_at": "2025-09-30",
-      "start_date": "2025-09-15",
-      "end_date": "2025-09-18",
-      "pollster": "The Argument/Verasight",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 53
-        },
-        {
-          "choice": "Rep",
-          "pct": 47
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
       "internal": false,
       "partisan": null,
       "subject": "2026"
