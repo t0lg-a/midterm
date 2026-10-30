@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-29T17:27:55.940Z",
+  "updatedAt": "2026-10-30T17:02:52.526Z",
   "config": {
     "sims": 10000,
     "swingRange": 7,
@@ -3051,45 +3051,44 @@
     },
     {
       "date": "2026-10-30",
-      "pDem": 0.9973,
-      "expDem": 253.81,
-      "isForecast": true
+      "pDem": 0.9559,
+      "expDem": 246.14
     },
     {
       "date": "2026-10-31",
       "pDem": 0.9973,
-      "expDem": 254.65,
+      "expDem": 253.92,
       "isForecast": true
     },
     {
       "date": "2026-11-01",
-      "pDem": 0.998,
-      "expDem": 254.18,
+      "pDem": 0.9981,
+      "expDem": 254.33,
       "isForecast": true
     },
     {
       "date": "2026-11-02",
-      "pDem": 0.9986,
-      "expDem": 254.12,
+      "pDem": 0.9979,
+      "expDem": 254.15,
       "isForecast": true
     },
     {
       "date": "2026-11-03",
-      "pDem": 0.9968,
-      "expDem": 254.09,
+      "pDem": 0.9975,
+      "expDem": 254.22,
       "isForecast": true
     }
   ],
   "latestHist": {
     "counts": [
-      32,
-      1116,
-      2113,
-      1829,
-      1724,
-      1620,
-      1293,
-      273
+      25,
+      1098,
+      2047,
+      1916,
+      1750,
+      1588,
+      1322,
+      254
     ],
     "min": 206,
     "max": 301,
