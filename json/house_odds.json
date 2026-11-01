@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-31T16:11:20.662Z",
+  "updatedAt": "2026-11-01T17:10:48.781Z",
   "config": {
     "sims": 10000,
     "swingRange": 7,
@@ -3061,37 +3061,35 @@
     },
     {
       "date": "2026-11-01",
-      "pDem": 0.9974,
-      "expDem": 254.07,
-      "isForecast": true
+      "pDem": 0.9563,
+      "expDem": 246.04
     },
     {
       "date": "2026-11-02",
-      "pDem": 0.9978,
+      "pDem": 0.9981,
       "expDem": 254.23,
       "isForecast": true
     },
     {
       "date": "2026-11-03",
-      "pDem": 0.9973,
-      "expDem": 253.97,
+      "pDem": 0.998,
+      "expDem": 254.23,
       "isForecast": true
     }
   ],
   "latestHist": {
     "counts": [
-      27,
-      1155,
-      2104,
-      1839,
-      1754,
-      1547,
-      1318,
-      253,
-      3
+      20,
+      1116,
+      2016,
+      1940,
+      1753,
+      1597,
+      1298,
+      260
     ],
     "min": 206,
-    "max": 313,
+    "max": 301,
     "isProb": false,
     "total": 10000,
     "binSize": 12,

@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-31T16:11:17.723Z",
+  "updatedAt": "2026-11-01T17:10:45.602Z",
   "approval": [
     {
       "id": "appdonrmgb3a47853",
@@ -15115,62 +15115,6 @@
       ],
       "seat_name": null,
       "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonmar61h4zf3r",
-      "poll_type": "approval",
-      "sample_size": 1477,
-      "population": "a",
-      "url": "https://maristpoll.marist.edu/wp-content/uploads/2025/09/NPR_PBS-News_Marist-Poll_USA-NOS-and-Tables_Shutdown_202509291238.pdf",
-      "created_at": "2025-09-30",
-      "start_date": "2025-09-22",
-      "end_date": "2025-09-26",
-      "pollster": "Marist College",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 41
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 53
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "NPR,PBS News"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonmarrihlulp5",
-      "poll_type": "approval",
-      "sample_size": 1329,
-      "population": "rv",
-      "url": "https://maristpoll.marist.edu/wp-content/uploads/2025/09/NPR_PBS-News_Marist-Poll_USA-NOS-and-Tables_Shutdown_202509291238.pdf",
-      "created_at": "2025-09-30",
-      "start_date": "2025-09-22",
-      "end_date": "2025-09-26",
-      "pollster": "Marist College",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 42
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 53
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "NPR,PBS News"
-      ],
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
