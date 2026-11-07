@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-06T18:07:12.405Z",
+  "updatedAt": "2026-11-07T16:54:54.933Z",
   "approval": [
     {
       "id": "appdonrmgb3a47853",
@@ -14762,62 +14762,6 @@
       "seat_name": null,
       "sponsors": [
         "CBS News"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdontipvoec2cpn",
-      "poll_type": "approval",
-      "sample_size": 1459,
-      "population": "a",
-      "url": "https://issuesinsights.com/2025/10/06/trumps-energetic-leadership-style-continues-to-find-solid-voter-backing-in-october-ii-tipp-poll/",
-      "created_at": "2025-10-06",
-      "start_date": "2025-09-30",
-      "end_date": "2025-10-02",
-      "pollster": "TIPP Insights",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 42
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 46
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Issues & Insights"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonhar3r1wp0kb",
-      "poll_type": "approval",
-      "sample_size": 2413,
-      "population": "rv",
-      "url": "https://harvardharrispoll.com/wp-content/uploads/2025/10/HHP_Sep2025_KeyResults.pdf",
-      "created_at": "2025-10-06",
-      "start_date": "2025-10-01",
-      "end_date": "2025-10-02",
-      "pollster": "HarrisX/Harris Poll",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 46
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 50
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Harvard CAPS"
       ],
       "internal": false,
       "partisan": null,
