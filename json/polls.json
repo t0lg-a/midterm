@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-07T16:54:54.933Z",
+  "updatedAt": "2026-11-08T17:07:28.604Z",
   "approval": [
     {
       "id": "appdonrmgb3a47853",
@@ -14734,34 +14734,6 @@
       "seat_name": null,
       "sponsors": [
         "Navigator Research"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonyougk2oshii",
-      "poll_type": "approval",
-      "sample_size": 2441,
-      "population": "a",
-      "url": "https://www.scribd.com/document/928352494/Cbsnews-20251005-Shutdown",
-      "created_at": "2025-10-05",
-      "start_date": "2025-10-01",
-      "end_date": "2025-10-03",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 42
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 58
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "CBS News"
       ],
       "internal": false,
       "partisan": null,
