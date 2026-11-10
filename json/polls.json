@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-09T21:29:34.975Z",
+  "updatedAt": "2026-11-10T18:42:54.461Z",
   "approval": [
     {
       "id": "appdonrmgb3a47853",
@@ -14684,60 +14684,6 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonmorn0yu3esr",
-      "poll_type": "approval",
-      "sample_size": 2200,
-      "population": "rv",
-      "url": "https://pro.morningconsult.com/trackers/donald-trump-congress-policy-republicans-polling#10-05-2025",
-      "created_at": "2025-10-07",
-      "start_date": "2025-10-03",
-      "end_date": "2025-10-05",
-      "pollster": "Morning Consult",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 46
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 52
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonglowag6huq0",
-      "poll_type": "approval",
-      "sample_size": 1000,
-      "population": "rv",
-      "url": "https://navigatorresearch.org/wp-content/uploads/2025/10/Navigator-Topline-F10.06.25.pdf",
-      "created_at": "2025-10-08",
-      "start_date": "2025-10-02",
-      "end_date": "2025-10-05",
-      "pollster": "Global Strategy Group",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 44
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 54
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Navigator Research"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -14765,32 +14711,6 @@
       "sponsors": [
         "Public Polling Project"
       ],
-      "internal": false,
-      "partisan": null,
-      "subject": "2026"
-    },
-    {
-      "id": "gen202morqcn8uhs5",
-      "poll_type": "generic-ballot",
-      "sample_size": 2200,
-      "population": "rv",
-      "url": "https://pro.morningconsult.com/trackers/donald-trump-congress-policy-republicans-polling#10-05-2025",
-      "created_at": "2025-10-07",
-      "start_date": "2025-10-03",
-      "end_date": "2025-10-05",
-      "pollster": "Morning Consult",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 46
-        },
-        {
-          "choice": "Rep",
-          "pct": 43
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
       "internal": false,
       "partisan": null,
       "subject": "2026"
@@ -16606,32 +16526,6 @@
       "created_at": "2025-12-02",
       "start_date": "2025-10-06",
       "end_date": "2025-10-12",
-      "pollster": "Morning Consult",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 44
-        },
-        {
-          "choice": "Rep",
-          "pct": 43
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "2026"
-    },
-    {
-      "id": "gen202morzjhstweo",
-      "poll_type": "generic-ballot",
-      "sample_size": 19675,
-      "population": "rv",
-      "url": "https://pro.morningconsult.com/trackers/2026-midterm-elections-tracker-generic-ballot#10-05-2025",
-      "created_at": "2025-12-02",
-      "start_date": "2025-09-29",
-      "end_date": "2025-10-05",
       "pollster": "Morning Consult",
       "answers": [
         {
