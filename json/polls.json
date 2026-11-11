@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-10T18:42:54.461Z",
+  "updatedAt": "2026-11-11T18:45:28.892Z",
   "approval": [
     {
       "id": "appdonrmgb3a47853",
@@ -14600,90 +14600,6 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonyoui8sr7xhj",
-      "poll_type": "approval",
-      "sample_size": 1648,
-      "population": "a",
-      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_aAQjgRJ.pdf",
-      "created_at": "2025-10-07",
-      "start_date": "2025-10-04",
-      "end_date": "2025-10-06",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 39
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 56
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Economist"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonyou8ic7rfq3",
-      "poll_type": "approval",
-      "sample_size": 1490,
-      "population": "rv",
-      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_aAQjgRJ.pdf",
-      "created_at": "2025-10-07",
-      "start_date": "2025-10-04",
-      "end_date": "2025-10-06",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 43
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 55
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Economist"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonnobwfb7h896",
-      "poll_type": "approval",
-      "sample_size": 2565,
-      "population": "rv",
-      "url": "https://www.thecentersquare.com/north_carolina/article_1ca4f129-6cbd-4a04-a83b-4e98ad17c137.html",
-      "created_at": "2025-10-14",
-      "start_date": "2025-10-02",
-      "end_date": "2025-10-06",
-      "pollster": "Noble Predictive Insights",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 48
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 50
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Center Square"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -14710,62 +14626,6 @@
       "seat_name": null,
       "sponsors": [
         "Public Polling Project"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "2026"
-    },
-    {
-      "id": "gen202youxems43ny",
-      "poll_type": "generic-ballot",
-      "sample_size": 1648,
-      "population": "a",
-      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_aAQjgRJ.pdf",
-      "created_at": "2025-10-07",
-      "start_date": "2025-10-04",
-      "end_date": "2025-10-06",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 39
-        },
-        {
-          "choice": "Rep",
-          "pct": 33
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Economist"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "2026"
-    },
-    {
-      "id": "gen202youc4doajhn",
-      "poll_type": "generic-ballot",
-      "sample_size": 1490,
-      "population": "rv",
-      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_aAQjgRJ.pdf",
-      "created_at": "2025-10-07",
-      "start_date": "2025-10-04",
-      "end_date": "2025-10-06",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 44
-        },
-        {
-          "choice": "Rep",
-          "pct": 39
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Economist"
       ],
       "internal": false,
       "partisan": null,
@@ -14901,34 +14761,6 @@
       ],
       "seat_name": null,
       "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "2026"
-    },
-    {
-      "id": "gen202nob0c120q72",
-      "poll_type": "generic-ballot",
-      "sample_size": 2565,
-      "population": "rv",
-      "url": "https://www.thecentersquare.com/north_carolina/article_1ca4f129-6cbd-4a04-a83b-4e98ad17c137.html",
-      "created_at": "2025-10-16",
-      "start_date": "2025-10-02",
-      "end_date": "2025-10-06",
-      "pollster": "Noble Predictive Insights",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 45
-        },
-        {
-          "choice": "Rep",
-          "pct": 43
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Center Square"
-      ],
       "internal": false,
       "partisan": null,
       "subject": "2026"
