@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-12T18:59:22.096Z",
+  "updatedAt": "2026-11-13T18:35:25.751Z",
   "approval": [
     {
       "id": "appdonrmgb3a47853",
@@ -14629,32 +14629,6 @@
       "sponsors": [
         "The Economist"
       ],
-      "internal": false,
-      "partisan": null,
-      "subject": "2026"
-    },
-    {
-      "id": "gen202cygaqish8b5",
-      "poll_type": "generic-ballot",
-      "sample_size": 1500,
-      "population": "lv",
-      "url": "https://www.cygn.al/poll-42-of-liberals-approve-of-law-breaking-in-response-to-disagreeing-with-a-government-action/",
-      "created_at": "2025-10-15",
-      "start_date": "2025-10-07",
-      "end_date": "2025-10-08",
-      "pollster": "Cygnal",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 48
-        },
-        {
-          "choice": "Rep",
-          "pct": 45
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
       "internal": false,
       "partisan": null,
       "subject": "2026"
