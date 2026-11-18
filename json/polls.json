@@ -1,6 +1,304 @@
 {
-  "updatedAt": "2026-11-17T19:55:23.962Z",
+  "updatedAt": "2026-11-18T19:26:27.630Z",
   "approval": [
+    {
+      "id": "appdonips45a4215e",
+      "poll_type": "approval",
+      "sample_size": 1521,
+      "population": "a",
+      "url": "https://www.ipsos.com/en-us/democrats-optimistic-republicans-discouraged-after-2026-midterms",
+      "created_at": "2026-11-18",
+      "start_date": "2026-11-13",
+      "end_date": "2026-11-16",
+      "pollster": "Ipsos",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 32
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 66
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Reuters"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonyou6913201b",
+      "poll_type": "approval",
+      "sample_size": 1628,
+      "population": "a",
+      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econtoplines_cFBSkiP.pdf",
+      "created_at": "2026-11-18",
+      "start_date": "2026-11-13",
+      "end_date": "2026-11-16",
+      "pollster": "YouGov",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 35
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 61
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "The Economist"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonech181be440",
+      "poll_type": "approval",
+      "sample_size": 1027,
+      "population": "lv",
+      "url": "https://echeloninsights.com/hubfs/_Media%20for%20Insights%20Blog/November%202026%20-%20Voter%20Omnibus%20Topline%20-%20External.pdf",
+      "created_at": "2026-11-18",
+      "start_date": "2026-11-12",
+      "end_date": "2026-11-16",
+      "pollster": "Echelon Insights",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 36
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 63
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonmor5d540bf2",
+      "poll_type": "approval",
+      "sample_size": 2203,
+      "population": "rv",
+      "url": "https://eyokley.com/read/outlook-2026-11-16",
+      "created_at": "2026-11-18",
+      "start_date": "2026-11-13",
+      "end_date": "2026-11-15",
+      "pollster": "Morning Consult",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 40
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 58
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonthe9e7d6157",
+      "poll_type": "approval",
+      "sample_size": 1001,
+      "population": "lv",
+      "url": "https://www.raineyfreedom.org/news-and-events/voter-priorities-post-election-cost-of-living-and-bipartisanship",
+      "created_at": "2026-11-18",
+      "start_date": "2026-11-08",
+      "end_date": "2026-11-12",
+      "pollster": "The Rainey Center",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 39
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 60
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonyou2d56a2c2",
+      "poll_type": "approval",
+      "sample_size": 1685,
+      "population": "a",
+      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_9PIqjA0.pdf#page=27",
+      "created_at": "2026-11-18",
+      "start_date": "2026-11-09",
+      "end_date": "2026-11-11",
+      "pollster": "YouGov",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 32
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 63
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "The Economist"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonips03a82cf3",
+      "poll_type": "approval",
+      "sample_size": 1705,
+      "population": "a",
+      "url": "https://www.ipsos.com/en-us/reutersipsos-post-election-survey",
+      "created_at": "2026-11-18",
+      "start_date": "2026-11-06",
+      "end_date": "2026-11-09",
+      "pollster": "Ipsos",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 32
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 65
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Reuters"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonmora140cb74",
+      "poll_type": "approval",
+      "sample_size": 2200,
+      "population": "rv",
+      "url": "https://eyokley.com/read/outlook-2026-11-09",
+      "created_at": "2026-11-18",
+      "start_date": "2026-11-06",
+      "end_date": "2026-11-08",
+      "pollster": "Morning Consult",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 40
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 57
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonglob56ad910",
+      "poll_type": "approval",
+      "sample_size": 3000,
+      "population": "lv",
+      "url": "https://navigatorresearch.org/trump-disapproval-and-regret-fueled-the-blue-wave",
+      "created_at": "2026-11-18",
+      "start_date": "2026-10-28",
+      "end_date": "2026-11-08",
+      "pollster": "Global Strategy Group",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 37
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 63
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Navigator Research"
+      ],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonyoube43ac46",
+      "poll_type": "approval",
+      "sample_size": 1339,
+      "population": "rv",
+      "url": "https://democracycorps.com/national-surveys/briefing-deck-what-voters-told-us-about-the-2026-election",
+      "created_at": "2026-11-18",
+      "start_date": "2026-10-29",
+      "end_date": "2026-11-06",
+      "pollster": "YouGov Blue",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 39
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 61
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Democracy Corps"
+      ],
+      "internal": false,
+      "partisan": "DEM",
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonj.l59671df7",
+      "poll_type": "approval",
+      "sample_size": 1000,
+      "population": "rv",
+      "url": "https://jlpartners.com/sitting-out-the-surf",
+      "created_at": "2026-11-18",
+      "start_date": "2026-11-03",
+      "end_date": "2026-11-03",
+      "pollster": "J.L. Partners",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 39
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 52
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
     {
       "id": "appdonrmgb3a47853",
       "poll_type": "approval",
@@ -14302,116 +14600,6 @@
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonyoug007mjnb",
-      "poll_type": "approval",
-      "sample_size": 1622,
-      "population": "a",
-      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econtoplines_GWBYlDD.pdf",
-      "created_at": "2025-10-14",
-      "start_date": "2025-10-10",
-      "end_date": "2025-10-13",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 40
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 55
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Economist"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonyouil9sv6yb",
-      "poll_type": "approval",
-      "sample_size": 1467,
-      "population": "rv",
-      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econtoplines_GWBYlDD.pdf",
-      "created_at": "2025-10-14",
-      "start_date": "2025-10-10",
-      "end_date": "2025-10-13",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 44
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 54
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Economist"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonglo7bmhh8z7",
-      "poll_type": "approval",
-      "sample_size": 1000,
-      "population": "rv",
-      "url": "https://navigatorresearch.org/government-shutdown-a-guide-for-advocates-2/",
-      "created_at": "2025-10-15",
-      "start_date": "2025-10-09",
-      "end_date": "2025-10-13",
-      "pollster": "Global Strategy Group",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 44
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 54
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Navigator Research"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonap-sk565lfz",
-      "poll_type": "approval",
-      "sample_size": 1289,
-      "population": "a",
-      "url": "https://apnorc.org/projects/increased-approval-of-trumps-handling-of-the-israel-palestine-conflict",
-      "created_at": "2025-10-17",
-      "start_date": "2025-10-09",
-      "end_date": "2025-10-13",
-      "pollster": "AP-NORC",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 37
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 61
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -14465,62 +14653,6 @@
       ],
       "seat_name": null,
       "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "2026"
-    },
-    {
-      "id": "gen202youpmtm80jk",
-      "poll_type": "generic-ballot",
-      "sample_size": 1622,
-      "population": "a",
-      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econtoplines_GWBYlDD.pdf",
-      "created_at": "2025-10-14",
-      "start_date": "2025-10-10",
-      "end_date": "2025-10-13",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 39
-        },
-        {
-          "choice": "Rep",
-          "pct": 34
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Economist"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "2026"
-    },
-    {
-      "id": "gen202youcq6fiamj",
-      "poll_type": "generic-ballot",
-      "sample_size": 1467,
-      "population": "rv",
-      "url": "https://d3nkl3psvxxpe9.cloudfront.net/documents/econtoplines_GWBYlDD.pdf",
-      "created_at": "2025-10-14",
-      "start_date": "2025-10-10",
-      "end_date": "2025-10-13",
-      "pollster": "YouGov",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 43
-        },
-        {
-          "choice": "Rep",
-          "pct": 40
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Economist"
-      ],
       "internal": false,
       "partisan": null,
       "subject": "2026"
