@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-19T19:31:08.951Z",
+  "updatedAt": "2026-11-20T19:09:15.930Z",
   "approval": [
     {
       "id": "appdonips45a4215e",
@@ -75,6 +75,32 @@
         {
           "choice": "Disapprove",
           "pct": 63
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdoneme80339688",
+      "poll_type": "approval",
+      "sample_size": 1000,
+      "population": "rv",
+      "url": "https://docs.google.com/spreadsheets/d/1ISaRqoYU9Tgw27qbPEZj5z7t0xrqButP/edit?gid=853284861#gid=853284861",
+      "created_at": "2026-11-20",
+      "start_date": "2026-11-14",
+      "end_date": "2026-11-16",
+      "pollster": "Emerson College",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 37.3
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 54.1
         }
       ],
       "seat_name": null,
@@ -14574,62 +14600,6 @@
       "internal": false,
       "partisan": "REP",
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonj.lgv5cl8vl",
-      "poll_type": "approval",
-      "sample_size": 1004,
-      "population": "rv",
-      "url": "https://www.dailymail.co.uk/news/article-15199427/donald-trump-polling-peace-president.html",
-      "created_at": "2025-10-17",
-      "start_date": "2025-10-14",
-      "end_date": "2025-10-15",
-      "pollster": "J.L. Partners",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 46
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 44
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "DailyMail.com"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonj.lcq29lwxf",
-      "poll_type": "approval",
-      "sample_size": 1004,
-      "population": "rv",
-      "url": "https://static1.squarespace.com/static/663253f0bc87b7070102f41f/t/68fbe60430e9a41286f8b8df/1761338884941/Deliverables+-+DM+Polling+Oct+2025.pdf",
-      "created_at": "2025-10-27",
-      "start_date": "2025-10-14",
-      "end_date": "2025-10-15",
-      "pollster": "J.L. Partners",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 51
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 49
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "DailyMail.com"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -15276,34 +15246,6 @@
       "seat_name": null,
       "sponsors": [
         "The Economist"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "2026"
-    },
-    {
-      "id": "gen202j.lmx2bwz2t",
-      "poll_type": "generic-ballot",
-      "sample_size": 1004,
-      "population": "rv",
-      "url": "https://jlpartners.com/s/DailyMail_Crosstabs_Oct25_MiddleEast.xlsx",
-      "created_at": "2025-10-28",
-      "start_date": "2025-10-14",
-      "end_date": "2025-10-15",
-      "pollster": "J.L. Partners",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 43
-        },
-        {
-          "choice": "Rep",
-          "pct": 37
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "DailyMail.com"
       ],
       "internal": false,
       "partisan": null,
