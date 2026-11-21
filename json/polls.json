@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-20T19:09:15.930Z",
+  "updatedAt": "2026-11-21T18:05:03.655Z",
   "approval": [
     {
       "id": "appdonips45a4215e",
@@ -105,6 +105,34 @@
       ],
       "seat_name": null,
       "sponsors": [],
+      "internal": false,
+      "partisan": null,
+      "subject": "Donald Trump"
+    },
+    {
+      "id": "appdonrmgbb354cbc",
+      "poll_type": "approval",
+      "sample_size": 2000,
+      "population": "rv",
+      "url": "https://napolitannews.org/jobapproval#11-16-2026",
+      "created_at": "2026-11-20",
+      "start_date": "2026-11-09",
+      "end_date": "2026-11-16",
+      "pollster": "RMG Research",
+      "answers": [
+        {
+          "choice": "Approve",
+          "pct": 39
+        },
+        {
+          "choice": "Disapprove",
+          "pct": 58
+        }
+      ],
+      "seat_name": null,
+      "sponsors": [
+        "Napolitan Institute"
+      ],
       "internal": false,
       "partisan": null,
       "subject": "Donald Trump"
@@ -14436,170 +14464,6 @@
       "internal": false,
       "partisan": "DEM",
       "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonrmgx5src1pp",
-      "poll_type": "approval",
-      "sample_size": 3000,
-      "population": "rv",
-      "url": "https://napolitannews.org/jobapproval#10-16-2025",
-      "created_at": "2025-10-17",
-      "start_date": "2025-10-08",
-      "end_date": "2025-10-16",
-      "pollster": "RMG Research",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 52
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 47
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Napolitan Institute"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdongal8jbb0dk1",
-      "poll_type": "approval",
-      "sample_size": 1000,
-      "population": "a",
-      "url": "https://news.gallup.com/poll/696722/congress-job-rating-sinks-trump-steady.aspx",
-      "created_at": "2025-10-22",
-      "start_date": "2025-10-01",
-      "end_date": "2025-10-16",
-      "pollster": "Gallup",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 41
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 54
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonthe6prb4lpv",
-      "poll_type": "approval",
-      "sample_size": 1530,
-      "population": "rv",
-      "url": "https://www.theargumentmag.com/p/the-immigration-problem-is-a-crime",
-      "created_at": "2025-10-27",
-      "start_date": "2025-10-10",
-      "end_date": "2025-10-16",
-      "pollster": "The Argument/Verasight",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 44
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 54
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdonthe47vorzf0",
-      "poll_type": "approval",
-      "sample_size": 1200,
-      "population": "a",
-      "url": "https://cdn.prod.website-files.com/65fc824cf835683ce2d3549b/69124cc25d510af2a675d235_IC%202025%20Nationwide%20Governmental%20Sentiment%20Study%20Toplines%5B43%5D.pdf",
-      "created_at": "2025-11-13",
-      "start_date": "2025-10-10",
-      "end_date": "2025-10-16",
-      "pollster": "The Bullfinch Group",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 42
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 52
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Independent Center"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdontheqffre5oo",
-      "poll_type": "approval",
-      "sample_size": 1000,
-      "population": "rv",
-      "url": "https://cdn.prod.website-files.com/65fc824cf835683ce2d3549b/69124cc25d510af2a675d235_IC%202025%20Nationwide%20Governmental%20Sentiment%20Study%20Toplines%5B43%5D.pdf",
-      "created_at": "2025-11-13",
-      "start_date": "2025-10-10",
-      "end_date": "2025-10-16",
-      "pollster": "The Bullfinch Group",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 42
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 53
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "The Independent Center"
-      ],
-      "internal": false,
-      "partisan": null,
-      "subject": "Donald Trump"
-    },
-    {
-      "id": "appdontheb7d5f881",
-      "poll_type": "approval",
-      "sample_size": 1000,
-      "population": "rv",
-      "url": "https://www.winningtheissues.org/wp-content/uploads/2026/01/October-2025-WTI-National-Survey.pdf",
-      "created_at": "2026-02-28",
-      "start_date": "2025-10-15",
-      "end_date": "2025-10-16",
-      "pollster": "The Winston Group",
-      "answers": [
-        {
-          "choice": "Approve",
-          "pct": 38
-        },
-        {
-          "choice": "Disapprove",
-          "pct": 55
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Winning the Issues"
-      ],
-      "internal": false,
-      "partisan": "REP",
-      "subject": "Donald Trump"
     }
   ],
   "genericBallot": [
@@ -14811,32 +14675,6 @@
         {
           "choice": "Rep",
           "pct": 41
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [],
-      "internal": false,
-      "partisan": null,
-      "subject": "2026"
-    },
-    {
-      "id": "gen202theh0ygpmcw",
-      "poll_type": "generic-ballot",
-      "sample_size": 1530,
-      "population": "rv",
-      "url": "https://www.theargumentmag.com/p/the-immigration-problem-is-a-crime",
-      "created_at": "2025-10-27",
-      "start_date": "2025-10-10",
-      "end_date": "2025-10-16",
-      "pollster": "The Argument/Verasight",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 51
-        },
-        {
-          "choice": "Rep",
-          "pct": 49
         }
       ],
       "seat_name": null,
@@ -19638,34 +19476,6 @@
       "sponsors": [],
       "internal": false,
       "partisan": null,
-      "subject": "2026"
-    },
-    {
-      "id": "gen202the5055eb68",
-      "poll_type": "generic-ballot",
-      "sample_size": 1000,
-      "population": "rv",
-      "url": "https://www.winningtheissues.org/wp-content/uploads/2026/01/October-2025-WTI-National-Survey.pdf",
-      "created_at": "2026-02-28",
-      "start_date": "2025-10-15",
-      "end_date": "2025-10-16",
-      "pollster": "The Winston Group",
-      "answers": [
-        {
-          "choice": "Dem",
-          "pct": 47
-        },
-        {
-          "choice": "Rep",
-          "pct": 43
-        }
-      ],
-      "seat_name": null,
-      "sponsors": [
-        "Winning the Issues"
-      ],
-      "internal": false,
-      "partisan": "REP",
       "subject": "2026"
     },
     {
